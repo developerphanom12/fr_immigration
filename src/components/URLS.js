@@ -1,0 +1,1 @@
+export const EXCHANGE_URLS ='http://localhost:8080/api/users'

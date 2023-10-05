@@ -1,0 +1,70 @@
+import styled from 'styled-components'
+import Login from '../Login'
+import { useNavigate } from 'react-router-dom'
+
+
+export default function Navbar({popOn}) {
+  const navigate = useNavigate();
+  const handleLoginClick = () => {
+    navigate('/Login')
+  }
+  
+    return (
+      <Root>
+        <div className='logged_nav'>
+            <div className='opt_div'><button className='opt_btn' onClick={()=>{popOn(true)}}>Universities</button></div>
+            <div className='opt_div'><button className='opt_btn' onClick={()=>{popOn(true)}}>Courses</button></div>
+            <div className='opt_div'><button className='opt_btn' onClick={()=>{popOn(true)}}>Our Reach</button></div>
+            <div className='opt_div'><button className='opt_btn' onClick={()=>{popOn(true)}}>Be our Ambassador</button></div>
+            <div className='opt_div'><button className='opt_btn' onClick={()=>{popOn(true)}}>Be a partner</button></div>
+           <div className='opt_div2'> <button className='user_btn2' onClick={() => { handleLoginClick() }}>Login </button></div>
+          <div className='profile_div'>
+            {/* <img className='user_profile' src={'images/fosla.png'}/> */}
+          </div>
+        </div>
+      </Root>
+    )
+  }
+  
+  const Root = styled.section`
+ background:#ffffff;
+ .logged_nav{
+  gap:10px;
+ display:flex;
+ height:100px;
+ justify-content:center;
+ align-items:center;
+ .opt_btn{
+  background:none;
+  color:black;
+  border-color:transparent;
+  font-size:larger;
+  padding:10px;
+  border-radius:10px;
+  cursor:pointer;
+  .opt_btn2{
+    margin-left:10px;
+  }
+
+ }
+ .user_btn2{
+  background:#FF7F50;
+  color:#ffffff;
+  padding:10px 30px 10px 30px;
+  border-radius:10px;
+  border-color:transparent;
+  font-size:larger;
+  cursor:pointer;
+
+ }
+ }
+ .opt_btn:hover{
+  background:#FF7F50;
+  color:#ffffff;
+ }
+ .user_btn2:hover{
+  background:green;
+ }
+
+  `
+  
