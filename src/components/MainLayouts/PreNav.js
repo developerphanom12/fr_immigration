@@ -16,7 +16,7 @@ export default function PreNav({popOn}) {
             <div className='opt_div'><button className='opt_btn' onClick={()=>{popOn(true)}}>Our Reach</button></div>
             <div className='opt_div'><button className='opt_btn' onClick={()=>{popOn(true)}}>Be our Ambassador</button></div>
             <div className='opt_div'><button className='opt_btn' onClick={()=>{popOn(true)}}>Be a partner</button></div>
-                <div onClick={() => { navigate("/login") }}>Login</div>
+                <div className='login' onClick={() => { navigate("/login") }}>Login</div>
             </div>
             <div className='menu' onClick={()=>{setActivePop(true)}}>menu</div>
 
@@ -25,7 +25,7 @@ export default function PreNav({popOn}) {
                 <div>Be A ambasador</div>
                 <div>Our Reach</div>
                 <div>Be A Partner</div>
-                <div onClick={() => { navigate("/login") }}>Login</div>
+                <div  onClick={() => { navigate("/login") }}>Login</div>
             </div>
         </Root>
     )
@@ -33,6 +33,9 @@ export default function PreNav({popOn}) {
 
 const Root = styled.section`
 display: flex;
+height:100px;
+justify-content:center;
+align-items:center;
 .logo{
     width: 200px;
     background-color: yellow;
@@ -79,6 +82,16 @@ display: flex;
 .no_pop{
     display: none
 }
+.login{
+    background:#FF7F50;
+  color:#ffffff;
+  padding:10px 30px 10px 30px;
+  border-radius:10px;
+  border-color:transparent;
+  font-size:larger;
+  cursor:pointer;
+       
+    }
 
 
 
