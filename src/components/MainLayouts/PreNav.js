@@ -18,6 +18,7 @@ export default function PreNav({popOn}) {
             <div className='opt_div'><button className='opt_btn' onClick={()=>{popOn(true)}}>Be a partner</button></div>
                 <div className='login' onClick={() => { navigate("/login") }}>Login</div>
             </div>
+            
             <div className='menu' onClick={()=>{setActivePop(true)}}>menu</div>
 
             <div className={activePop? "pop_nav": "no_pop"} onClick={()=>{setActivePop(false)}}>
