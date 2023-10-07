@@ -152,17 +152,17 @@ export default function HomePage({ onSearch }) {
        </div>
        <div className='main_six'><h3 className='h3'>For Recruitment Partners</h3>
         <div className='six1'>
-        <div className='sixx_div1'><img src ={six1} alt = 'image'/><h5>User-Friendly Portal</h5>
+        <div className='sixx_div1'><img className='img' src ={six1} alt = 'image'/><h5>User-Friendly Portal</h5>
         <p>For reliable, convenient and centralised management of your applications</p></div>
-        <div  className='sixx_div1'><img src ={six2} alt = 'image'/><h5>Powerful Search Tools</h5>
+        <div  className='sixx_div1'><img className='img' src ={six2} alt = 'image'/><h5>Powerful Search Tools</h5>
         <p>Hit your targets and quotas with our requirement specific search tools</p></div>
-        <div  className='sixx_div1'><img src ={six3} alt = 'image'/><h5>Seamless Application Management</h5>
+        <div  className='sixx_div1'><img className='img' src ={six3} alt = 'image'/><h5>Seamless Application Management</h5>
         <p>End-to-end verification, processing and management of student applications</p></div>
         </div>
         <div className='six2'>
-          <div  className='sixx_div2'><img src ={six4} alt = 'image'/><h5>Complete VISA Assistance</h5>
+          <div  className='sixx_div2'><img className='img' src ={six4} alt = 'image'/><h5>Complete VISA Assistance</h5>
           <p>Leverage our high success rates with end-to-end support<br/> with visa processing</p></div>
-          <div  className='sixx_div2'><img src ={six5} alt = 'image'/><h5>Help Students Better</h5>
+          <div  className='sixx_div2'><img className='img' src ={six5} alt = 'image'/><h5>Help Students Better</h5>
           <p>Secure target enrolment and strategic objectives with our industry<br/>
              leading service helping you help students choose better</p></div>
         </div>
@@ -176,6 +176,141 @@ display : flex;
 flex-direction:column;
 height:100vh;
 min-height:100%;
+@media (max-width: 768px) {
+    .firstbox {
+      height: auto;
+      padding: 20px;
+      flex-direction: column;
+
+      .photuuu {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .sndbox {
+        flex-direction: column;
+        align-items: center;
+        margin: 20px;
+        padding: 10px;
+
+        .snd1 {
+          width: 100%;
+        }
+
+        .snd2 {
+          flex-direction: column;
+
+          .pic {
+            width: 100%;
+            text-align: center;
+
+            img {
+              width: 70%;
+            }
+          }
+        }
+      }
+
+      .four_main_div {
+        margin: 0px 20px;
+        font-size: medium;
+
+        .global {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .fourrr {
+          flex-direction: column;
+          gap: 20px;
+          margin: 0px 20px;
+
+          .four_1 {
+            img {
+              width: 100%;
+              height: auto;
+            }
+          }
+
+          .four_2 {
+            width: 100%;
+            color: blue;
+            text-align: center;
+
+            .arrow {
+              flex-direction: column;
+              gap: 10px;
+            }
+
+            .btn {
+              flex-direction: column;
+              align-items: center;
+              gap: 10px;
+            }
+
+            .photo {
+              flex-direction: column;
+              align-items: center;
+            }
+          }
+        }
+      }
+    }
+
+    .main_five {
+      flex-direction: column;
+      align-items: center;
+      margin: 20px;
+
+      .five2 {
+        flex-direction: column;
+
+        .fivebox {
+          padding: 10px;
+          width: 100%;
+
+          img {
+            width: 100%;
+            transition: transform 0.4s;
+
+            &:hover {
+              transform: scale(1.5);
+            }
+          }
+        }
+      }
+    }
+
+    .main_six {
+      flex-direction: column;
+      padding: 20px;
+
+      .h3 {
+        justify-content: center;
+      }
+
+      .six1,
+      .six2 {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+
+        .six_div1,
+        .six_div2 {
+          flex-direction: column;
+        }
+      }
+
+      img {
+        height: 50px;
+        transition: transform 0.4s;
+
+        &:hover {
+          transform: scale(1.5);
+        }
+      }
+    }
+  }
 .firstbox{
   background:#fff3ee;
   margin:40px;
@@ -183,8 +318,6 @@ min-height:100%;
  height:550px;
  display:flex;
  align-items:center;
- /* width:100%; */
-
 .line{
   margin:100px;
   .line1{
@@ -310,7 +443,6 @@ min-height:100%;
  .snd1{
   width:300px;
  }
- /* Add the following CSS code to your stylesheet */
 
 .snd2 {
   display: flex;
@@ -496,16 +628,23 @@ min-height:100%;
   background:#fff3ee;
   color:#4169E1;
   display:flex;
+  justify-content:center;
   flex-direction:column;
   padding:40px;
+   
+  h5{
+    display:flex;
+  justify-content:center;
+  }
+  p{
+    color:black;
+  }
  .h3{
   display:flex;
   flex:1;
   align-items:center;
   justify-content:center;
-  >p{
-    color:black;
-  }
+  
    
  }
  .six1{
@@ -513,14 +652,13 @@ min-height:100%;
   padding:10px;
   height:200px;
   justify-content:space-evenly;
-  
-
-  .six_div1{
+  .sixx_div1{
     display:flex;
-    flex:1;
+    justify-content:center;
+   align-items:center;
     flex-direction:column;
-   border:5px solid black;
-
+    padding:10px;
+      
   }
 
  }
@@ -529,10 +667,13 @@ min-height:100%;
   justify-content:space-evenly;
   height:200px;
   padding:10px;
-  .six_div2{
+  .sixx_div2{
     display:flex;
-    flex:1;
-    flex-direction:column;   
+    flex-direction:column;
+    padding:10px;
+    justify-content:center;
+   align-items:center;
+   
    
   }
  }
@@ -545,5 +686,6 @@ min-height:100%;
     transform: scale(1.5); 
     cursor:pointer;
   }
+   
 }
 `

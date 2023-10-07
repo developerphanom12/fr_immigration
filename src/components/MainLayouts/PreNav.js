@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
-export default function PreNav({popOn}) {
-    const navigate = useNavigate();
+export default function PreNav( ) {
+
+    const navigate = useNavigate( );
     const [activePop, setActivePop] = useState(false);
     return (
         <Root>
@@ -11,11 +12,10 @@ export default function PreNav({popOn}) {
                 <h1>I am logo</h1>
             </div>
             <div className='options'>
-            <div className='opt_div'><button className='opt_btn' onClick={()=>{popOn(true)}}>Universities</button></div>
-            <div className='opt_div'><button className='opt_btn' onClick={()=>{popOn(true)}}>Courses</button></div>
-            <div className='opt_div'><button className='opt_btn' onClick={()=>{popOn(true)}}>Our Reach</button></div>
-            <div className='opt_div'><button className='opt_btn' onClick={()=>{popOn(true)}}>Be our Ambassador</button></div>
-            <div className='opt_div'><button className='opt_btn' onClick={()=>{popOn(true)}}>Be a partner</button></div>
+            <div className='opt_div'><button className='opt_btn'  >Universities</button></div>
+            <div className='opt_div'><button className='opt_btn'  >Our Reach</button></div>
+            <div className='opt_div'><button className='opt_btn' onClick={()=>{navigate('/ambassadar')}}>Be our Ambassador</button></div>
+            <div className='opt_div'><button className='opt_btn'  onClick={()=>{navigate('/partner')}} >Be a partner</button></div>
                 <div className='login' onClick={() => { navigate("/login") }}>Login</div>
             </div>
             
