@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import {RxEnter} from 'react-icons/rx';
-import {FaArrowRightLong} from 'react-icons/fa6';
-import {AiOutlineSearch} from 'react-icons/ai';
-import {PiNumberSquareOneLight} from 'react-icons/pi';
-import {PiNumberSquareTwoLight} from 'react-icons/pi';
-import {PiNumberSquareThreeLight} from 'react-icons/pi';
-import {PiNumberSquareFourLight} from 'react-icons/pi';
+import { RxEnter } from 'react-icons/rx';
+import { FaArrowRightLong } from 'react-icons/fa6';
+import { AiOutlineSearch } from 'react-icons/ai';
+import { PiNumberSquareOneLight } from 'react-icons/pi';
+import { PiNumberSquareTwoLight } from 'react-icons/pi';
+import { PiNumberSquareThreeLight } from 'react-icons/pi';
+import { PiNumberSquareFourLight } from 'react-icons/pi';
 import photo1 from '../imageLogo/edu.jpg';
 import photo2 from '../imageLogo/hat-icon.png';
 import photo3 from '../imageLogo/imggg.jpg';
@@ -24,157 +24,149 @@ import photu5 from '../imageLogo/div5.png';
 import photu6 from '../imageLogo/div6.png';
 import photu7 from '../imageLogo/div7.png';
 import photu8 from '../imageLogo/div8.png';
-import pic1  from '../imageLogo/unipic1.jpg';
-import pic2  from '../imageLogo/unipic2.jpg';
-import pic3  from '../imageLogo/unipic3.jpg';
-import pic4  from '../imageLogo/unipic4.jpg';
-import pic5  from '../imageLogo/unipiv5.jpg';
-import pic6  from '../imageLogo/unipic6.jpg';
-import pic7  from '../imageLogo/unipic7.jpg';
-import six1  from '../imageLogo/six1.jpg';
-import six2  from '../imageLogo/six2.jpg';
-import six3  from '../imageLogo/six3.jpg';
-import six4  from '../imageLogo/six4.jpg';
-import six5  from '../imageLogo/six5.jpg';
+import pic1 from '../imageLogo/unipic1.jpg';
+import pic2 from '../imageLogo/unipic2.jpg';
+import pic3 from '../imageLogo/unipic3.jpg';
+import pic4 from '../imageLogo/unipic4.jpg';
+import pic5 from '../imageLogo/unipiv5.jpg';
+import pic6 from '../imageLogo/unipic6.jpg';
+import pic7 from '../imageLogo/unipic7.jpg';
+import six1 from '../imageLogo/six1.jpg';
+import six2 from '../imageLogo/six2.jpg';
+import six3 from '../imageLogo/six3.jpg';
+import six4 from '../imageLogo/six4.jpg';
+import six5 from '../imageLogo/six5.jpg';
 export default function HomePage({ onSearch }) {
- 
-    const [searchTerm, setSearchTerm] = useState('');
-  
-    const handleSearch = () => {
-      onSearch(searchTerm);
-    };
-  const userDetails = useSelector((state)=>state?.user?.userData)
-  const userCheck = useSelector((state)=>state?.user?.userCheck)
+
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearch = () => {
+    onSearch(searchTerm);
+  };
+  const userDetails = useSelector((state) => state?.user?.userData)
+  const userCheck = useSelector((state) => state?.user?.userCheck)
 
 
 
-  console.log("userr", userDetails,userCheck)
+  console.log("userr", userDetails, userCheck)
   return (
     <Root>
-      
+
       <div className='firstbox'>
         <div className='line'>
-         <h3 className='line1'>Your Gateway to Global Connection</h3>
-         <h2 className='line2'>The Ultimate Destination for <br/> Universities and Strategic Recruitment Partnerships</h2>
-         Through our network, industry knowledge, and personalized business solutions,<br/> 
-         we enable Universities and Recruitment Partners to effortlessly <br/>
-         navigate the recruitment process while achieving their targets.
-         <div className='search'>
-          <input className='searchbar' type="text" placeholder="Type University Name..." value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}/>
-           <button className='searchbar2' onClick={handleSearch}><AiOutlineSearch/>ADVANCED SEARCH</button>
+          <h3 className='line1'>Your Gateway to Global Connection</h3>
+          <h2 className='line2'>The Ultimate Destination for <br /> Universities and Strategic Recruitment Partnerships</h2>
+          Through our network, industry knowledge, and personalized business solutions,<br />
+          we enable Universities and Recruitment Partners to effortlessly <br />
+          navigate the recruitment process while achieving their targets.
+          <div className='search'>
+            <input className='searchbar' type="text" placeholder="Type University Name..." value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)} />
+            <button className='searchbar2' onClick={handleSearch}><AiOutlineSearch />ADVANCED SEARCH</button>
           </div>
-            </div>
-         <div className='photuuu'>
-          <div className='one'>
-          <div className='photu'><img src ={photu1} alt = 'image'/></div>
+        </div>
+        <div className='photuuu'>
+          <div className='photu1'><img src={photu1} alt='image' /></div>
           <div className='photu'></div>
-          <div className='photu'><img src ={photu2} alt = 'image'/></div>
+          <div className='photu3'><img src={photu2} alt='image' /></div>
           <div className='photu'></div>
-          </div>
-          <div className='two'>
           <div className='photu'></div>
-          <div className='photu'><img src ={photu3} alt = 'image'/></div>
+          <div className='photu2'><img src={photu3} alt='image' /></div>
           <div className='photu'><h4 className='h4'>80,000+ courses</h4></div>
-          <div className='photu'><img src ={photu4} alt = 'image'/></div>
-          </div>
-          <div className='three'>
-          <div className='photu'><img src ={photu5} alt = 'image'/></div>
+          <div className='photu1'><img src={photu4} alt='image' /></div>
+          <div className='photu3'><img src={photu5} alt='image' /></div>
           <div className='photu'></div>
-          <div className='photu'><img src ={photu6} alt = 'image'/></div>
+          <div className='photu4'><img src={photu6} alt='image' /></div>
           <div className='photu'></div>
-          </div>
-          <div className='four'>
           <div className='photu'></div>
-          <div className='photu'><img src ={photu7} alt = 'image'/></div>
-          <div className='photu'><h4 className='h4'>500,000+ Students</h4></div>
-          <div className='photu'><img src ={photu8} alt = 'image'/></div>
-          </div>
-         </div>
-        
+          <div className='photu4'><img src={photu7} alt='image' /></div>
+          <div className='photu2'><h4 className='h4'>500,000+ Students</h4></div>
+          <div className='photu1'><img src={photu8} alt='image' /></div>
+        </div>
+
       </div>
       <div className='sndbox'>
-        <div className='snd1'><h2>Our Global <br/> Network of <br/> 400+ <br/> Universities</h2>
-           Explore Institutions..... <RxEnter/>
+        <div className='snd1'><h2>Our Global <br /> Network of <br /> 400+ <br /> Universities</h2>
+          Explore Institutions..... <RxEnter />
         </div>
-        <div className='snd2'> 
-        <div className='pic'><img src ={pic1} alt = 'image'/></div>
-        <div className='pic'><img src ={pic2} alt = 'image'/></div>
-        <div className='pic'><img src ={pic3} alt = 'image'/></div>
-        <div className='pic'><img src ={pic4} alt = 'image'/></div>
-        <div className='pic'><img src ={pic5} alt = 'image'/></div>
-        <div className='pic'><img src ={pic6} alt = 'image'/></div>
-        <div className='pic'><img src ={pic7} alt = 'image'/></div>
+        <div className='snd2'>
+          <div className='pic'><img src={pic1} alt='image' /></div>
+          <div className='pic'><img src={pic2} alt='image' /></div>
+          <div className='pic'><img src={pic3} alt='image' /></div>
+          <div className='pic'><img src={pic4} alt='image' /></div>
+          <div className='pic'><img src={pic5} alt='image' /></div>
+          <div className='pic'><img src={pic6} alt='image' /></div>
+          <div className='pic'><img src={pic7} alt='image' /></div>
         </div>
 
       </div>
-       <div className='thirdbox'><h2>The Access You Need</h2>We provide you with the access you need to drive 
-       your key strategic targets.<br/> Get connected with us today to leverage the rich collaboration between university,<br/>
+      <div className='thirdbox'><h2>The Access You Need</h2>We provide you with the access you need to drive
+        your key strategic targets.<br /> Get connected with us today to leverage the rich collaboration between university,<br />
         education consultant and student
         <div className='third'>
-        <button  className='third1'>Join Us</button>
-        <button  className='third1'>Sign In</button>
+          <button className='third1'>Join Us</button>
+          <button className='third1'>Sign In</button>
         </div>
+      </div>
+      <div className='four_main_div'><div className='global'><h2>Global Connectivity with Phanom Professionals</h2></div>
+        <div className='fourrr'>
+          <div className='four_1'> <img src={photo1} alt='image' /></div>
+          <div className='four_2'> <img src={photo2} alt='image' /><h2> For our Recruitment Partners</h2><br />
+            <div className='arrow'><FaArrowRightLong />Connect with over 400 Universities<br /> </div>
+            <div className='arrow'><FaArrowRightLong />Help students make better choices<br /> </div>
+            <div className='arrow'><FaArrowRightLong />Expand and manage key relationships<br /> </div>
+            <div className='arrow'> <FaArrowRightLong />Access best in class training<br /> </div>
+            <div className='arrow'> <FaArrowRightLong />Leverage reliable assistance with applications </div>
+            <div className='btn'> <button className='btnn'>Learn More</button></div>
+          </div>
         </div>
-       <div className='four_main_div'><div className='global'><h2>Global Connectivity with Phanom Professionals</h2></div>
-       <div className='fourrr'>
-       <div className='four_1'> <img src ={photo1} alt = 'image'/></div>
-       <div className='four_2'> <img src ={photo2} alt = 'image'/><h2> For our Recruitment Partners</h2><br/>
-       <div className='arrow'><FaArrowRightLong/>Connect with over 400 Universities<br/> </div>
-       <div className='arrow'><FaArrowRightLong/>Help students make better choices<br/> </div>
-       <div className='arrow'><FaArrowRightLong/>Expand and manage key relationships<br/> </div>
-       <div className='arrow'> <FaArrowRightLong/>Access best in class training<br/> </div>
-       <div className='arrow'> <FaArrowRightLong/>Leverage reliable assistance with applications </div>
-       <div className='btn'> <button className='btnn'>Learn More</button></div>
-       </div>
-       </div>
-       <div className='fourrr'>
-       <div className='four_2'><img src ={photo4} alt = 'image'/> <h2>For our Universities</h2><br/>
-       <div className='arrow'><FaArrowRightLong/>Connect with over 1,500 trusted overseas consultants<br/> </div>
-       <div className='arrow'><FaArrowRightLong/>Hit internationalisation strategy milestones<br/> </div>
-       <div className='arrow'><FaArrowRightLong/>Raise brand awareness across over 50 countries<br/> </div>
-       <div className='arrow'> <FaArrowRightLong/>Gain exposure to prospective students globally<br/> </div>
-       <div className='arrow'> <FaArrowRightLong/>Leverage admissions process management </div>
-       <div className='btn'> <button className='btnn'>Learn More</button></div>
-       </div>
-       <div className='four_1'> <img src ={photo3} alt = 'image'/></div>
-       </div>
-       </div>
-       <div className='main_five'>
-        <div className='five1'><h2>How We Work</h2><br/><h3>For Universities</h3></div>
+        <div className='fourrr'>
+          <div className='four_2'><img src={photo4} alt='image' /> <h2>For our Universities</h2><br />
+            <div className='arrow'><FaArrowRightLong />Connect with over 1,500 trusted overseas consultants<br /> </div>
+            <div className='arrow'><FaArrowRightLong />Hit internationalisation strategy milestones<br /> </div>
+            <div className='arrow'><FaArrowRightLong />Raise brand awareness across over 50 countries<br /> </div>
+            <div className='arrow'> <FaArrowRightLong />Gain exposure to prospective students globally<br /> </div>
+            <div className='arrow'> <FaArrowRightLong />Leverage admissions process management </div>
+            <div className='btn'> <button className='btnn'>Learn More</button></div>
+          </div>
+          <div className='four_1'> <img src={photo3} alt='image' /></div>
+        </div>
+      </div>
+      <div className='main_five'>
+        <div className='five1'><h2>How We Work</h2><br /><h3>For Universities</h3></div>
         <div className='five2'>
-          <div  className='fivebox'><PiNumberSquareOneLight/><img src ={photo11} alt = 'image'/><h4>Strategic Consultation</h4>Action plan is curated, bespoke to fit your strategic objectives</div>
-          <div  className='fivebox'><PiNumberSquareTwoLight/><img src ={photo12} alt = 'image'/> <h4>Global Networking</h4>Unlock access to verified leads from over 50 countries</div>
-          <div  className='fivebox'><PiNumberSquareThreeLight/><img src ={photo13} alt = 'image'/> <h4>Brand Development</h4>Implementation of marketing strategies and promotions, delivering awareness from key stakeholders</div>
-          <div  className='fivebox'><PiNumberSquareFourLight/><img src ={photo14} alt = 'image'/> <h4>24*7 CRM Support </h4>Rigorous and reliable, our software processes and manages your applications</div>
+          <div className='fivebox'><PiNumberSquareOneLight /><img src={photo11} alt='image' /><h4>Strategic Consultation</h4>Action plan is curated, bespoke to fit your strategic objectives</div>
+          <div className='fivebox'><PiNumberSquareTwoLight /><img src={photo12} alt='image' /> <h4>Global Networking</h4>Unlock access to verified leads from over 50 countries</div>
+          <div className='fivebox'><PiNumberSquareThreeLight /><img src={photo13} alt='image' /> <h4>Brand Development</h4>Implementation of marketing strategies and promotions, delivering awareness from key stakeholders</div>
+          <div className='fivebox'><PiNumberSquareFourLight /><img src={photo14} alt='image' /> <h4>24*7 CRM Support </h4>Rigorous and reliable, our software processes and manages your applications</div>
         </div>
 
-       </div>
-       <div className='main_six'><h3 className='h3'>For Recruitment Partners</h3>
+      </div>
+      <div className='main_six'><h3 className='h3'>For Recruitment Partners</h3>
         <div className='six1'>
-        <div className='sixx_div1'><img className='img' src ={six1} alt = 'image'/><h5>User-Friendly Portal</h5>
-        <p>For reliable, convenient and centralised management of your applications</p></div>
-        <div  className='sixx_div1'><img className='img' src ={six2} alt = 'image'/><h5>Powerful Search Tools</h5>
-        <p>Hit your targets and quotas with our requirement specific search tools</p></div>
-        <div  className='sixx_div1'><img className='img' src ={six3} alt = 'image'/><h5>Seamless Application Management</h5>
-        <p>End-to-end verification, processing and management of student applications</p></div>
+          <div className='sixx_div1'><img className='img' src={six1} alt='image' /><h5>User-Friendly Portal</h5>
+            <p>For reliable, convenient and centralised management of your applications</p></div>
+          <div className='sixx_div1'><img className='img' src={six2} alt='image' /><h5>Powerful Search Tools</h5>
+            <p>Hit your targets and quotas with our requirement specific search tools</p></div>
+          <div className='sixx_div1'><img className='img' src={six3} alt='image' /><h5>Seamless Application Management</h5>
+            <p>End-to-end verification, processing and management of student applications</p></div>
         </div>
         <div className='six2'>
-          <div  className='sixx_div2'><img className='img' src ={six4} alt = 'image'/><h5>Complete VISA Assistance</h5>
-          <p>Leverage our high success rates with end-to-end support<br/> with visa processing</p></div>
-          <div  className='sixx_div2'><img className='img' src ={six5} alt = 'image'/><h5>Help Students Better</h5>
-          <p>Secure target enrolment and strategic objectives with our industry<br/>
-             leading service helping you help students choose better</p></div>
+          <div className='sixx_div2'><img className='img' src={six4} alt='image' /><h5>Complete VISA Assistance</h5>
+            <p>Leverage our high success rates with end-to-end support<br /> with visa processing</p></div>
+          <div className='sixx_div2'><img className='img' src={six5} alt='image' /><h5>Help Students Better</h5>
+            <p>Secure target enrolment and strategic objectives with our industry<br />
+              leading service helping you help students choose better</p></div>
         </div>
-       </div>
-     
+      </div>
+
     </Root>
   )
 }
 const Root = styled.section`
 display : flex;
 flex-direction:column;
-@media (max-width: 768px) {
+@media (max-width: 999px) {
   .firstbox {
     margin: 20px;
     height: auto;
@@ -185,7 +177,6 @@ flex-direction:column;
 
     .photuuu {
       flex-direction: column;
-      align-items: center;
     }
 
     .sndbox {
@@ -277,7 +268,7 @@ flex-direction:column;
  display:flex;
  align-items:center;
 .line{
-  /* margin:100px; */
+  flex:1;
   .line1{
     color:#FF7F50;
   }
@@ -313,6 +304,7 @@ flex-direction:column;
   display:flex;
   flex:1;
   height:100%;
+  flex-wrap: wrap;
   .h4{
     display:flex;
    align-items:center;
@@ -321,62 +313,35 @@ flex-direction:column;
    border-radius:50%;
    margin:0;
   }
-  .photu{
+  >div{
     display:flex;
     flex:1;
-    height:130px;
-    width:140px;
+    min-height:130px;
+    min-width:140px;
     >img{
       height:130px;
       width:140px;
     }
   }
- 
-.three{
-  animation: slideshow 4s infinite; 
+
+  .photu2{
+    animation: slideshow 4s infinite; 
   opacity: 0;
-}
-
-@keyframes slideshow {
-  0%, 100% {
-    opacity: 0;
   }
-  25%, 75% {
-    opacity: 1;
-  }
-}
-
-.four{
-  animation: slideshow 5s infinite; 
+  .photu1{
+    animation: slideshow 5s infinite; 
   opacity: 0;
-}
-
-@keyframes slideshow {
-  0%, 100% {
-    opacity: 0;
   }
-  25%, 75% {
-    opacity: 1;
-  }
-}
-
-.two {
-  animation: slideshow 5s infinite;  
+  .photu3{
+    animation: slideshow 6s infinite; 
   opacity: 0;
-}
-
-@keyframes slideshow {
-  0%, 100% {
-    opacity: 0;
   }
-  25%, 75% {
-    opacity: 1;
+  .photu4{
+    animation: slideshow 4s infinite; 
+  opacity: 0;
   }
-}
 
-
-
-.one{
+/* .one{
   animation: slideshow 5s infinite alternate; 
   opacity: 0;
 }
@@ -388,7 +353,7 @@ flex-direction:column;
   50% {
     opacity: 1;
   }
-}
+} */
 
 }
 }
@@ -581,6 +546,7 @@ flex-direction:column;
 
 .main_five{
   display:flex;
+  flex-wrap:wrap;
   flex-direction:column;
   margin:80px;
   justify-content:center;
@@ -627,6 +593,7 @@ flex-direction:column;
   background:#fff3ee;
   color:#4169E1;
   display:flex;
+  flex-wrap: wrap;
   justify-content:center;
   flex-direction:column;
   padding:40px;
