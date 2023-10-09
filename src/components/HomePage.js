@@ -443,7 +443,7 @@ flex-direction:column;
   text-align: center;  
 }
 
-@media (max-width: 768px) {
+@media (max-width: 777px) {
   .thirdbox {
     margin: 20px;  
     padding: 10px;  
@@ -558,7 +558,7 @@ flex-direction:column;
   justify-content:center;
   align-items:center;
   flex-direction:column;
- margin:10px;
+  margin:10px;
 }
 .five2{
   display:flex;
