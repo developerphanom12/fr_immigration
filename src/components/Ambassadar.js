@@ -44,8 +44,10 @@ export default function Ambassadar() {
 }
 const Root = styled.section`
 display:flex;
+overflow:hidden;
 width:100%;
 flex-direction:column;
+align-items:center;
 .first_div{
     background:#fff3ee;
     display:flex;
@@ -102,9 +104,9 @@ flex-direction:column;
   flex:1;
   .second_box1{
     display:flex;
-    align-items:center;
+    /* align-items:center; */
     justify-content:center;
-    width:100%;
+    width:90%;
   padding:20px 20px 0px 20px;
 
     .h2{
@@ -139,13 +141,15 @@ flex-direction:column;
 }
 
 .third_div{
-  margin:20px 100px ;
+  /* margin:20px 100px ; */
   background:rgb(255 94 0);
   color:#ffffff;
   display:flex;
   flex-direction:column;
   border-radius:40px;
   align-items:center;
+  padding:20px;
+  
   .third_box{
   padding:10px;
   flex-wrap:wrap;
@@ -184,21 +188,30 @@ flex-direction:column;
   justify-content:center;
   align-items:center;
   color:#000080;
- 
+  padding:20px;
+  width:100%;
+  
   img{
-    width:100px;
-    height:100px;
+    max-width: 100%;  
+  height: auto;  
+  width: 100px;  
+  max-height: 100px;
   }
  .fourth_head{
   font-size:larger;
  }
  .fourth_body{
+  align-items:center;
   display:flex;
    .body_box1{
     width:100%;
     gap:20px;
+    display:flex;
+    flex-direction: column;  
+   align-items: center;  
+   justify-content: center; 
     >div{
-      padding:20px;
+      padding:10px;
       display:flex;
       flex-direction:column;
       align-items:center;
@@ -207,6 +220,7 @@ flex-direction:column;
    }
 
  }
+ 
 
 }
 .fifth_div{
@@ -214,6 +228,7 @@ flex-direction:column;
   color:white;
   display:flex;
   justify-content:space-between;
+  width:100%;
    
   .fifth_box{
     margin:40px;

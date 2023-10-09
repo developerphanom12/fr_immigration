@@ -11,6 +11,8 @@ export default function Navbar() {
   
     return (
       <Root>
+         <div className='logo'><img src='C:\Users\Admin\Desktop\react_js\myten\src\imageLogo\phanom.jpg' alt = 'image'/>
+            </div>
         <div className='logged_nav'>
             <div className='opt_div'><button className='opt_btn' >Universities</button></div>
             <div className='opt_div'><button className='opt_btn'  >Our Reach</button></div>
@@ -27,6 +29,13 @@ export default function Navbar() {
   
   const Root = styled.section`
  background:#ffffff;
+ .logo{
+    width: 200px;
+    background-color: yellow;
+    img{
+        width:100%;
+    }
+}
  .logged_nav{
   gap:10px;
  display:flex;

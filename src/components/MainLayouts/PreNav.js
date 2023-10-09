@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import styled from 'styled-components'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import {AiOutlineMenu} from 'react-icons/ai';
+
 
 export default function PreNav( ) {
 
@@ -8,8 +10,7 @@ export default function PreNav( ) {
     const [activePop, setActivePop] = useState(false);
     return (
         <Root>
-            <div className='logo'>
-                <h1>I am logo</h1>
+            <div className='logo'><img src='C:\Users\Admin\Desktop\react_js\myten\src\imageLogo\phanom.jpg' alt = 'image'/>
             </div>
             <div className='options'>
             <div className='opt_div'><button className='opt_btn'  >Universities</button></div>
@@ -19,13 +20,13 @@ export default function PreNav( ) {
                 <div className='login' onClick={() => { navigate("/login") }}>Login</div>
             </div>
             
-            <div className='menu' onClick={()=>{setActivePop(true)}}>menu</div>
+            <div className='menu' onClick={()=>{setActivePop(true)}}><AiOutlineMenu/></div>
 
             <div className={activePop? "pop_nav": "no_pop"} onClick={()=>{setActivePop(false)}}>
                 <div>Universities</div>
-                <div>Be A ambasador</div>
                 <div>Our Reach</div>
-                <div>Be A Partner</div>
+                <div className='opt_div'><button className='opt_btn' onClick={()=>{navigate('/ambassadar')}}>Be our Ambassador</button></div>
+            <div className='opt_div'><button className='opt_btn'  onClick={()=>{navigate('/partner')}} >Be a partner</button></div>
                 <div  onClick={() => { navigate("/login") }}>Login</div>
             </div>
         </Root>
@@ -37,16 +38,7 @@ display: flex;
 height:100px;
 justify-content:center;
 align-items:center;
-.logo{
-    width: 200px;
-    background-color: yellow;
-}
-.options{
-    background-color:  #fffff;
-    flex: 1;
-    display: flex;
-    justify-content: space-around;
-    .opt_btn{
+.opt_btn{
   background:none;
   color:black;
   border-color:transparent;
@@ -56,6 +48,19 @@ align-items:center;
   cursor:pointer;
 }
 
+.logo{
+    width: 200px;
+    background-color: yellow;
+    img{
+        width:100%;
+    }
+}
+.options{
+    background-color:  #fffff;
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+   
     @media(max-width: 650px){
         display: none
     }
@@ -78,10 +83,12 @@ align-items:center;
     top: 0;
     background-color: #fff;
     height: 100%;
-    width: 100%
+    width: 100%;
+    background:#FF7F50;
 }
 .no_pop{
-    display: none
+    display: none;
+
 }
 .login{
     background:#FF7F50;
