@@ -96,7 +96,7 @@ export default function Partner() {
                     </div>
 
                 </div>
-                <div className='password'>
+                <div className='password'><div><h3>Your Password :-</h3></div>
                     <div className='name'>Password* :-
                         <input type='password' value={data.password} onChange={(e) => { setData({ ...data, password: e.target.value }) }} placeholder='Enter Password' />
                     </div>

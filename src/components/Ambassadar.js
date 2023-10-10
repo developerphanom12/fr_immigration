@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
-import picc  from '../imageLogo/ambassdor.jpg.png';
-import four1  from '../imageLogo/knowledge.jpg.png';
-import four2  from '../imageLogo/incentive.jpg.png';
-import four3  from '../imageLogo/counseller.jpg.png';
+import picc  from './imageLogo/ambassdor.jpg.png';
+import four1  from './imageLogo/knowledge.jpg.png';
+import four2  from './imageLogo/incentiv.png';
+import four3  from './imageLogo/counseller.jpg.png';
 
 
 export default function Ambassadar() {
@@ -52,7 +52,7 @@ align-items:center;
     background:#fff3ee;
     display:flex;
     justify-content:space-between;
-    margin:0px 0px 40px 0px;
+    /* margin:0px 0px 40px 0px; */
     .first_box1{
       .h2{
         color:#000080;

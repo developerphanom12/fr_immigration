@@ -6,9 +6,9 @@ import Layout from './components/MainLayouts/Layout';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import PageNF from './components/PageNF';
-import HomePage from './components/HomePage';
 import Ambassadar from './components/Ambassadar';
 import  Partner from './components/Partner';
+import HomePage from './components/Home/HomePage';
 function App() {
   const userCheck = useSelector((state) => state?.user?.userCheck);
   const token = localStorage.getItem("token")
