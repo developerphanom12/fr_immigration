@@ -11,51 +11,51 @@ import photu7 from '../imageLogo/div7.png';
 import photu8 from '../imageLogo/div8.png';
 
 export default function HomeFirst({ onSearch }) {
-    const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = () => {
     onSearch(searchTerm);
   };
-   
-    return (
-        <Root>
-            <div className='firstbox'>
-                <div className='line'>
-                    <h3 className='line1'>Your Gateway to Global Connection</h3>
-                    <h2 className='line2'>The Ultimate Destination for <br /> Universities and Strategic Recruitment Partnerships</h2>
-                    Through our network, industry knowledge, and personalized business solutions,<br />
-                    we enable Universities and Recruitment Partners to effortlessly <br />
-                    navigate the recruitment process while achieving their targets.
-                    <div className='search'>
-                        <input className='searchbar' type="text" placeholder="Type University Name..." value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)} />
-                        <button className='searchbar2' onClick={handleSearch}><AiOutlineSearch />ADVANCED SEARCH</button>
-                    </div>
-                </div>
-                <div className='photuuu'>
-                    {/* <div className='photu1'><img src={photu1} alt='image' /></div> */}
-                    <div className='photu'></div>
-                    <div className='photu3'><img src={photu2} alt='image' /></div>
-                    <div className='photu'></div>
-                    <div className='photu2'><img src={photu3} alt='image' /></div>
-                    <div className='photu'></div>
-                    <div className='photu'><h4 className='h4'>80,000+ courses</h4></div>
-                    <div className='photu3'><img src={photu3} alt='image' /></div>
-                    <div className='photu'></div>
-                    <div className='photu1'><img src={photu4} alt='image' /></div>
-                    <div className='photu'></div>
-                    <div className='photu3'><img src={photu5} alt='image' /></div>
-                    <div className='photu4'><img src={photu6} alt='image' /></div>
-                    <div className='photu'></div>
-                    <div className='photu4'><img src={photu7} alt='image' /></div>
-                    <div className='photu'><h4 className='h4'>500,000+ Students</h4></div>
-                    <div className='photu1'><img src={photu8} alt='image' /></div>
-                </div>
-            </div>
+
+  return (
+    <Root>
+      <div className='firstbox'>
+        <div className='line'>
+          <h3 className='line1'>Your Gateway to Global Connection</h3>
+          <h2 className='line2'>The Ultimate Destination for <br /> Universities and Strategic Recruitment Partnerships</h2>
+          Through our network, industry knowledge, and personalized business solutions,<br />
+          we enable Universities and Recruitment Partners to effortlessly <br />
+          navigate the recruitment process while achieving their targets.
+          <div className='search'>
+            <input className='searchbar' type="text" placeholder="Type University Name..." value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)} />
+            <button className='searchbar2' onClick={handleSearch}><AiOutlineSearch />ADVANCED SEARCH</button>
+          </div>
+        </div>
+        <div className='photuuu'>
+          {/* <div className='photu1'><img src={photu1} alt='image' /></div> */}
+          <div className='photu'></div>
+          <div className='photu3'><img src={photu2} alt='image' /></div>
+          <div className='photu'></div>
+          <div className='photu2'><img src={photu3} alt='image' /></div>
+          <div className='photu'></div>
+          <div className='photu'><h4 className='h4'>80,000+ courses</h4></div>
+          <div className='photu3'><img src={photu3} alt='image' /></div>
+          <div className='photu'></div>
+          <div className='photu1'><img src={photu4} alt='image' /></div>
+          <div className='photu'></div>
+          <div className='photu3'><img src={photu5} alt='image' /></div>
+          <div className='photu4'><img src={photu6} alt='image' /></div>
+          <div className='photu'></div>
+          <div className='photu4'><img src={photu7} alt='image' /></div>
+          <div className='photu'><h4 className='h4'>500,000+ Students</h4></div>
+          <div className='photu1'><img src={photu8} alt='image' /></div>
+        </div>
+      </div>
 
 
-        </Root>
-    )
+    </Root>
+  )
 }
 const Root = styled.section`
 display:flex;
@@ -103,7 +103,6 @@ flex-direction:column;
   h4{
   display:flex;
   align-items:center;
-  /* padding-left:20px; */
   background:orange;
    border-radius:50%;
   margin:0;
@@ -111,10 +110,10 @@ flex-direction:column;
   .photuuu{
     display:flex;
     flex:1;
-    /* width:100%;
-    min-width:100px;
+    width:100%;
+    min-width:200px;
     height:100%;
-    min-height:100px; */
+    min-height:200px;
    flex-wrap: wrap;
     >div{
       display:flex;
@@ -185,12 +184,10 @@ flex-direction:column;
   .photuuu {
     display:flex;
     flex-wrap:wrap;
-    /* width:100%;
-    min-width:100px;
+    width:100%;
+    min-width:200px;
     height:100%;
-    min-height:100px; */
-    /* display:none; */
-    /* flex-direction: column; */
+    min-height:200px;
     align-items: center;
     > div {
       min-width:50px;
