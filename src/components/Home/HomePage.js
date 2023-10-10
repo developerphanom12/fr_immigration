@@ -7,13 +7,13 @@ import HomeThird from './HomeThird'
 import HomeFour from './HomeFour'
 
 export default function HomePage() {
-    const navigate = useNavigate( )
+  const navigate = useNavigate()
   return (
     <Root>
-        <div><HomeFirst/></div>
-        <div> <HomeSec/></div>
-        <div> <HomeThird/></div>
-        <div> <HomeFour/></div>
+      <HomeFirst/>
+      <HomeSec/>
+      <HomeThird/>
+      <HomeFour/>
     </Root>
   )
 }

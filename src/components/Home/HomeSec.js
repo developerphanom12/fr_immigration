@@ -13,8 +13,8 @@ export default function HomeSec() {
     return (
         <Root>
             <div className='sndbox'>
-                <div className='snd1'><h2>Our Global <br /> Network of <br /> 400+ <br /> Universities</h2>
-                    Explore Institutions..... <RxEnter />
+                <div className='snd1'><h2>Our Global Network of 400+ Universities
+                    Explore Institutions..... </h2><RxEnter />
                 </div>
                 <div className='snd2'>
                     <div className='pic'><img src={pic1} alt='image' /></div>
@@ -28,14 +28,13 @@ export default function HomeSec() {
 
             </div>
             <div className='thirdbox'><h2>The Access You Need</h2>We provide you with the access you need to drive
-                your key strategic targets.<br /> Get connected with us today to leverage the rich collaboration between university,<br />
+                your key strategic targets. Get connected with us today to leverage the rich collaboration between university,
                 education consultant and student
                 <div className='third'>
                     <button className='third1'>Join Us</button>
                     <button className='third1'>Sign In</button>
                 </div>
             </div>
-
         </Root>
     )
 }
@@ -48,6 +47,7 @@ const Root = styled.section`
   
  .snd1{
   width:300px;
+  color: white;
  }
 
 .snd2 {
@@ -60,9 +60,9 @@ const Root = styled.section`
   overflow: hidden;  
 
   .pic {
-    width: 180px;
-    height: 180px;
-    position: relative;  
+    position: relative;
+    min-width: 150px;
+    min-height: 150px; 
   }
 
   .pic > img {
@@ -95,29 +95,16 @@ const Root = styled.section`
 }
 display : flex;
 flex-direction:column;
-@media (max-width: 999px) {
-    .sndbox {
-      padding: 10px;
-      .snd1 {
-        min-width:60px;
-        width: 100%;
-      }
-
-      .snd2 {
-        display:flex;
-        min-width:60px;
-        width: 100%;
-        .pic {
-          width: 100%;
-          min-width:50px;
-          text-align: center;
-
-          img {
-            width: 70%;
-          }
-        }
-      }
+@media (max-width: 750px) {
+   .sndbox{
+    flex-direction: column;
+    .snd1{
+      width: 100%;
     }
+    .snd2{
+      width: 100%;
+    }
+   }
 
   } 
 
