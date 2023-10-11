@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import photo11 from "../imageLogo/target.jpg";
-import photo12 from "../imageLogo/globalll.jpg";
-import photo13 from "../imageLogo/brand.jpg";
-import photo14 from "../imageLogo/support.jpg";
-import six1 from "../imageLogo/six1.jpg";
-import six2 from "../imageLogo/six2.jpg";
-import six3 from "../imageLogo/six3.jpg";
-import six4 from "../imageLogo/six4.jpg";
-import six5 from "../imageLogo/six5.jpg";
+import photo11 from "../imageLogo/target.png";
+import photo12 from "../imageLogo/global.png";
+import photo13 from "../imageLogo/brand.png";
+import photo14 from "../imageLogo/support.png";
+import six1 from "../imageLogo/sixone.png";
+import six2 from "../imageLogo/sixtwoo.png";
+import six3 from "../imageLogo/six3.png";
+import six4 from "../imageLogo/sixfour.png";
+import six5 from "../imageLogo/sixfive.png";
 import { PiNumberSquareOneLight } from "react-icons/pi";
 import { PiNumberSquareTwoLight } from "react-icons/pi";
 import { PiNumberSquareThreeLight } from "react-icons/pi";
@@ -50,7 +50,7 @@ export default function HomeFour() {
         </div>
       </div>
       <div className="main_six">
-        <h3 className="h3">For Recruitment Partners</h3>
+        <h2 className="h3">For Recruitment Partners</h2>
         <div className="six1">
           <div className="sixx_div1">
             <img className="img" src={six1} alt="image" />
@@ -107,22 +107,25 @@ const Root = styled.section`
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    /* margin:80px; */
+    background:#D4F0F0;
+    padding:10px;
     justify-content: center;
     align-items: center;
     margin: 20px;
     width: 100%;
+    border-radius:2%;
 
     .five1 {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      margin: 10px;
+      color: #00008b;
     }
     .five2 {
       display: flex;
       align-items: center;
+      justify-content: center;
       width: 100%;
       gap: 15px;
       /* padding: 10px; */
@@ -135,7 +138,7 @@ const Root = styled.section`
         align-items: center;
         padding: 20px;
         border-radius: 20px;
-        background: #f8f8ff;
+        background: #ffffff;
         color: #00008b;
         flex: 1;
         gap: 10px;
@@ -143,12 +146,19 @@ const Root = styled.section`
         width: 200px;
         min-width: 180px;
         max-width: 220px;
+        svg{
+          height:30px;
+          width:30px;
+          color:black;
+        }
 
         > img {
           min-width: 50px;
           width: 100%;
           height: 100%;
           min-height: 50px;
+          max-height:150px;
+          max-width:150px;
           background: #f8f8ff;
           transition: transform 0.4s;
         }
@@ -167,11 +177,12 @@ const Root = styled.section`
     flex-wrap: wrap;
     justify-content: center;
     flex-direction: column;
-    padding: 40px;
-    width: 100vw;
+    padding:0px  40px;
+    min-width: 100vw;
     width: 100%;
     min-height: 100vh;
     height: 100%;
+    text-align:center;
 
     h5 {
       display: flex;
@@ -202,14 +213,12 @@ const Root = styled.section`
     }
     .six2 {
       display: flex;
-      justify-content: space-evenly;
-      height: 200px;
+      justify-content: space-around;
+      min-height: 200px;
       height: 100%;
-      padding: 10px;
       .sixx_div2 {
         display: flex;
         flex-direction: column;
-        padding: 10px;
         justify-content: center;
         align-items: center;
       }
@@ -219,6 +228,8 @@ const Root = styled.section`
       width: 100%;
       height: 100%;
       min-height: 50px;
+      max-height:250px;
+      max-width:250px;
       transition: transform 0.4s;
     }
     img:hover {

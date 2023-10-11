@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import photo1 from '../imageLogo/edu.jpg';
 import photo2 from '../imageLogo/hat-icon.png';
-import photo3 from '../imageLogo/imggg.jpg';
+import photo3 from '../imageLogo/imggg.png';
 import photo4 from '../imageLogo/hat-icon2.png';
 
 export default function HomeThird() {
@@ -45,6 +45,8 @@ const Root = styled.section`
   font-size: larger;
   margin: 20px;  
   padding: 20px;  
+  justify-content:space-evenly;
+  align-items:center;
 }
 
 .global {
@@ -57,8 +59,11 @@ const Root = styled.section`
   display: flex;
   /* flex-direction: column;   */
   align-items: center; 
+  width:100%;
   gap: 20px;  
   margin: 20px 0; 
+  justify-content:space-evenly;
+
 }
 
 .four_1 {
@@ -67,7 +72,9 @@ const Root = styled.section`
   justify-content: center;
   max-width: 100%;  
   > img {
-    max-width: 60%;  
+    max-width: 400px;  
+    width:100%
+    min-width:50px;
     height: auto;
   }
 }

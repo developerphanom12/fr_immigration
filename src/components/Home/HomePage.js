@@ -20,5 +20,4 @@ export default function HomePage() {
 const Root = styled.section`
 display:flex;
 flex-direction:column;
-background:blue;
 `
