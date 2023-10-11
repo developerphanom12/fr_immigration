@@ -70,9 +70,8 @@ const Root = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 100%;  
+  /* max-width: 100%;   */
   > img {
-    max-width: 400px;  
     width:100%
     min-width:50px;
     height: auto;

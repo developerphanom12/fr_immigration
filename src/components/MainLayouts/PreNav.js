@@ -1,33 +1,33 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import {AiOutlineMenu} from 'react-icons/ai';
+import { AiOutlineMenu } from 'react-icons/ai';
 
 
-export default function PreNav( ) {
+export default function PreNav() {
 
-    const navigate = useNavigate( );
+    const navigate = useNavigate();
     const [activePop, setActivePop] = useState(false);
     return (
         <Root>
-            <div className='logo'><img src='C:\Users\Admin\Desktop\react_js\myten\src\imageLogo\phanom.jpg' alt = 'image'/>
+            <div className='logo'><img src='C:\Users\Admin\Desktop\react_js\myten\src\imageLogo\phanom.jpg' alt='image' />
             </div>
             <div className='options'>
-            <div className='opt_div'><button className='opt_btn'  >Universities</button></div>
-            <div className='opt_div'><button className='opt_btn'  >Our Reach</button></div>
-            <div className='opt_div'><button className='opt_btn' onClick={()=>{navigate('/ambassadar')}}>Be our Ambassador</button></div>
-            <div className='opt_div'><button className='opt_btn'  onClick={()=>{navigate('/partner')}} >Be a partner</button></div>
+                <div className='opt_div'><button className='opt_btn'  onClick={() => { navigate('/universities') }}>Universities</button></div>
+                <div className='opt_div'><button className='opt_btn' onClick={() => { navigate('/reach') }} >Our Reach</button></div>
+                <div className='opt_div'><button className='opt_btn' onClick={() => { navigate('/ambassadar') }}>Be our Ambassador</button></div>
+                <div className='opt_div'><button className='opt_btn' onClick={() => { navigate('/partner') }} >Be a partner</button></div>
                 <div className='login' onClick={() => { navigate("/login") }}>Login</div>
             </div>
-            
-            <div className='menu' onClick={()=>{setActivePop(true)}}><AiOutlineMenu/></div>
 
-            <div className={activePop? "pop_nav": "no_pop"} onClick={()=>{setActivePop(false)}}>
-                <div>Universities</div>
-                <div>Our Reach</div>
-                <div className='opt_div'><button className='opt_btn' onClick={()=>{navigate('/ambassadar')}}>Be our Ambassador</button></div>
-            <div className='opt_div'><button className='opt_btn'  onClick={()=>{navigate('/partner')}} >Be a partner</button></div>
-                <div  onClick={() => { navigate("/login") }}>Login</div>
+            <div className='menu' onClick={() => { setActivePop(true) }}><AiOutlineMenu /></div>
+
+            <div className={activePop ? "pop_nav" : "no_pop"} onClick={() => { setActivePop(false) }}>
+                <div className='opt_div'><button className='opt_btn' onClick={() => { navigate('/universities') }}>Universities</button></div>
+                <div className='opt_div'><button className='opt_btn' onClick={() => { navigate('/reach') }}>Our Reach</button></div>
+                <div className='opt_div'><button className='opt_btn' onClick={() => { navigate('/ambassadar') }}>Be our Ambassador</button></div>
+                <div className='opt_div'><button className='opt_btn' onClick={() => { navigate('/partner') }} >Be a partner</button></div>
+                <div onClick={() => { navigate("/login") }}>Login</div>
             </div>
         </Root>
     )

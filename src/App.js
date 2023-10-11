@@ -9,6 +9,8 @@ import PageNF from './components/PageNF';
 import Ambassadar from './components/Ambassadar';
 import  Partner from './components/Partner';
 import HomePage from './components/Home/HomePage';
+import Universities from './components/Universities';
+import Reach from './components/Reach';
 function App() {
   const userCheck = useSelector((state) => state?.user?.userCheck);
   const token = localStorage.getItem("token")
@@ -24,6 +26,8 @@ function App() {
             </> :
             <>
               <Route path='/' element={<HomePage />} />
+              <Route path='/universities' element={<Universities />} />
+              <Route path='/reach' element={<Reach />} />
               <Route path='/ambassadar' element={<Ambassadar />} />
               <Route path='/partner' element={<Partner />} />
               <Route path='*' element={<PageNF />} />
