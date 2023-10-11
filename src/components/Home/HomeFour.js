@@ -178,7 +178,7 @@ const Root = styled.section`
     justify-content: center;
     flex-direction: column;
     padding:0px  40px;
-    min-width: 100vw;
+    /* min-width: 100vw; */
     width: 100%;
     min-height: 100vh;
     height: 100%;

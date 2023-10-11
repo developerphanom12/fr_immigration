@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
-// import photu1 from '../imageLogo/div1.png';
-import photu2 from "../imageLogo/div2.png";
-import photu3 from "../imageLogo/div3.png";
-import photu4 from "../imageLogo/div4.png";
-import photu5 from "../imageLogo/div5.png";
-import photu6 from "../imageLogo/div6.png";
-import photu7 from "../imageLogo/div7.png";
-import photu8 from "../imageLogo/div8.png";
+import photo1 from '../imageLogo/div1.jpg';
+import photo2 from "../imageLogo/div2.png";
+import photo3 from "../imageLogo/div3.png";
+import photo4 from "../imageLogo/div4.png";
+import photo5 from "../imageLogo/div5.png";
+import photo6 from "../imageLogo/div6.png";
+import photo7 from "../imageLogo/div7.png";
+import photo8 from "../imageLogo/div8.png";
 
 export default function HomeFirst({ onSearch }) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -44,43 +44,43 @@ export default function HomeFirst({ onSearch }) {
             </button>
           </div>
         </div>
-        <div className="photuuu">
-          {/* <div className='photu1'><img src={photu1} alt='image' /></div> */}
-          <div className="photu"></div>
-          <div className="photu3">
-            <img src={photu2} alt="image" />
+        <div className="pictures">
+          <div className='photo2'><img src={photo1} alt='image' /></div>
+          <div className="photo"></div>
+          <div className="photo3">
+            <img src={photo2} alt="image" />
           </div>
-          <div className="photu"></div>
-          <div className="photu2">
-            <img src={photu3} alt="image" />
+          <div className="photo"></div>
+          <div className="photo2">
+            <img src={photo3} alt="image" />
           </div>
-          <div className="photu"></div>
-          <div className="photu">
+          <div className="photo"></div>
+          <div className="photo">
             <h4 className="h4">80,000+ courses</h4>
           </div>
-          <div className="photu3">
-            <img src={photu3} alt="image" />
+          <div className="photo3">
+            <img src={photo3} alt="image" />
           </div>
-          <div className="photu"></div>
-          <div className="photu1">
-            <img src={photu4} alt="image" />
+          <div className="photo"></div>
+          <div className="photo1">
+            <img src={photo4} alt="image" />
           </div>
-          <div className="photu"></div>
-          <div className="photu3">
-            <img src={photu5} alt="image" />
+          <div className="photo"></div>
+          <div className="photo3">
+            <img src={photo5} alt="image" />
           </div>
-          <div className="photu4">
-            <img src={photu6} alt="image" />
+          <div className="photo4">
+            <img src={photo6} alt="image" />
           </div>
-          <div className="photu"></div>
-          <div className="photu4">
-            <img src={photu7} alt="image" />
+          <div className="photo"></div>
+          <div className="photo4">
+            <img src={photo7} alt="image" />
           </div>
-          <div className="photu">
+          <div className="photo">
             <h4 className="h4">500,000+ Students</h4>
           </div>
-          <div className="photu1">
-            <img src={photu8} alt="image" />
+          <div className="photo1">
+            <img src={photo8} alt="image" />
           </div>
         </div>
       </div>
@@ -135,44 +135,53 @@ const Root = styled.section`
       background: orange;
       border-radius: 50%;
       margin: 0;
+      height: 100px;
+      width: 100px;
+      text-align:center;
     }
-    .photuuu {
+    .pictures {
       display: flex;
       flex: 1;
       width: 100%;
-      min-width: 200px;
       height: 100%;
-      min-height: 200px;
       flex-wrap: wrap;
       > div {
         display: flex;
         flex: 1;
         flex-wrap: wrap;
-        min-height: 130px;
-        min-width: 140px;
+        min-height: 100px;
+        min-width: 100px;
+        .photo{
+          width:100px;
+          height:100px;
+        }
         > img {
           /* width:100%;
        min-width:50px;
        height:100%;
         min-height:50px; */
-          height: 130px;
-          width: 140px;
+          max-height: 100px;
+          width:100%;
+          height:100%;
+          min-height:50px;
+          min-width:50px;
+          max-width: 100px;
         }
       }
 
-      .photu2 {
+      .photo2 {
         animation: slideshow 4s infinite;
         opacity: 0;
       }
-      .photu1 {
+      .phot01 {
         animation: slideshow 5s infinite;
         opacity: 0;
       }
-      .photu3 {
+      .photo3 {
         animation: slideshow 6s infinite;
         opacity: 0;
       }
-      .photu4 {
+      .photo4 {
         animation: slideshow 4s infinite;
         opacity: 0;
       }
@@ -196,7 +205,6 @@ const Root = styled.section`
 
   @media (max-width: 999px) {
     .firstbox {
-      display: flex;
       flex-wrap: wrap;
       flex-direction: column;
     }
@@ -208,17 +216,16 @@ const Root = styled.section`
       margin: 20px 0;
     }
 
-    .photuuu {
-      display: flex;
+    .pictures {
       flex-wrap: wrap;
       width: 100%;
       min-width: 200px;
       height: 100%;
       min-height: 200px;
-      align-items: center;
-      > div {
+      /* display:none; */
+      .photo {
         min-width: 50px;
-        width: 100%;
+        /* width: 100%; */
         margin-bottom: 20px;
       }
     }

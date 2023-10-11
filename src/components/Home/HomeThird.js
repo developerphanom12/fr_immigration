@@ -71,10 +71,11 @@ const Root = styled.section`
   align-items: center;
   justify-content: center;
   /* max-width: 100%;   */
-  > img {
-    width:100%
+  >img {
+    width:100%;
     min-width:50px;
-    height: auto;
+    height:100%;
+    min-height:50px;
   }
 }
 
@@ -118,6 +119,7 @@ const Root = styled.section`
  
 @media (max-width: 999px) {
   .fourrr {
+    flex-direction:column;
     gap: 10px;  
     margin: 20px 0;  
   }
