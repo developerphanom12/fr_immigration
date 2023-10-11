@@ -20,7 +20,8 @@ function App() {
       <Root className='app'>
         <Routes>
           {userCheck && token ?
-            <>
+          
+            <> 
               <Route path='/login' element={<Protected><Login/></Protected>} />
               <Route path='*' element={<PageNF />} />
             </> :
@@ -38,7 +39,7 @@ function App() {
         </Routes>
       </Root>
     </Layout>
-
+     
   );
 }
 

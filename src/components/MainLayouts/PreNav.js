@@ -10,7 +10,7 @@ export default function PreNav() {
     const [activePop, setActivePop] = useState(false);
     return (
         <Root>
-            <div className='logo'><img src='C:\Users\Admin\Desktop\react_js\myten\src\imageLogo\phanom.jpg' alt='image' />
+            <div className='logo'><img src='imageLogo\phanom.jpg' alt='image' />
             </div>
             <div className='options'>
                 <div className='opt_div'><button className='opt_btn'  onClick={() => { navigate('/universities') }}>Universities</button></div>
