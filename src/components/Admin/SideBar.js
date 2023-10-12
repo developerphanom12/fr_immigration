@@ -9,14 +9,14 @@ import cogoToast from 'cogo-toast';
 
 
 
-export default function Sidebar() {
+export default function SideBar() {
   const navigate = useNavigate()
 
   return (
     <Root>
       <div className='menu_top'>
         <div className='company_logo'>
-         <h1>PHENOM</h1><img src='src\components\imageLogo\phanom.jpg' alt='img'/>
+         {/* <h1>PHENOM</h1><img src='phanom.jpg' alt='img'/> */}
         </div>
         <div>
           <h4 className="caption">ANALYTICS</h4>
@@ -134,7 +134,7 @@ color: white;
       font-weight: 600;
       padding: 10px;
       border-radius: 10px;
-      color: whitesmoke;
+      color:blue;
       padding-left: 10px;
       height: 30px;
     }
