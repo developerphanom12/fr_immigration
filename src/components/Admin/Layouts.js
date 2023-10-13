@@ -3,7 +3,6 @@ import Sidebar from "./SideBar";
 import DashboardAdmin from "./Dashboard/DashboardAdmin";
 
 export default function Layouts() {
-
   return (
     <Root>
       <div className="layout_section">
@@ -11,9 +10,9 @@ export default function Layouts() {
           <Sidebar />
         </div>
         <div className="main_section">
-          <div className='profile_top_bar'></div>
+          <div className="profile_top_bar"></div>
           <div className="content_section">
-            <DashboardAdmin/>
+            <DashboardAdmin />
           </div>
         </div>
       </div>
@@ -31,7 +30,7 @@ const Root = styled.section`
     display: flex;
     width: 100%;
     min-height: 100%;
-    background-color:lavender;
+    background-color: lavender;
     .sidebar {
       flex: 0 240px;
       height: 100vh;
