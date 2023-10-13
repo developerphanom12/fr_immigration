@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Navbar from "./Navbar";
 import PreNav from "./PreNav";
 import { useSelector } from "react-redux";
+import Reach from "../Reach";
+import Footer from "../Footer";
 
 export default function Layout({children}) {
   const userCheck = useSelector((state) => state?.user?.userCheck);
@@ -22,7 +24,7 @@ export default function Layout({children}) {
           <div className='pre_nav'><PreNav/></div>
         }
         <div className='main_body'>{children}</div>
-        <div className='footer'>Footer</div>
+        <div className='footer'><Footer/></div>
       </div>
            
       
@@ -36,8 +38,5 @@ export default function Layout({children}) {
   background:#ffffff;
   height:100%;
   min-height:100vh;
-  .footer{
-    display:flex;
-    justify-content:bottom;
-  }
+  
  `
