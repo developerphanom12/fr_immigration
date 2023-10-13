@@ -50,7 +50,7 @@ export default function Reach() {
       </div>
       <div className='jhjd'>
         <div className='h12123dd '>
-          <h1 className='h12123dd1   mt-3 mb-2'>Contact Us</h1>
+          <h1 className='h12123dd1   mt-3 mb-2 '>Contact Us</h1>
         </div>
         <div className='hloimg'>
           <div className="container mt-1 jjhjhjh">
@@ -477,7 +477,7 @@ export default function Reach() {
               <div className='button-get mt-5'>
 
              
-              <Button className='dfgvfsdg' variant="outline-success ">Contact Us</Button>
+              <button className='bvbcvbcvbcvbcvbcvbcvbcvbcvbcvbcvcvb'>Contact Us</button>
               </div>
             </div>
           </div>

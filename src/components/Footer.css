@@ -18,8 +18,7 @@
   }
   
   .img-foter{
-    margin-top: 4px;
-  }
+    margin-top: 8px;  }
   
   .img-foter1{
     background-color: rgb(255 94 0);
@@ -71,19 +70,18 @@
     font-size: 21px;
   }
   .afooter1{
-    margin-top: 3px;
-    font-size: 21px;
-    font-weight: 600
+    margin-top: 7px;
+    font-size: 19px;
+    font-weight: 600;
   }
-  .flagbox221{
+  .flagbox221 {
     background-color: rgb(255 94 0);
     display: flex;
-    margin-top: 10px;
-    width: 145px;
-    padding: 8px;
+    margin-top: 7px;
+    width: 147px;
+    padding: 3px 11px;
     border-radius: 23px;
-  }
-  
+}
   .flagfooter{
     background-color: rgb(255 94 0);
     display: flex;
@@ -139,6 +137,7 @@
   .list-inline{
 
     text-align: right;
+    cursor: pointer;
   }
   .hfh{
     text-align: left;

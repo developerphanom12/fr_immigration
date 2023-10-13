@@ -103,7 +103,7 @@ export default function Footer() {
 
                                     </div>
                                     <div className="contact-location ">
-                                        <p className="afooter1  "> Window  </p>
+                                        <p className="afooter1  "> macOS  </p>
                                     </div>
 
                                 </div>

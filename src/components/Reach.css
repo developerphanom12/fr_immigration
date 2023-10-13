@@ -82,7 +82,8 @@ form{
 }
 .form-control{
     border: 2px solid #005082;
-    padding: 16px 25px;
+    /* padding: 16px 25px; */
+    height: 65px;
 }
 
 .fdsdf{
@@ -158,7 +159,7 @@ button{
     padding-bottom: 0;
     margin-bottom: 10px;
     position: relative;
-    font-weight: 800;
+    font-weight: 700;
     color: #005082;
     text-align: center;
 }
@@ -178,7 +179,7 @@ button{
 
 
 .box-type{
-    border: 2px solid #ff050542;
+    /* border: 2px solid #ff050542; */
     border-radius: 20px;
     padding: 20px;
     max-height: 267px;
@@ -451,10 +452,20 @@ color: white;
     font-size: 19px;
 }
 
-.dfgvfsdg{
-    font-size: 28px;
-    background-color: orange;
+.bvbcvbcvbcvbcvbcvbcvbcvbcvbcvbcvcvb{
+    font-size: 27px;
+    background-color: rgb(255 94 0);
     padding: 5px;
-    border-radius: 22px;
+    border-radius: 34px;
     margin-top: 10px;
+    color: white;
+    text-decoration: none;
+    border: 1px;
 }
+
+
+
+@media (max-width:800px){
+    .fdg23424{
+        font-size: 36px;    }
+   }
