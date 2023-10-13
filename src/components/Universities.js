@@ -1,7 +1,7 @@
-import React from 'react'
+// import React from 'react'
 
-export default function Universities() {
-  return (
-    <div>Universities</div>
-  )
-}
+// export default function Universities() {
+//   return (
+//     <div>Universities</div>
+//   )
+// }

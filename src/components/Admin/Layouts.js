@@ -30,14 +30,15 @@ const Root = styled.section`
     display: flex;
     width: 100%;
     min-height: 100%;
-    background-color: lavender;
+    /* background-color: black; */
     .sidebar {
       flex: 0 240px;
-      height: 100vh;
+      min-height: 100vh;
+      height: 100%;
       position: sticky;
       top: 0px;
-      /* background: #070c27; */
-      padding: 20px 10px 20px 20px;
+      /* background-color: #f08080; */
+      padding: 10px 10px;
       border-right: 1px solid #3b3b3b;
       overflow-x: scroll;
       ::-webkit-scrollbar {

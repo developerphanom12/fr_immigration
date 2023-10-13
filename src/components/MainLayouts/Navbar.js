@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import Login from '../Login'
 import { useNavigate } from 'react-router-dom'
+import logo from '../imageLogo/phanom.jpg'
 
 
 export default function Navbar() {
@@ -11,14 +12,14 @@ export default function Navbar() {
   
     return (
       <Root>
-         <div className='logo'><img src='C:\Users\Admin\Desktop\react_js\myten\src\imageLogo\phanom.jpg' alt = 'image'/>
+         <div className='logo'><img src={logo} alt = 'image'/>
             </div>
         <div className='logged_nav'>
-            <div className='opt_div'><button className='opt_btn' >Universities</button></div>
+            {/* <div className='opt_div'><button className='opt_btn' >Universities</button></div>
             <div className='opt_div'><button className='opt_btn'  >Our Reach</button></div>
             <div className='opt_div'><button className='opt_btn'  >Be our Ambassador</button></div>
-            <div className='opt_div'><button className='opt_btn' >Be a partner</button></div>
-           <div className='opt_div2'> <button className='user_btn2' onClick={() => { handleLoginClick() }}>Login </button></div>
+            <div className='opt_div'><button className='opt_btn' >Be a partner</button></div> */}
+           {/* <div className='opt_div2'> <button className='user_btn2' onClick={() => { handleLoginClick() }}>Login </button></div> */}
           <div className='profile_div'>
             {/* <img className='user_profile' src={'images/fosla.png'}/> */}
           </div>

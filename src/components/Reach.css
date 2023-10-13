@@ -1,6 +1,4 @@
-body{
-    overflow: h;
-}
+
 
 
 .myone{
@@ -82,7 +80,6 @@ form{
 }
 .form-control{
     border: 2px solid #005082;
-    /* padding: 16px 25px; */
     height: 65px;
 }
 
@@ -169,17 +166,11 @@ button{
     justify-content: left;
     cursor: pointer;
     margin-left: 23px;
-    /* font-size: 3px; */
-    /* margin-top: 12px;*/
 }
-/* 
-.hloimg{
-    background-image: url('C:\Users\Admin\Desktop\admin_121212\immigration_fd\src\ASSETS\tetetete.jpg');
-} */
+
 
 
 .box-type{
-    /* border: 2px solid #ff050542; */
     border-radius: 20px;
     padding: 20px;
     max-height: 267px;
@@ -207,7 +198,6 @@ button{
 }
 .FDFDF{
     width: 50px;
-    /* height: 40px; */
     border-radius: 50px;
     border: 3px solid #005082;
 }
@@ -215,16 +205,13 @@ button{
     width: 40px;
     height: 40px;
     border-radius: 50px;
-    /* border: 3px solid #005082; */
      
 }
 .p122{
     color: black;
-    /* margin-top: 12px; */
     font-size: 22px;
 }
 .P1212{
-    /* margin-top: 10PX; */
     font-size: 22PX;
 }
 .flag-box{
@@ -318,7 +305,6 @@ margin-top: 12px;
 
 .text-left{
     text-align: left!important;
-    /* justify-content: left; */
     font-size: 19px;
     color: rgb(22 0 255);
     font-weight: 500;
@@ -360,10 +346,6 @@ margin-top: 12px;
     text-align: left;
 }
 a{
-    /* font-size: 20px;
-    font-weight: 800; */
-    /* color: #0b0b0c0a; */
-    /* margin-top: 19px; */
 }
 .dd{
   color: black;
@@ -398,7 +380,6 @@ font-weight: 800;
 .p1tag33{
  text-align: left;
     color: #484848;
-    /* text-align: center; */
     font-size: 22px;
 
 }
@@ -422,10 +403,8 @@ font-weight: 800;
 .divimsdgddlast{
     width: 18%;
 cursor: pointer;
-/* margin-bottom: 33px; */
 font-weight: 900;
-/* margin: 83px; */
-/* padding: -14px; */
+
 display: flex;
 text-align: center;
 }
@@ -439,7 +418,6 @@ text-align: center;
     background-color: #4a56c0;
     min-width: 100%;
 color: white;   
- /* min-height: 46vh; */
 }
 
 

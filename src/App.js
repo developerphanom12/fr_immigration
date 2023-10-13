@@ -12,6 +12,10 @@ import HomePage from './components/Home/HomePage';
 import Universities from './components/Universities';
 import Reach from './components/Reach';
 import Layouts from './components/admin/Layouts';
+import Applications from './components/admin/Dashboard/Applications';
+import History from './components/admin/Dashboard/History';
+import Urm_university from './components/admin/Dashboard/Urm_university';
+import Search_course from './components/admin/Dashboard/Search_course';
 function App() {
   const userCheck = useSelector((state) => state?.user?.userCheck);
   const token = localStorage.getItem("token")
@@ -28,8 +32,12 @@ function App() {
             </> :
             <>
               <Route path='/' element={<Layouts />} />
+              <Route path='/applications' element={<Applications/>} />
+              <Route path='/history' element={<History />} />
+              <Route path='/urm' element={<Urm_university />} />
+              <Route path='/search' element={<Search_course />} />
               <Route path='/' element={<HomePage />} />
-              <Route path='/universities' element={<Universities />} />
+              {/* <Route path='/universities' element={<Universities />} /> */}
               <Route path='/reach' element={<Reach />} />
               <Route path='/ambassadar' element={<Ambassadar />} />
               <Route path='/partner' element={<Partner />} />
