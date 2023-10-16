@@ -15,9 +15,9 @@ export default function SideBar() {
   return (
     <Root>
       <div className="menu_top">
-        {/* <div className='company_logo'>
+        <div className='company_logo'>
          <h1>PHENOM</h1><img src='phanom.jpg' alt='img'/>
-        </div> */}
+        </div>
         <div>
           <h4 className="caption">ANALYTICS</h4>
         </div>

@@ -133,8 +133,10 @@ export default function PreNav() {
 const Root = styled.section`
   display: flex;
   height: 80px;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
   .opt_btn {
     background: none;
     color: black;
@@ -168,6 +170,8 @@ const Root = styled.section`
   .menu {
     @media (max-width: 850px) {
       display: block;
+      padding-right: 10px;
+
     }
   }
   .menu {
@@ -182,7 +186,7 @@ const Root = styled.section`
     position: fixed;
     top: 0;
     background-color: #fff;
-    height: 100%;
+    height:400px;
     width: 100%;
     background: #ff7f50;
   }
@@ -193,7 +197,7 @@ const Root = styled.section`
     background: #ff7f50;
     color: #ffffff;
     padding: 10px 30px 10px 30px;
-    border-radius: 10px;
+    border-radius: 40px;
     border-color: transparent;
     font-size: larger;
     cursor: pointer;

@@ -1,8 +1,9 @@
- /* .footesadasdr{
+ .footesadasdr{
     background-color: #fff3ee;
     width: 100vw;
     text-align: left;
     min-height: 64vh;
+    overflow: hidden;
     height: 100%;
   }
    
@@ -31,7 +32,6 @@
   .footerimg{
   width: 10%;
   cursor: pointer;
-  
   margin-bottom: 33px;
   font-weight: 900;
   margin : 12px
@@ -145,4 +145,4 @@
    .list-inline{
     text-align: left;
    }
-  }  */
+  } 

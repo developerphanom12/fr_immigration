@@ -11,7 +11,7 @@ import  Partner from './components/Partner';
 import HomePage from './components/Home/HomePage';
 import Universities from './components/Universities';
 import Reach from './components/Reach';
-import Layouts from './components/admin/Layouts';
+// import Layouts from './components/admin/Layouts';
 import Applications from './components/admin/Dashboard/Applications';
 import History from './components/admin/Dashboard/History';
 import Urm_university from './components/admin/Dashboard/Urm_university';
@@ -31,7 +31,7 @@ function App() {
               <Route path='*' element={<PageNF />} />
             </> :
             <>
-              <Route path='/' element={<Layouts />} />
+              {/* <Route path='/' element={<Layouts />} /> */}
               <Route path='/applications' element={<Applications/>} />
               <Route path='/history' element={<History />} />
               <Route path='/urm' element={<Urm_university />} />
