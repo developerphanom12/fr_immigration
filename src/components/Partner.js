@@ -106,14 +106,15 @@ export default function Partner() {
                     </div>
                     </div>
                 </div>
+                <div>
+                    <button className='btnn' onClick={() => { handleRegisterClick() }}>Register</button>
+                </div>
                 <div className='fifth_div'>
                     <div className='fifth_box'><div><h2>Get in Touch</h2></div>
                         <p>If you have any questions, concerns or requests for further information, please send us a<br /> message and a member of our team will get in touch with you</p></div>
                     <div className='fifth_box'><button className='btnn'>Contact  Us</button></div>
                 </div>
-                <div>
-                    <button className='btnn' onClick={() => { handleRegisterClick() }}>Register</button>
-                </div>
+                
             </div>
 
 
