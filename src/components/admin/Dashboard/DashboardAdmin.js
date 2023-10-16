@@ -118,4 +118,4 @@ const Root = styled.section`
   padding: 0;
 }
 
-`;
+`

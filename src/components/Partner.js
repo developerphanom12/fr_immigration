@@ -97,11 +97,13 @@ export default function Partner() {
 
                 </div>
                 <div className='password'><div><h3>Your Password :-</h3></div>
+                <div>
                     <div className='name'>Password* :-
                         <input type='password' value={data.password} onChange={(e) => { setData({ ...data, password: e.target.value }) }} placeholder='Enter Password' />
                     </div>
                     <div className='name'>Confirm Password* :-
                         <input type='password' id='password' value={data.password} onChange={(e) => { setData({ ...data, password: e.target.value }) }} placeholder='Confirm Password' />
+                    </div>
                     </div>
                 </div>
                 <div className='fifth_div'>
@@ -120,7 +122,7 @@ export default function Partner() {
 }
 const Root = styled.section`
 input {
-  width: 85%;
+  /* width: 85%; */
   height: 45px;
   border-radius: 50px;
   padding:0px  14px;
@@ -212,8 +214,12 @@ h3 {
 
   .password {
     display: flex;
+    flex-direction: column;
     margin: 0px 10px;
     padding: 20px;
+    >div{
+      display: flex;
+    }
   }
 }
 
@@ -239,10 +245,12 @@ h3 {
   }
 }
 .btnn{
-  padding:20px;
-  border-radius:30px;
+  padding:10px;
+  border-radius:50px;
   font-size:medium;
   border-color:transparent;
+  width:150px;
+  font-size: medium;
   color:#ffffff;
   background:rgb(255 94 0);
   margin:20px;              

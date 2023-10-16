@@ -45,11 +45,17 @@ export default function Layout({ children }) {
           <div className="pre_nav">
             <PreNav />
           </div>
+          
         )}
         <div className="main_body">{children}</div>
-        <div className="footer">
+        {/* <div className="footer">
           <Footer />
-        </div>
+        </div> */}
+        {!token && !userCheck ? (
+    <div className="footer">
+      <Footer />
+    </div>
+  ) : null}
       </div>
     </Root>
   );
