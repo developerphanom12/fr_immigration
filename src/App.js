@@ -18,20 +18,16 @@ import Search_course from './components/admin/Dashboard/Search_course';
 import DashboardAdmin from './components/admin/Dashboard/DashboardAdmin';
 import Documents from './components/Documents';
 function App() {
-  const userCheck = useSelector((state) => state?.user?.userCheck);
+  const userCheck = useSelector((state) => state?.users?.userCheck);
   const token = localStorage.getItem("token")
-  return (
 
+  console.log("userCheck",userCheck)
+  return (
     <Layout>
       <Root className='app'>
         <Routes>
-          {userCheck && token ?
-          
-            <> 
-              <Route path='/login' element={<Protected><Login/></Protected>} />
+              <Route path='/login' element={<Login/>} />
               <Route path='*' element={<PageNF />} />
-            </> :
-            <>
               <Route path='/dashboard' element={<DashboardAdmin />} />
               {/* <Route path='/user' element={<Protected><User/></Protected>} /> */}
               <Route path='/documents' element={<Documents/>}/>
@@ -45,9 +41,6 @@ function App() {
               <Route path='/ambassadar' element={<Ambassadar />} />
               <Route path='/partner' element={<Partner />} />
               <Route path='*' element={<PageNF />} />
-
-            </>
-          }
 
         </Routes>
       </Root>
