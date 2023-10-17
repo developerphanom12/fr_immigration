@@ -51,11 +51,11 @@ export default function Layout({ children }) {
         {/* <div className="footer">
           <Footer />
         </div> */}
-        {!token && !userCheck ? (
+        {/* {!token && !userCheck ? (
     <div className="footer">
       <Footer />
     </div>
-  ) : null}
+  ) : null} */}
       </div>
     </Root>
   );

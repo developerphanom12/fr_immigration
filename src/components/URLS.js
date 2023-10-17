@@ -1,1 +1,1 @@
-export const EXCHANGE_URLS ='http://localhost:8080/api/users'
+export const EXCHANGE_URLS ='http://localhost:3500/api/users'

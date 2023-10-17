@@ -15,11 +15,11 @@ export default function Navbar() {
          <div className='logo'><img src={logo} alt = 'image'/>
             </div>
         <div className='logged_nav'>
-            {/* <div className='opt_div'><button className='opt_btn' >Universities</button></div>
+            <div className='opt_div'><button className='opt_btn' >Universities</button></div>
             <div className='opt_div'><button className='opt_btn'  >Our Reach</button></div>
             <div className='opt_div'><button className='opt_btn'  >Be our Ambassador</button></div>
-            <div className='opt_div'><button className='opt_btn' >Be a partner</button></div> */}
-           {/* <div className='opt_div2'> <button className='user_btn2' onClick={() => { handleLoginClick() }}>Login </button></div> */}
+            <div className='opt_div'><button className='opt_btn' >Be a partner</button></div>
+           <div className='opt_div2'> <button className='user_btn2' onClick={() => { handleLoginClick('/login') }}>Login </button></div>
           <div className='profile_div'>
             {/* <img className='user_profile' src={'images/fosla.png'}/> */}
           </div>

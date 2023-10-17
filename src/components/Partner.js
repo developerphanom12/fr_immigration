@@ -1,32 +1,61 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { EXCHANGE_URLS } from './URLS'
+import axios from 'axios';
+import cogoToast from 'cogo-toast';
+
 
 
 export default function Partner() {
-    const [data, setData] = useState({
+    const [add, setAdd] = useState({
+      street_address:"",
+      city:"",
+      state:"",
+      postal_code:""
+
+    });
+    const [formData, setFormData] = useState({
+        username:'',
         firstname: '',
         lastname: '',
         email: '',
-        confirm_email: '',
-        mobilenumber: '',
-        whatsappnumber: '',
+        phone_number: '',
         password: ''
     });
-    const navigate = useNavigate();
-    const handleRegisterClick = () => {
-        navigate('/login')
-    }
-    const [company, setCompany] = useState({
-        company: '',
-        websites: '',
-        address: '',
-        city: '',
-        postcode: '',
-        country: '',
-        state: ''
-    })
 
+    const navigate = useNavigate();
+    const partnerApi = async () => {
+     console.log("yyyyy",formData)
+     const {confirm_password, ...data} = formData
+      try {
+        const res = await axios.post(`${EXCHANGE_URLS}/registerss`, {...data, address: add})
+        console.log("resres", res)
+        if (res?.status === 201) {
+          cogoToast.success("Register SuccessFully")
+          setFormData({ username:'',
+          firstname: '',
+          lastname: '',
+          email: '',
+          phone_number: '',
+          password: ''})
+
+          navigate("/login")
+        }
+  
+      } catch (err) {
+        console.log("err", err)
+      }
+    }
+    const handleRegisterClick = () => {
+      if (formData?.password === formData?.confirm_password) {
+        partnerApi()
+      } else {
+        cogoToast.error("Password and Confirm Password Does Not Match")
+      }
+    }
+    
+    console.log("ttttt",{...formData, address: add})
 
     return (
         <Root>
@@ -34,64 +63,51 @@ export default function Partner() {
                 <div><h2>Sign-Up to access our online portal and join our network</h2></div>
                 <div className='first_box1'><div><h3>Your personal Details  :-</h3></div>
                     <div>
+                    <div className='name'> User Name* :- 
+                            <input type='name' value={formData?.username} onChange={(e) => { setFormData({ ...formData, username: e.target.value }) }}  placeholder='User Name' />
+
+                        </div>
                         <div className='name'> First Name* :- 
-                            <input type='name' value={data.firstname} onChange={(e) => { setData({ ...data, firstname: e.target.value }) }}  placeholder='First Name' />
+                            <input type='name' value={formData?.firstname} onChange={(e) => { setFormData({ ...formData, firstname: e.target.value }) }}  placeholder='First Name' />
 
                         </div>
                         <div className='name'>Last Name* :-
-                            <input type='name' value={data.lastname} onChange={(e) => { setData({ ...data, lastname: e.target.value }) }} placeholder='Last Name' />
+                            <input type='name' value={formData?.lastname} onChange={(e) => { setFormData({ ...formData, lastname: e.target.value }) }} placeholder='Last Name' />
                         </div>
                     </div>
                     <div>
                         <div className='name'>E-Mail* :-
-                            <input type='email' value={data.email} onChange={(e) => { setData({ ...data, email: e.target.value }) }} placeholder='Ex-Phanom@gmail.com' />
+                            <input type='email' value={formData?.email} onChange={(e) => { setFormData({ ...formData, email: e.target.value }) }} placeholder='Ex-Phanom@gmail.com' />
                         </div>
-                        <div className='name'>Confirm Email* :-
-                            <input type='email' value={data.confirm_email} onChange={(e) => { setData({ ...data, confirm_email: e.target.value }) }} placeholder='Ex-Phanom@gmail.com' />
-                        </div>
-                    </div>
-                    <div>
-                        <div className='name'>Mobile No.* :-
-                            <input type='number' value={data.mobilenumber} onChange={(e) => { setData({ ...data, mobilenumber: e.target.value }) }} placeholder='Mobile Number' />
-                        </div>
-                        <div className='name'>Whatsapp No. :-
-                            <input type='number' value={data.whatsappnumber} onChange={(e) => { setData({ ...data, whatsappnumber: e.target.value }) }} placeholder='Whatsapp Number' />
+                        <div className='name'>Phone No.* :-
+                            <input type='number' value={formData?.phone_number} onChange={(e) => { setFormData({ ...formData, phone_number: e.target.value }) }} placeholder='Phone Number' />
                         </div>
                     </div>
                 </div>
             </div>
             <div className='second_div'>
-                <div className='company'><div><h3>Company Details :-</h3></div>
+                <div className='company'><div><h3>Address :-</h3></div>
                     <div>
 
-                        <div className='name1'>Company* :-
-                            <input value={data.company} onChange={(e) => { setCompany({ ...data, company: e.target.value }) }} placeholder='Company' />
+                        <div className='name1'>Street Address* :-
+                            <input value={add?.street_address} onChange={(e) => { setAdd({ ...add, street_address: e.target.value }) }} placeholder='Street Address' />
 
                         </div>
 
-                        <div className='name1'>Website :-
-                            <input value={data.websites} onChange={(e) => { setCompany({ ...data, websites: e.target.value }) }} placeholder='Website' />
+                        <div className='name1'>City :-
+                            <input value={add?.city} onChange={(e) => { setAdd({ ...add, city: e.target.value }) }} placeholder='City' />
                         </div>
 
 
-                        <div className='name1'>Address* :-
-                            <input value={data.address} onChange={(e) => { setCompany({ ...data, address: e.target.value }) }} placeholder='Address' />
+                        <div className='name1'>State* :-
+                            <input value={add?.state} onChange={(e) => { setAdd({ ...add, state: e.target.value }) }} placeholder='State' />
                         </div>
 
                     </div>
                     <div>
-                        <div className='name2'>City* :-
-                            <input value={data.city} onChange={(e) => { setCompany({ ...data, city: e.target.value }) }} placeholder='City' />
-
-                        </div>
-                        <div className='name2'>Post Code* :-
-                            <input value={data.postcode} onChange={(e) => { setCompany({ ...data, postcode: e.target.value }) }} placeholder='Post Code' />
-                        </div>
-                        <div className='name2'>Country* :-
-                            <input value={data.country} onChange={(e) => { setCompany({ ...data, country: e.target.value }) }} placeholder='---Please Select---' />
-                        </div>
-                        <div className='name2'>Region/State* :-
-                            <input value={data.state} onChange={(e) => { setCompany({ ...data, state: e.target.value }) }} placeholder='Select State' />
+                         
+                        <div className='name2'>Postal Code* :-
+                            <input value={add.postal_code} onChange={(e) => { setAdd({ ...add, postal_code: e.target.value }) }} placeholder='Postal Code' />
                         </div>
                     </div>
 
@@ -99,10 +115,10 @@ export default function Partner() {
                 <div className='password'><div><h3>Your Password :-</h3></div>
                 <div>
                     <div className='name'>Password* :-
-                        <input type='password' value={data.password} onChange={(e) => { setData({ ...data, password: e.target.value }) }} placeholder='Enter Password' />
+                        <input type='password' value={formData?.password} onChange={(e) => { setFormData({ ...formData, password: e.target.value }) }} placeholder='Enter Password' />
                     </div>
                     <div className='name'>Confirm Password* :-
-                        <input type='password' id='password' value={data.password} onChange={(e) => { setData({ ...data, password: e.target.value }) }} placeholder='Confirm Password' />
+                        <input   value={formData?.confirm_password} onChange={(e) => { setFormData({ ...formData, confirm_password: e.target.value }) }} placeholder='Confirm Password' />
                     </div>
                     </div>
                 </div>

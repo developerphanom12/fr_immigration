@@ -1,9 +1,9 @@
 const initialState = {
     user : {},
     userCheck : false,
-    // verifyDocs: false,
+    verifyDocs: false,
     // userAllDetails: {},
-    // docSubmitted: false,
+    docSubmitted: false,
 };
 
 const UserReducer = (state = initialState, action) =>{
@@ -18,11 +18,11 @@ const UserReducer = (state = initialState, action) =>{
                 ...state,
                 userCheck : action.payload,
             }
-        // case "VERIFY_DOCS":
-        //     return{
-        //         ...state,
-        //         verifyDocs: action.payload,
-        //     }
+        case "VERIFY_DOCS":
+            return{
+                ...state,
+                verifyDocs: action.payload,
+            }
         // case "USER_ALL_DETAILS":
         //     return{
         //         ...state,

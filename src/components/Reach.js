@@ -466,7 +466,7 @@ export default function Reach() {
       <div className='seclast mt-5'>
         <div className="container-fluid f1212">
 
-          <div className="row">
+          {/* <div className="row">
 
             <div className="col-lg-8 ">
               <h2 className='hio-vi mt-3'>Get in Touch</h2>
@@ -480,7 +480,7 @@ export default function Reach() {
               <button className='bvbcvbcvbcvbcvbcvbcvbcvbcvbcvbcvcvb'>Contact Us</button>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 

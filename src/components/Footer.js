@@ -13,9 +13,11 @@ import window from './imageLogo/windows.png'
 import mac from './imageLogo/apple_.png'
 import google from './imageLogo/dsooobaba.png'
 import ico121 from './imageLogo/dsomatag.png'
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Footer() {
+ const navigate = useNavigate();
 
     return (
         <footer className='footesadasdr'>
@@ -80,7 +82,7 @@ export default function Footer() {
                                 <h1 className='h1gfooter'>
                                     Become A Partner
                                 </h1>
-                                <button className='btn12button mt-2'
+                                <button className='btn12button mt-2' onClick={()=>{navigate('/login')}}
                                 >Join Now</button>
 
                                 <h3 className='H3FOOTER mt-2'>REMOTE ASSITANCE</h3>

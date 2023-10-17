@@ -21,15 +21,16 @@ export default function HomeFirst({ onSearch }) {
     <Root>
       <div className="firstbox">
         <div className="line">
-          <h3 className="line1">Your Gateway to Global Connection</h3>
-          <h2 className="line2">
+          <h2 className="line1">Your Gateway to Global Connection</h2>
+          <h5 className="line2">
             The Ultimate Destination for Universities and Strategic Recruitment
             Partnerships
-          </h2>
+          </h5>
+          < h6>
           Through our network, industry knowledge, and personalized business
           solutions, we enable Universities and Recruitment Partners to
           effortlessly navigate the recruitment process while achieving their
-          targets.
+          targets.</h6>
           <div className="search">
             <input
               className="searchbar"
@@ -103,16 +104,18 @@ const Root = styled.section`
       }
       .line2 {
         color: #6495ed;
+        padding: 10px;
       }
       .search {
         height: 48px;
-        width: 450px;
+        width: 550px;
         border-radius: 20px;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         background: #ffffff;
         margin: 20px;
+        align-items: baseline;
         .searchbar {
           height: 40px;
           border-radius: 20px;

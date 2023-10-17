@@ -9,7 +9,7 @@ export default function PreNav() {
   const [activePop, setActivePop] = useState(false);
   return (
     <Root>
-      <div className="logo">
+      <div className="logo" onClick={()=>{navigate('/')}}>
         <img src={logo} alt="image" />
       </div>
       <div className="options">

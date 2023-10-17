@@ -20,7 +20,6 @@ export default function HomeFour() {
       <div className="main_five">
         <div className="five1">
           <h2>How We Work</h2>
-          <br />
           <h3>For Universities</h3>
         </div>
         <div className="five2">
@@ -38,7 +37,7 @@ export default function HomeFour() {
           </div>
           <div className="fivebox">
             <PiNumberSquareThreeLight />
-            <img src={photo13} alt="image" /> <h4>Brand Development</h4>
+            <img className="brand" src={photo13} alt="image" /> <h4>Brand Development</h4>
             Implementation of marketing strategies and promotions, delivering
             awareness from key stakeholders
           </div>
@@ -114,6 +113,11 @@ const Root = styled.section`
     margin: 20px;
     width: 100%;
     border-radius:2%;
+    svg{
+          height:25px;
+          width:25px;
+          color:black;
+        }
 
     .five1 {
       display: flex;
@@ -136,20 +140,19 @@ const Root = styled.section`
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 20px;
+        padding: 7px;
         border-radius: 20px;
         background: #ffffff;
         color: #00008b;
         flex: 1;
-        gap: 10px;
+        gap: 5px;
         height: 350px;
         width: 200px;
         min-width: 180px;
         max-width: 220px;
-        svg{
-          height:30px;
-          width:30px;
-          color:black;
+        .brand{
+          width: 103px;
+          height: 103px;
         }
 
         > img {
@@ -157,8 +160,8 @@ const Root = styled.section`
           width: 100%;
           height: 100%;
           min-height: 50px;
-          max-height:150px;
-          max-width:150px;
+          max-height:133px;
+          max-width:133px;
           background: #f8f8ff;
           transition: transform 0.4s;
         }
@@ -177,7 +180,8 @@ const Root = styled.section`
     flex-wrap: wrap;
     justify-content: center;
     flex-direction: column;
-    padding:0px  40px;
+    padding:20px  40px;
+    margin-bottom: 20px;
     /* min-width: 100vw; */
     width: 100%;
     min-height: 100vh;

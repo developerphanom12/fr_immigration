@@ -8,8 +8,10 @@ import pic4 from "../imageLogo/unipic4.jpg";
 import pic5 from "../imageLogo/unipiv5.jpg";
 import pic6 from "../imageLogo/unipic6.jpg";
 import pic7 from "../imageLogo/unipic7.jpg";
+import { useNavigate } from "react-router-dom";
 
 export default function HomeSec() {
+  const navigate = useNavigate();
   return (
     <Root>
       <div className="sndbox">
@@ -49,8 +51,22 @@ export default function HomeSec() {
         leverage the rich collaboration between university, education consultant
         and student
         <div className="third">
-          <button className="third1">Join Us</button>
-          <button className="third1">Sign In</button>
+          <button
+            className="third1"
+            onClick={() => {
+              navigate("/partner");
+            }}
+          >
+            Join Us{" "}
+          </button>
+          <button
+            className="third1"
+            onClick={() => {
+              navigate("/login");
+            }}
+          >
+            Sign In{" "}
+          </button>
         </div>
       </div>
     </Root>
@@ -62,7 +78,7 @@ const Root = styled.section`
     margin: 40px;
     padding: 20px;
     color: #4169e1;
-    
+
     .snd1 {
       width: 300px;
       color: black;
@@ -144,8 +160,8 @@ const Root = styled.section`
     gap: 10px;
     max-width: 300px;
     width: 100%;
-    justify-content:center;
-    text-align:center;
+    justify-content: center;
+    text-align: center;
   }
 
   .third1 {
