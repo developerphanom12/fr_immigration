@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { FaHome } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
 import { MdPersonSearch } from "react-icons/md";
@@ -11,6 +10,10 @@ import cogoToast from "cogo-toast";
 
 export default function SideBar() {
   const navigate = useNavigate();
+  const handleLogoutClick = () => {
+    navigate("/Login");
+  };
+
 
   return (
     <Root>
@@ -73,7 +76,7 @@ export default function SideBar() {
       <div className="logout">
           <div
             onClick={() => {
-              navigate("/login");
+              handleLogoutClick();
               cogoToast.success("Logout Successfully");
             }}
             className="div_2"

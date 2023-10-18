@@ -77,7 +77,9 @@ const Root = styled.section`
     display: flex;
     margin: 40px;
     padding: 20px;
-    color: #4169e1;
+    h2{
+      color: #4169e1;
+    }
 
     .snd1 {
       width: 300px;
@@ -148,7 +150,7 @@ const Root = styled.section`
     color: #ffffff;
     display: flex;
     flex-direction: column;
-    border-radius: 40px;
+    border-radius: 20px;
     align-items: center;
     text-align: center;
   }

@@ -13,7 +13,7 @@ const UserReducer = (state = initialState, action) =>{
         //         ...state,
         //         user: action.payload,
         //     };
-        case "VERIFY_USER":
+        case "USER_CHECK":
             return{
                 ...state,
                 userCheck : action.payload,

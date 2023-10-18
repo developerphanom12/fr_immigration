@@ -118,7 +118,7 @@ export default function PreNav() {
             Be a partner
           </button>
         </div>
-        <div
+        <div  className="opt_div"
           onClick={() => {
             navigate("/login");
           }}

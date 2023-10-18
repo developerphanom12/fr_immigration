@@ -9,47 +9,40 @@ import six2 from "../imageLogo/sixtwoo.png";
 import six3 from "../imageLogo/six3.png";
 import six4 from "../imageLogo/sixfour.png";
 import six5 from "../imageLogo/sixfive.png";
-import { PiNumberSquareOneLight } from "react-icons/pi";
-import { PiNumberSquareTwoLight } from "react-icons/pi";
-import { PiNumberSquareThreeLight } from "react-icons/pi";
-import { PiNumberSquareFourLight } from "react-icons/pi";
 
 export default function HomeFour() {
   return (
     <Root>
       <div className="main_five">
         <div className="five1">
-          <h2>How We Work</h2>
+          <h1>How We Work</h1>
           <h3>For Universities</h3>
         </div>
         <div className="five2">
           <div className="fivebox">
-            <PiNumberSquareOneLight />
             <img src={photo11} alt="image" />
             <h4>Strategic Consultation</h4>
-            Action plan is curated, bespoke to fit your strategic objectives
+            <p>Action plan is curated, bespoke to fit your strategic objectives</p>
           </div>
           <div className="fivebox">
-            <PiNumberSquareTwoLight />
             <img src={photo12} alt="image" />
             <h4>Global Networking</h4>
-            Unlock access to verified leads from over 50 countries
+            <p>Unlock access to verified leads from over 50 countries</p>
           </div>
           <div className="fivebox">
-            <PiNumberSquareThreeLight />
-            <img className="brand" src={photo13} alt="image" /> <h4>Brand Development</h4>
-            Implementation of marketing strategies and promotions, delivering
-            awareness from key stakeholders
+            <img className="brand" src={photo13} alt="image" />{" "}
+            <h4>Brand Development</h4>
+            <p>Implementation of marketing strategies and promotions, delivering
+            awareness from key stakeholders</p>
           </div>
           <div className="fivebox">
-            <PiNumberSquareFourLight />
-            <img src={photo14} alt="image" /> <h4>24*7 CRM Support </h4>Rigorous
-            and reliable, our software processes and manages your applications
+            <img src={photo14} alt="image" /> <h4>24*7 CRM Support </h4>
+            <p>Rigorous and reliable, our software processes and manages your applications</p>
           </div>
         </div>
       </div>
       <div className="main_six">
-        <h2 className="h3">For Recruitment Partners</h2>
+        <h1 >For Recruitment Partners</h1>
         <div className="six1">
           <div className="sixx_div1">
             <img className="img" src={six1} alt="image" />
@@ -81,8 +74,8 @@ export default function HomeFour() {
             <img className="img" src={six4} alt="image" />
             <h5>Complete VISA Assistance</h5>
             <p>
-              Leverage our high success rates with end-to-end support
-              <br /> with visa processing
+              Leverage our high success rates with end-to-end support with visa
+              processing
             </p>
           </div>
           <div className="sixx_div2">
@@ -90,7 +83,6 @@ export default function HomeFour() {
             <h5>Help Students Better</h5>
             <p>
               Secure target enrolment and strategic objectives with our industry
-              <br />
               leading service helping you help students choose better
             </p>
           </div>
@@ -106,18 +98,13 @@ const Root = styled.section`
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    background:#D4F0F0;
-    padding:10px;
+    background: #d4f0f0;
+    padding: 10px;
     justify-content: center;
     align-items: center;
     margin: 20px;
     width: 100%;
-    border-radius:2%;
-    svg{
-          height:25px;
-          width:25px;
-          color:black;
-        }
+    border-radius: 2%;
 
     .five1 {
       display: flex;
@@ -140,28 +127,34 @@ const Root = styled.section`
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 7px;
+        padding: 10px;
         border-radius: 20px;
         background: #ffffff;
         color: #00008b;
         flex: 1;
         gap: 5px;
         height: 350px;
-        width: 200px;
+        width: 250px;
         min-width: 180px;
         max-width: 220px;
-        .brand{
-          width: 103px;
-          height: 103px;
+        .brand {
+          margin:10px;
+          width: 108px;
+          padding-top:5px;
+          background-color: white;
+          height: 108px;
+        }
+        p{
+          color:black;
         }
 
-        > img {
+        img {
           min-width: 50px;
           width: 100%;
           height: 100%;
           min-height: 50px;
-          max-height:133px;
-          max-width:133px;
+          max-height: 130px;
+          max-width: 130px;
           background: #f8f8ff;
           transition: transform 0.4s;
         }
@@ -180,13 +173,13 @@ const Root = styled.section`
     flex-wrap: wrap;
     justify-content: center;
     flex-direction: column;
-    padding:20px  40px;
+    padding: 20px 40px;
     margin-bottom: 20px;
     /* min-width: 100vw; */
     width: 100%;
     min-height: 100vh;
     height: 100%;
-    text-align:center;
+    text-align: center;
 
     h5 {
       display: flex;
@@ -194,12 +187,6 @@ const Root = styled.section`
     }
     p {
       color: black;
-    }
-    .h3 {
-      display: flex;
-      flex: 1;
-      align-items: center;
-      justify-content: center;
     }
     .six1 {
       display: flex;
@@ -225,6 +212,9 @@ const Root = styled.section`
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        p {
+          width: 400px;
+        }
       }
     }
     img {
@@ -232,8 +222,8 @@ const Root = styled.section`
       width: 100%;
       height: 100%;
       min-height: 50px;
-      max-height:250px;
-      max-width:250px;
+      max-height: 250px;
+      max-width: 250px;
       transition: transform 0.4s;
     }
     img:hover {
@@ -241,35 +231,6 @@ const Root = styled.section`
       cursor: pointer;
     }
   }
-
-  /* @media (max-width: 999px) {
-    .main_five {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: column;
-      align-items: center;
-      margin: 20px;
-
-      .five2 {
-        flex-direction: column;
-
-        .fivebox {
-          padding: 10px;
-          width: 100%;
-
-          img {
-            width: 100%;
-            min-width: 50px;
-            transition: transform 0.4s;
-
-            &:hover {
-              transform: scale(1.5);
-            }
-          }
-        }
-      }
-    }
-  } */
   @media (max-width: 999px) {
     .main_six {
       display: flex;

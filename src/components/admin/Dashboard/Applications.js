@@ -12,7 +12,7 @@ export default function Applications() {
   });
   const navigate = useNavigate();
   const handleSubmit = () => {
-    navigate("/login");
+    navigate("/documents");
   };
   return (
     <Root>

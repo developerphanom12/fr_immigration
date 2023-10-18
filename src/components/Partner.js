@@ -39,6 +39,12 @@ export default function Partner() {
           email: '',
           phone_number: '',
           password: ''})
+          setAdd({
+            street_address:"",
+            city:"",
+            state:"",
+            postal_code:""
+          })
 
           navigate("/login")
         }

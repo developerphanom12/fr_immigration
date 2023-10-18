@@ -29,8 +29,7 @@ function App() {
               <Route path='/login' element={<Login/>} />
               <Route path='*' element={<PageNF />} />
               <Route path='/dashboard' element={<DashboardAdmin />} />
-              {/* <Route path='/user' element={<Protected><User/></Protected>} /> */}
-              <Route path='/documents' element={<Documents/>}/>
+              <Route path='/documents' element={<Protected><Documents/></Protected>}/>
               <Route path='/applications' element={<Applications/>} />
               <Route path='/history' element={<History />} />
               <Route path='/urm' element={<Urm_university />} />

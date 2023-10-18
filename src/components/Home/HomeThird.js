@@ -7,89 +7,78 @@ import photo3 from "../imageLogo/imggg.png";
 import photo4 from "../imageLogo/hat-icon2.png";
 import { useNavigate } from "react-router-dom";
 
-
 export default function HomeThird() {
   const navigate = useNavigate();
   return (
     <Root>
       <div className="four_main_div">
         <div className="global">
-          <h2>Global Connectivity with Phanom Professionals</h2>
+          <h1>Global Connectivity with Phanom Professionals</h1>
         </div>
         <div className="fourrr">
           <div className="four_1">
-            {" "}
-            <img src={photo1} alt="image" />
+            <img src={photo1} alt="img" />
           </div>
           <div className="four_2">
-            {" "}
-            <img src={photo2} alt="image" />
+            <img src={photo2} alt="img" />
             <h2> For our Recruitment Partners</h2>
-            <br />
+
             <div className="arrow">
               <FaArrowRightLong />
               Connect with over 400 Universities
-              <br />{" "}
             </div>
-            <div className="arrow">
+            <div className="arrow1">
               <FaArrowRightLong />
               Help students make better choices
-              <br />{" "}
             </div>
             <div className="arrow">
               <FaArrowRightLong />
               Expand and manage key relationships
-              <br />{" "}
             </div>
-            <div className="arrow">
-              {" "}
+            <div className="arrow1">
               <FaArrowRightLong />
               Access best in class training
-              <br />{" "}
             </div>
             <div className="arrow">
-              {" "}
               <FaArrowRightLong />
               Leverage reliable assistance with applications{" "}
             </div>
             <div className="btn">
-              {" "}
-              <button className="btnn" onClick={()=>{navigate('/login')}}>Learn More</button>
+              <button
+                className="btnn"
+                onClick={() => {
+                  navigate("/login");
+                }}
+              >
+                Learn More
+              </button>
             </div>
           </div>
         </div>
         <div className="fourrr">
           <div className="four_2">
             <img src={photo4} alt="image" /> <h2>For our Universities</h2>
-            <br />
-            <div className="arrow">
+            <div className="arrow1">
               <FaArrowRightLong />
               Connect with over 1,500 trusted overseas consultants
-              <br />{" "}
             </div>
             <div className="arrow">
               <FaArrowRightLong />
               Hit internationalisation strategy milestones
-              <br />{" "}
             </div>
-            <div className="arrow">
+            <div className="arrow1">
               <FaArrowRightLong />
               Raise brand awareness across over 50 countries
-              <br />{" "}
             </div>
             <div className="arrow">
-              {" "}
               <FaArrowRightLong />
               Gain exposure to prospective students globally
-              <br />{" "}
             </div>
-            <div className="arrow">
-              {" "}
+            <div className="arrow1">
               <FaArrowRightLong />
               Leverage admissions process management{" "}
             </div>
             <div className="btn">
-              {" "}
               <button
                 className="btnn"
                 onClick={() => {
@@ -101,7 +90,6 @@ export default function HomeThird() {
             </div>
           </div>
           <div className="four_1">
-            {" "}
             <img src={photo3} alt="image" />
           </div>
         </div>
@@ -119,7 +107,7 @@ const Root = styled.section`
     padding: 20px;
     justify-content: space-evenly;
     align-items: center;
-   
+    margin: 0%;
   }
 
   .global {
@@ -142,12 +130,13 @@ const Root = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
-    /* max-width: 100%;   */
-    > img {
+    /* width: 100%;   */
+    img {
       width: 100%;
       min-width: 50px;
       height: 100%;
       min-height: 50px;
+      border-radius: 10px;
     }
   }
 
@@ -162,6 +151,14 @@ const Root = styled.section`
     display: flex;
     align-items: center;
     gap: 10px;
+  }
+  .arrow1 {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #ffffff;
   }
 
   .btn {

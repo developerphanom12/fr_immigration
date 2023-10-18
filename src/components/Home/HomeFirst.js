@@ -21,7 +21,7 @@ export default function HomeFirst({ onSearch }) {
     <Root>
       <div className="firstbox">
         <div className="line">
-          <h2 className="line1">Your Gateway to Global Connection</h2>
+          <h1 className="line1">Your Gateway to Global Connection</h1>
           <h5 className="line2">
             The Ultimate Destination for Universities and Strategic Recruitment
             Partnerships
@@ -100,6 +100,7 @@ const Root = styled.section`
     .line {
       flex: 1;
       .line1 {
+        font-family: 'Courier New', Courier, monospace;
         color: #ff7f50;
       }
       .line2 {
