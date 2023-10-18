@@ -42,6 +42,11 @@ export default function Login() {
     }
   };
 
+  const testClick = ()=>{
+    localStorage.setItem("token","ankittoken")
+    dispatch(userCheckAction(true));
+  }
+
   console.log("logindata", logindata);
   return (
     <Root>
@@ -73,7 +78,8 @@ export default function Login() {
           <button
             className="user_btn"
             onClick={() => {
-              handleClick();
+              // handleClick();
+              testClick();
             }}
           >
             Log-in

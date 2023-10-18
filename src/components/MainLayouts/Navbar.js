@@ -3,14 +3,24 @@ import { useNavigate } from "react-router-dom";
 import logo from "../imageLogo/phanom.jpg";
 import { useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import { userCheckAction } from "../../redux/users/action";
 
 export default function Navbar() {
   const [activePop, setActivePop] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleLogout = ()=>{
+    localStorage.setItem("token","");
+    dispatch(userCheckAction(false));
+    navigate("/home")
+  }
 
   return (
     <Root>
-     <div className="logo" onClick={()=>{navigate('/')}}>
+      <h1>Welcome to our platform</h1>
+     {/* <div className="logo" onClick={()=>{navigate('/')}}>
         <img src={logo} alt="img" />
       </div>
       <div className="logged_nav">
@@ -21,7 +31,7 @@ export default function Navbar() {
               navigate("/universities");
             }}
           >
-            Universities
+            Universities11
           </button>
         </div>
         <div className="opt_div">
@@ -115,12 +125,12 @@ export default function Navbar() {
         </div>
         <div  className="opt_div"
           onClick={() => {
-            navigate("/login");
+           handleLogout()
           }}
         >
-          Login
+          Logout
         </div>
-      </div>
+      </div> */}
     </Root>
   );
 }

@@ -16,53 +16,59 @@ export default function Layout({ children }) {
           <SideBar />
         </div>
       ) : (
-        " "
+        ""
       )}
 
       <div className="main_bar">
-        {token ? (
+        {token && userCheck ? (
           <div className="top_bar">
-               <PreNav />
+            <Navbar />
           </div>
-        ) : (
+        ) : 
+        (
           <div className="pre_nav">
-         <Navbar />
+            <PreNav />
           </div>
-          
         )}
         <div className="main_body">{children}</div>
-        {/* <div className="footer">
-          <Footer />
-        </div> */}
+       
         {!token && !userCheck ? (
-    <div className="footer">
-      <Footer />
-    </div>
-  ) : null}
+          <div className="footer">
+            <Footer />
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </Root>
   );
 }
 
 const Root = styled.section`
-  display:flex;
-  flex-direction: column;
-  background:#ffffff;
-  height:100%;
-  min-height:100vh;
+  display: flex;
+  /* flex-direction: column; */
+  background: #ffffff;
+  height: 100%;
+  width: 100%;
+  max-width: 100vw;
+  min-height: 100vh;
   .sidebar {
-      flex: 0 240px;
-      min-height: 100vh;
-      height: 100%;
-      position: sticky;
-     top: 0px;
-/*       background-color: #f08080;  */
-      padding: 10px 10px;
-      border-right: 1px solid #3b3b3b;
-      overflow-x: scroll;
-      ::-webkit-scrollbar {
-        display: none;
-      } 
+    flex: 0 240px;
+    min-height: 100vh;
+    height: 100%;
+    position: sticky;
+    top: 0px;
+    /*       background-color: #f08080;  */
+    padding: 10px 10px;
+    border-right: 1px solid #3b3b3b;
+    overflow-x: scroll;
+    ::-webkit-scrollbar {
+      display: none;
     }
-  
- `
+  }
+  .main_bar{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+`;

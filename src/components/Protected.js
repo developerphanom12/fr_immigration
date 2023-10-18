@@ -1,13 +1,14 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-export default function Protected({children}) {
-    const token = localStorage.getItem("token")
-    const navigate = useNavigate();
+export default function Protected({ children }) {
+  const token = localStorage.getItem("token");
+  const userCheck = useSelector((state) => state?.users?.userCheck);
 
-    if(token && token.length>0){
-        return children;
-    }else{
-        navigate('*')
-    }
+  const navigate = useNavigate();
+
+  if (token && userCheck) {
+    return children;
+  }
 }

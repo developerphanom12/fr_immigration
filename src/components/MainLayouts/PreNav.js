@@ -20,7 +20,7 @@ export default function PreNav() {
               navigate("/universities");
             }}
           >
-            Universities
+            Universities777---
           </button>
         </div>
         <div className="opt_div">
@@ -30,7 +30,7 @@ export default function PreNav() {
               navigate("/reach");
             }}
           >
-            Our Reach
+            Our Reach--
           </button>
         </div>
         <div className="opt_div">
@@ -40,7 +40,7 @@ export default function PreNav() {
               navigate("/ambassadar");
             }}
           >
-            Be our Ambassador
+            Be our Ambassador--
           </button>
         </div>
         <div className="opt_div">
@@ -50,7 +50,7 @@ export default function PreNav() {
               navigate("/partner");
             }}
           >
-            Be a partner
+            Be a partner--
           </button>
         </div>
         <div
@@ -85,7 +85,7 @@ export default function PreNav() {
               navigate("/universities");
             }}
           >
-            Universities
+            Universities7777---
           </button>
         </div>
         <div className="opt_div">

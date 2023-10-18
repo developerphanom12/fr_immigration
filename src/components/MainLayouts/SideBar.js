@@ -7,11 +7,18 @@ import { MdSearch } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import cogoToast from "cogo-toast";
+import { useDebugValue } from "react";
+import { useDispatch } from "react-redux";
+import { userCheckAction } from "../../redux/users/action";
 
 export default function SideBar() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleLogoutClick = () => {
-    navigate("/Login");
+    localStorage.setItem("token","");
+    dispatch(userCheckAction(true));
+    cogoToast.success("Logout Successfully");
+    navigate("/");
   };
 
 
@@ -77,7 +84,6 @@ export default function SideBar() {
           <div
             onClick={() => {
               handleLogoutClick();
-              cogoToast.success("Logout Successfully");
             }}
             className="div_2"
           >
