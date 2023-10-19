@@ -49,11 +49,11 @@ const Root = styled.section`
   /* flex-direction: column; */
   background: #ffffff;
   height: 100%;
-  /* width: 100%;
-  max-width: 100vw; */
+  width: 100%;
+  max-width: 100vw;
   min-height: 100vh;
   .sidebar {
-    flex: 0 240px;
+    flex: 0 40px;
     min-height: 100vh;
     height: 100%;
     position: sticky;
@@ -70,5 +70,8 @@ const Root = styled.section`
     display: flex;
     flex-direction: column;
     flex: 1;
+    width: 100%;
+    min-width: 100vw;
+    padding-left: 10px;
   }
 `;

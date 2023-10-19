@@ -7,9 +7,11 @@ import { MdSearch } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import cogoToast from "cogo-toast";
-import { useDebugValue } from "react";
 import { useDispatch } from "react-redux";
 import { userCheckAction } from "../../redux/users/action";
+import logo from '../imageLogo/phanom.jpg';
+
+
 
 export default function SideBar() {
   const navigate = useNavigate();
@@ -26,7 +28,7 @@ export default function SideBar() {
     <Root>
       <div className="menu_top">
         <div className='company_logo'>
-         <h1>PHENOM</h1><img src='phanom.jpg' alt='img'/>
+         <img src={logo} alt="image" />
         </div>
         <div>
           <h4 className="caption">ANALYTICS</h4>
@@ -91,6 +93,8 @@ export default function SideBar() {
             <h4>Logout</h4>
           </div>
         </div>
+
+        
     </Root>
   );
 }
@@ -100,11 +104,15 @@ const Root = styled.section`
   flex-direction: column;
   gap: 60px;
   justify-content: space-between;
-  /* height: 100%; */
+  height: 100%;
   color: white;
   padding: 5px;
   font-family: "Times New Roman", serif;
   width: 100%;
+  min-width:300px;
+  img{
+    width: 200px;
+  }
   .menu_top {
     /* display: flex;  */
     .logout{
@@ -117,6 +125,7 @@ const Root = styled.section`
       gap: 4px;
       width: 100%;
       justify-content: space-between;
+      height: 100%;
       svg{
         width: 25px;
         height: 25px;
@@ -125,7 +134,7 @@ const Root = styled.section`
       .div_1 {
         text-decoration: none;
         display: flex;
-        height: 30px;
+        height: 40px;
         gap: 5px;
         justify-content: left;
         align-items: center;
@@ -188,12 +197,12 @@ const Root = styled.section`
     justify-content: left;
     align-items: center;
     font-size: 17px;
-    font-weight: 600;
+    font-weight: 400;
     padding: 10px;
     border-radius: 10px;
     color: black;
     padding-left: 10px;
-    height: 30px;
+    height: 40px;
   }
   .div_2.active,
   .div_2:hover {
@@ -206,5 +215,8 @@ const Root = styled.section`
     margin-top: 5px;
     color: gray;
     padding: 10px;
+  }
+  h4{
+    margin: 0px;
   }
 `;

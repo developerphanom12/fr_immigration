@@ -16,7 +16,6 @@ export default function Applications() {
   };
   return (
     <Root>
-      Application from
       <div className="first_div">
         <div>
           <h2>Fill your form to join our network</h2>
