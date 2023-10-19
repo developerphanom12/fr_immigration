@@ -20,7 +20,7 @@ export default function PreNav() {
               navigate("/universities");
             }}
           >
-            Universities777---
+            Universities
           </button>
         </div>
         <div className="opt_div">
@@ -30,7 +30,7 @@ export default function PreNav() {
               navigate("/reach");
             }}
           >
-            Our Reach--
+            Our Reach
           </button>
         </div>
         <div className="opt_div">
@@ -40,7 +40,7 @@ export default function PreNav() {
               navigate("/ambassadar");
             }}
           >
-            Be our Ambassador--
+            Be our Ambassador
           </button>
         </div>
         <div className="opt_div">
@@ -50,7 +50,7 @@ export default function PreNav() {
               navigate("/partner");
             }}
           >
-            Be a partner--
+            Be a partner
           </button>
         </div>
         <div
@@ -85,7 +85,7 @@ export default function PreNav() {
               navigate("/universities");
             }}
           >
-            Universities7777---
+            Universities
           </button>
         </div>
         <div className="opt_div">
@@ -133,6 +133,8 @@ export default function PreNav() {
 const Root = styled.section`
   display: flex;
   height: 80px;
+  /* min-width:100vw;
+  width:100%; */
   /* justify-content: center; */
   align-items: center;
   justify-content: space-between;
@@ -142,9 +144,11 @@ const Root = styled.section`
     color: black;
     border-color: transparent;
     font-size: larger;
-    padding: 10px;
+    padding: 8px;
     border-radius: 10px;
     cursor: pointer;
+    width: 200px ;
+
   }
   .opt_btn:hover{
     background-color: rgb(249, 147, 45);

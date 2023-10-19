@@ -170,15 +170,11 @@ const Root = styled.section`
     background: #fff3ee;
     color: #4169e1;
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: center;
     flex-direction: column;
-    padding: 20px 40px;
+    padding: 40px 20px;
     margin-bottom: 20px;
-    /* min-width: 100vw; */
-    width: 100%;
-    min-height: 100vh;
-    height: 100%;
     text-align: center;
 
     h5 {
@@ -234,7 +230,6 @@ const Root = styled.section`
   @media (max-width: 999px) {
     .main_six {
       display: flex;
-      flex-wrap: wrap;
       flex-direction: column;
       padding: 20px;
       width: auto;

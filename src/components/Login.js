@@ -22,7 +22,7 @@ export default function Login() {
       console.log("resres123", res);
       if (res?.status === 200) {
         localStorage.setItem("token", res?.data?.token);
-        // dispatch(userDataAction(res?.data));
+        dispatch(userDataAction(res?.data));
         dispatch(userCheckAction(true));
         cogoToast.success("Login SuccessFully");
         navigate("/dashboard");
@@ -42,10 +42,10 @@ export default function Login() {
     }
   };
 
-  const testClick = ()=>{
-    localStorage.setItem("token","ankittoken")
-    dispatch(userCheckAction(true));
-  }
+  // const testClick = ()=>{
+  //   localStorage.setItem("token","ankittoken")
+  //   dispatch(userCheckAction(true));
+  // }
 
   console.log("logindata", logindata);
   return (
@@ -78,8 +78,8 @@ export default function Login() {
           <button
             className="user_btn"
             onClick={() => {
-              // handleClick();
-              testClick();
+              handleClick();
+              // testClick();
             }}
           >
             Log-in

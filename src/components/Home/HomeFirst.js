@@ -91,6 +91,8 @@ export default function HomeFirst({ onSearch }) {
 const Root = styled.section`
   display: flex;
   flex-direction: column;
+  min-width: 100vw;
+  width: 100%;
   .firstbox {
     background: #fff3ee;
     padding: 30px;
@@ -227,7 +229,7 @@ const Root = styled.section`
       height: 100%;
       min-height: 200px;
       /* display:none; */
-      .photo {
+      .photo.photo1,.photo1,.photo2,.photo3,.photo4{
         min-width: 50px;
         /* width: 100%; */
         margin-bottom: 20px;

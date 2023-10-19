@@ -58,6 +58,9 @@ export default App;
 const Root = styled.section`
   font-family: "Gill Sans", sans-serif;
   flex: 1;
+  display: flex;
+  width:100%;
+  min-width:100vw;
   .app {
     margin: 0;
     padding: 0;
