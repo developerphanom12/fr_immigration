@@ -92,7 +92,7 @@ export default function Login() {
 const Root = styled.section`
   /* background-color: pink; */
   width: 100%;
-  min-width: 100vw;
+  /* min-width: 100vw; */
   height: 100%;
   min-height: 100vh;
   display: flex;

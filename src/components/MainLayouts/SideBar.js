@@ -4,97 +4,84 @@ import { MdPersonSearch } from "react-icons/md";
 import { MdWorkHistory } from "react-icons/md";
 import { FaUniversity } from "react-icons/fa";
 import { MdSearch } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import cogoToast from "cogo-toast";
 import { useDispatch } from "react-redux";
 import { userCheckAction } from "../../redux/users/action";
-import logo from '../imageLogo/phanom.jpg';
-
-
+import logo from "../imageLogo/phanom.jpg";
 
 export default function SideBar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleLogoutClick = () => {
-    localStorage.setItem("token","");
+    localStorage.setItem("token", "");
     dispatch(userCheckAction(true));
     cogoToast.success("Logout Successfully");
     navigate("/");
   };
 
-
   return (
     <Root>
       <div className="menu_top">
-        <div className='company_logo'>
-         <img src={logo} alt="image" />
+        <div className="company_logo">
+          <img src={logo} alt="image" />
         </div>
-        <div>
-          <h4 className="caption">ANALYTICS</h4>
-        </div>
-        <div className="nav_section nav_div">
+        <p className="caption">ANALYTICS</p>
+
+        <div className="nav_section">
           <div
             onClick={() => {
               navigate("/dashboard");
             }}
-            className="div_1"
           >
             <FaHome />
-            <h3>Dashboard</h3>
+            <p>Dashboard</p>
           </div>
           <div
             onClick={() => {
               navigate("/applications");
             }}
-            className="div_2"
           >
-            {<MdPersonSearch/>}
-            <h4>Add New Applicaton</h4>
+            {<MdPersonSearch />}
+            <p>Add New Applicaton</p>
           </div>
           <div
             onClick={() => {
               navigate("/history");
             }}
-            className="div_2"
           >
-            {<MdWorkHistory/>}
-            <h4>Application History</h4>
+            {<MdWorkHistory />}
+            <p>Application History</p>
           </div>
           <div
             onClick={() => {
               navigate("/urm");
             }}
-            className="div_2"
           >
-            {<FaUniversity/>}
-            <h4>URM university</h4>
+            {<FaUniversity />}
+            <p>URM university</p>
           </div>
           <div
             onClick={() => {
               navigate("/search");
             }}
-            className="div_2"
           >
-            {<MdSearch/>}
-            <h4>Search Course</h4>
+            {<MdSearch />}
+            <p>Search Course</p>
           </div>
         </div>
-        
       </div>
-      <div className="logout">
-          <div
-            onClick={() => {
-              handleLogoutClick();
-            }}
-            className="div_2"
-          >
-            <FiLogOut />
-            <h4>Logout</h4>
-          </div>
-        </div>
 
-        
+      <div
+        className="logout"
+        onClick={() => {
+          handleLogoutClick();
+        }}
+      >
+        <FiLogOut />
+        <p>Logout</p>
+      </div>
     </Root>
   );
 }
@@ -102,121 +89,86 @@ export default function SideBar() {
 const Root = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 60px;
   justify-content: space-between;
   height: 100%;
-  color: white;
+  max-height: 100vh;
+  color: black;
   padding: 5px;
-  font-family: "Times New Roman", serif;
   width: 100%;
-  min-width:300px;
-  img{
-    width: 200px;
-  }
-  .menu_top {
-    /* display: flex;  */
-    .logout{
-   background-color: aqua;
-    }
+  min-width: 280px;
+  border-right: 1px solid gray;
+  align-items: center;
 
+  .menu_top {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .company_logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 200px;
+      }
+    }
+    .caption {
+      color: gray;
+      text-align: center;
+      font-size: 16px;
+    }
     .nav_section {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 10px;
       width: 100%;
       justify-content: space-between;
       height: 100%;
-      svg{
+      > div {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        &:hover {
+          background-color: rgb(244, 130, 153);
+          cursor: pointer;
+        }
+        p {
+          margin: 0;
+          padding: 0;
+          flex: 1;
+          font-size: 20px;
+        }
+        svg {
+          width: 25px;
+          height: 25px;
+        }
+      }
+    }
+  }
+  .logout {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      width: 237px;
+      gap: 10px;
+      padding: 10px;
+      border-radius: 10px;
+      &:hover {
+        background-color: rgb(244, 130, 153);
+        cursor: pointer;
+      }
+      p {
+        margin: 0;
+        padding: 0;
+        flex: 1;
+        font-size: 20px;
+      }
+      svg {
         width: 25px;
         height: 25px;
       }
-
-      .div_1 {
-        text-decoration: none;
-        display: flex;
-        height: 40px;
-        gap: 5px;
-        justify-content: left;
-        align-items: center;
-        font-size: 20px;
-        padding: 8px;
-        padding-left: 10px;
-        border-radius: 10px;
-        /* color: whitesmoke; */
-        background-color: rgb(244, 130, 153);
-        color: black;
-        cursor: pointer;
-        svg {
-          font-size: 25px;
-        }
-      }
-      .div_1.active,
-      .div_1:hover {
-        background-color: rgb(244, 130, 153);
-        color: white;
-        cursor: pointer;
-      }
     }
-  }
-  .menu_button {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    cursor: pointer;
-
-    .admin_profile2 {
-      display: flex;
-      background-color: whitesmoke;
-      border-radius: 10px;
-      padding: 5px;
-      img {
-        object-fit: cover;
-      }
-      .admin_details {
-        font-weight: 600;
-        font-size: 18px;
-        color: black;
-        text-transform: capitalize;
-
-        p {
-          font-size: 12px;
-          color: black;
-        }
-      }
-    }
-    button {
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-    }
-  }
-  .div_2 {
-    text-decoration: none;
-    display: flex;
-    gap: 5px;
-    justify-content: left;
-    align-items: center;
-    font-size: 17px;
-    font-weight: 400;
-    padding: 10px;
-    border-radius: 10px;
-    color: black;
-    padding-left: 10px;
-    height: 40px;
-  }
-  .div_2.active,
-  .div_2:hover {
-    background-color: rgb(244, 130, 153);
-    color: black;
-    cursor: pointer;
-  }
-
-  .caption {
-    margin-top: 5px;
-    color: gray;
-    padding: 10px;
-  }
-  h4{
-    margin: 0px;
-  }
 `;

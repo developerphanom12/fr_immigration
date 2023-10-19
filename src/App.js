@@ -24,7 +24,6 @@ function App() {
   console.log("userCheck", userCheck);
   return (
     <Layout>
-      <Root className="app">
         <Routes>
           {userCheck && token ? (
             <>
@@ -49,19 +48,8 @@ function App() {
             </>
           )}
         </Routes>
-      </Root>
     </Layout>
   );
 }
-
 export default App;
-const Root = styled.section`
-  font-family: "Gill Sans", sans-serif;
-  display: flex;
-  width:100%;
-  min-width:100vw;
-  .app {
-    margin: 0;
-    padding: 0;
-  }
-`;
+

@@ -6,8 +6,10 @@ import Footer from "../Footer";
 import SideBar from "./SideBar";
 
 export default function Layout({ children }) {
-  const userCheck = useSelector((state) => state?.users?.userCheck);
-  const token = localStorage.getItem("token");
+  // const userCheck = useSelector((state) => state?.users?.userCheck);
+  // const token = localStorage.getItem("token");
+  const userCheck = true;
+  const token = "token"
   console.log("11111111rrr", userCheck, token);
   return (
     <Root>
@@ -46,12 +48,9 @@ export default function Layout({ children }) {
 
 const Root = styled.section`
   display: flex;
-  /* flex-direction: column; */
-  background: #ffffff;
-  height: 100%;
-  width: 100%;
-  max-width: 100vw;
   min-height: 100vh;
+  height: 100%;
+
   .sidebar {
     flex: 0 40px;
     min-height: 100vh;
@@ -71,7 +70,6 @@ const Root = styled.section`
     flex-direction: column;
     flex: 1;
     width: 100%;
-    min-width: 100vw;
     padding-left: 10px;
   }
 `;

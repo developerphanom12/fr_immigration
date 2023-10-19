@@ -91,7 +91,7 @@ export default function HomeFirst({ onSearch }) {
 const Root = styled.section`
   display: flex;
   flex-direction: column;
-  min-width: 100vw;
+  /* min-width: 100vw; */
   width: 100%;
   .firstbox {
     background: #fff3ee;
