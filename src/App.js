@@ -4,7 +4,6 @@ import Login from "./components/Login";
 import Protected from "./components/Protected";
 import Layout from "./components/MainLayouts/Layout";
 import { useSelector } from "react-redux";
-import styled from "styled-components";
 import PageNF from "./components/PageNF";
 import Ambassadar from "./components/Ambassadar";
 import Partner from "./components/Partner";
@@ -28,7 +27,7 @@ function App() {
           {userCheck && token ? (
             <>
               <Route path="/dashboard" element={<DashboardAdmin />} />
-              <Route path="/documents" element={<Documents />} />
+              <Route path="/documents" element={<Protected><Documents /></Protected>} />
               <Route path="/applications" element={<Applications />} />
               <Route path="/history" element={<History />} />
               <Route path="/urm" element={<Urm_university />} />

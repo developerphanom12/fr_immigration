@@ -50,7 +50,6 @@ export default function Login() {
   console.log("logindata", logindata);
   return (
     <Root>
-        {/* <img src={login} alt="img"/> */}
       <div className="box_div">
         <h2>
           <u>LOG-IN</u>
@@ -90,16 +89,15 @@ export default function Login() {
   );
 }
 const Root = styled.section`
-  /* background-color: pink; */
+/* background-image: url('D:\Office Work\fr_immigration\public\login.jpg'); */
   width: 100%;
-  /* min-width: 100vw; */
   height: 100%;
   min-height: 100vh;
+  background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0px;
-  /* background-image: url('/home/abc/Desktop/ frontend/fr_immigration/public/logo192.png'); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -115,17 +113,19 @@ const Root = styled.section`
     background-color: #ffffff;
     padding: 10px 20px 10px 20px;
     flex-wrap: wrap;
+    border-radius: 20px;
   }
 
   .user_btn {
     display: flex;
     flex-direction: column;
-    width: 300px;
-    height: 40px;
+    width: 290px;
+    height: 45px;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     margin: 8px 0px 8px 0px;
+    border-radius: 10px;
   }
 
   .user_name {
@@ -141,13 +141,15 @@ const Root = styled.section`
     width: 95%;
     padding: 8px;
     cursor: pointer;
+    border-radius: 10px;
   }
 
   .user_btn:hover {
     background-color: green;
+    color: white;
   }
-  img {
+  /* img {
     width: 800px;
     height: 800px;
-  }
+  } */
 `;
