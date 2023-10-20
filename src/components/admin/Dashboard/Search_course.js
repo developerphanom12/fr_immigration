@@ -1,38 +1,46 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { EXCHANGE_URLS_UNIVERSITY } from "../../URLS";
+import { EXCHANGE_URLS_IMAGE, EXCHANGE_URLS_UNIVERSITY } from "../../URLS";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 export default function Search_course() {
-  const [searchVal, setSearchVal] = useState("");
-  const [courseData,setCourseData] = useState();
-  const navigate = useNavigate()
+  const [searchQuery, setSearchQuery] = useState("");
+  const [courseData, setCourseData] = useState([]);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const universityApi = async () => {
+
+  const courseApi = async () => {
     try {
-      const res = await axios.get(
-        `${EXCHANGE_URLS_UNIVERSITY}/get/allcourse`,
-        courseData
-      );
+      const res = await axios.get(`${EXCHANGE_URLS_UNIVERSITY}/get/allcourse`);
       console.log("resres123", res);
-      if (res.status === 200) {
+      if (res.status === 201) {
         setCourseData(res?.data?.data);
       }
     } catch (err) {
       console.log("err", err);
     }
   };
- 
+
+  useEffect(() => {
+    courseApi();
+  }, []);
+
+  console.log("courseData", courseData);
   const clickSearch = async () => {
     try {
-      const res = await axios.post(`${EXCHANGE_URLS_UNIVERSITY}`);
+      // Send a POST request to search for courses based on searchQuery
+      const res = await axios.post(`${EXCHANGE_URLS_UNIVERSITY}/search-courses`, {
+        searchQuery: searchQuery,
+      });
+
       if (res.status === 200) {
-        console.log("searched Data", res);
+        console.log("Searched Data:", res);
+        setCourseData(res.data.data);
       }
     } catch (e) {
-      console.log(e);
+      console.error("Error searching:", e);
     }
   };
 
@@ -41,15 +49,15 @@ export default function Search_course() {
       <h2>Search Cources Here</h2>
       <div className="search_box">
         <input
-          value={searchVal}
+          value={searchQuery}
           onChange={(e) => {
-            setSearchVal(e.target.value);
+            setSearchQuery(e.target.value);
           }}
           placeholder="Search Courses Here"
         ></input>
         <button
           onClick={() => {
-            clickSearch();
+            searchQuery();
           }}
         >
           Search
@@ -57,20 +65,28 @@ export default function Search_course() {
       </div>
 
       <div className="courses_div">
-        <h2>Total Courses: 25456</h2>
+        <h2>Total Courses: {courseData?.length}</h2>
         <div className="courses_box">
-          <div className="courses_child1">
-            <img src="imageLogo/1112.png" alt="img" />
-            <div className="courses_child2">
-              <h5>BSc (Hons.) Adult Nursing</h5>
-              <p>Leeds Beckett University</p>
-              <div className="courses_child3">
-                <button>Undergraduate</button>
-                <button>3 Years</button>
-                <button>Leeds</button>
-              </div>
-            </div>
-          </div>
+          {courseData &&
+            courseData.map((i) => {
+              return (
+                <div className="courses_child1">
+                  <img
+                    src={`${EXCHANGE_URLS_IMAGE}/${i?.university_image}`}
+                    alt="img"
+                  />
+
+                  <div className="courses_child2">
+                    <h5>{i?.course_level}</h5>
+                    <p>{i.university_id.university_name}</p>
+                    <div className="courses_child3">
+                      <button> {i?.course_level}</button>
+                      {/* <button>{i.location}</button> */}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
         </div>
       </div>
     </Root>
@@ -78,16 +94,18 @@ export default function Search_course() {
 }
 
 const Root = styled.section`
+  height: 100%;
+  min-height: 100vh;
+  
   .search_box {
     display: flex;
-    width: 100%;
     padding: 5px;
     justify-content: space-between;
     border: 1px solid gray;
     border-radius: 12px;
-    flex-wrap: wrap;
     input {
       border: none;
+      border-color: white;
       border-radius: 12px;
     }
     button {
@@ -99,16 +117,21 @@ const Root = styled.section`
   }
   .courses_div {
     display: flex;
-    /* align-items: center; */
     flex-direction: column;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     .courses_box {
       display: flex;
+      gap: 10px;
+      height: 100%;
+      flex-direction: column;
       .courses_child1 {
         display: flex;
-        flex: 1;
         gap: 10px;
-        flex-wrap: wrap;
+        width: 40%;
+        padding: 10px;
+        background-color: blanchedalmond;
+        border-radius: 10px;
+        /* flex-wrap: wrap; */
         .courses_child2 {
           h5 {
             color: DodgerBlue;
@@ -117,10 +140,9 @@ const Root = styled.section`
             display: flex;
             button {
               width: 150px;
-              color: white;
-              background-color: orangered;
+              color:black;
+              background-color:rgb(20, 177, 244);
               border-radius: 14px;
-              cursor: pointer;
               margin: 10px;
             }
           }
@@ -128,5 +150,4 @@ const Root = styled.section`
       }
     }
   }
-
 `;

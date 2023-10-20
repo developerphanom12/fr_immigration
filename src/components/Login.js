@@ -18,11 +18,12 @@ export default function Login() {
 
   const loginApi = async () => {
     try {
+     
       const res = await axios.post(`${EXCHANGE_URLS}/login1`, logindata);
       console.log("resres123", res);
       if (res?.status === 200) {
-        localStorage.setItem("token", res?.data?.token);
-        dispatch(userDataAction(res?.data));
+        localStorage.setItem("token", res?.data?.data?.user?.token);
+        dispatch(userDataAction(res?.data.data.user));
         dispatch(userCheckAction(true));
         cogoToast.success("Login SuccessFully");
         navigate("/dashboard");

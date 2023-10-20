@@ -6,6 +6,7 @@ export default function DashboardAdmin() {
     "Welcome to the dashboard!",
     "Important update: ...",
   ]);
+  
   return (
     <Root>
       <h3>WELCOME TO DASHBOARD</h3>
@@ -35,7 +36,7 @@ const Root = styled.section`
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  width: 100%;
+  /* width: 100%; */
   .dashboard_details {
     flex-wrap: wrap;
     background-color: rgb(244, 130, 153);

@@ -4,7 +4,7 @@ import { MdPersonSearch } from "react-icons/md";
 import { MdWorkHistory } from "react-icons/md";
 import { FaUniversity } from "react-icons/fa";
 import { MdSearch } from "react-icons/md";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import cogoToast from "cogo-toast";
 import { useDispatch } from "react-redux";
@@ -16,7 +16,7 @@ export default function SideBar() {
   const dispatch = useDispatch();
   const handleLogoutClick = () => {
     localStorage.setItem("token", "");
-    dispatch(userCheckAction(true));
+    dispatch(userCheckAction( false));
     cogoToast.success("Logout Successfully");
     navigate("/home");
   };
@@ -24,8 +24,8 @@ export default function SideBar() {
   return (
     <Root>
       <div className="menu_top">
-        <div className="company_logo">
-          <img src={logo} alt="image" />
+        <div className="company_logo"  onClick={()=>{navigate('/home')}}>
+          <img src={logo} alt="img" />
         </div>
         <p className="caption">ANALYTICS</p>
 
@@ -98,6 +98,7 @@ const Root = styled.section`
   min-width: 280px;
   border-right: 1px solid gray;
   align-items: center;
+  overflow-y:none; 
 
   .menu_top {
     display: flex;

@@ -4,7 +4,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { EXCHANGE_URLS, EXCHANGE_URLS_IMAGE, EXCHANGE_URLS_UNIVERSITY } from "../../URLS";
+import { EXCHANGE_URLS_IMAGE, EXCHANGE_URLS_UNIVERSITY } from "../../URLS";
 
 export default function Urm_university() {
   const [data, setData] = useState({
@@ -133,6 +133,7 @@ h5,p{
         img{
           width: 80px;
           height: 80px;
+          object-fit: cover;
         }
         button{
           height: 150px;

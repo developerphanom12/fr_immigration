@@ -64,6 +64,7 @@ const Root = styled.section`
     ::-webkit-scrollbar {
       display: none;
     }
+   
   }
   .main_bar{
     display: flex;
@@ -71,5 +72,8 @@ const Root = styled.section`
     flex: 1;
     width: 100%;
     padding-left: 10px;
+    max-height: 100vh;
+    height: 100%;
+    overflow: scroll;
   }
 `;

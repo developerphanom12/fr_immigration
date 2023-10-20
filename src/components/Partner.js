@@ -7,10 +7,11 @@ import cogoToast from "cogo-toast";
 
 export default function Partner() {
   const [add, setAdd] = useState({
-    street_address: "",
+    company_address: "",
     city: "",
     state: "",
-    postal_code: "",
+    postal_code: ""
+
   });
   const [formData, setFormData] = useState({
     username: "",

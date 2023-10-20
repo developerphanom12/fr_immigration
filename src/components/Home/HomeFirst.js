@@ -46,42 +46,42 @@ export default function HomeFirst({ onSearch }) {
           </div>
         </div>
         <div className="pictures">
-          <div className='photo2'><img src={photo1} alt='image' /></div>
+          <div className='photo2'><img src={photo1} alt='img' /></div>
           <div className="photo"></div>
           <div className="photo3">
-            <img src={photo2} alt="image" />
+            <img src={photo2} alt="img" />
           </div>
           <div className="photo"></div>
           <div className="photo2">
-            <img src={photo3} alt="image" />
+            <img src={photo3} alt="img" />
           </div>
           <div className="photo"></div>
           <div className="photo">
             <h4 className="h4">80,000+ courses</h4>
           </div>
           <div className="photo3">
-            <img src={photo3} alt="image" />
+            <img src={photo3} alt="img" />
           </div>
           <div className="photo"></div>
           <div className="photo1">
-            <img src={photo4} alt="image" />
+            <img src={photo4} alt="img" />
           </div>
           <div className="photo"></div>
           <div className="photo3">
-            <img src={photo5} alt="image" />
+            <img src={photo5} alt="img" />
           </div>
           <div className="photo4">
-            <img src={photo6} alt="image" />
+            <img src={photo6} alt="img" />
           </div>
           <div className="photo"></div>
           <div className="photo4">
-            <img src={photo7} alt="image" />
+            <img src={photo7} alt="img" />
           </div>
           <div className="photo">
             <h4 className="h4">500,000+ Students</h4>
           </div>
           <div className="photo1">
-            <img src={photo8} alt="image" />
+            <img src={photo8} alt="img" />
           </div>
         </div>
       </div>
