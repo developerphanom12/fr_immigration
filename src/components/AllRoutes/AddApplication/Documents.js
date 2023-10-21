@@ -3,8 +3,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import { verifyDocs } from "../redux/users/action";
-import { EXCHANGE_URLS_APPLICATION } from "./URLS";
+import { verifyDocs } from "../../../redux/users/action";
+import { EXCHANGE_URLS_APPLICATION } from "../../URLS";
 
 export default function Documents({ appId }) {
   const [aadhar, setAadhar] = useState("");

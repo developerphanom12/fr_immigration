@@ -2,8 +2,11 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { EXCHANGE_URLS_APPLICATION, EXCHANGE_URLS_UNIVERSITY } from "../../URLS";
-import Documents from "../../Documents";
+import {
+  EXCHANGE_URLS_APPLICATION,
+  EXCHANGE_URLS_UNIVERSITY,
+} from "../../URLS";
+import Documents from "./Documents";
 
 export default function Applications() {
   const [data, setData] = useState({
@@ -23,7 +26,8 @@ export default function Applications() {
   });
   const [activeNext, setActiveNext] = useState(true);
   const [applicationId, setApplicationId] = useState("");
-  const [course, setCourse] = useState([])
+  const [course, setCourse] = useState([]);
+  const [university, setUniversity] = useState([]);
   const navigate = useNavigate();
 
   const appApi = async () => {
@@ -60,7 +64,27 @@ export default function Applications() {
         axiosConfig
       );
       if (res?.status === 200) {
-        setCourse(res?.data.data)
+        setCourse(res?.data.data);
+        // setUniversity(res?.data?.data)
+      }
+    } catch (err) {
+      console.log("err", err);
+    }
+  };
+
+  const getUniversity = async () => {
+    try {
+      const axiosConfig = {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      };
+      const res = await axios.get(
+        `${EXCHANGE_URLS_UNIVERSITY}/getall/university`,
+        axiosConfig
+      );
+      if (res?.status === 200) {
+        setUniversity(res?.data?.data);
       }
     } catch (err) {
       console.log("err", err);
@@ -72,9 +96,10 @@ export default function Applications() {
     // navigate("/documents");
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     getCourse();
-  },[])
+    getUniversity();
+  }, []);
 
   console.log("dddddd=====", data);
   return (
@@ -161,7 +186,9 @@ export default function Applications() {
                   }}
                 >
                   <option value={data.marital_status.married}>married</option>
-                  <option value={data.marital_status.unmarried}>unmarried</option>
+                  <option value={data.marital_status.unmarried}>
+                    unmarried
+                  </option>
                 </select>
               </div>
             </div>
@@ -237,39 +264,38 @@ export default function Applications() {
               <div className="name">
                 {" "}
                 university ID* :-
-                <input
-                  type="name"
-                  value={data.university_id}
+                <select
                   onChange={(e) => {
                     setData({ ...data, university_id: e.target.value });
                   }}
-                  placeholder="University ID"
-                />
+                >
+                  {university &&
+                    university.map((i) => {
+                      return (
+                        <option value={i?.university_id}>
+                          {i.university_name}
+                        </option>
+                      );
+                    })}
+                </select>
               </div>
             </div>
             <div>
-              {/* <div className="name">
-                {" "}
-                Course ID* :-
-                <input
-                  type="name"
-                  value={data.course_id}
-                  onChange={(e) => {
-                    setData({ ...data, course_id: e.target.value });
-                  }}
-                  placeholder="Course ID"
-                />
-              </div> */}
               <div className="name">
                 {" "}
                 Course ID* :-
-              <select onChange={(e) => {
+                <select
+                  onChange={(e) => {
                     setData({ ...data, course_id: e.target.value });
-                  }}>
-                {course && course.map((i)=>{
-                  return <option value={i?.course_id}>{i.course_name}</option>
-                })}
-              </select>
+                  }}
+                >
+                  {course &&
+                    course.map((i) => {
+                      return (
+                        <option value={i?.course_id}>{i.course_name}</option>
+                      );
+                    })}
+                </select>
               </div>
               <div className="name">
                 <button
@@ -291,7 +317,7 @@ export default function Applications() {
   );
 }
 const Root = styled.section`
-color: black;
+  color: black;
   .name {
     display: flex;
     flex-direction: column;
@@ -343,7 +369,7 @@ color: black;
         border-radius: 10px;
         padding: 5px;
       }
-      select{
+      select {
         border-radius: 10px;
         padding: 7px;
       }

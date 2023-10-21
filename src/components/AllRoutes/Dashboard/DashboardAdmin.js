@@ -1,12 +1,23 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Notice from "./Notice";
+import axios from "axios";
+import { EXCHANGE_URLS } from "../../URLS";
 export default function DashboardAdmin() {
   const [notices, setNotices] = useState([
     "Welcome to the dashboard!",
     "Important update: ...",
   ]);
-  
+  // const [dashboard, setDashboard] = useState();
+  // const dashboardApi = async () => {
+  //   try {
+  //     const res = await axios.get(`${EXCHANGE_URLS}`);
+  //     console.log("resss", res);
+  //   } catch (err) {
+  //     console.log("err", err);
+  //   }
+  // };
+
   return (
     <Root>
       <h3>WELCOME TO DASHBOARD</h3>

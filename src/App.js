@@ -1,54 +1,66 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import Login from "./components/Login";
+import Login from "./components/CommonPage/Login";
 import Protected from "./components/Protected";
 import Layout from "./components/MainLayouts/Layout";
 import { useSelector } from "react-redux";
-import PageNF from "./components/PageNF";
-import Ambassadar from "./components/Ambassadar";
-import Partner from "./components/Partner";
-import HomePage from "./components/Home/HomePage";
-import Universities from "./components/Universities";
-import Reach from "./components/Reach";
-import Applications from "./components/admin/Dashboard/Applications";
-import History from "./components/admin/Dashboard/History";
-import Urm_university from "./components/admin/Dashboard/Urm_university";
-import Search_course from "./components/admin/Dashboard/Search_course";
-import DashboardAdmin from "./components/admin/Dashboard/DashboardAdmin";
-import Documents from "./components/Documents";
+import PageNF from "./components/CommonPage/PageNF";
+import Ambassadar from "./components/CommonPage/Ambassadar";
+import Partner from "./components/CommonPage/Partner";
+import HomePage from "./components/CommonPage/Home/HomePage";
+import Universities from "./components/CommonPage/Universities";
+import Reach from "./components/CommonPage/Reach";
+import Applications from "./components/AllRoutes/AddApplication/Applications";
+import History from "./components/AllRoutes/allApplications/History";
+import Urm_university from "./components/AllRoutes/Universities/Urm_university";
+import Search_course from "./components/AllRoutes/Courses/Search_course";
+import DashboardAdmin from "./components/AllRoutes/Dashboard/DashboardAdmin";
+import Action from "./components/AllRoutes/actions/Action";
+import AgentDash from "./components/AllRoutes/AgentDash/AgentDash";
 function App() {
   const userCheck = useSelector((state) => state?.users?.userCheck);
+  const userDetails = useSelector((state) => state?.users.user);
+
   const token = localStorage.getItem("token");
 
-  console.log("userCheck", userCheck);
+  console.log("resres123", userDetails.role);
   return (
     <Layout>
-        <Routes>
-          {userCheck && token ? (
+      <Routes>
+        {userCheck && token ? (
+          userDetails?.role === "admin" ? (
             <>
               <Route path="/dashboard" element={<DashboardAdmin />} />
-              <Route path="/documents" element={<Protected><Documents /></Protected>} />
+              <Route path="*" element={<DashboardAdmin />} />
+              <Route path="/action" element={<Action />} />
               <Route path="/applications" element={<Applications />} />
               <Route path="/history" element={<History />} />
               <Route path="/urm" element={<Urm_university />} />
               <Route path="/search" element={<Search_course />} />
-              <Route path="*" element={<DashboardAdmin />} />
             </>
           ) : (
             <>
-              <Route path="*" element={<PageNF />} />
-              <Route path="/" element={<HomePage />} />
-              <Route path="/home" element={<HomePage />} />
-              <Route path="/universities" element={<Universities />} />
-              <Route path="/reach" element={<Reach />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/partner" element={<Partner />} />
-              <Route path="/ambassadar" element={<Ambassadar />} />
+              <Route path="/dashboardAgent" element={<AgentDash />} />
+              <Route path="/applications" element={<Applications />} />
+              <Route path="/history" element={<History />} />
+              <Route path="/urm" element={<Urm_university />} />
+              <Route path="/search" element={<Search_course />} />
             </>
-          )}
-        </Routes>
+          )
+        ) : (
+          <>
+            <Route path="*" element={<PageNF />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/universities" element={<Universities />} />
+            <Route path="/reach" element={<Reach />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/partner" element={<Partner />} />
+            <Route path="/ambassadar" element={<Ambassadar />} />
+          </>
+        )}
+      </Routes>
     </Layout>
   );
 }
 export default App;
-

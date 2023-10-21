@@ -7,38 +7,65 @@ import { MdSearch } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import cogoToast from "cogo-toast";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { userCheckAction } from "../../redux/users/action";
-import logo from "../imageLogo/phanom.jpg";
+import logo from "../CommonPage/imageLogo/phanom.jpg";
 
 export default function SideBar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleLogoutClick = () => {
     localStorage.setItem("token", "");
-    dispatch(userCheckAction( false));
+    dispatch(userCheckAction(false));
     cogoToast.success("Logout Successfully");
     navigate("/home");
   };
 
+  const userDetails = useSelector((state) => state?.users.user);
+  const currentUrl = window.location.href;
+  const activeParam = currentUrl.replace("?", "/").split("/")[3];
+
+  console.log("activeparam", activeParam);
+
   return (
     <Root>
       <div className="menu_top">
-        <div className="company_logo"  onClick={()=>{navigate('/home')}}>
+        <div
+          className="company_logo"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
           <img src={logo} alt="img" />
         </div>
         <p className="caption">ANALYTICS</p>
 
         <div className="nav_section">
+          {userDetails.role === "admin" ? (
+            <div
+              className={activeParam === "dashboard" ? "active" : ""}
+              onClick={() => {
+                navigate("/dashboard");
+              }}
+            >
+              <FaHome />
+              <p>Dashboard</p>
+            </div>
+          ) : (
+            ""
+          )}
           <div
+            className={activeParam === "dashboardAgent" ? "active" : ""}
             onClick={() => {
-              navigate("/dashboard");
+              navigate("/dashboardAgent");
             }}
           >
             <FaHome />
             <p>Dashboard</p>
           </div>
+
           <div
+            className={activeParam === "applications" ? "active" : ""}
             onClick={() => {
               navigate("/applications");
             }}
@@ -47,6 +74,7 @@ export default function SideBar() {
             <p>Add New Applicaton</p>
           </div>
           <div
+            className={activeParam === "history" ? "active" : ""}
             onClick={() => {
               navigate("/history");
             }}
@@ -55,6 +83,7 @@ export default function SideBar() {
             <p>Application History</p>
           </div>
           <div
+            className={activeParam === "urm" ? "active" : ""}
             onClick={() => {
               navigate("/urm");
             }}
@@ -63,6 +92,7 @@ export default function SideBar() {
             <p>URM university</p>
           </div>
           <div
+            className={activeParam === "search" ? "active" : ""}
             onClick={() => {
               navigate("/search");
             }}
@@ -70,6 +100,19 @@ export default function SideBar() {
             {<MdSearch />}
             <p>Search Course</p>
           </div>
+          {userDetails.role === "admin" ? (
+            <div
+              className={activeParam === "action" ? "active" : ""}
+              onClick={() => {
+                navigate("/action");
+              }}
+            >
+              {<MdPersonSearch />}
+              <p>Action</p>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       </div>
 
@@ -98,8 +141,9 @@ const Root = styled.section`
   min-width: 280px;
   border-right: 1px solid gray;
   align-items: center;
-  overflow-y:none; 
-
+  overflow-y: none;
+  position: sticky;
+  top: 0px;
   .menu_top {
     display: flex;
     flex-direction: column;
@@ -116,6 +160,7 @@ const Root = styled.section`
       color: gray;
       text-align: center;
       font-size: 16px;
+      margin: 0;
     }
     .nav_section {
       display: flex;
@@ -133,9 +178,12 @@ const Root = styled.section`
         padding: 10px;
         border-radius: 10px;
         &:hover {
-          background-color: rgb(244, 130, 153);
+          /* background-color: rgb(244, 130, 153); */
+          background-color: rgb(245 177 190 / 67%);
+
           cursor: pointer;
         }
+
         p {
           margin: 0;
           padding: 0;
@@ -147,29 +195,33 @@ const Root = styled.section`
           height: 25px;
         }
       }
+      .active {
+        background-color: rgb(244, 130, 153);
+      }
     }
   }
   .logout {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      width: 237px;
-      gap: 10px;
-      padding: 10px;
-      border-radius: 10px;
-      &:hover {
-        background-color: rgb(244, 130, 153);
-        cursor: pointer;
-      }
-      p {
-        margin: 0;
-        padding: 0;
-        flex: 1;
-        font-size: 20px;
-      }
-      svg {
-        width: 25px;
-        height: 25px;
-      }
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 237px;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    &:hover {
+      /* background-color: rgb(244, 130, 153); */
+      background-color: rgb(245 177 190 / 67%);
+      cursor: pointer;
     }
+    p {
+      margin: 0;
+      padding: 0;
+      flex: 1;
+      font-size: 20px;
+    }
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+  }
 `;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { AiOutlineMenu } from "react-icons/ai";
-import logo from '../imageLogo/phanom.jpg'
+import logo from '../CommonPage/imageLogo/phanom.jpg'
 
 export default function PreNav() {
   const navigate = useNavigate();

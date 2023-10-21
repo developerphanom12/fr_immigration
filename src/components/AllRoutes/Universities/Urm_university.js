@@ -1,25 +1,23 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { EXCHANGE_URLS_IMAGE, EXCHANGE_URLS_UNIVERSITY } from "../../URLS";
 
 export default function Urm_university() {
-  const [data, setData] = useState({
-    username: "",
-    password: "",
-  });
   const [universityData, setUniversityData] = useState([]);
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const universityApi = async () => {
     try {
+      const axiosConfig = {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      };
       const res = await axios.get(
         `${EXCHANGE_URLS_UNIVERSITY}/getall/university`,
-        data
+
+        axiosConfig
       );
       console.log("resres123", res);
       if (res.status === 200) {
@@ -66,7 +64,10 @@ export default function Urm_university() {
               <div className="card">
                 <div className="card_top">
                   <h5>{i?.university_name}</h5>
-               <img src= {`${EXCHANGE_URLS_IMAGE }/${i.university_image}`} alt="img"/>
+                  <img
+                    src={`${EXCHANGE_URLS_IMAGE}/${i.university_image}`}
+                    alt="img"
+                  />
                 </div>
 
                 <div>
@@ -85,11 +86,12 @@ export default function Urm_university() {
   );
 }
 const Root = styled.section`
-h5,p{
-  margin: 0;
-  padding: 0;
-  text-transform: capitalize;
-}
+  h5,
+  p {
+    margin: 0;
+    padding: 0;
+    text-transform: capitalize;
+  }
   .first_child {
     display: flex;
     background-color: lightblue;
@@ -127,15 +129,15 @@ h5,p{
       padding: 10px;
       border-radius: 15px;
       border-bottom: 5px solid blue;
-      .card_top{
+      .card_top {
         display: flex;
         gap: 10px;
-        img{
+        img {
           width: 80px;
           height: 80px;
           object-fit: cover;
         }
-        button{
+        button {
           height: 150px;
         }
       }

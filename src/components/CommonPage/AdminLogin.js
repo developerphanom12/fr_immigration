@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 import cogoToast from "cogo-toast";
 import { useDispatch } from "react-redux";
-import { userCheckAction, userDataAction } from "../redux/users/action";
-import { EXCHANGE_URLS } from "./URLS";
+import { userCheckAction, userDataAction } from "../../redux/users/action";
+import {  EXCHANGE_URLS_ADMIN } from "../URLS";
 // import login from './imageLogo/login.jpg';
 
-export default function Login() {
+export default function AdminLogin() {
   const [logindata, setlogindata] = useState({
     username: "",
     password: "",
@@ -19,11 +19,11 @@ export default function Login() {
   const loginApi = async () => {
     try {
      
-      const res = await axios.post(`${EXCHANGE_URLS}/login1`, logindata);
-      console.log("resres123", res);
+      const res = await axios.post(`${EXCHANGE_URLS_ADMIN}/login`, logindata);
+      console.log("resres123", res?.data?.data?.user);
       if (res?.status === 200) {
         localStorage.setItem("token", res?.data?.data?.user?.token);
-        dispatch(userDataAction(res?.data.data.user));
+        dispatch(userDataAction(res?.data?.data?.user));
         dispatch(userCheckAction(true));
         cogoToast.success("Login SuccessFully");
         navigate("/dashboard");
@@ -34,7 +34,7 @@ export default function Login() {
   };
 
   const handleClick = () => {
-    if (logindata.username.length > 3 && logindata.password.length > 8) {
+    if (logindata.username.length > 3 && logindata.password.length > 5) {
       loginApi();
     } else {
       cogoToast.error(
