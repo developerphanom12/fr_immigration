@@ -20,10 +20,10 @@ export default function AdminLogin() {
     try {
      
       const res = await axios.post(`${EXCHANGE_URLS_ADMIN}/login`, logindata);
-      console.log("resres123", res?.data?.data?.user);
+      console.log("resres123", res?.data?.data);
       if (res?.status === 200) {
-        localStorage.setItem("token", res?.data?.data?.user?.token);
-        dispatch(userDataAction(res?.data?.data?.user));
+        localStorage.setItem("token", res?.data?.data?.token);
+        dispatch(userDataAction(res?.data?.data));
         dispatch(userCheckAction(true));
         cogoToast.success("Login SuccessFully");
         navigate("/dashboard");
@@ -34,11 +34,11 @@ export default function AdminLogin() {
   };
 
   const handleClick = () => {
-    if (logindata.username.length > 3 && logindata.password.length > 5) {
+    if (logindata.username.length > 3 ) {
       loginApi();
     } else {
       cogoToast.error(
-        "Username & password Length should be greater than 3 & 8 character"
+        "Username & password Length should be greater than 3 & 5 character"
       );
     }
   };

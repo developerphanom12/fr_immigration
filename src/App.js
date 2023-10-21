@@ -17,6 +17,7 @@ import Search_course from "./components/AllRoutes/Courses/Search_course";
 import DashboardAdmin from "./components/AllRoutes/Dashboard/DashboardAdmin";
 import Action from "./components/AllRoutes/actions/Action";
 import AgentDash from "./components/AllRoutes/AgentDash/AgentDash";
+import AdminLogin from "./components/CommonPage/AdminLogin";
 function App() {
   const userCheck = useSelector((state) => state?.users?.userCheck);
   const userDetails = useSelector((state) => state?.users.user);
@@ -54,6 +55,7 @@ function App() {
             <Route path="/home" element={<HomePage />} />
             <Route path="/universities" element={<Universities />} />
             <Route path="/reach" element={<Reach />} />
+            <Route path="/adminlogin" element={<AdminLogin />} />
             <Route path="/login" element={<Login />} />
             <Route path="/partner" element={<Partner />} />
             <Route path="/ambassadar" element={<Ambassadar />} />
