@@ -20,16 +20,16 @@ import AgentDash from "./components/AllRoutes/AgentDash/AgentDash";
 import AdminLogin from "./components/CommonPage/AdminLogin";
 function App() {
   const userCheck = useSelector((state) => state?.users?.userCheck);
-  const userDetails = useSelector((state) => state?.users.user);
+  const userDetails = useSelector((state) => state?.users?.user);
 
   const token = localStorage.getItem("token");
 
-  console.log("resres123", userDetails.role);
+  console.log("resres123", userDetails?.role);
   return (
     <Layout>
       <Routes>
         {userCheck && token ? (
-          userDetails?.role === "admin" ? (
+          userDetails && userDetails?.role === "admin" ? (
             <>
               <Route path="/dashboard" element={<DashboardAdmin />} />
               <Route path="*" element={<DashboardAdmin />} />

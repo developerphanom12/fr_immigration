@@ -38,7 +38,7 @@ export default function AdminLogin() {
       loginApi();
     } else {
       cogoToast.error(
-        "Username & password Length should be greater than 3 & 5 character"
+        "Username Length should be greater than 3 character"
       );
     }
   };
