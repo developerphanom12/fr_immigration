@@ -1,9 +1,12 @@
 import axios from "axios";
-import React, {useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { EXCHANGE_URLS_UNIVERSITY } from "../../URLS";
+import cogoToast from "cogo-toast";
+import { useNavigate } from "react-router-dom";
 
 export default function AddCourses() {
+  const navigate = useNavigate();
   const [newCourse, setNewCourse] = useState({
     university_id: "",
     course_name: "",
@@ -24,21 +27,32 @@ export default function AddCourses() {
       console.log("resr", res);
       if (res.status === 201) {
         setNewCourse(res?.data);
+        cogoToast.success("Submit SuccessFully");
+        navigate("/dashboard");
       }
     } catch (err) {
       console.log("err", err);
     }
   };
 
-  
+  const handleClick = () => {
+    if (
+      newCourse.university_id.length &&
+      newCourse.course_name.length &&
+      newCourse.course_level.length > 1
+    ) {
+      courseApi();
+    } else {
+      cogoToast.error("Fill All Details");
+    }
+  };
 
   console.log("newCourse", newCourse);
   return (
     <Root>
-      AddCourses
+     <h4> <u>Add Courses</u></h4>
+      <div className="courses"> Course Name* :-</div>
       <div className="courses">
-        {" "}
-        Course Name* :-
         <input
           type="name"
           value={newCourse.course_name}
@@ -48,9 +62,8 @@ export default function AddCourses() {
           placeholder="Course Name"
         />
       </div>
+      <div className="courses"> University ID* :-</div>
       <div className="courses">
-        {" "}
-        University ID* :-
         <input
           type="name"
           value={newCourse.university_id}
@@ -60,9 +73,8 @@ export default function AddCourses() {
           placeholder="University Name"
         />
       </div>
+      <div className="courses"> Course Level* :-</div>
       <div className="courses">
-        {" "}
-        Course Level* :-
         <input
           type="name"
           value={newCourse.course_level}
@@ -72,11 +84,45 @@ export default function AddCourses() {
           placeholder="Course Level"
         />
       </div>
-      <button onClick={()=>{courseApi()}}>button</button>
+      <button
+        onClick={() => {
+          handleClick();
+        }}
+      >
+        Submit
+      </button>
     </Root>
   );
 }
 const Root = styled.section`
-
-
+  display: flex;
+  min-height: 100vh;
+  height: 100%;
+  padding: 5px;
+  align-items: center;
+  flex-direction: column;
+  button {
+    border-radius: 17px;
+    background-color: rgb(251, 134, 44);
+    border: transparent;
+    padding: 5px;
+    cursor: pointer;
+    margin: 10px;
+  }
+  .courses {
+    display: flex;
+    padding: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    color: orangered;
+    /* justify-content: center; */
+    input {
+      border-radius: 15px;
+      padding: 7px;
+     @media(max-width:782px){
+      min-width:150px;
+     }
+    }
+  }
 `;

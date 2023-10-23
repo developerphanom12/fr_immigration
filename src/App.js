@@ -18,6 +18,7 @@ import DashboardAdmin from "./components/AllRoutes/Dashboard/DashboardAdmin";
 import Action from "./components/AllRoutes/actions/Action";
 import AgentDash from "./components/AllRoutes/AgentDash/AgentDash";
 import AdminLogin from "./components/CommonPage/AdminLogin";
+import HistoryMain from "./components/AllRoutes/allApplications/HistoryMain";
 function App() {
   const userCheck = useSelector((state) => state?.users?.userCheck);
   const userDetails = useSelector((state) => state?.users?.user);
@@ -35,7 +36,7 @@ function App() {
               <Route path="*" element={<DashboardAdmin />} />
               <Route path="/action" element={<Action />} />
               <Route path="/applications" element={<Applications />} />
-              <Route path="/history" element={<History />} />
+              <Route path="/history" element={<HistoryMain />} />
               <Route path="/urm" element={<Urm_university />} />
               <Route path="/search" element={<Search_course />} />
             </>
@@ -43,7 +44,7 @@ function App() {
             <>
               <Route path="/dashboardAgent" element={<AgentDash />} />
               <Route path="/applications" element={<Applications />} />
-              <Route path="/history" element={<History />} />
+              <Route path="/history" element={<HistoryMain />} />
               <Route path="/urm" element={<Urm_university />} />
               <Route path="/search" element={<Search_course />} />
             </>

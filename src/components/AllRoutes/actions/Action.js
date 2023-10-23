@@ -52,7 +52,7 @@ const Root = styled.section`
       }
     }
     .active {
-      border-bottom: 5px solid lightpink;
+      border-bottom: 5px solid orange;
     }
   }
 `;

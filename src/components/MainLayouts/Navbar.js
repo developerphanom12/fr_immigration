@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { userCheckAction } from "../../redux/users/action";
-import russia from "../MainLayouts/Russia.png";
-import canada from "../MainLayouts/canada.png";
-import us from "../MainLayouts/unitedstates.png";
-import maxico from "../MainLayouts/maxico.jpg";
-import china from "../MainLayouts/china.png";
+import russia from "../MainLayouts/pictures/Russia.png";
+import canada from "../MainLayouts/pictures/canada.png";
+import us from "../MainLayouts/pictures/unitedstates.png";
+import maxico from "../MainLayouts/pictures/maxico.jpg";
+import china from "../MainLayouts/pictures/china.png";
 
 export default function Navbar() {
   const [activePop, setActivePop] = useState(false);

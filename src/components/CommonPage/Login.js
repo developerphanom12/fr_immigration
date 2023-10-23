@@ -26,7 +26,7 @@ export default function Login() {
         dispatch(userDataAction(res?.data?.data?.user));
         dispatch(userCheckAction(true));
         cogoToast.success("Login SuccessFully");
-        navigate("/dashboard");
+        navigate("/dashboardAgent");
       }
     } catch (err) {
       console.log("err", err);
@@ -38,7 +38,7 @@ export default function Login() {
       loginApi();
     } else {
       cogoToast.error(
-        "Username & password Length should be greater than 3 & 8 character"
+        "Username & password Length should be greater than 3 & 5 character"
       );
     }
   };
