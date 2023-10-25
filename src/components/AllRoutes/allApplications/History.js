@@ -2,13 +2,17 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { EXCHANGE_URLS_APPLICATION } from "../../URLS";
+import { useDispatch } from "react-redux";
+import { appDetailsAction } from "../../../redux/users/action";
 
-export default function History({popUser, getData}) {
+export default function History({ popUser = () => {} }) {
   const [applications, setApplications] = useState([]);
   const [filteredApplications, setFilteredApplications] = useState([]);
   const [searchKey, setSearchKey] = useState("");
   const [courses, setCourses] = useState([]);
   const [getDetails,setGetDetails] = useState({})
+
+  const dispatch = useDispatch();
 
  
 
@@ -23,7 +27,7 @@ export default function History({popUser, getData}) {
         `${EXCHANGE_URLS_APPLICATION}/fetchallapplications?searchKey=${searchKey}`,
         axiosConfig
       );
-      setApplications(res.data.data[0].applications);
+      setApplications(res?.data?.data[0].applications);
     } catch (e) {
       console.log(e);
     }
@@ -32,7 +36,7 @@ export default function History({popUser, getData}) {
   const getCourses = async () => {
     try {
       const res = await axios.get(
-        `${EXCHANGE_URLS_APPLICATION}/fetchallapplication`
+        `${EXCHANGE_URLS_APPLICATION}/fetchallapplications`
       );
       setCourses(res?.data?.data[0].applications);
     } catch (e) {
@@ -61,6 +65,12 @@ export default function History({popUser, getData}) {
     }
   },[searchKey])
 
+  const handlePassData =(i)=>{  
+    console.log("getDetails1", i) ;
+      dispatch(appDetailsAction(i))
+      popUser(true)
+  }
+
   return (
     <Root>
       {" "}
@@ -78,7 +88,7 @@ export default function History({popUser, getData}) {
       </div>
       <div className="app_table">
         <div className="app_header">
-          <div>Cams Id</div>
+          <div>Cams Id</div> 
           <div>Student Name</div>
           <div>University Name</div>
           <div>Course Name</div>
@@ -87,7 +97,7 @@ export default function History({popUser, getData}) {
         {applications &&
           applications.map((i) => {
             return (
-              <div className="app_body" onClick={()=>{popUser(true, setGetDetails(i))}}>
+              <div className="app_body" onClick={()=>{handlePassData(i)}}>
                 <div>{i?.application_id}</div>
                 <div>
                   <p>

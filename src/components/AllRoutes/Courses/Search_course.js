@@ -8,8 +8,10 @@ import { EXCHANGE_URLS_IMAGE, EXCHANGE_URLS_UNIVERSITY } from "../../URLS";
 export default function Search_course() {
   const [searchQuery, setSearchQuery] = useState("");
   const [courseData, setCourseData] = useState([]);
+  const [searchKey, setSearchKey] = useState("");
 
-  const courseApi = async () => {
+
+  const courseApi = async (searchKey) => {
     try {
       const res = await axios.get(`${EXCHANGE_URLS_UNIVERSITY}/get/allcourse`);
       console.log("resres123", res);
@@ -29,7 +31,7 @@ export default function Search_course() {
   const clickSearch = async () => {
     try {
       const res = await axios.post(
-        `${EXCHANGE_URLS_UNIVERSITY}/search-courses`,
+        `${EXCHANGE_URLS_UNIVERSITY}/search-courses?searchKey=${searchKey}`,
         {
           searchQuery: searchQuery,
         }
@@ -43,17 +45,28 @@ export default function Search_course() {
       console.error("Error searching:", e);
     }
   };
+  
+  useEffect(()=>{
+    if(searchKey != null){
+      const debounce = setTimeout(()=>{
+        courseApi(searchKey)
+      },1000);
+      return(
+        clearTimeout(debounce)
+      )
+    }
+  })
 
   return (
     <Root>
       <h2>Search Courses Here</h2>
       <div className="search_box">
-        <input
-          value={searchQuery}
+      <input
+          value={searchKey}
           onChange={(e) => {
-            setSearchQuery(e.target.value);
+            setSearchKey(e.target.value);
           }}
-          placeholder="Search Courses Here...."
+          placeholder="Search Courses...."
         ></input>
         <button
           onClick={() => {
@@ -112,14 +125,15 @@ const Root = styled.section`
 
   .search_box {
     display: flex;
-    padding: 5px;
+    /* padding: 5px; */
     justify-content: space-between;
     border: 1px solid gray;
-    border-radius: 12px;
+    /* border-radius: 12px; */
     input {
       border: none;
-      border-radius: 12px;
+      /* border-radius: 12px; */
       width: 100%;
+      /* padding: 5px; */
     }
     button {
       width: 80px;

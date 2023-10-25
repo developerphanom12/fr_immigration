@@ -4,6 +4,7 @@ const initialState = {
     verifyDocs: false,
     // userAllDetails: {},
     docSubmitted: false,
+    appDetails:{},
 };
 
 const UserReducer = (state = initialState, action) =>{
@@ -28,11 +29,11 @@ const UserReducer = (state = initialState, action) =>{
         //         ...state,
         //         userAllDetails: action.payload
         //     }
-        // case "DOC_SUBMITTED":
-        //     return{
-        //         ...state,
-        //         docSubmitted: action.payload
-        //     }
+        case "APP_DETAILS":
+            return{
+                ...state,
+                appDetails: action.payload
+            }
         default:
             return state;
     }

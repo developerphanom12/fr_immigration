@@ -1,9 +1,7 @@
 import cogoToast from "cogo-toast";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { verifyDocs } from "../../../redux/users/action";
 import { EXCHANGE_URLS_APPLICATION } from "../../URLS";
 
 export default function Documents({ appId }) {
@@ -17,17 +15,11 @@ export default function Documents({ appId }) {
     console.log("dataaaa", aadhar, pan)
     try {
       const res = await axios.put(
-        `${EXCHANGE_URLS_APPLICATION}/upload/documents/${28}`,data
+        `${EXCHANGE_URLS_APPLICATION}/upload/documents${appId}`,data
   
       );
       console.log("resssssssss",res)
       cogoToast.success("Documents Submitted Successfully");
-
-      // if (res?.status === 200) {
-      //   setAadhar(res?.data?.data.aadhar);
-      //   setPan(res?.data?.data.pan);
-      //   cogoToast.success("Documents Submitted Successfully");
-      // }
     } 
     catch (error) {
       cogoToast.error("There is some error");
@@ -71,7 +63,6 @@ export default function Documents({ appId }) {
             className="submit_btn"
             onClick={() => {
               handleSubmit()
-              // submitDoc();
             }}
           >
             {" "}

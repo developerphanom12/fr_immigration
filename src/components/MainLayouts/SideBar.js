@@ -61,7 +61,7 @@ export default function SideBar() {
             }}
           >
             <FaHome />
-            <p>Dashboard</p>
+            <p>DashboardAgent</p>
           </div>
 
           <div

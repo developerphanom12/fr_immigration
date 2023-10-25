@@ -38,13 +38,20 @@ export default function Urm_university() {
     <Root>
       <h1>URM University</h1>
       <div className="first_child">
-        <select>
-          <option>---Select University Name---</option>
-          <option>Select University Name</option>
-          <option>Select University Name</option>
-          <option>Select University Name</option>
-        </select>
-
+      <select
+                  onChange={(e) => {
+                    setUniversityData({ ...universityData, university_id: e.target.value });
+                  }}
+                >
+                  {universityData &&
+                    universityData.map((i) => {
+                      return (
+                        <option value={i?.university_id}>
+                          {i.university_name}
+                        </option>
+                      );
+                    })}
+                </select>
         <select>
           <option>---Select URM Name---</option>
           <option>Select URM Name</option>

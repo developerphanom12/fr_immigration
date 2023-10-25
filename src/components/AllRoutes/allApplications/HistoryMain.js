@@ -8,13 +8,12 @@ export default function HistoryMain() {
   const [details, setDetails] = useState({});
 
 
-console.log('details',details)
+console.log('popUser',popUser)
 
   return (
    <Root>
-    <h1>history of user</h1>
     {popUser?
-    <UserDetail popUser = {(e,i)=>{setPopUser(e)}}/>:
+    <UserDetail popUser = {(e)=>{setPopUser(e)}}/>:
     <History popUser = {(e)=>{setPopUser(e)}}/>
   }
    </Root>

@@ -16,3 +16,9 @@ export const verifyDocs = (verifyDocs)=>{
         payload: verifyDocs
     }
 }
+export const appDetailsAction = (data) => {
+    return {
+        type: "APP_DETAILS",
+        payload: data
+    }
+}
