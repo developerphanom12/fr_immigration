@@ -7,15 +7,25 @@ import { EXCHANGE_URLS_APPLICATION } from "../../URLS";
 export default function Documents({ appId }) {
   const [aadhar, setAadhar] = useState("");
   const [pan, setPan] = useState("");
+  const [passFront,setPassFront] = useState("");
+  const [passBack,setPassBack] = useState("");
+  const [pass10th,setPass10th] = useState("");
+  const [pass12th,setPass12th] = useState("");
+
 
   const submitDoc = async () => {
     const data = new FormData();
     data.append("aadhar", aadhar);
     data.append("pan", pan);
+    data.append("pass_front",passFront);
+    data.append("pass_back",passBack);
+    data.append("10th",pass10th);
+    data.append("12th",pass12th);
+
     console.log("dataaaa", aadhar, pan)
     try {
       const res = await axios.put(
-        `${EXCHANGE_URLS_APPLICATION}/upload/documents${appId}`,data
+        `${EXCHANGE_URLS_APPLICATION}/upload/documents/${appId}`,data
   
       );
       console.log("resssssssss",res)
@@ -35,14 +45,14 @@ export default function Documents({ appId }) {
     }
   }
 
-  console.log("aadhar", aadhar, pan)
+  console.log("aadhar", aadhar, pan ,passFront,passBack)
 
   return (
     <Root>
       <div className="all_details">
         <p>Application : {appId}</p>
         <div>
-          <p>Aadhar Card</p>
+          <p>Aadhar Card *</p>
           <input
             type="file"
             onChange={(e) => {
@@ -56,6 +66,42 @@ export default function Documents({ appId }) {
             type="file"
             onChange={(e) => {
               setPan(e.target.files[0]);
+            }}
+          />
+        </div>
+        <div>
+          <p>Passport Front *</p>
+          <input
+            type="file"
+            onChange={(e) => {
+              setPassFront(e.target.files[0]);
+            }}
+          />
+        </div>
+        <div>
+          <p>Passport Back *</p>
+          <input
+            type="file"
+            onChange={(e) => {
+              setPassBack(e.target.files[0]);
+            }}
+          />
+        </div>
+        <div>
+          <p>Matric *</p>
+          <input
+            type="file"
+            onChange={(e) => {
+              setPass10th(e.target.files[0]);
+            }}
+          />
+        </div>
+        <div>
+          <p>Intermediate *</p>
+          <input
+            type="file"
+            onChange={(e) => {
+              setPass12th(e.target.files[0]);
             }}
           />
         </div>

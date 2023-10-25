@@ -7,14 +7,14 @@ import { appDetailsAction } from "../../../redux/users/action";
 
 export default function History({ popUser = () => {} }) {
   const [applications, setApplications] = useState([]);
-  const [filteredApplications, setFilteredApplications] = useState([]);
+  // const [filteredApplications, setFilteredApplications] = useState([]);
   const [searchKey, setSearchKey] = useState("");
   const [courses, setCourses] = useState([]);
-  const [getDetails,setGetDetails] = useState({})
+  // const [getDetails,setGetDetails] = useState({})
 
   const dispatch = useDispatch();
 
- 
+ console.log("courses",courses);
 
   const getHistory = async (searchKey) => {
     const axiosConfig = {
@@ -74,7 +74,6 @@ export default function History({ popUser = () => {} }) {
   return (
     <Root>
       {" "}
-      Application History
       <h1>Application History</h1>
       <div className="search_box">
         <input

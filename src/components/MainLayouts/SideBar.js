@@ -41,7 +41,7 @@ export default function SideBar() {
         <p className="caption">ANALYTICS</p>
 
         <div className="nav_section">
-          {userDetails.role === "admin" ? (
+          
             <div
               className={activeParam === "dashboard" ? "active" : ""}
               onClick={() => {
@@ -51,19 +51,6 @@ export default function SideBar() {
               <FaHome />
               <p>Dashboard</p>
             </div>
-          ) : (
-            ""
-          )}
-          <div
-            className={activeParam === "dashboardAgent" ? "active" : ""}
-            onClick={() => {
-              navigate("/dashboardAgent");
-            }}
-          >
-            <FaHome />
-            <p>DashboardAgent</p>
-          </div>
-
           <div
             className={activeParam === "applications" ? "active" : ""}
             onClick={() => {

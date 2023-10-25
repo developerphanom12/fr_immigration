@@ -1,42 +1,61 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Notice from "./Notice";
 import axios from "axios";
-import { EXCHANGE_URLS } from "../../URLS";
+import { EXCHANGE_URLS_APPLICATION } from "../../URLS";
 export default function DashboardAdmin() {
   const [notices, setNotices] = useState([
     "Welcome to the dashboard!",
     "Important update: ...",
   ]);
-  // const [dashboard, setDashboard] = useState();
-  // const dashboardApi = async () => {
-  //   try {
-  //     const res = await axios.get(`${EXCHANGE_URLS}`);
-  //     console.log("resss", res);
-  //   } catch (err) {
-  //     console.log("err", err);
-  //   }
-  // };
-
+  const [dashboard, setDashboard] = useState({
+    approved: "",
+    pending: "",
+    rejected: "",
+    totalApplications: "",
+  });
+  const dashboardApi = async () => {
+    const axiosConfig = {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    };
+    try {
+      const res = await axios.get(
+        `${EXCHANGE_URLS_APPLICATION}/getbydata`,
+        axiosConfig
+      );
+      console.log("resss", res?.data?.data);
+        setDashboard(res?.data?.data);
+     
+    } catch (err) {
+      console.log("err", err);
+    }
+  };
+  useEffect(() => {
+    dashboardApi();
+  }, []);
+  console.log("dashboarddd", dashboard);
   return (
     <Root>
       <h3>WELCOME TO DASHBOARD</h3>
       <div className="dashboard_details">
         <div className="details">
           <div>
-            Total Applications<h3>{60}</h3>
+            <h5> Approve Documents:- {dashboard?.approved}</h5>
           </div>
           <div>
-            Application Processed<h3>{25}</h3>
+            <h5> Application Pending:- {dashboard?.pending}</h5>
           </div>
           <div>
-            Rejected Documents<h3>{1}</h3>
+            <h5>Rejected Documents:- {dashboard?.rejected}</h5>
           </div>
           <div>
-            Fake Documents<h3>{0}</h3>
+            <h5>Total Applications:- {dashboard?.totalApplications}</h5>
           </div>
         </div>
       </div>
+
       <div className="notice">
         <Notice notices={notices} />
       </div>

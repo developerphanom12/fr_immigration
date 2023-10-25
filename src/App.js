@@ -11,7 +11,6 @@ import HomePage from "./components/CommonPage/Home/HomePage";
 import Universities from "./components/CommonPage/Universities";
 import Reach from "./components/CommonPage/Reach";
 import Applications from "./components/AllRoutes/AddApplication/Applications";
-import History from "./components/AllRoutes/allApplications/History";
 import Urm_university from "./components/AllRoutes/Universities/Urm_university";
 import Search_course from "./components/AllRoutes/Courses/Search_course";
 import DashboardAdmin from "./components/AllRoutes/Dashboard/DashboardAdmin";
@@ -42,7 +41,8 @@ function App() {
             </>
           ) : (
             <>
-              <Route path="/dashboardAgent" element={<AgentDash />} />
+             <Route path="/dashboard" element={<DashboardAdmin />} />
+              <Route path="*" element={<DashboardAdmin />} />
               <Route path="/applications" element={<Applications />} />
               <Route path="/history" element={<HistoryMain />} />
               <Route path="/urm" element={<Urm_university />} />

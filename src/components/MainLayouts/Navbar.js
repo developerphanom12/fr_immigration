@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { FcAbout } from "react-icons/fc";
 import { useDispatch } from "react-redux";
 import { userCheckAction } from "../../redux/users/action";
 import russia from "../MainLayouts/pictures/Russia.png";
@@ -49,17 +50,24 @@ export default function Navbar() {
           China
         </div>
       </div>
+      <div className="notification">
+        <FcAbout />
+      </div>
     </Root>
   );
 }
 
 const Root = styled.section`
+display: flex;
+gap: 450px;
+align-items: center;
   .flags {
     display: flex;
     height: 50px;
     margin: 10px 0px;
     gap: 10px;
     padding: 8px;
+   
     > div {
       height: 38px;
       width: 150px;
@@ -77,4 +85,9 @@ const Root = styled.section`
       border-radius: 130px;
     }
   }
+  .notification {
+     display: flex;
+      justify-content:right;
+      font-size: 25px;
+    }
 `;
