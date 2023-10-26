@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { AiOutlineMenu } from "react-icons/ai";
+import { FcList } from "react-icons/fc";
 import logo from '../CommonPage/imageLogo/phanom.jpg'
 
 export default function PreNav() {
@@ -10,7 +10,7 @@ export default function PreNav() {
   return (
     <Root>
       <div className="logo" onClick={()=>{navigate('/')}}>
-        <img src={logo} alt="image" />
+        <img src={logo} alt="img" />
       </div>
       <div className="options">
         <div className="opt_div">
@@ -77,7 +77,7 @@ export default function PreNav() {
           setActivePop(true);
         }}
       >
-        <AiOutlineMenu />
+        <FcList />
       </div>
 
       <div

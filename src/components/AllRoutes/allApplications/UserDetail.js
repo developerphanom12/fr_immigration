@@ -10,6 +10,7 @@ export default function UserDetail({ popUser }) {
   const [select, setSelect] = useState({
     newStatus: "",
     applicationId: "",
+    comment: "",
   });
   const getDetails = useSelector((state) => state?.users?.appDetails);
   const dispatch = useDispatch();
@@ -123,6 +124,14 @@ export default function UserDetail({ popUser }) {
             <option value="approved">Approve</option>
             <option value="rejected">Reject</option>
           </select>
+          <input
+            type="comment"
+            value={select.comment}
+            onChange={(e) => {
+              setSelect({ ...select, comment: e.target.value });
+            }}
+            placeholder="Comment here"
+          />
 
           <button
             className="btn"
@@ -132,19 +141,19 @@ export default function UserDetail({ popUser }) {
           >
             Submit
           </button>
-          <div>
-            <button
-              onClick={() => {
-                popUser(false);
-              }}
-            >
-              Back
-            </button>
-          </div>
         </>
       ) : (
         ""
       )}
+      <div>
+        <button
+          onClick={() => {
+            popUser(false);
+          }}
+        >
+          Back
+        </button>
+      </div>
     </Root>
   );
 }
@@ -193,5 +202,8 @@ const Root = styled.section`
   .btn {
     border-radius: 2px;
     background-color: green;
+  }
+  input {
+    margin: 5px;
   }
 `;

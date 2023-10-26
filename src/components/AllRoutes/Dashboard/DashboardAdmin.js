@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import Notice from "./Notice";
 import axios from "axios";
 import { EXCHANGE_URLS_APPLICATION } from "../../URLS";
 export default function DashboardAdmin() {
-  const [notices, setNotices] = useState([
-    "Welcome to the dashboard!",
-    "Important update: ...",
-  ]);
   const [dashboard, setDashboard] = useState({
     approved: "",
     pending: "",
@@ -26,8 +21,7 @@ export default function DashboardAdmin() {
         axiosConfig
       );
       console.log("resss", res?.data?.data);
-        setDashboard(res?.data?.data);
-     
+      setDashboard(res?.data?.data);
     } catch (err) {
       console.log("err", err);
     }
@@ -42,23 +36,30 @@ export default function DashboardAdmin() {
       <div className="dashboard_details">
         <div className="details">
           <div>
-            <h5> Approve Documents:- {dashboard?.approved}</h5>
+            <p> Approve Documents:- {dashboard?.approved}</p>
           </div>
           <div>
-            <h5> Application Pending:- {dashboard?.pending}</h5>
+            <p> Application Pending:- {dashboard?.pending}</p>
           </div>
           <div>
-            <h5>Rejected Documents:- {dashboard?.rejected}</h5>
+            <p>Rejected Documents:- {dashboard?.rejected}</p>
           </div>
           <div>
-            <h5>Total Applications:- {dashboard?.totalApplications}</h5>
+            <p>Total Applications:- {dashboard?.totalApplications}</p>
           </div>
         </div>
+        
       </div>
-
       <div className="notice">
-        <Notice notices={notices} />
-      </div>
+        <h2>Notice Board</h2>
+        <ul>
+        <li>Glasgow Caledonian University application deadline-----------------26-11-2023</li>
+        <li>Swansea University application deadline-----------------------------6-12-2023</li>
+        <li>Himachal Pradesh University application deadline-------------------20-11-2023</li>
+        <li>Amity University application deadline------------------------------29-10-2023</li>
+        <li>Sardar Patel University application deadline-----------------------26-11-2023</li>
+        </ul>
+        </div>
     </Root>
   );
 }
@@ -66,61 +67,64 @@ const Root = styled.section`
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  /* width: 100%; */
+  height: 100%;
   .dashboard_details {
     flex-wrap: wrap;
-    background-color: rgb(244, 130, 153);
+    background-color:rgb(25, 140, 229);
     border-radius: 10px;
     display: flex;
     margin: 4px;
-    height: 80px;
+    min-height: 80px;
+    padding: 5px;
+    margin-bottom: 20px;
     .details {
       display: flex;
       justify-content: space-evenly;
       width: 100%;
+      height: 100%;
       font-size: 17px;
       font-family: "Times New Roman", serif;
-      /* border: 1px solid black; */
+      @media (max-width: 789px) {
+        flex-direction: column;
+      }
       > div {
         display: flex;
-
-        margin: 10px;
+        margin: 5px;
         max-width: 230px;
         width: 100%;
         min-width: 50px;
         border-radius: 10px;
-        /* background-color: rgb(254, 202, 156); */
         background-color: white;
         align-items: center;
         justify-content: center;
         gap: 2px;
         border-left: 2px solid black;
         border-right: 2px solid black;
+        &:hover {
+          background-color:rgb(48, 195, 37);
+          cursor: pointer;
+        }
+        p {
+          font-style: oblique;
+          font-weight: 600;
+          margin: 0;
+          text-align: center;
+        }
       }
     }
   }
-  /* src/App.css */
 
   .notice {
     display: flex;
-    align-items: center;
-    justify-content: center;
     font-family: Courier, monospace;
-    /* background-color: ; */
+    flex-wrap: wrap;
+    flex-direction:column;
+    border:1px solid black;
+    margin: 10px;
+    h2{
+      color: rgb(20, 99, 178);
+      margin:10px;
+    }
   }
 
-  .notice_board {
-    width: 100%;
-    border: 1px solid #ccc;
-    padding: 10px;
-  }
-
-  .notice-board h2 {
-    text-align: center;
-  }
-
-  .notice-board ul {
-    list-style-type: none;
-    padding: 0;
-  }
 `;

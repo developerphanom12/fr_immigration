@@ -1,29 +1,41 @@
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { FcAbout } from "react-icons/fc";
-import { useDispatch } from "react-redux";
-import { userCheckAction } from "../../redux/users/action";
+import {useEffect, useState } from "react";
+import { FcSms } from "react-icons/fc";
+import { FcList } from "react-icons/fc";
 import russia from "../MainLayouts/pictures/Russia.png";
 import canada from "../MainLayouts/pictures/canada.png";
 import us from "../MainLayouts/pictures/unitedstates.png";
 import maxico from "../MainLayouts/pictures/maxico.jpg";
 import china from "../MainLayouts/pictures/china.png";
+import { EXCHANGE_URLS_APPLICATION } from "../URLS";
+import axios from "axios";
 
 export default function Navbar() {
   const [activePop, setActivePop] = useState(false);
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const [profile, setProfile] = useState([]);
 
-  const handleLogout = () => {
-    localStorage.setItem("token", "");
-    dispatch(userCheckAction(false));
-    navigate("/home");
+  const getProfile = async () => {
+    const axiosConfig = {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    };
+    try {
+      const res = await axios.get(
+        `${EXCHANGE_URLS_APPLICATION}/fetchallapplications`,axiosConfig
+      );
+      setProfile(res?.data?.data[0].applications);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
+  useEffect(() => {
+    getProfile();
+  }, []);
+  
   return (
     <Root>
-      {/* <h1>Welcome to our platform</h1> */}
       <div className="flags">
         <div>
           {" "}
@@ -32,7 +44,8 @@ export default function Navbar() {
         </div>
         <div>
           {" "}
-          <img src={canada} alt="img" /> Canada
+          <img src={canada} alt="img" />
+          Canada
         </div>
         <div>
           {" "}
@@ -50,24 +63,77 @@ export default function Navbar() {
           China
         </div>
       </div>
-      <div className="notification">
-        <FcAbout />
+      {profile &&
+          profile.map((i) => {
+            return ( 
+              <div>
+               <p>{i?.university_id.person_name}</p>
+            <p>{i?.university_id.contact_number}</p>
+            </div> 
+            );
+          })}
+      <div className="notification"  >
+        <FcSms /> 
+      </div>
+      <div
+        className="menu"
+        onClick={() => {
+          setActivePop(true);
+        }}
+      >
+        <FcList />
+      </div>
+      <div
+        className={activePop ? "pop_nav" : "no_pop"}
+        onClick={() => {
+          setActivePop(false);
+        }}
+      >
+        <div className="opt_btn">
+          {" "}
+          <img src={russia} alt="img" />
+          Russia
+        </div>
+        <div className="opt_btn">
+          {" "}
+          <img src={canada} alt="img" />
+          Canada
+        </div>
+        <div className="opt_btn">
+          {" "}
+          <img src={us} alt="img" />
+          United States
+        </div>
+        <div className="opt_btn">
+          {" "}
+          <img src={maxico} alt="img" />
+          Mexico
+        </div>
+        <div className="opt_btn">
+          {" "}
+          <img src={china} alt="img" />
+          China
+        </div>
       </div>
     </Root>
   );
 }
 
 const Root = styled.section`
-display: flex;
-gap: 450px;
-align-items: center;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: space-between;
   .flags {
     display: flex;
     height: 50px;
     margin: 10px 0px;
     gap: 10px;
     padding: 8px;
-   
+    @media (max-width: 850px) {
+      display: none;
+    }
+
     > div {
       height: 38px;
       width: 150px;
@@ -76,18 +142,73 @@ align-items: center;
       background-color: rgb(34, 232, 186);
       border-radius: 12px;
       text-align: center;
-      gap: 10px;
-      justify-content: center;
-    }
-    img {
-      width: 35px;
-      height: 35px;
-      border-radius: 130px;
+      gap: 5px;
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 130px;
+      }
     }
   }
   .notification {
-     display: flex;
-      justify-content:right;
-      font-size: 25px;
+    display: flex;
+    justify-content: right;
+    font-size: 25px;
+    background-color: transparent;
+    cursor: pointer;
+    align-items: flex-end;
+    margin-right:5px ;
+    .details {
+      display: flex;
+      flex-direction: column;
+      width:400px;
+      height: 200px;
     }
+  }
+  .menu {
+    @media (max-width: 850px) {
+      display: block;
+      padding-right: 10px;
+    }
+  }
+  .menu {
+    @media (min-width: 851px) {
+      display: none;
+    }
+  }
+
+  .pop_nav {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+    height: 400px;
+    width: 100%;
+    background: #ff7f50;
+    .notification {
+      display: flex;
+      flex-direction: column;
+      font-size: 25px;
+      margin-left: 10px;
+    }
+  }
+  .no_pop {
+    display: none;
+  }
+  img {
+    background: none;
+    color: black;
+    border-color: transparent;
+    font-size: larger;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    img:hover {
+      background-color: rgb(249, 147, 45);
+      color: #ffffff;
+    }
+  }
 `;

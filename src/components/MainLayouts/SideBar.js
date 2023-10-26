@@ -38,19 +38,18 @@ export default function SideBar() {
         >
           <img src={logo} alt="img" />
         </div>
-        <p className="caption">ANALYTICS</p>
 
         <div className="nav_section">
-          
-            <div
-              className={activeParam === "dashboard" ? "active" : ""}
-              onClick={() => {
-                navigate("/dashboard");
-              }}
-            >
-              <FaHome />
-              <p>Dashboard</p>
-            </div>
+          <p className="caption">ANALYTICS</p>
+          <div
+            className={activeParam === "dashboard" ? "active" : ""}
+            onClick={() => {
+              navigate("/dashboard");
+            }}
+          >
+            <FaHome />
+            <p>Dashboard</p>
+          </div>
           <div
             className={activeParam === "applications" ? "active" : ""}
             onClick={() => {
@@ -125,7 +124,6 @@ const Root = styled.section`
   color: black;
   padding: 5px;
   width: 100%;
-  min-width: 280px;
   border-right: 1px solid gray;
   align-items: center;
   overflow-y: none;
@@ -141,6 +139,7 @@ const Root = styled.section`
       align-items: center;
       img {
         width: 200px;
+        cursor: pointer;
       }
     }
     .caption {
@@ -165,9 +164,7 @@ const Root = styled.section`
         padding: 10px;
         border-radius: 10px;
         &:hover {
-          /* background-color: rgb(244, 130, 153); */
-          background-color: rgb(245 177 190 / 67%);
-
+          background-color: rgb(25, 140, 229);
           cursor: pointer;
         }
 
@@ -175,7 +172,6 @@ const Root = styled.section`
           margin: 0;
           padding: 0;
           flex: 1;
-          font-size: 20px;
         }
         svg {
           width: 25px;
@@ -183,7 +179,7 @@ const Root = styled.section`
         }
       }
       .active {
-        background-color: rgb(244, 130, 153);
+        background-color: rgb(25, 140, 229);
       }
     }
   }
@@ -196,8 +192,7 @@ const Root = styled.section`
     padding: 10px;
     border-radius: 10px;
     &:hover {
-      /* background-color: rgb(244, 130, 153); */
-      background-color: rgb(245 177 190 / 67%);
+      background-color: rgb(25, 140, 229);
       cursor: pointer;
     }
     p {

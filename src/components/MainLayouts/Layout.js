@@ -8,8 +8,6 @@ import SideBar from "./SideBar";
 export default function Layout({ children }) {
   const userCheck = useSelector((state) => state?.users?.userCheck);
   const token = localStorage.getItem("token");
-  // const userCheck = true;
-  // const token = "token"
   console.log("11111111rrr", userCheck, token);
   return (
     <Root>
@@ -56,32 +54,26 @@ const Root = styled.section`
     height: 100%;
     position: sticky;
     top: 0px;
-    /*       background-color: #f08080;  */
-    padding: 10px 10px;
+    padding: 5px 5px;
     border-right: 1px solid #3b3b3b;
     overflow-x: scroll;
     ::-webkit-scrollbar {
       display: none;
     }
   }
+ 
   .main_bar {
     display: flex;
     flex-direction: column;
     flex: 1;
     width: 100%;
     padding-left: 10px;
-    /* max-height: 100vh; */
-    /* height: 90%; */
-    overflow: scroll;
+    overflow: hidden;
     .top_bar {
       background: #ffffff;
       display: flex;
       height: 80px;
-      
-      /* position: fixed; */
-    
       width: 100%;
-      /* justify-content: center; */
       align-items: center;
       justify-content: space-between;
       overflow: hidden;
