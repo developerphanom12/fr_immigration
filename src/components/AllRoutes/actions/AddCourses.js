@@ -9,9 +9,9 @@ export default function AddCourses() {
   const navigate = useNavigate();
   const [university, setUniversity] = useState([]);
   const [data, setData] = useState({
-    university_id: 0,})
+    university_id:0,})
   const [newCourse, setNewCourse] = useState({
-    university_id: "",
+    university_id:"",
     course_name: "",
     course_level: "",
   });
@@ -24,7 +24,7 @@ export default function AddCourses() {
       };
       const res = await axios.post(
         `${EXCHANGE_URLS_UNIVERSITY}/courses1`,
-        newCourse,data,
+        newCourse,
         axiosConfig
       );
       console.log("resr", res);
@@ -59,20 +59,22 @@ export default function AddCourses() {
   };
 
   const handleClick = () => {
-    if (
-      newCourse.course_name.length > 1
-    ) {
+    // if (
+    //   newCourse.course_name.length &&
+    //   newCourse.university_id.length > 1
+    // ) {
       courseApi();
       // getUniversity();
-    } else {
-      cogoToast.error("Fill All Details");
-    }
+    // } else {
+    //   cogoToast.error("Fill All Details");
+    // }
   };
   useEffect(() => {
     getUniversity();
   }, []);
 
   console.log("newCourse", newCourse);
+  console.log("setData",setData)
   return (
     <Root>
       <h4>
@@ -93,19 +95,27 @@ export default function AddCourses() {
 
       <div className="courses"> {" "} University ID* :-</div>
       <div className="courses">
-        <select
+        {/* <select
           onChange={(e) => {
-            setData({ ...data, university_id: e.target.value });
+            setNewCourse({ ...newCourse, university_id: e.target.value });
           }}
         >
           {university &&
             university.map((i) => {
               return (
-                <option value={i?.university_id}>
-                  {i.university_name}</option>
+                <option value={i?.university_id}key={i?.university_id}>
+                  {i.university_id}</option>
               );
             })}
-        </select>
+        </select> */}
+        <input
+          type="name"
+          value={newCourse.university_id}
+          onChange={(e) => {
+            setNewCourse({ ...newCourse,university_id: e.target.value });
+          }}
+          placeholder="university_id"
+        />
       </div>
       <div className="courses"> Course Level* :-</div>
       <div className="courses">

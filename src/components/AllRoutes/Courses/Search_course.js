@@ -15,9 +15,9 @@ export default function Search_course() {
     try {
       const res = await axios.get(`${EXCHANGE_URLS_UNIVERSITY}/get/allcourse`);
       console.log("resres123", res);
-      if (res.status === 201) {
+      // if (res.status === 201) {
         setCourseData(res?.data?.data);
-      }
+      // }
     } catch (err) {
       console.log("err", err);
     }

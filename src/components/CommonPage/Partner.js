@@ -7,7 +7,7 @@ import cogoToast from "cogo-toast";
 
 export default function Partner() {
   const [add, setAdd] = useState({
-    company_address: "",
+    street_address: "",
     city: "",
     state: "",
     postal_code: ""

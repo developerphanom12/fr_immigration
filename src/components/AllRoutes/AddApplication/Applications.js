@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import {
   EXCHANGE_URLS_APPLICATION,
@@ -10,7 +10,7 @@ import Documents from "./Documents";
 
 export default function Applications() {
   const [data, setData] = useState({
-    course_id: 0,
+    course_id:0,
     university_id: 0,
     student_firstname: "",
     student_lastname: "",
@@ -28,7 +28,7 @@ export default function Applications() {
   const [applicationId, setApplicationId] = useState("");
   const [course, setCourse] = useState([]);
   const [university, setUniversity] = useState([]);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const appApi = async () => {
     try {
@@ -65,7 +65,7 @@ export default function Applications() {
       );
       if (res?.status === 200) {
         setCourse(res?.data.data);
-        // setUniversity(res?.data?.data)
+        setUniversity(res?.data?.data)
       }
     } catch (err) {
       console.log("err", err);
