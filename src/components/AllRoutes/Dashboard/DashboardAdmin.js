@@ -70,7 +70,7 @@ const Root = styled.section`
   height: 100%;
   .dashboard_details {
     flex-wrap: wrap;
-    background-color:rgb(25, 140, 229);
+    background-color:#87CEFA;
     border-radius: 10px;
     display: flex;
     margin: 4px;

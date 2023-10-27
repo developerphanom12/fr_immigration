@@ -164,7 +164,7 @@ const Root = styled.section`
         padding: 10px;
         border-radius: 10px;
         &:hover {
-          background-color: rgb(25, 140, 229);
+          background-color: #87CEFA;
           cursor: pointer;
         }
 
@@ -179,7 +179,7 @@ const Root = styled.section`
         }
       }
       .active {
-        background-color: rgb(25, 140, 229);
+        background-color: #87CEFA;
       }
     }
   }
@@ -192,7 +192,7 @@ const Root = styled.section`
     padding: 10px;
     border-radius: 10px;
     &:hover {
-      background-color: rgb(25, 140, 229);
+      background-color:#87CEFA;
       cursor: pointer;
     }
     p {

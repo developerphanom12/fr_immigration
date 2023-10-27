@@ -22,8 +22,8 @@ export default function AdminLogin() {
       const res = await axios.post(`${EXCHANGE_URLS_ADMIN}/login`, logindata);
       console.log("resres123", res?.data?.data);
       if (res?.status === 200) {
-        localStorage.setItem("token", res?.data?.data?.token);
-        dispatch(userDataAction(res?.data?.data));
+        localStorage.setItem("token", res?.data?.data?.user?.token);
+        dispatch(userDataAction(res?.data?.data?.user));
         dispatch(userCheckAction(true));
         cogoToast.success("Login SuccessFully");
         navigate("/dashboard");

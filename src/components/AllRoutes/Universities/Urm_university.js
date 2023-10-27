@@ -101,25 +101,25 @@ const Root = styled.section`
   }
   .first_child {
     display: flex;
-    background-color: lightblue;
+    background-color: #87CEFA;
     width: 100%;
-    padding: 30px;
+    padding: 20px;
     border-radius: 15px;
     justify-content: space-between;
     flex-wrap: wrap;
     select {
       width: 40%;
-      border-radius: 20px;
+      border-radius: 10px;
       padding: 10px;
     }
     button {
-      background-color: blue;
+      background-color: #FF7F50;
       width: 80px;
       border: none;
       border-radius: 15px;
       color: white;
       &:hover {
-        background-color: red;
+        background-color:lightseagreen;
         cursor: pointer;
       }
     }
@@ -135,7 +135,7 @@ const Root = styled.section`
       height: auto;
       padding: 10px;
       border-radius: 15px;
-      border-bottom: 5px solid blue;
+      border-bottom: 5px solid #87CEFA;
       .card_top {
         display: flex;
         gap: 10px;

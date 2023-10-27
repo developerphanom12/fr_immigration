@@ -34,15 +34,15 @@ export default function History({ popUser = () => {} }) {
   };
 
   const getCourses = async () => {
-    // const axiosConfig = {
-    //   headers: {
-    //     authorization: `Bearer ${localStorage.getItem("token")}`,
-    //   },
-    // };
+    const axiosConfig = {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    };
     try {
       const res = await axios.get(
         `${EXCHANGE_URLS_APPLICATION}/fetchallapplications`,
-        // axiosConfig
+        axiosConfig
       );
       setCourses(res?.data?.data[0].applications);
     } catch (e) {

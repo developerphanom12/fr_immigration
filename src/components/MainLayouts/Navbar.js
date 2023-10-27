@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import {useEffect, useState } from "react";
-import { FcSms } from "react-icons/fc";
+import { useEffect, useState } from "react";
+import { FcAbout } from "react-icons/fc";
 import { FcList } from "react-icons/fc";
+import { FcBusinessman } from "react-icons/fc";
 import russia from "../MainLayouts/pictures/Russia.png";
 import canada from "../MainLayouts/pictures/canada.png";
 import us from "../MainLayouts/pictures/unitedstates.png";
@@ -22,7 +23,8 @@ export default function Navbar() {
     };
     try {
       const res = await axios.get(
-        `${EXCHANGE_URLS_APPLICATION}/fetchallapplications`,axiosConfig
+        `${EXCHANGE_URLS_APPLICATION}/fetchallapplications`,
+        axiosConfig
       );
       setProfile(res?.data?.data[0].applications);
     } catch (e) {
@@ -33,7 +35,7 @@ export default function Navbar() {
   useEffect(() => {
     getProfile();
   }, []);
-  
+
   return (
     <Root>
       <div className="flags">
@@ -63,17 +65,19 @@ export default function Navbar() {
           China
         </div>
       </div>
-      {profile &&
-          profile.map((i) => {
-            return ( 
-              <div>
-               <p>{i?.university_id.person_name}</p>
-            <p>{i?.university_id.contact_number}</p>
-            </div> 
-            );
-          })}
-      <div className="notification"  >
-        <FcSms /> 
+      <div>
+        <div className="profile">
+          <FcBusinessman />
+          {profile && profile.length > 0 && (
+            <div>
+              <p>{profile[0].university_id.person_name}</p>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="notification">
+        <FcAbout />
       </div>
       <div
         className="menu"
@@ -123,7 +127,8 @@ const Root = styled.section`
   display: flex;
   align-items: center;
   flex: 1;
-  justify-content: space-between;
+  height: 80px;
+  justify-content: space-evenly;
   .flags {
     display: flex;
     height: 50px;
@@ -150,6 +155,30 @@ const Root = styled.section`
       }
     }
   }
+  .profile {
+    display: flex;
+    height: 80px;
+    padding: 5px;
+    margin: 5px;
+   
+    justify-content: center;
+    align-items: center;
+    svg{
+    width: 35px;
+    height: 40px;
+  }
+    > div {
+      border: 1px solid black;
+      padding: 5px;
+      border-radius: 10% 40%;
+      p {
+        padding: 0px;
+        margin: 0px;
+        text-transform: capitalize;
+        color: #8b0000;
+      }
+    }
+  }
   .notification {
     display: flex;
     justify-content: right;
@@ -157,11 +186,11 @@ const Root = styled.section`
     background-color: transparent;
     cursor: pointer;
     align-items: flex-end;
-    margin-right:5px ;
+    margin-right: 5px;
     .details {
       display: flex;
       flex-direction: column;
-      width:400px;
+      width: 400px;
       height: 200px;
     }
   }
@@ -169,6 +198,7 @@ const Root = styled.section`
     @media (max-width: 850px) {
       display: block;
       padding-right: 10px;
+      justify-content: left;
     }
   }
   .menu {
