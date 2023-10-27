@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { EXCHANGE_URLS_APPLICATION } from "../../URLS";
 import { useDispatch } from "react-redux";
 import { appDetailsAction } from "../../../redux/users/action";
+import {AiOutlineDownload} from "react-icons/ai"
 
 export default function History({ popUser = () => {} }) {
   const [applications, setApplications] = useState([]);
@@ -14,7 +15,7 @@ export default function History({ popUser = () => {} }) {
 
   const dispatch = useDispatch();
 
- console.log("courses",courses);
+  console.log("courses", courses);
 
   const getHistory = async (searchKey) => {
     const axiosConfig = {
@@ -56,31 +57,32 @@ export default function History({ popUser = () => {} }) {
   }, []);
 
   const handleSearch = () => {
-    getHistory()
+    getHistory();
   };
 
-  useEffect(()=>{
-    if(searchKey != null){
+  useEffect(() => {
+    if (searchKey != null) {
       const debounce = setTimeout(() => {
-        getHistory(searchKey)
+        getHistory(searchKey);
       }, 1000);
 
-      return ()=>{
-        clearTimeout(debounce)
-      }
+      return () => {
+        clearTimeout(debounce);
+      };
     }
-  },[searchKey])
+  }, [searchKey]);
 
-  const handlePassData =(i)=>{  
-    console.log("getDetails1", i) ;
-      dispatch(appDetailsAction(i))
-      popUser(true)
-  }
+  const handlePassData = (i) => {
+    console.log("getDetails1", i);
+    dispatch(appDetailsAction(i));
+    popUser(true);
+  };
 
   return (
     <Root>
       {" "}
-      <h1>Application History</h1>
+     <div className="header"><h1>Application History</h1>
+      <button>Download Student Data<AiOutlineDownload/></button></div>
       <div className="search_box">
         <input
           value={searchKey}
@@ -89,11 +91,17 @@ export default function History({ popUser = () => {} }) {
           }}
           placeholder="Search Courses By Name Or Number..."
         ></input>
-        <button onClick={()=>{handleSearch()}}>Search</button>
+        <button
+          onClick={() => {
+            handleSearch();
+          }}
+        >
+          Search
+        </button>
       </div>
       <div className="app_table">
         <div className="app_header">
-          <div>Cams Id</div> 
+          <div>Cams Id</div>
           <div>Student Name</div>
           <div>University Name</div>
           <div>Course Name</div>
@@ -102,7 +110,12 @@ export default function History({ popUser = () => {} }) {
         {applications &&
           applications.map((i) => {
             return (
-              <div className="app_body" onClick={()=>{handlePassData(i)}}>
+              <div
+                className="app_body"
+                onClick={() => {
+                  handlePassData(i);
+                }}
+              >
                 <div>{i?.application_id}</div>
                 <div>
                   <p>
@@ -133,6 +146,16 @@ const Root = styled.section`
   display: flex;
   flex-direction: column;
   gap: 10px;
+  .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    button{
+      width: 100px;
+      height: 30px;
+      margin: 5px;
+    }
+  }
   .search_box {
     display: flex;
     /* padding: 5px; */

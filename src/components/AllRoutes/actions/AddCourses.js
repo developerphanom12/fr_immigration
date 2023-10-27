@@ -95,7 +95,7 @@ export default function AddCourses() {
 
       <div className="courses"> {" "} University ID* :-</div>
       <div className="courses">
-        {/* <select
+        <select
           onChange={(e) => {
             setNewCourse({ ...newCourse, university_id: e.target.value });
           }}
@@ -104,18 +104,18 @@ export default function AddCourses() {
             university.map((i) => {
               return (
                 <option value={i?.university_id}key={i?.university_id}>
-                  {i.university_id}</option>
+                  {i.university_name}</option>
               );
             })}
-        </select> */}
-        <input
+        </select>
+        {/* <input
           type="name"
           value={newCourse.university_id}
           onChange={(e) => {
             setNewCourse({ ...newCourse,university_id: e.target.value });
           }}
           placeholder="university_id"
-        />
+        /> */}
       </div>
       <div className="courses"> Course Level* :-</div>
       <div className="courses">

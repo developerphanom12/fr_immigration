@@ -101,7 +101,7 @@ const Root = styled.section`
         border-left: 2px solid black;
         border-right: 2px solid black;
         &:hover {
-          background-color:rgb(48, 195, 37);
+          background-color:#FFDAB9;
           cursor: pointer;
         }
         p {

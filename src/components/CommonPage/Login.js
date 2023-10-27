@@ -34,11 +34,11 @@ export default function Login() {
   };
 
   const handleClick = () => {
-    if (logindata.username.length > 3 && logindata.password.length > 5) {
+    if (logindata.username.length > 3 && logindata.password.length > 3) {
       loginApi();
     } else {
       cogoToast.error(
-        "Username & password Length should be greater than 3 & 5 character"
+        "Username & password Length should be greater than 3 & 3 character"
       );
     }
   };
@@ -89,7 +89,7 @@ const Root = styled.section`
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+  background: linear-gradient(#e66465, #9198e5);
   display: flex;
   align-items: center;
   justify-content: center;

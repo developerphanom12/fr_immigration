@@ -144,7 +144,7 @@ const Root = styled.section`
       width: 150px;
       align-items: center;
       display: flex;
-      background-color: rgb(34, 232, 186);
+      background-color: #87CEFA;
       border-radius: 12px;
       text-align: center;
       gap: 5px;

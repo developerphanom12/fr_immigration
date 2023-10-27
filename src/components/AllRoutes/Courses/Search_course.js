@@ -59,7 +59,7 @@ export default function Search_course() {
 
   return (
     <Root>
-      <h2>Search Courses Here</h2>
+      <h4>Search Courses Here</h4>
       <div className="search_box">
       <input
           value={searchKey}
@@ -86,17 +86,17 @@ export default function Search_course() {
                 {courseData && courseData.length > 0 && (
                   courseData.map((course, index) => {
                     // Render a new row for every 3 courses
-                    if (index % 10 === 0) {
+                    if (index % 5 === 0) {
                       return (
                         <div key={index} className="courses_row">
-                          {courseData.slice(index, index + 10).map((course, i) => (
+                          {courseData.slice(index, index + 5).map((course, i) => (
                             <div key={i} className="courses_child1">
                               <img
                                 src={`${EXCHANGE_URLS_IMAGE}/${course.university_id.university_image}`}
                                 alt="img"
                               />
                               <div className="courses_child2">
-                                <h6>{course.course_name}</h6>
+                                <h5>{course.course_name}</h5>
                                 <p>{course.university_id.university_name}</p>
                                 <div className="courses_child3">
                                   <button>{course.course_level}</button>
@@ -122,24 +122,30 @@ export default function Search_course() {
 const Root = styled.section`
   height: 100%;
   min-height: 100vh;
+  h2{
+    margin-top: 10px;
+  }
 
   .search_box {
     display: flex;
-    /* padding: 5px; */
     justify-content: space-between;
     border: 1px solid gray;
-    /* border-radius: 12px; */
     input {
-      border: none;
-      /* border-radius: 12px; */
+      border: transparent;
+      padding: 5px;
       width: 100%;
-      /* padding: 5px; */
+
     }
     button {
       width: 80px;
-      border-radius: 12px;
-      background-color: blue;
+      border: transparent;
+      border-radius: 5px;
+      background-color:#1E90FF;
       color: white;
+      &:hover{
+        cursor: pointer;
+        background-color: green;
+      }
     }
   }
   .courses_div {
@@ -147,13 +153,11 @@ const Root = styled.section`
     flex-direction: column;
     width: 100%;
     max-width: 100vw;
-    /* flex-wrap: wrap; */
     .courses_box {
       display: flex;
       gap: 10px;
       height: 100%;
        flex: 1;
-      /* flex-direction: column; */
       @media (max-width:876px){
         flex-direction: column;
       }
@@ -162,24 +166,24 @@ const Root = styled.section`
         gap: 10px;
         margin:10px 0px;
         padding: 10px;
-        background-color: rgb(223, 221, 221);
-        border-radius: 10px;
-        /* flex-wrap: wrap; */
+        border-radius: 15px;
         justify-content: space-evenly;
         align-items: center;
+        text-align: center;
+        border: 1px solid gray;
+        border-bottom: 5px solid #87CEFA;
         img {
           width: 100px;
           height: 100px;
           object-fit: cover;
           min-width:50px;
           min-height: 50px;
-          /* width: 100%;
-          height: 100%; */
           border-radius: 10px;
         }
         .courses_child2 {
-          h6 {
-            color: DodgerBlue;
+          align-items: center;
+          h5 {
+            color: #6495ED;
             text-transform: capitalize;
           }
           .courses_child3 {
@@ -187,8 +191,8 @@ const Root = styled.section`
             button {
               width: 150px;
               color: white;
-              background-color:rgb(255 94 0);
-              border-radius: 14px;
+              background-color:	#FF7F50;
+              border-radius: 10px;
               margin: 10px;
               border: none;
             }

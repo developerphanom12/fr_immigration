@@ -94,7 +94,7 @@ const Root = styled.section`
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+  background: linear-gradient(#e66465, #9198e5);
   display: flex;
   align-items: center;
   justify-content: center;

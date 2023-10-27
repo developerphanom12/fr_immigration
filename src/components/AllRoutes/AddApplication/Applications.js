@@ -318,6 +318,8 @@ export default function Applications() {
 }
 const Root = styled.section`
   color: black;
+  /* background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c); */
+  /* background: linear-gradient(white , lightskyblue); */
   .name {
     display: flex;
     flex-direction: column;
