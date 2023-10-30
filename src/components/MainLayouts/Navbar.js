@@ -10,10 +10,12 @@ import maxico from "../MainLayouts/pictures/maxico.jpg";
 import china from "../MainLayouts/pictures/china.png";
 import { EXCHANGE_URLS_APPLICATION } from "../URLS";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
   const [activePop, setActivePop] = useState(false);
   const [profile, setProfile] = useState([]);
+  const userDetails = useSelector((state) => state?.users.user);
 
   const getProfile = async () => {
     const axiosConfig = {
@@ -66,11 +68,12 @@ export default function Navbar() {
         </div>
       </div>
       <div>
+      {/* {userDetails.role === "admin" ? ():()} */} 
         <div className="profile">
           <FcBusinessman />
           {profile && profile.length > 0 && (
             <div>
-              <p>{profile[0].university_id.person_name}</p>
+              <p>{profile[0].user_id.username}</p>
             </div>
           )}
         </div>
@@ -144,7 +147,7 @@ const Root = styled.section`
       width: 150px;
       align-items: center;
       display: flex;
-      background-color: #87CEFA;
+      background-color: #FF6525;
       border-radius: 12px;
       text-align: center;
       gap: 5px;

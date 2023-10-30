@@ -61,14 +61,14 @@ export default function PreNav() {
         >
           Login
         </div>
-        <div
+        {/* <div
           className="login"
           onClick={() => {
             navigate("/adminlogin");
           }}
         >
           AdminLogin
-        </div>
+        </div> */}
       </div>
 
       <div

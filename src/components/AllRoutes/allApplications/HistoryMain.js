@@ -5,7 +5,7 @@ import UserDetail from "./UserDetail";
 
 export default function HistoryMain() {
   const [popUser, setPopUser] = useState(false)
-  const [details, setDetails] = useState({});
+  // const [details, setDetails] = useState({});
 
 
 console.log('popUser',popUser)

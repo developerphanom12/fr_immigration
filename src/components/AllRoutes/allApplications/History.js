@@ -154,27 +154,23 @@ const Root = styled.section`
     justify-content: space-between;
     align-items: center;
     button {
-      width: 100px;
+      width: 200px;
       height: 30px;
       margin: 5px;
     }
   }
   .search_box {
     display: flex;
-    /* padding: 5px; */
-    justify-content: space-between;
-    border: 1px solid gray;
-    /* border-radius: 12px; */
+    /* justify-content: space-between; */
     input {
-      border: none;
-      /* border-radius: 12px; */
-      width: 100%;
-      /* padding: 5px; */
+      border: 1px solid gray;
+      width: 60%;
     }
     button {
       width: 80px;
-      border-radius: 12px;
-      background-color: blue;
+      border-radius: 5px;
+      background-color: rgb(43, 77, 247);
+      border: transparent;
       color: white;
     }
   }
@@ -196,7 +192,6 @@ const Root = styled.section`
         flex: 1;
         padding: 10px;
         border: 1px solid gray;
-        /* text-align: center; */
       }
     }
     .app_body {

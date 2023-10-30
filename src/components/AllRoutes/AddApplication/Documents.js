@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import styled from "styled-components";
 import { EXCHANGE_URLS_APPLICATION } from "../../URLS";
+import { useSelector } from "react-redux";
 
 export default function Documents({ appId }) {
   const [aadhar, setAadhar] = useState("");
@@ -21,11 +22,15 @@ export default function Documents({ appId }) {
     data.append("pass_back",passBack);
     data.append("10th",pass10th);
     data.append("12th",pass12th);
-
     console.log("dataaaa", aadhar, pan)
+    const axiosConfig = {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    };
     try {
       const res = await axios.put(
-        `${EXCHANGE_URLS_APPLICATION}/upload/documents/${appId}`,data
+        `${EXCHANGE_URLS_APPLICATION}/upload/documents/${appId}`,data,axiosConfig
   
       );
       console.log("resssssssss",res)
