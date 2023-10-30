@@ -4,7 +4,8 @@ import styled from "styled-components";
 import { EXCHANGE_URLS_APPLICATION } from "../../URLS";
 import { useDispatch } from "react-redux";
 import { appDetailsAction } from "../../../redux/users/action";
-import {AiOutlineDownload} from "react-icons/ai"
+import { AiOutlineDownload } from "react-icons/ai";
+import Download from "./Download";
 
 export default function History({ popUser = () => {} }) {
   const [applications, setApplications] = useState([]);
@@ -81,8 +82,10 @@ export default function History({ popUser = () => {} }) {
   return (
     <Root>
       {" "}
-     <div className="header"><h1>Application History</h1>
-      <button>Download Student Data<AiOutlineDownload/></button></div>
+      <div className="header">
+        <h1>Application History</h1>
+        <Download />
+      </div>
       <div className="search_box">
         <input
           value={searchKey}
@@ -146,11 +149,11 @@ const Root = styled.section`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  .header{
+  .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    button{
+    button {
       width: 100px;
       height: 30px;
       margin: 5px;

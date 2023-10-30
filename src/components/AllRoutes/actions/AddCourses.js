@@ -59,15 +59,14 @@ export default function AddCourses() {
   };
 
   const handleClick = () => {
-    // if (
-    //   newCourse.course_name.length &&
-    //   newCourse.university_id.length > 1
-    // ) {
+    if (
+      newCourse.course_name.length > 1
+    ) {
       courseApi();
       // getUniversity();
-    // } else {
-    //   cogoToast.error("Fill All Details");
-    // }
+    } else {
+      cogoToast.error("Fill All Details");
+    }
   };
   useEffect(() => {
     getUniversity();
@@ -108,14 +107,6 @@ export default function AddCourses() {
               );
             })}
         </select>
-        {/* <input
-          type="name"
-          value={newCourse.university_id}
-          onChange={(e) => {
-            setNewCourse({ ...newCourse,university_id: e.target.value });
-          }}
-          placeholder="university_id"
-        /> */}
       </div>
       <div className="courses"> Course Level* :-</div>
       <div className="courses">
@@ -163,7 +154,7 @@ const Root = styled.section`
     flex-wrap: wrap;
     gap: 10px;
     align-items: center;
-    color: orangered;
+    color: #FF6525;
     /* justify-content: center; */
     select {
       width: 250px;

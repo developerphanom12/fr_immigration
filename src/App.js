@@ -1,7 +1,6 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Login from "./components/CommonPage/Login";
-import Protected from "./components/Protected";
 import Layout from "./components/MainLayouts/Layout";
 import { useSelector } from "react-redux";
 import PageNF from "./components/CommonPage/PageNF";
@@ -15,7 +14,6 @@ import Urm_university from "./components/AllRoutes/Universities/Urm_university";
 import Search_course from "./components/AllRoutes/Courses/Search_course";
 import DashboardAdmin from "./components/AllRoutes/Dashboard/DashboardAdmin";
 import Action from "./components/AllRoutes/actions/Action";
-import AgentDash from "./components/AllRoutes/AgentDash/AgentDash";
 import AdminLogin from "./components/CommonPage/AdminLogin";
 import HistoryMain from "./components/AllRoutes/allApplications/HistoryMain";
 function App() {

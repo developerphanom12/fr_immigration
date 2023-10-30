@@ -141,9 +141,6 @@ export default function PreNav() {
 const Root = styled.section`
   display: flex;
   height: 80px;
-  /* min-width:100vw;
-  width:100%; */
-  /* justify-content: center; */
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
@@ -151,17 +148,13 @@ const Root = styled.section`
     background: none;
     color: black;
     border-color: transparent;
-    font-size: larger;
-    padding: 8px;
-    border-radius: 10px;
+    font-size: medium;
+    padding: 5px;
     cursor: pointer;
     width: 200px ;
 
   }
-  .opt_btn:hover{
-    background-color: rgb(249, 147, 45);
-    color: #ffffff;
-  }
+  
 
   .logo {
     width: 200px;
@@ -206,12 +199,12 @@ const Root = styled.section`
     display: none;
   }
   .login {
-    background: #ff7f50;
+    background:#FF6525;
     color: #ffffff;
     padding: 10px 30px 10px 30px;
     border-radius: 40px;
     border-color: transparent;
-    font-size: larger;
+    font-size: medium;
     cursor: pointer;
   }
 `

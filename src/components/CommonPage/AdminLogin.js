@@ -6,7 +6,6 @@ import cogoToast from "cogo-toast";
 import { useDispatch } from "react-redux";
 import { userCheckAction, userDataAction } from "../../redux/users/action";
 import {  EXCHANGE_URLS_ADMIN } from "../URLS";
-// import login from './imageLogo/login.jpg';
 
 export default function AdminLogin() {
   const [logindata, setlogindata] = useState({

@@ -60,6 +60,13 @@ const Root = styled.section`
     ::-webkit-scrollbar {
       display: none;
     }
+    @media (max-width:798px){
+            flex-direction: column;
+            text-size-adjust: smaller;
+            width: 150px;
+            padding: 10px;
+            background-color: transparent;
+          }
   }
  
   .main_bar {

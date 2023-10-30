@@ -86,10 +86,10 @@ export default function Search_course() {
                 {courseData && courseData.length > 0 && (
                   courseData.map((course, index) => {
                     // Render a new row for every 3 courses
-                    if (index % 5 === 0) {
+                    if (index % 10 === 0) {
                       return (
                         <div key={index} className="courses_row">
-                          {courseData.slice(index, index + 5).map((course, i) => (
+                          {courseData.slice(index, index + 10).map((course, i) => (
                             <div key={i} className="courses_child1">
                               <img
                                 src={`${EXCHANGE_URLS_IMAGE}/${course.university_id.university_image}`}

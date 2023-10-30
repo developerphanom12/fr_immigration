@@ -129,6 +129,13 @@ const Root = styled.section`
   overflow-y: none;
   position: sticky;
   top: 0px;
+  @media (max-width: 798px) {
+    width: 130px;
+    font-size: smaller;
+    flex-direction: column;
+    padding: 5px;
+    gap: 5px;
+  }
   .menu_top {
     display: flex;
     flex-direction: column;
@@ -141,12 +148,30 @@ const Root = styled.section`
         width: 200px;
         cursor: pointer;
       }
+      @media (max-width: 798px) {
+        flex-direction: column;
+        font-size: smaller;
+        width: 100px;
+        padding: 5px;
+        background-color: transparent;
+        img {
+          width: 100px;
+          cursor: pointer;
+        }
+      }
     }
     .caption {
       color: gray;
       text-align: center;
       font-size: 16px;
       margin: 0;
+      @media (max-width: 798px) {
+        flex-direction: column;
+        font-size: smaller;
+        width: 100px;
+        padding: 5px;
+        background-color: transparent;
+      }
     }
     .nav_section {
       display: flex;
@@ -155,6 +180,15 @@ const Root = styled.section`
       width: 100%;
       justify-content: space-between;
       height: 100%;
+      @media (max-width: 798px) {
+        flex-direction: column;
+        font-size: smaller;
+        width: 130px;
+        margin: 2px;
+        padding: 5px;
+        gap: 0;
+        
+      }
       > div {
         display: flex;
         justify-content: center;
@@ -163,9 +197,21 @@ const Root = styled.section`
         gap: 10px;
         padding: 10px;
         border-radius: 10px;
+        @media (max-width: 798px) {
+          flex-direction: column;
+          width: 130px;
+          gap:0;
+         
+        }
         &:hover {
-          background-color: #87CEFA;
+          background-color: #ff6525;
+          color: white;
           cursor: pointer;
+          @media (max-width:700px){
+          background-color: transparent;
+          color: black;
+         
+        }
         }
 
         p {
@@ -179,7 +225,11 @@ const Root = styled.section`
         }
       }
       .active {
-        background-color: #87CEFA;
+        background-color: #ff6525;
+        @media (max-width:700px){
+          background-color: transparent;
+         
+        }
       }
     }
   }
@@ -187,19 +237,29 @@ const Root = styled.section`
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    width: 237px;
+    width: 100%;
     gap: 10px;
     padding: 10px;
     border-radius: 10px;
+    font-size: medium;
+    @media (max-width: 798px) {
+      /* flex-direction: column; */
+      text-size-adjust: smaller;
+      width: 150px;
+      gap: 0;
+      padding: 10px;
+      background-color: transparent;
+    }
     &:hover {
-      background-color:#87CEFA;
+      background-color: #ff6525;
+      color: white;
       cursor: pointer;
     }
+
     p {
       margin: 0;
       padding: 0;
       flex: 1;
-      font-size: 20px;
     }
     svg {
       width: 25px;

@@ -21,11 +21,11 @@ export default function HomeFirst({ onSearch }) {
     <Root>
       <div className="firstbox">
         <div className="line">
-          <h1 className="line1">Your Gateway to Global Connection</h1>
-          <h5 className="line2">
+          <h3 className="line1">Your Gateway to Global Connection</h3>
+          <h2 className="line2">
             The Ultimate Destination for Universities and Strategic Recruitment
             Partnerships
-          </h5>
+          </h2>
           < h6>
           Through our network, industry knowledge, and personalized business
           solutions, we enable Universities and Recruitment Partners to
@@ -102,8 +102,8 @@ const Root = styled.section`
     .line {
       flex: 1;
       .line1 {
-        font-family: 'Courier New', Courier, monospace;
-        color: #ff7f50;
+        /* font-family: 'Courier New'; */
+        color: #FF6525;
       }
       .line2 {
         color: #6495ed;
@@ -111,7 +111,7 @@ const Root = styled.section`
       }
       .search {
         height: 48px;
-        width: 550px;
+        width: 580px;
         border-radius: 20px;
         display: flex;
         flex-wrap: wrap;
@@ -161,11 +161,7 @@ const Root = styled.section`
           width:100px;
           height:100px;
         }
-        > img {
-          /* width:100%;
-       min-width:50px;
-       height:100%;
-        min-height:50px; */
+         img {
           max-height: 100px;
           width:100%;
           height:100%;
@@ -191,11 +187,6 @@ const Root = styled.section`
         animation: slideshow 4s infinite;
         opacity: 0;
       }
-
-      /* .one{
-   animation: slideshow 5s infinite alternate; 
-   opacity: 0;
-   } */
 
       @keyframes slideshow {
         0%,

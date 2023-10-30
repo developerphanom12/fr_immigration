@@ -1,0 +1,42 @@
+import React from 'react';
+import axios from 'axios';
+
+function Download() {
+  const handleDownloadClick = () => {
+    const axiosConfig = {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      };
+    // Replace 'http://localhost:3300' with the actual URL of your Express.js server
+    const excelDownloadUrl = 'http://localhost:3300/api/application/generate-exc111el';
+
+    axios({
+      method: 'get',
+      url: excelDownloadUrl,
+      responseType: 'blob', // Important to handle binary data (e.g., a file)
+    })
+      .then((response) => {
+        const blob = new Blob([response.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        ,axiosConfig });
+        const url = window.URL.createObjectURL(blob);
+
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'application_data.xlsx'; 
+        a.click();
+      })
+      .catch((error) => {
+        console.error('Error downloading file:', error);
+        // Handle any errors here
+      });
+  };
+
+  return (
+    <div>
+      <button onClick={handleDownloadClick}>Download Excel File</button>
+    </div>
+  );
+}
+
+export default Download;
