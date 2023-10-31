@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import logo from "../components/CommonPage/imageLogo/phanom.jpg";
-
 const Loader = () => {
+const [dataLoaded, setDataLoaded] = useState(false);
+
+
+useEffect(() => {
+  setTimeout(() => {
+    setDataLoaded(true);
+  }, 3000); // Adjust the time as needed
+}, []);
+
   return (
     <Root>
       <div className="logo">
@@ -14,17 +22,21 @@ const Loader = () => {
 
 export default Loader;
 const Root = styled.section`
-  display: flex;
+   display: flex;
   justify-content: center;
   align-items: center;
   backdrop-filter: blur(10px);
+  transform: translateY(${(props) => (props.dataLoaded ? '-100%' : '0')});
+  transition: transform 0.5s;
+  background-color: white;
   .logo {
     width: 200px;
     height: 50px;
+
     img {
       width: 200px;
-    height: 50px;
-      animation: vibrate 0.4s linear infinite;
+      height: 50px;
+      animation: ${(props) => (props.dataLoaded ? 'none' : 'vibrate 0.4s linear infinite')};
     }
   }
 

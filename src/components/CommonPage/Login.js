@@ -6,6 +6,7 @@ import cogoToast from "cogo-toast";
 import { useDispatch } from "react-redux";
 import { userCheckAction, userDataAction } from "../../redux/users/action";
 import { EXCHANGE_URLS } from "../URLS";
+import loginbanner from "../CommonPage/imageLogo/login_banner.png";
 
 export default function Login() {
   const [logindata, setlogindata] = useState({
@@ -17,7 +18,6 @@ export default function Login() {
 
   const loginApi = async () => {
     try {
-     
       const res = await axios.post(`${EXCHANGE_URLS}/login1`, logindata);
       console.log("resres123", res?.data?.data?.user);
       if (res?.status === 200) {
@@ -45,11 +45,13 @@ export default function Login() {
   console.log("logindata", logindata);
   return (
     <Root>
+      <div className="logimg">
+        <h4>Sign-in to join the Phanom Online Portal</h4>
+        <img src={loginbanner} alt="img" />
+      </div>
       <div className="box_div">
-        <h2>
-          <u>LOG-IN</u>
-        </h2>
         <div className="user_name">
+          User Name*
           <input
             value={logindata.username}
             onChange={(e) => {
@@ -59,6 +61,7 @@ export default function Login() {
           />
         </div>
         <div className="user_name">
+          Password*
           <input
             type="Password"
             value={logindata.password}
@@ -70,14 +73,21 @@ export default function Login() {
         </div>
         <div>
           <button
-            className="user_btn"
             onClick={() => {
               handleClick();
-              
             }}
           >
             Log-in
           </button>
+        </div>
+        <div className="forget">
+          <div className="div2">Forget Password</div>
+        </div>
+        <div className="register">
+          <h5>Don't Have An Account ?</h5>
+          <button onClick={() => {
+              navigate("/partner");
+            }}>Get Started</button>
         </div>
       </div>
     </Root>
@@ -87,63 +97,160 @@ const Root = styled.section`
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  background: linear-gradient(#e66465, #9198e5);
+  min-width: 100vw;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  margin: 0px;
+  /* margin: 20px; */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 
+  .logimg {
+    h4 {
+      color: #010f2e;
+      text-align: center;
+      font: 22px "Mulish", sans-serif;
+    }
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    background-color: #d8e6f4;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    padding: 20px 0px 0px 0px;
+    margin: 0px 30px 10px 30px;
+    /* background-size:100%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 85%;
+    position: bottom;
+    img {
+      max-width: 500px;
+      max-height: 700px;
+      display: flex;
+      justify-content: flex-end;
+      @media (max-width: 700px) {
+        height: 300px;
+        width: 220px;
+      }
+    }
+  }
+
   .box_div {
-    width: 500px;
-    height: 380px;
+    width: 580px;
+    height: 550px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: left;
     justify-content: center;
-    font-size: large;
     background-color: #ffffff;
-    padding: 10px 20px 10px 20px;
     flex-wrap: wrap;
-    border-radius: 20px;
-  }
+    font: 16px "Mulish", sans-serif;
+    color: #353535;
 
-  .user_btn {
-    display: flex;
-    flex-direction: column;
-    width: 290px;
-    height: 45px;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    margin: 8px 0px 8px 0px;
-    border-radius: 10px;
-  }
+    button {
+      display: flex;
+      flex-direction: column;
+      width: 390px;
+      height: 55px;
+      padding: 15px;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      margin: 8px 0px 8px 0px;
+      border-radius: 30px;
+      border: transparent;
+      background: linear-gradient(
+        45deg,
+        #0146ff 19%,
+        #0146ff96 48%,
+        #0146ff 100%
+      );
+      &:hover {
+        background: linear-gradient(
+          -25deg,
+          #0146ff 19%,
+          #0146ff96 88%,
+          transparent 100%
+        );
+        transition: all 0.3s ease-in-out 0s;
+      }
+      border-radius: 50px;
+      color: #fff;
+      padding: 20px 30px;
+      background-size: 300% 100%;
+      transition: all 0.3s ease-in-out 0s;
+      text-transform: uppercase;
+    }
 
-  .user_name {
-    display: flex;
-    gap: 8px;
-    flex-direction: column;
-    width: 300px;
-    height: 70px;
-    justify-content: center;
-    align-items: center;
-  }
-  input {
-    width: 95%;
-    padding: 8px;
-    cursor: pointer;
-    border-radius: 10px;
-  }
+    .user_name {
+      display: flex;
+      flex-direction: column;
+      width: 410px;
+      height: 100px;
+      justify-content: center;
+      /* align-items: center; */
+      gap: 5px;
+      padding: 10px;
+      font: 16px "Mulish", sans-serif;
+    }
+    input {
+      width: 100%;
+      padding: 20px;
+      cursor: pointer;
+      border: transparent;
+      border-radius: 30px;
+      background-color: #e8f0fe;
+    }
 
-  .user_btn:hover {
-    background-color: green;
-    color: white;
+    .user_btn:hover {
+      background-color: green;
+      color: white;
+    }
+
+    .register {
+      display: flex;
+      font: 20px;
+      width: 450px;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+     
+      button {
+        background: linear-gradient(
+          45deg,
+          #ff6525 19%,
+          #ffffffe6 51%,
+          #ff6525 100%
+        );
+        border-radius: 60px;
+        width: 40%;
+        color: #fff;
+        padding: 20px 15px;
+        background-size: 300% 100%;
+        transition: all 0.3s ease-in-out 0s;
+        text-transform: uppercase;
+        &:hover{
+          background: linear-gradient(
+          -25deg,
+          #ff6525 49%,
+          #ffffffe6 91%,
+          #ff6525 100%
+        );
+        }
+      }
+    }
   }
-  /* img {
-    width: 800px;
-    height: 800px;
-  } */
+  .forget {
+    .div2 {
+      color: #ff6525;
+      font-family: "Mulish", sans-serif;
+      text-decoration: underline;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  }
 `;

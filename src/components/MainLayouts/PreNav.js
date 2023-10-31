@@ -13,7 +13,7 @@ export default function PreNav() {
         <img src={logo} alt="img" />
       </div>
       <div className="options">
-        <div className="opt_div">
+        {/* <div className="opt_div">
           <button
             className="opt_btn"
             onClick={() => {
@@ -42,7 +42,7 @@ export default function PreNav() {
           >
             Be our Ambassador
           </button>
-        </div>
+        </div> */}
         <div className="opt_div">
           <button
             className="opt_btn"
@@ -142,8 +142,10 @@ const Root = styled.section`
   display: flex;
   height: 80px;
   align-items: center;
-  justify-content: space-between;
   overflow: hidden;
+  position:fixed;
+  width: 100%;
+  background-color: #fff;
   .opt_btn {
     background: none;
     color: black;
@@ -158,6 +160,7 @@ const Root = styled.section`
 
   .logo {
     width: 200px;
+    background-color: #ffffff;
     img {
       width: 100%;
     }
@@ -166,7 +169,7 @@ const Root = styled.section`
     background-color: #ffffff;
     flex: 1;
     display: flex;
-    justify-content: space-around;
+    justify-content: right;
 
     @media (max-width: 850px) {
       display: none;
@@ -205,7 +208,24 @@ const Root = styled.section`
     border-radius: 40px;
     border-color: transparent;
     font-size: medium;
+    text-align: center;
+    width: 160px;
     cursor: pointer;
+    background: linear-gradient( 45deg, #ff6525 19%, #ffffffe6 51%, #ff6525 100%);
+    border-radius: 50px;
+    color: #FFF;
+    padding: 10px 5px;
+    background-size: 300% 100%;
+    transition: all 0.3s ease-in-out 0s;
+    text-transform: uppercase;
+    &:hover{
+          background: linear-gradient(
+          -25deg,
+          #ff6525 49%,
+          #ffffffe6 91%,
+          #ff6525 100%
+        );
+        }
   }
 `
    

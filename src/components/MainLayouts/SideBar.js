@@ -123,6 +123,7 @@ const Root = styled.section`
   max-height: 100vh;
   color: black;
   padding: 5px;
+  font-family: 32px "Cairo", sans-serif;
   width: 100%;
   border-right: 1px solid gray;
   align-items: center;
@@ -145,7 +146,7 @@ const Root = styled.section`
       justify-content: center;
       align-items: center;
       img {
-        width: 200px;
+        width: 160px;
         cursor: pointer;
       }
       @media (max-width: 798px) {
@@ -180,14 +181,16 @@ const Root = styled.section`
       width: 100%;
       justify-content: space-between;
       height: 100%;
+      padding: 10px;
+      font-size: 13px;
+
       @media (max-width: 798px) {
         flex-direction: column;
-        font-size: smaller;
+        font-size: 13px;
         width: 130px;
         margin: 2px;
         padding: 5px;
         gap: 0;
-        
       }
       > div {
         display: flex;
@@ -196,22 +199,25 @@ const Root = styled.section`
         width: 100%;
         gap: 10px;
         padding: 10px;
-        border-radius: 10px;
+        border-radius: 40px;
         @media (max-width: 798px) {
           flex-direction: column;
           width: 130px;
-          gap:0;
-         
+          gap: 0;
         }
         &:hover {
-          background-color: #ff6525;
+          background: linear-gradient(
+            45deg,
+            #0146ff 19%,
+            #0146ff96 98%,
+            #0146ff 100%
+          );
           color: white;
           cursor: pointer;
-          @media (max-width:700px){
-          background-color: transparent;
-          color: black;
-         
-        }
+          @media (max-width: 700px) {
+            background-color: transparent;
+            color: black;
+          }
         }
 
         p {
@@ -225,23 +231,30 @@ const Root = styled.section`
         }
       }
       .active {
-        background-color: #ff6525;
-        @media (max-width:700px){
+        background: linear-gradient(
+            45deg,
+            #0146ff 19%,
+            #0146ff96 98%,
+            #0146ff 100%
+          );
+        @media (max-width: 700px) {
           background-color: transparent;
-         
         }
       }
     }
   }
   .logout {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    /* justify-content: center; */
+    align-items:flex-start;
     width: 100%;
     gap: 10px;
     padding: 10px;
-    border-radius: 10px;
-    font-size: medium;
+    text-align: center;
+    border-radius: 40px;
+    font-size: 13px;
+    margin: 30px;
+   
     @media (max-width: 798px) {
       /* flex-direction: column; */
       text-size-adjust: smaller;
@@ -251,7 +264,12 @@ const Root = styled.section`
       background-color: transparent;
     }
     &:hover {
-      background-color: #ff6525;
+      background: linear-gradient(
+            45deg,
+            #0146ff 19%,
+            #0146ff96 98%,
+            #0146ff 100%
+          );
       color: white;
       cursor: pointer;
     }
@@ -259,7 +277,7 @@ const Root = styled.section`
     p {
       margin: 0;
       padding: 0;
-      flex: 1;
+      /* flex: 1; */
     }
     svg {
       width: 25px;

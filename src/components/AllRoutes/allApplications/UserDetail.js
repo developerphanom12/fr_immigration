@@ -49,6 +49,15 @@ export default function UserDetail({ popUser }) {
 
   return (
     <Root>
+         <div>
+        <button
+          onClick={() => {
+            popUser(false);
+          }}
+        >
+          Back
+        </button>
+      </div>
       {getDetails && (
         <div className="detail">
           <h2>Student Details</h2>
@@ -145,15 +154,7 @@ export default function UserDetail({ popUser }) {
       ) : (
         ""
       )}
-      <div>
-        <button
-          onClick={() => {
-            popUser(false);
-          }}
-        >
-          Back
-        </button>
-      </div>
+   
     </Root>
   );
 }

@@ -74,7 +74,7 @@ const Root = styled.section`
     flex-direction: column;
     flex: 1;
     width: 100%;
-    padding-left: 10px;
+    /* padding-left: 10px; */
     overflow: hidden;
     .top_bar {
       background: #ffffff;

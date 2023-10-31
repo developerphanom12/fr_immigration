@@ -38,6 +38,7 @@ export default function Action() {
 }
 
 const Root = styled.section`
+font-family: 'Mulish', sans-serif;
   .nav_tab {
     display: flex;
     gap: 5px;

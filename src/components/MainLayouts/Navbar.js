@@ -38,37 +38,39 @@ export default function Navbar() {
     getProfile();
   }, []);
 
+
+
   return (
     <Root>
       <div className="flags">
         <div>
           {" "}
           <img src={russia} alt="img" />
-          Russia
+          <p>Russia</p>
         </div>
         <div>
           {" "}
           <img src={canada} alt="img" />
-          Canada
+         <p> Canada</p>
         </div>
         <div>
           {" "}
           <img src={us} alt="img" />
-          United States
+          <p>United States</p>
         </div>
         <div>
           {" "}
           <img src={maxico} alt="img" />
-          Mexico
+          <p>Mexico</p>
         </div>
         <div>
           {" "}
           <img src={china} alt="img" />
-          China
+          <p>China</p>
         </div>
       </div>
       <div>
-      {/* {userDetails.role === "admin" ? ():()} */} 
+      
         <div className="profile">
           <FcBusinessman />
           {profile && profile.length > 0 && (
@@ -144,13 +146,23 @@ const Root = styled.section`
 
     > div {
       height: 38px;
-      width: 150px;
+      width: 170px;
       align-items: center;
       display: flex;
-      background-color: #FF6525;
-      border-radius: 12px;
+      background-color: #f8f8f8;
+    border-radius: 20px;
+    padding: 6px 10px;
       text-align: center;
       gap: 5px;
+      P{
+        color: #999;
+    font-family: 'Cairo', sans-serif;
+    font-size: 16px;
+    align-items: center;
+      display: flex;
+      margin: 0;
+    font-weight: 700;
+      }
       img {
         width: 40px;
         height: 40px;
@@ -163,7 +175,6 @@ const Root = styled.section`
     height: 80px;
     padding: 5px;
     margin: 5px;
-   
     justify-content: center;
     align-items: center;
     svg{
@@ -173,7 +184,7 @@ const Root = styled.section`
     > div {
       border: 1px solid black;
       padding: 5px;
-      border-radius: 10% 40%;
+      border-radius: 10%;
       p {
         padding: 0px;
         margin: 0px;

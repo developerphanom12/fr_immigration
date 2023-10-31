@@ -52,12 +52,12 @@ function App() {
             <Route path="*" element={<PageNF />} />
             <Route path="/" element={<HomePage />} />
             <Route path="/home" element={<HomePage />} />
-            <Route path="/universities" element={<Universities />} />
-            <Route path="/reach" element={<Reach />} />
+            {/* <Route path="/universities" element={<Universities />} /> */}
+            {/* <Route path="/reach" element={<Reach />} /> */}
             <Route path="/adminlogin" element={<AdminLogin />} />
             <Route path="/login" element={<Login />} />
             <Route path="/partner" element={<Partner />} />
-            <Route path="/ambassadar" element={<Ambassadar />} />
+            {/* <Route path="/ambassadar" element={<Ambassadar />} /> */}
           </>
         )}
       </Routes>

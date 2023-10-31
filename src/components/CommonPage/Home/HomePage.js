@@ -23,4 +23,5 @@ flex-direction:column;
 overflow:hidden;
 width: 100%;
 max-width: 100vw;
+margin: 80px;
 `

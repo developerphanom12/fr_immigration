@@ -10,8 +10,7 @@ export default function Partner() {
     street_address: "",
     city: "",
     state: "",
-    postal_code: ""
-
+    postal_code: "",
   });
   const [formData, setFormData] = useState({
     username: "",
@@ -68,117 +67,126 @@ export default function Partner() {
   return (
     <Root>
       <div className="first_div">
-        <h2>Sign-Up to access our online portal and join our network</h2>
+        <h1>Sign-Up to access our online portal and join our network</h1>
 
         <div className="first_box1">
-          <h3>Your personal Details :-</h3>
-
-          <div className="name">
-            {" "}
-            User Name* :-
-            <input
-              type="name"
-              value={formData?.username}
-              onChange={(e) => {
-                setFormData({ ...formData, username: e.target.value });
-              }}
-              placeholder="User Name"
-            />
-          </div>
-          <div className="name">
-            {" "}
-            First Name* :-
-            <input
-              type="name"
-              value={formData?.firstname}
-              onChange={(e) => {
-                setFormData({ ...formData, firstname: e.target.value });
-              }}
-              placeholder="First Name"
-            />
-          </div>
-          <div className="name">
-            Last Name* :-
-            <input
-              type="name"
-              value={formData?.lastname}
-              onChange={(e) => {
-                setFormData({ ...formData, lastname: e.target.value });
-              }}
-              placeholder="Last Name"
-            />
+          <div>
+            <h3>Your personal Details :-</h3>
           </div>
 
-          <div className="name">
-            E-Mail* :-
-            <input
-              type="email"
-              value={formData?.email}
-              onChange={(e) => {
-                setFormData({ ...formData, email: e.target.value });
-              }}
-              placeholder="Ex-Phanom@gmail.com"
-            />
+          <div>
+            <div className="name">
+              {" "}
+              User Name* :-
+              <input
+                type="name"
+                value={formData?.username}
+                onChange={(e) => {
+                  setFormData({ ...formData, username: e.target.value });
+                }}
+                placeholder="User Name"
+              />
+            </div>
+            <div className="name">
+              {" "}
+              First Name* :-
+              <input
+                type="name"
+                value={formData?.firstname}
+                onChange={(e) => {
+                  setFormData({ ...formData, firstname: e.target.value });
+                }}
+                placeholder="First Name"
+              />
+            </div>
+            <div className="name">
+              Last Name* :-
+              <input
+                type="name"
+                value={formData?.lastname}
+                onChange={(e) => {
+                  setFormData({ ...formData, lastname: e.target.value });
+                }}
+                placeholder="Last Name"
+              />
+            </div>
           </div>
-          <div className="name">
-            Phone No.* :-
-            <input
-              type="number"
-              value={formData?.phone_number}
-              onChange={(e) => {
-                setFormData({ ...formData, phone_number: e.target.value });
-              }}
-              placeholder="Phone Number"
-            />
+
+          <div>
+            <div className="name">
+              E-Mail* :-
+              <input
+                type="email"
+                value={formData?.email}
+                onChange={(e) => {
+                  setFormData({ ...formData, email: e.target.value });
+                }}
+                placeholder="Ex-Phanom@gmail.com"
+              />
+            </div>
+            <div className="name">
+              Phone No.* :-
+              <input
+                type="number"
+                value={formData?.phone_number}
+                onChange={(e) => {
+                  setFormData({ ...formData, phone_number: e.target.value });
+                }}
+                placeholder="Phone Number"
+              />
+            </div>
           </div>
         </div>
       </div>
       <div className="second_div">
         <div className="company">
-          <h3>Address :-</h3>
-
-          <div className="name1">
-            Street Address* :-
-            <input
-              value={add?.street_address}
-              onChange={(e) => {
-                setAdd({ ...add, street_address: e.target.value });
-              }}
-              placeholder="Street Address"
-            />
+          <div>
+            {" "}
+            <h3>Address :-</h3>
           </div>
 
-          <div className="name1">
-            City :-
-            <input
-              value={add?.city}
-              onChange={(e) => {
-                setAdd({ ...add, city: e.target.value });
-              }}
-              placeholder="City"
-            />
-          </div>
-
-          <div className="name1">
-            State* :-
-            <input
-              value={add?.state}
-              onChange={(e) => {
-                setAdd({ ...add, state: e.target.value });
-              }}
-              placeholder="State"
-            />
-          </div>
-
-          <div className="name2">
-            Postal Code* :-
-            <input
-              value={add.postal_code}
-              onChange={(e) => {
-                setAdd({ ...add, postal_code: e.target.value });
-              }}
-              placeholder="Postal Code"
-            />
+          <div>
+            {" "}
+            <div className="name1">
+              Street Address* :-
+              <input
+                value={add?.street_address}
+                onChange={(e) => {
+                  setAdd({ ...add, street_address: e.target.value });
+                }}
+                placeholder="Street Address"
+              />
+            </div>
+            <div className="name1">
+              City :-
+              <input
+                value={add?.city}
+                onChange={(e) => {
+                  setAdd({ ...add, city: e.target.value });
+                }}
+                placeholder="City"
+              />
+            </div>
+            <div className="name1">
+              State* :-
+              <input
+                value={add?.state}
+                onChange={(e) => {
+                  setAdd({ ...add, state: e.target.value });
+                }}
+                placeholder="State"
+              />
+            </div>
+            <div className="name2">
+              Postal Code* :-
+              <input
+                value={add.postal_code}
+                onChange={(e) => {
+                  setAdd({ ...add, postal_code: e.target.value });
+                }}
+                placeholder="Postal Code"
+              />
+            </div>
           </div>
         </div>
         <div className="password">
@@ -211,7 +219,7 @@ export default function Partner() {
             </div>
           </div>
         </div>
-        <div>
+        <div className="regis">
           <button
             className="btnn"
             onClick={() => {
@@ -241,14 +249,20 @@ export default function Partner() {
   );
 }
 const Root = styled.section`
+  font-family: 22px "Mulish", sans-serif;
+  margin-top: 80px;
   input {
     /* width: 85%; */
     height: 45px;
     border-radius: 50px;
-    padding: 0px 14px;
+    padding: 14px;
     border-color: #dcdcdc;
     background-color: rgb(244, 252, 253);
     font-size: large;
+  }
+  input:focus,
+  input:active {
+    border-color: #ff6525;
   }
 
   .flex-container {
@@ -269,13 +283,11 @@ const Root = styled.section`
     margin-right: 10px;
     padding: 20px;
     gap: 10px;
-    color: rgb(249, 118, 17);
+    color:black;
   }
 
   .first_div {
-    font-family: Georgia, serif;
-    flex-wrap: wrap;
-    h2 {
+    h1 {
       color: #0e4d92;
       padding: 10px;
       display: flex;
@@ -314,7 +326,16 @@ const Root = styled.section`
         flex: 1;
         padding: 10px;
 
-        .name1,
+        .name1{
+          display: flex;
+          flex-direction: column;
+          font-size: larger;
+          /* width: 100%; */
+          margin-right: 10px;
+          padding: 20px;
+          gap: 10px;
+          color:black;
+        }
         .name2 {
           display: flex;
           flex-direction: column;
@@ -323,10 +344,8 @@ const Root = styled.section`
           margin-right: 10px;
           padding: 20px;
           gap: 10px;
-          color: rgb(249, 118, 17);
-          input {
-            /* width: 100%; */
-          }
+          color:black;
+          
         }
       }
     }
@@ -336,6 +355,7 @@ const Root = styled.section`
       flex-direction: column;
       margin: 0px 10px;
       padding: 20px;
+      width: 50%;
       > div {
         display: flex;
       }
@@ -358,24 +378,69 @@ const Root = styled.section`
       text-align: center;
       /* width:50%; */
       justify-content: center;
+      .btnn {
+    padding: 10px;
+    border-radius: 50px;
+    font-size: medium;
+    border-color: transparent;
+    width: 160px;
+    font-size: medium;
+    color: #ffffff;
+    background: rgb(255 94 0);
+    margin: 20px;
+    background: linear-gradient( 45deg, #ff6525 19%, #ffffffe6 51%, #ff6525 100%);
+    border-radius: 50px;
+    color: #FFF;
+    padding: 10px 5px;
+    background-size: 300% 100%;
+    transition: all 0.3s ease-in-out 0s;
+    text-transform: uppercase;
+    &:hover{
+          background: linear-gradient(
+          -25deg,
+          #ff6525 49%,
+          #ffffffe6 91%,
+          #ff6525 100%
+        );
+        }
+  }
     }
   }
+ .regis{
+  display: flex;
+  justify-content: flex-end;
   .btnn {
     padding: 10px;
     border-radius: 50px;
     font-size: medium;
     border-color: transparent;
-    width: 150px;
+    width: 160px;
     font-size: medium;
     color: #ffffff;
     background: rgb(255 94 0);
     margin: 20px;
+    background: linear-gradient( 45deg, #ff6525 19%, #ffffffe6 51%, #ff6525 100%);
+    border-radius: 50px;
+    color: #FFF;
+    padding: 10px 5px;
+    background-size: 300% 100%;
+    transition: all 0.3s ease-in-out 0s;
+    text-transform: uppercase;
+    &:hover{
+          background: linear-gradient(
+          -25deg,
+          #ff6525 49%,
+          #ffffffe6 91%,
+          #ff6525 100%
+        );
+        }
   }
-  .btnn:hover {
+  /* .btnn:hover {
     color: #f0f8ff;
     background: blue;
     cursor: pointer;
-  }
+  } */
+ }
   @media (max-width: 768px) {
     .first_box1 > div,
     .company > div,

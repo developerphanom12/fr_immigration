@@ -29,6 +29,7 @@ export default function Applications() {
   const [course, setCourse] = useState([]);
   const [university, setUniversity] = useState([]);
   // const navigate = useNavigate();
+  
 
   const appApi = async () => {
     try {
