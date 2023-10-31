@@ -6,7 +6,7 @@ import { EXCHANGE_URLS_IMAGE, EXCHANGE_URLS_UNIVERSITY } from "../../URLS";
 import Loader from "../../Loader";
 
 export default function Urm_university() {
-  const [loader,setLoader] = useState(true);
+  
   const [universityData, setUniversityData] = useState([]);
 
   const universityApi = async () => {
@@ -21,11 +21,11 @@ export default function Urm_university() {
 
         axiosConfig
       );
+     
       console.log("resres123", res);
       if (res.status === 200) {
         setUniversityData(res?.data?.data);
-      setLoader(false);
-
+       
       }
     } catch (err) {
       console.log("err", err);
@@ -34,7 +34,7 @@ export default function Urm_university() {
 
   useEffect(() => {
     universityApi();
-    loader(true);
+    
   }, []);
 
   console.log("universityData", universityData);
@@ -68,9 +68,7 @@ export default function Urm_university() {
           <AiOutlineSearch /> Filter
         </button>
       </div>
-      {loader ? (
-        <Loader />
-      ) : (
+     
       
       <div className="second_child">
         {universityData &&
@@ -97,7 +95,7 @@ export default function Urm_university() {
             );
           })}
       </div>
-      )}
+    
 
     </Root>
   );
