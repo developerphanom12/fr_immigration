@@ -4,10 +4,10 @@ import styled from "styled-components";
 import { EXCHANGE_URLS_APPLICATION } from "../../URLS";
 import { useDispatch } from "react-redux";
 import { appDetailsAction } from "../../../redux/users/action";
-import { AiOutlineDownload } from "react-icons/ai";
 import Download from "./Download";
-
+import Loader from "../../Loader";
 export default function History({ popUser = () => {} }) {
+  const [loader,setLoader] = useState(true);
   const [applications, setApplications] = useState([]);
   // const [filteredApplications, setFilteredApplications] = useState([]);
   const [searchKey, setSearchKey] = useState("");
@@ -30,6 +30,7 @@ export default function History({ popUser = () => {} }) {
         axiosConfig
       );
       setApplications(res?.data?.data[0].applications);
+      setLoader(false)
     } catch (e) {
       console.log(e);
     }
@@ -53,6 +54,7 @@ export default function History({ popUser = () => {} }) {
   };
 
   useEffect(() => {
+    setLoader(true)
     getHistory();
     getCourses();
   }, []);
@@ -102,6 +104,8 @@ export default function History({ popUser = () => {} }) {
           Search
         </button>
       </div>
+      {loader? <Loader/>:
+      
       <div className="app_table">
         <div className="app_header">
           <div>Cams Id</div>
@@ -142,6 +146,7 @@ export default function History({ popUser = () => {} }) {
             );
           })}
       </div>
+      }
     </Root>
   );
 }

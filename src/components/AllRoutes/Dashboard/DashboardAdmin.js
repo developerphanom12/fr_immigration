@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { EXCHANGE_URLS_APPLICATION } from "../../URLS";
+import Loader from "../../Loader";
 export default function DashboardAdmin() {
+  const [loader,setLoader] = useState(true);
   const [dashboard, setDashboard] = useState({
     approved: "",
     pending: "",
@@ -22,17 +24,21 @@ export default function DashboardAdmin() {
       );
       console.log("resss", res?.data?.data);
       setDashboard(res?.data?.data);
+      setLoader(false)
     } catch (err) {
       console.log("err", err);
     }
   };
   useEffect(() => {
     dashboardApi();
+    setLoader(true)
   }, []);
   console.log("dashboarddd", dashboard);
   return (
     <Root>
       <h3>WELCOME TO DASHBOARD</h3>
+      {loader?<Loader/>:
+      
       <div className="dashboard_details">
         <div className="details">
           <div>
@@ -50,6 +56,7 @@ export default function DashboardAdmin() {
         </div>
         
       </div>
+      }
       <div className="notice">
         <h2>Notice Board</h2>
         <ul>

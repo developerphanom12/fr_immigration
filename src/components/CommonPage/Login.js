@@ -6,7 +6,6 @@ import cogoToast from "cogo-toast";
 import { useDispatch } from "react-redux";
 import { userCheckAction, userDataAction } from "../../redux/users/action";
 import { EXCHANGE_URLS } from "../URLS";
-// import login from './imageLogo/login.jpg';
 
 export default function Login() {
   const [logindata, setlogindata] = useState({
@@ -85,7 +84,6 @@ export default function Login() {
   );
 }
 const Root = styled.section`
-/* background-image: url('D:\Office Work\fr_immigration\public\login.jpg'); */
   width: 100%;
   height: 100%;
   min-height: 100vh;

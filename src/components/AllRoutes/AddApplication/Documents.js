@@ -3,26 +3,24 @@ import axios from "axios";
 import React, { useState } from "react";
 import styled from "styled-components";
 import { EXCHANGE_URLS_APPLICATION } from "../../URLS";
-import { useSelector } from "react-redux";
 
 export default function Documents({ appId }) {
   const [aadhar, setAadhar] = useState("");
   const [pan, setPan] = useState("");
-  const [passFront,setPassFront] = useState("");
-  const [passBack,setPassBack] = useState("");
-  const [pass10th,setPass10th] = useState("");
-  const [pass12th,setPass12th] = useState("");
-
+  const [passFront, setPassFront] = useState("");
+  const [passBack, setPassBack] = useState("");
+  const [pass10th, setPass10th] = useState("");
+  const [pass12th, setPass12th] = useState("");
 
   const submitDoc = async () => {
     const data = new FormData();
     data.append("aadhar", aadhar);
     data.append("pan", pan);
-    data.append("pass_front",passFront);
-    data.append("pass_back",passBack);
-    data.append("10th",pass10th);
-    data.append("12th",pass12th);
-    console.log("dataaaa", aadhar, pan)
+    data.append("pass_front", passFront);
+    data.append("pass_back", passBack);
+    data.append("10th", pass10th);
+    data.append("12th", pass12th);
+    console.log("dataaaa", aadhar, pan);
     const axiosConfig = {
       headers: {
         authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -30,27 +28,27 @@ export default function Documents({ appId }) {
     };
     try {
       const res = await axios.put(
-        `${EXCHANGE_URLS_APPLICATION}/upload/documents/${appId}`,data,axiosConfig
-  
+        `${EXCHANGE_URLS_APPLICATION}/upload/documents/${appId}`,
+        data,
+        axiosConfig
       );
-      console.log("resssssssss",res)
+      console.log("resssssssss", res);
       cogoToast.success("Documents Submitted Successfully");
-    } 
-    catch (error) {
+    } catch (error) {
       cogoToast.error("There is some error");
       console.log("error", error);
     }
   };
 
-  const handleSubmit = ()=>{
-    if(aadhar && pan){
-      submitDoc()
-    }else{
-      cogoToast.error("Upload Both Documents")
+  const handleSubmit = () => {
+    if (aadhar && pan) {
+      submitDoc();
+    } else {
+      cogoToast.error("Upload Both Documents");
     }
-  }
+  };
 
-  console.log("aadhar", aadhar, pan ,passFront,passBack)
+  console.log("aadhar", aadhar, pan, passFront, passBack);
 
   return (
     <Root>
@@ -110,15 +108,15 @@ export default function Documents({ appId }) {
             }}
           />
         </div>
-          <button
-            className="submit_btn"
-            onClick={() => {
-              handleSubmit()
-            }}
-          >
-            {" "}
-            Submit Details
-          </button>
+        <button
+          className="submit_btn"
+          onClick={() => {
+            handleSubmit();
+          }}
+        >
+          {" "}
+          Submit Details
+        </button>
       </div>
     </Root>
   );
