@@ -4,11 +4,8 @@ import Login from "./components/CommonPage/Login";
 import Layout from "./components/MainLayouts/Layout";
 import { useSelector } from "react-redux";
 import PageNF from "./components/CommonPage/PageNF";
-import Ambassadar from "./components/CommonPage/Ambassadar";
 import Partner from "./components/CommonPage/Partner";
 import HomePage from "./components/CommonPage/Home/HomePage";
-import Universities from "./components/CommonPage/Universities";
-import Reach from "./components/CommonPage/Reach";
 import Applications from "./components/AllRoutes/AddApplication/Applications";
 import Urm_university from "./components/AllRoutes/Universities/Urm_university";
 import Search_course from "./components/AllRoutes/Courses/Search_course";
@@ -16,6 +13,7 @@ import DashboardAdmin from "./components/AllRoutes/Dashboard/DashboardAdmin";
 import Action from "./components/AllRoutes/actions/Action";
 import AdminLogin from "./components/CommonPage/AdminLogin";
 import HistoryMain from "./components/AllRoutes/allApplications/HistoryMain";
+import DetailView from "./components/AllRoutes/allApplications/detailView/DetailView";
 function App() {
   const userCheck = useSelector((state) => state?.users?.userCheck);
   const userDetails = useSelector((state) => state?.users?.user);
@@ -36,10 +34,13 @@ function App() {
               <Route path="/history" element={<HistoryMain />} />
               <Route path="/urm" element={<Urm_university />} />
               <Route path="/search" element={<Search_course />} />
+            <Route path="/detailview" element={<DetailView />} />
+
             </>
           ) : (
             <>
              <Route path="/dashboard" element={<DashboardAdmin />} />
+            <Route path="/detailview" element={<DetailView />} />
               <Route path="*" element={<DashboardAdmin />} />
               <Route path="/applications" element={<Applications />} />
               <Route path="/history" element={<HistoryMain />} />

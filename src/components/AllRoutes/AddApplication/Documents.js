@@ -52,61 +52,68 @@ export default function Documents({ appId }) {
 
   return (
     <Root>
+      <h4>Application : {appId}</h4>
       <div className="all_details">
-        <p>Application : {appId}</p>
-        <div>
-          <p>Aadhar Card *</p>
-          <input
-            type="file"
-            onChange={(e) => {
-              setAadhar(e.target.files[0]);
-            }}
-          />
+        <div className="box">
+          <div className="box_child">
+            <p>Aadhar Card *</p>
+            <input
+              type="file"
+              onChange={(e) => {
+                setAadhar(e.target.files[0]);
+              }}
+            />
+          </div>
+          <div className="box_child">
+            <p>Pan Card *</p>
+            <input
+              type="file"
+              onChange={(e) => {
+                setPan(e.target.files[0]);
+              }}
+            />
+          </div>
         </div>
-        <div>
-          <p>Pan Card *</p>
-          <input
-            type="file"
-            onChange={(e) => {
-              setPan(e.target.files[0]);
-            }}
-          />
+        <div className="box">
+          <div className="box_child">
+            <p>Passport Front *</p>
+            <input
+              type="file"
+              onChange={(e) => {
+                setPassFront(e.target.files[0]);
+              }}
+            />
+          </div>
+          <div className="box_child">
+            <p>Passport Back *</p>
+            <input
+              type="file"
+              onChange={(e) => {
+                setPassBack(e.target.files[0]);
+              }}
+            />
+          </div>
         </div>
-        <div>
-          <p>Passport Front *</p>
-          <input
-            type="file"
-            onChange={(e) => {
-              setPassFront(e.target.files[0]);
-            }}
-          />
-        </div>
-        <div>
-          <p>Passport Back *</p>
-          <input
-            type="file"
-            onChange={(e) => {
-              setPassBack(e.target.files[0]);
-            }}
-          />
-        </div>
-        <div>
-          <p>Matric *</p>
-          <input
-            type="file"
-            onChange={(e) => {
-              setPass10th(e.target.files[0]);
-            }}
-          />
-        </div>
-        <div>
-          <p>Intermediate *</p>
-          <input
-            type="file"
-            onChange={(e) => {
-              setPass12th(e.target.files[0]);
-            }}
-          />
+        <div className="box">
+          <div className="box_child">
+            <p>Matric *</p>
+            <input
+              type="file"
+              onChange={(e) => {
+                setPass10th(e.target.files[0]);
+              }}
+            />
+          </div>
+          <div className="box_child">
+            <p>Intermediate *</p>
+
+            <input
+              type="file"
+              onChange={(e) => {
+                setPass12th(e.target.files[0]);
+              }}
+            />
+          </div>
         </div>
         <button
           className="submit_btn"
@@ -122,46 +129,99 @@ export default function Documents({ appId }) {
   );
 }
 const Root = styled.section`
+  font: "cairo", sans-serif;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f8f8;
+  flex-direction: column;
+
   @media (max-width: 823px) {
     gap: 10px;
     justify-content: center;
   }
+
+  h4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+  }
   .all_details {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     gap: 20px;
     padding: 20px;
-
+    background-color: #ffffff;
+    border-radius: 25px;
     .err_msg {
       font-size: 14px;
       color: red;
     }
-    > div {
+    .box {
       display: flex;
-      gap: 7px;
-      background-color: #d48ea0;
-      padding: 10px 10px 4px 10px;
-      border-radius: 20px;
       flex-wrap: wrap;
-      color: white;
-      font-weight: 520;
+      justify-content: center;
+      gap: 3px;
+      @media (max-width:788px){
+        flex-direction: column;
+        .box_child{
+          width: 200px;
+        }
+        input{
+          width: 150px;
+          margin:0;
+        }
+        h4{
+          display: none;
+        }
+      }
+      .box_child {
+        /* border: 2px solid #a5d8fa;
+        background-color: #f8f8f8;
+        padding: 10px;
+        border-radius: 20px;
+        font-weight: 520;
+        text-align: center; */
 
-      p {
-        min-width: 100px;
-        align-items: center;
-        padding: 0;
+        text-align: center;
+        border: 3px dashed rgb(210, 227, 244);
+        padding: 1.5rem;
+        position: relative;
+        cursor: pointer;
+        p {
+          min-width: 100px;
+          align-items: center;
+          padding: 0;
+        }
+        .box_child input {
+          margin-left: 40px;
+          display: block;
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          opacity: 0;
+          cursor: pointer;
+             
+        }
       }
     }
     .submit_btn {
       width: fit-content;
-      background-color: #d48ea0;
+      background-color: #0146ff;
       border: none;
       color: white;
       padding: 8px;
       font-weight: 540;
       border-radius: 15px;
+     
     }
     .submit_btn:hover {
       background-color: #039c33;
@@ -169,4 +229,19 @@ const Root = styled.section`
       cursor: pointer;
     }
   }
+  input[type="file"]::file-selector-button {
+  border: 2px solid #119AF6 ;
+  padding: 0.2em 0.4em;
+  border-radius: 0.4em;
+  background-color: #62BDFA;
+  transition: 1s;
+  margin-left:20px;
+
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: #81ecec;
+  border: 2px solid #00cec9;
+}
+   
 `;

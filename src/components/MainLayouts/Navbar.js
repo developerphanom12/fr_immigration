@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import { FcAbout } from "react-icons/fc";
 import { FcList } from "react-icons/fc";
 import { FcBusinessman } from "react-icons/fc";
 import russia from "../MainLayouts/pictures/Russia.png";
@@ -10,12 +9,11 @@ import maxico from "../MainLayouts/pictures/maxico.jpg";
 import china from "../MainLayouts/pictures/china.png";
 import { EXCHANGE_URLS_APPLICATION } from "../URLS";
 import axios from "axios";
-import { useSelector } from "react-redux";
 
 export default function Navbar() {
   const [activePop, setActivePop] = useState(false);
   const [profile, setProfile] = useState([]);
-  const userDetails = useSelector((state) => state?.users.user);
+  // const userDetails = useSelector((state) => state?.users.user);
 
   const getProfile = async () => {
     const axiosConfig = {
@@ -79,10 +77,6 @@ export default function Navbar() {
             </div>
           )}
         </div>
-      </div>
-
-      <div className="notification">
-        <FcAbout />
       </div>
       <div
         className="menu"

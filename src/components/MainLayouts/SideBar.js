@@ -237,8 +237,12 @@ const Root = styled.section`
             #0146ff96 98%,
             #0146ff 100%
           );
-        @media (max-width: 700px) {
-          background-color: transparent;
+        @media (max-width: 800px) {
+          background:transparent;
+          &:hover{
+          background: transparent;
+
+          }
         }
       }
     }
@@ -247,18 +251,19 @@ const Root = styled.section`
     display: flex;
     /* justify-content: center; */
     align-items:flex-start;
-    width: 100%;
+    width: 90%;
     gap: 10px;
+    align-items: center;
     padding: 10px;
     text-align: center;
     border-radius: 40px;
     font-size: 13px;
-    margin: 30px;
+    margin: 10px;
    
     @media (max-width: 798px) {
       /* flex-direction: column; */
       text-size-adjust: smaller;
-      width: 150px;
+      width: 130px;
       gap: 0;
       padding: 10px;
       background-color: transparent;

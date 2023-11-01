@@ -2,15 +2,13 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import { EXCHANGE_URLS_IMAGE, EXCHANGE_URLS_UNIVERSITY } from "../../URLS";
-import Loader from "../../Loader";
 
 export default function Search_course() {
   const [searchQuery, setSearchQuery] = useState("");
   const [courseData, setCourseData] = useState([]);
   const [searchKey, setSearchKey] = useState("");
-  const [loader,setLoader] = useState(true);
+
 
   const courseApi = async (searchKey) => {
     try {
@@ -27,7 +25,7 @@ export default function Search_course() {
 
   useEffect(() => {
     courseApi();
-    loader(true)
+    
   }, []);
 
   console.log("courseData", courseData);
@@ -59,7 +57,7 @@ export default function Search_course() {
       )
     }
   })
-
+ console.log("setSearchQuery",setSearchQuery)
   return (
     <Root>
       <h4>Search Courses Here</h4>
@@ -80,7 +78,7 @@ export default function Search_course() {
         </button>
       </div>
      
-     {loader? (<Loader/>): (
+     
       <div className="courses_div">
         <h2>Total Courses: {courseData?.length}</h2>
         <div className="container">
@@ -119,7 +117,7 @@ export default function Search_course() {
           </div>
         </div>
       </div>
-     )}
+    
     </Root>
   );
 }

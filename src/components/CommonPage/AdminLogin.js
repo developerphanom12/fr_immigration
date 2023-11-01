@@ -100,7 +100,6 @@ width: 100%;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  /* margin: 20px; */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

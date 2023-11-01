@@ -81,12 +81,14 @@ const Root = styled.section`
       display: flex;
       height: 80px;
       width: 100%;
-      align-items: center;
-      justify-content: space-between;
+      /* align-items: center; */
+      /* justify-content: space-between; */
       overflow: hidden;
+      /* position: fixed; */
     }
     .main_body {
       height: 90%;
+      margin-top:80px ;
     }
   }
 `;

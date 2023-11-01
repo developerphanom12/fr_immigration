@@ -40,7 +40,7 @@ function Download() {
 
   return (
     <Root>
-      <button onClick={handleDownloadClick}>Download Student File</button>
+      <button onClick={handleDownloadClick}>Download</button>
     </Root>
   );
 }

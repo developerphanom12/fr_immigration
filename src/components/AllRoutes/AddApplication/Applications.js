@@ -10,7 +10,7 @@ import Documents from "./Documents";
 
 export default function Applications() {
   const [data, setData] = useState({
-    course_id:0,
+    course_id: 0,
     university_id: 0,
     student_firstname: "",
     student_lastname: "",
@@ -29,7 +29,6 @@ export default function Applications() {
   const [course, setCourse] = useState([]);
   const [university, setUniversity] = useState([]);
   // const navigate = useNavigate();
-  
 
   const appApi = async () => {
     try {
@@ -66,7 +65,7 @@ export default function Applications() {
       );
       if (res?.status === 200) {
         setCourse(res?.data.data);
-        setUniversity(res?.data?.data)
+        setUniversity(res?.data?.data);
       }
     } catch (err) {
       console.log("err", err);
@@ -108,7 +107,7 @@ export default function Applications() {
       {activeNext ? (
         <div className="first_div">
           <div>
-            <h2>Fill your form to join our network</h2>
+            <h1>Apply For New Courses</h1>
           </div>
           <div className="first_box1">
             <div>
@@ -179,7 +178,7 @@ export default function Applications() {
 
               <div className="name">
                 {" "}
-                marital status* :-
+                Marital status* :-
                 <select
                   value={data.marital_status}
                   onChange={(e) => {
@@ -212,7 +211,7 @@ export default function Applications() {
               </div>
               <div className="name">
                 {" "}
-                ielts reading* :-
+                Ielts reading* :-
                 <input
                   type="name"
                   value={data.ielts_reading}
@@ -226,7 +225,7 @@ export default function Applications() {
             <div>
               <div className="name">
                 {" "}
-                ielts listening* :-
+                Ielts listening* :-
                 <input
                   type="name"
                   value={data.ielts_listening}
@@ -238,7 +237,7 @@ export default function Applications() {
               </div>
               <div className="name">
                 {" "}
-                ielts writing* :-
+                Ielts writing* :-
                 <input
                   type="name"
                   value={data.ielts_writing}
@@ -252,7 +251,7 @@ export default function Applications() {
             <div>
               <div className="name">
                 {" "}
-                ielts speaking* :-
+                Ielts speaking* :-
                 <input
                   type="name"
                   value={data.ielts_speaking}
@@ -264,7 +263,7 @@ export default function Applications() {
               </div>
               <div className="name">
                 {" "}
-                university ID* :-
+                University ID* :-
                 <select
                   onChange={(e) => {
                     setData({ ...data, university_id: e.target.value });
@@ -298,7 +297,7 @@ export default function Applications() {
                     })}
                 </select>
               </div>
-              <div className="name">
+              <div className="name1">
                 <button
                   className="btnn"
                   onClick={() => {
@@ -319,41 +318,56 @@ export default function Applications() {
 }
 const Root = styled.section`
   color: black;
-  /* background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c); */
-  /* background: linear-gradient(white , lightskyblue); */
-  .name {
-    display: flex;
-    flex-direction: column;
-    font-size: larger;
-    width: 100%;
-    margin-right: 10px;
-    padding: 20px;
-    gap: 10px;
-    color: rgb(249, 118, 17);
-    .btnn {
-      padding: 10px;
-      border-radius: 30px;
-      font-size: medium;
-      border-color: transparent;
-      color: #ffffff;
-      background: rgb(255 94 0);
-      margin: 10px;
+  background-color: #f8f8f8;
+  > div {
+    .name1 {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 20px;
+      justify-content: flex-end;
+      gap: 10px;
+      text-align: center;
+      color: rgb(249, 118, 17);
+      background-color: #ffffff;
+      .btnn {
+        padding: 10px;
+        border-radius: 30px;
+        font-size: medium;
+        border-color: transparent;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        background: blue;
+        margin: 10px;
+      }
+      .btnn:hover {
+        color: #f0f8ff;
+        background: #ff6525;
+        cursor: pointer;
+      }
     }
-    .btnn:hover {
-      color: #f0f8ff;
-      background: blue;
-      cursor: pointer;
+    .name {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 20px;
+      justify-content: center;
+      gap: 10px;
+      color: #202020;
+      background-color: white;
     }
   }
-
   .first_div {
-    font-family: Georgia, serif;
     flex-wrap: wrap;
-    h2 {
-      color: #0e4d92;
-      padding: 10px;
+    h1 {
+      font: 32px "cairo", sans-serif;
+      color: #202020;
+      font-weight: 600;
+      padding: 30px;
       display: flex;
-      justify-content: center;
       margin: 0;
     }
 
@@ -362,19 +376,26 @@ const Root = styled.section`
       flex-direction: column;
       padding: 20px;
       margin: 0px 10px;
+      @media (max-width:789px){
+        flex-direction: column;
+      }
       > div {
         display: flex;
         flex: 1;
-        padding: 10px;
-        gap: 5px;
       }
       input {
-        border-radius: 10px;
-        padding: 5px;
+        border-radius: 40px;
+        padding: 10px;
+        color: #202020;
+        text-decoration: none;
+        border: 2px solid #a5d8fa;
       }
       select {
-        border-radius: 10px;
-        padding: 7px;
+        border-radius: 30px;
+        padding: 10px;
+        color: #8995ad;
+        text-decoration: none;
+        border: 2px solid #a5d8fa;
       }
     }
   }
