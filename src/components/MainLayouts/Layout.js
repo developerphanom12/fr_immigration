@@ -88,7 +88,7 @@ const Root = styled.section`
     }
     .main_body {
       height: 90%;
-      margin-top:80px ;
+      /* margin-top:80px ; */
     }
   }
 `;

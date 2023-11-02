@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { EXCHANGE_URLS_APPLICATION } from "../../URLS";
 import { useDispatch } from "react-redux";
-import {BsFillEyeFill} from "react-icons/bs"
+import { BsFillEyeFill } from "react-icons/bs";
 import Download from "./Download";
 import Loader from "../../Loader";
 import { appDetailsAction } from "../../../redux/users/action";
@@ -147,8 +147,14 @@ export default function History({ popUser = () => {} }) {
                   </div>
                   <div>{i?.course_id?.course_name}</div>
                   <div>{i?.application_status}</div>
-                  <div className="iconn"
-                   onClick={()=>{navigate('/detailview')}} ><BsFillEyeFill/></div>
+                  <div
+                    className="iconn"
+                    onClick={() => {
+                      navigate(`/detailview/${i?.application_id}`);
+                    }}
+                  >
+                    <BsFillEyeFill />
+                  </div>
                 </div>
               );
             })}
@@ -162,7 +168,7 @@ const Root = styled.section`
   flex-direction: column;
   gap: 10px;
   background-color: #f8f8f8;
-
+  font-family: "Mulish", "sana-serif";
   .header {
     display: flex;
     justify-content: space-between;
@@ -222,7 +228,7 @@ const Root = styled.section`
   .app_table {
     display: flex;
     flex-direction: column;
-    margin:20px; 
+    margin: 20px;
     .app_header {
       display: flex;
       background-color: #fff3ee;
@@ -234,35 +240,32 @@ const Root = styled.section`
     }
     .app_body {
       display: flex;
-      font-family: 'Cairo', sans-serif;
-      .cams{
+      font-family: "Cairo", sans-serif;
+      .cams {
         text-align: center;
       }
-      .iconn{
+      .iconn {
         display: flex;
         align-items: center;
         justify-content: center;
-
-        
       }
       > div {
         flex: 1;
-        border: 0.3px solid #FBFBFD;
+        border: 0.3px solid #fbfbfd;
         padding: 5px;
         text-transform: capitalize;
-        background-color:#E7E7E8;
+        background-color: #e7e7e8;
 
         span {
           font-weight: 600;
         }
         &:nth-child(odd) {
-          background-color: #E7E7E8;
+          background-color: #e7e7e8;
         }
-        
-        &:nth-child(even) {
-      background-color: white;
-    }
 
+        &:nth-child(even) {
+          background-color: white;
+        }
       }
       &:hover {
         background-color: lightgray;
@@ -270,12 +273,12 @@ const Root = styled.section`
       }
     }
   }
-  svg{
-          height: 25px;
-          width: 25px;
-          color: blue;
-          &:hover{
-            color:green;
-          }
-        }
+  svg {
+    height: 25px;
+    width: 25px;
+    color: blue;
+    &:hover {
+      color: green;
+    }
+  }
 `;

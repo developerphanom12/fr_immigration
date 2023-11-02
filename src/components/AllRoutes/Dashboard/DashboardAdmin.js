@@ -5,13 +5,29 @@ import { EXCHANGE_URLS_APPLICATION } from "../../URLS";
 import Loader from "../../Loader";
 export default function DashboardAdmin() {
   const [loader, setLoader] = useState(true);
-  const [dashboard, setDashboard] = useState({
-    approved: "",
-    pending: "",
-    rejected: "",
-    totalApplications: "",
-  });
+  const [count, setCount] = useState([]);
+  const [dashboard, setDashboard] = useState();
+
   const dashboardApi = async () => {
+    const axiosConfig = {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    };
+    try {
+      const res = await axios.get(
+        `${EXCHANGE_URLS_APPLICATION}/count`,
+        axiosConfig
+      );
+      console.log("resss", res?.data?.data);
+      setDashboard(res?.data?.data);
+      setLoader(false);
+    } catch (err) {
+      console.log("err", err);
+    }
+  };
+
+  const countApi = async () => {
     const axiosConfig = {
       headers: {
         authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -22,77 +38,80 @@ export default function DashboardAdmin() {
         `${EXCHANGE_URLS_APPLICATION}/getbydata`,
         axiosConfig
       );
-      console.log("resss", res?.data?.data);
-      setDashboard(res?.data?.data);
-      setLoader(false);
+      console.log("getby", res.status);
+      if (res?.status == 201) {
+        setCount(res?.data?.data);
+        setLoader(false);
+      }
     } catch (err) {
       console.log("err", err);
     }
   };
   useEffect(() => {
+    countApi();
     dashboardApi();
-    setLoader(true);
+    setLoader(false);
   }, []);
+
+  // const handlePassData = (i) => {
+  //   dispatch(appDetailsAction(i));
+  // };
   console.log("dashboarddd", dashboard);
+  console.log("count====", count);
   return (
     <Root>
       <h3> Dashboard</h3>
       {loader ? (
         <Loader />
       ) : (
-        <div className="dashboard_details">
-          
-          <div className="details">
-            <div>
-              <p>
-             
-                Approve Documents <p>{dashboard?.approved ?? 0}</p>
-              </p>
-            </div>
-            <div>
-              <p>
-                
-                Application Pending<p>{dashboard?.pending ?? 0}</p>
-              </p>
-            </div>
-            <div>
-              <p>
-                Rejected Documents<p>{dashboard?.rejected ?? 0}</p>
-              </p>
-            </div>
-            <div>
-              <p>
-                Total Applications<p>{dashboard?.totalApplications ?? 0}</p>
-              </p>
+        <>
+          <div className="dashboard_details">
+            <div className="details">
+              <div>
+                <p>
+                  Approve Documents <p>{dashboard?.approved ?? 0}</p>
+                </p>
+              </div>
+              <div>
+                <p>
+                  Application Pending<p>{dashboard?.pending ?? 0}</p>
+                </p>
+              </div>
+              <div>
+                <p>
+                  Rejected Documents<p>{dashboard?.rejected ?? 0}</p>
+                </p>
+              </div>
+              <div>
+                <p>
+                  Total Applications<p>{dashboard?.totalApplications ?? 0}</p>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+          <div className="app_table">
+            <div className="app_header">
+              <div>Agent Name</div>
+              <div>Student Name</div>
+              <div>University Name</div>
+              <div>Course Name</div>
+              <div>Status</div>
+            </div>
+            {count &&
+              count?.map((i) => {
+                return (
+                  <div className="app_body">
+                    <div>{i?.username}</div>
+                    <div>{i?.rejectedCount}</div>
+                    <div>{i?.pendingCount}</div>
+                    <div>{i?.approvedCount}</div>
+                    <div>{i?.userTotalApplications}</div>
+                  </div>
+                );
+              })}
+          </div>
+        </>
       )}
-      <div className="notice">
-        <h2>Notice Board</h2>
-        <ul>
-          <li>
-            Glasgow Caledonian University application
-            deadline-----------------26-11-2023
-          </li>
-          <li>
-            Swansea University application
-            deadline-----------------------------6-12-2023
-          </li>
-          <li>
-            Himachal Pradesh University application
-            deadline-------------------20-11-2023
-          </li>
-          <li>
-            Amity University application
-            deadline------------------------------29-10-2023
-          </li>
-          <li>
-            Sardar Patel University application
-            deadline-----------------------26-11-2023
-          </li>
-        </ul>
-      </div>
     </Root>
   );
 }
@@ -122,7 +141,7 @@ const Root = styled.section`
       height: 100%;
       font-size: 17px;
 
-      @media (max-width: 789px) {
+      @media (max-width: 709px) {
         flex-direction: column;
       }
       > div {
@@ -163,16 +182,41 @@ const Root = styled.section`
     }
   }
 
-  .notice {
+  
+  .app_table {
     display: flex;
-    font-family: Courier, monospace;
-    flex-wrap: wrap;
     flex-direction: column;
-    border: 1px solid black;
-    margin: 10px;
-    h2 {
-      color: rgb(20, 99, 178);
-      margin: 10px;
+    margin: 20px;
+    .app_header {
+      display: flex;
+      background-color: #B5E4FB;
+      > div {
+        flex: 1;
+        border: 1px solid #dee2e6;
+        padding: 20px;
+        @media (max-width:700px){
+          font-size: smaller;
+          min-width: 70px;
+          padding: 10px;
+        }
+      }
+    }
+    .app_body {
+      display: flex;
+      font-family: "Cairo", sans-serif;
+
+      > div {
+        flex: 1;
+        border: 0.3px solid lightgray;
+        padding: 20px;
+        text-transform: capitalize;
+        /* background-color:aliceblue; */
+        @media (max-width:700px){
+          font-size: smaller;
+          min-width: 70px;
+          padding: 10px;
+        }
+      }
     }
   }
 `;

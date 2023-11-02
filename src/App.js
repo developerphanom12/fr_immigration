@@ -34,13 +34,13 @@ function App() {
               <Route path="/history" element={<HistoryMain />} />
               <Route path="/urm" element={<Urm_university />} />
               <Route path="/search" element={<Search_course />} />
-            <Route path="/detailview" element={<DetailView />} />
+            <Route path="/detailview/:id" element={<DetailView />} />
 
             </>
           ) : (
             <>
              <Route path="/dashboard" element={<DashboardAdmin />} />
-            <Route path="/detailview" element={<DetailView />} />
+            <Route path="/detailview/:id" element={<DetailView />} />
               <Route path="*" element={<DashboardAdmin />} />
               <Route path="/applications" element={<Applications />} />
               <Route path="/history" element={<HistoryMain />} />
