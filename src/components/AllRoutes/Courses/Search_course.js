@@ -16,7 +16,7 @@ export default function Search_course() {
       console.log("resres123", res);
       // if (res.status === 201) {
         setCourseData(res?.data?.data);
-        setLoader(false)
+        // setLoader(false)
       // }
     } catch (err) {
       console.log("err", err);

@@ -6,10 +6,11 @@ import {
   EXCHANGE_URLS_APPLICATION,
   IMG_URL,
 } from "../../../URLS";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import cogoToast from "cogo-toast";
 import { useParams } from "react-router-dom";
+import { UserDetails } from "../../../../redux/users/action";
 
 export default function Upload({ detail }) {
   const [refreshFlag, setRefreshFlag] = useState(false);
@@ -19,9 +20,10 @@ export default function Upload({ detail }) {
   });
   let { id } = useParams();
   console.log("checkdaata", id);
+  const userDetails = useSelector((state) => state?.users?.user);
   const getDetails = useSelector((state) => state?.users?.appDetails);
   const userCheck = useSelector((state) => state?.users?.user);
-
+ const dispatch = useDispatch();
   const [selectedDocumentType, setSelectedDocumentType] = useState("");
   const [selectedFile, setSelectedFile] = useState();
 

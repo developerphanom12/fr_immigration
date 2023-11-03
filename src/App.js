@@ -16,6 +16,7 @@ import HistoryMain from "./components/AllRoutes/allApplications/HistoryMain";
 import DetailView from "./components/AllRoutes/allApplications/detailView/DetailView";
 function App() {
   const userCheck = useSelector((state) => state?.users?.userCheck);
+  // const staffCheck = useSelector((state) => state?.users?.staffCheck);
   const userDetails = useSelector((state) => state?.users?.user);
 
   const token = localStorage.getItem("token");
@@ -25,7 +26,8 @@ function App() {
     <Layout>
       <Routes>
         {userCheck && token ? (
-          userDetails && userDetails?.role === "admin" ? (
+          userDetails && 
+          (userDetails.role === "admin" || userDetails.role === "staff") ? (
             <>
               <Route path="/dashboard" element={<DashboardAdmin />} />
               <Route path="*" element={<DashboardAdmin />} />

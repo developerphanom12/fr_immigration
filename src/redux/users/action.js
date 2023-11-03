@@ -10,6 +10,12 @@ export const userCheckAction = (data) => {
     payload: data,
   };
 };
+export const staffCheckAction = (data) =>{
+  return{
+    type: "STAFF_CHECK",
+    payload:data,
+  }
+}
 export const verifyDocs = (verifyDocs) => {
   return {
     type: "VERIFY_DOCS",
@@ -26,12 +32,6 @@ export const UserDetails = (data) => {
   return {
     type: "USER_DETAILS",
     payload: data,
-  };
-};
-export const setUserRole = (role) => {
-  return {
-    type: 'SET_USER_ROLE',
-    role,
   };
 };
 export const setUserCheck = (value) => ({
