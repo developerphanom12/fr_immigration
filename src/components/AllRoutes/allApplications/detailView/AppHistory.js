@@ -17,16 +17,25 @@ export default function AppHistory({ detail }) {
           <div>Comment By</div>
         </div>
         {detail?.comments && detail?.comments.length > 0 ? (
-          detail?.comments.map((i) => (
-            <div className="app_body" key={i.created_at}>
-              <div>{formatDate(i?.created_at)}</div>
-              <div>{i?.comment_text}</div>
-              <div>{i?.role === "admin" ? "admin" : i?.username}</div>
-            </div>
-          ))
-        ) : (
-          <div className="no-comment-msg"><h1><i>No comments...</i></h1></div>
-        )}
+  detail?.comments
+    .filter((comment, index, self) => {
+      return (
+        index ===
+        self.findIndex((c) => c.created_at === comment.created_at)
+      );
+    })
+    .map((comment) => (
+      <div className="app_body" key={comment.created_at}>
+        <div>{formatDate(comment.created_at)}</div>
+        <div>{comment.comment_text}</div>
+        <div>{comment.role === "admin" ? "admin" : comment.username}</div>
+      </div>
+    ))
+) : (
+  <div className="no-comment-msg">
+    <h1><i>No comments...</i></h1>
+  </div>
+)}
       </div>
     </Root>
   );
