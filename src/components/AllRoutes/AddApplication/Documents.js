@@ -35,13 +35,13 @@ export default function Documents({ appId }) {
       console.log("resssssssss", res);
       cogoToast.success("Documents Submitted Successfully");
     } catch (error) {
-      cogoToast.error("There is some error");
+      cogoToast.error("Error");
       console.log("error", error);
     }
   };
 
   const handleSubmit = () => {
-    if (aadhar && pan) {
+    if (aadhar && pan && passFront && passBack) {
       submitDoc();
     } else {
       cogoToast.error("Upload Both Documents");
@@ -49,6 +49,7 @@ export default function Documents({ appId }) {
   };
 
   console.log("aadhar", aadhar, pan, passFront, passBack);
+
 
   return (
     <Root>

@@ -174,6 +174,13 @@ const Root = styled.section`
     justify-content: space-between;
     align-items: center;
     padding: 30px;
+    @media (max-width: 566px) {
+      padding: 10px;
+      flex-direction: column;
+      h1 {
+        font-size: small;
+      }
+    }
     h1 {
       color: #202020;
       font-family: "Cairo", sans-serif;
@@ -189,6 +196,10 @@ const Root = styled.section`
       /* padding: 10px; */
       background: #57be1f;
       color: #ffffff;
+      @media (max-width: 566px) {
+        width: 120px;
+        height: 20px;
+      }
     }
   }
   .search_box {
@@ -279,6 +290,30 @@ const Root = styled.section`
     color: blue;
     &:hover {
       color: green;
+    }
+  }
+  @media (max-width: 568px) {
+    .app_table {
+      font-size: smaller;
+      margin: 0px;
+      overflow-x: scroll;
+      .app_header {
+        min-width: 135px;
+        /* width: 100%; */
+        > div {
+          padding: 5px;
+          font-size: smaller;
+        }
+      }
+      .app_body {
+        min-width: 105px;
+        width: 100%;
+        > div {
+          /* flex: 1; */
+          font-size: smaller;
+
+        }
+      }
     }
   }
 `;

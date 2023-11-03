@@ -111,10 +111,19 @@ const Root = styled.section`
     display: flex;
     background-color: #87CEFA;
     width: 100%;
-    padding: 20px;
+    margin: 5px;
+    padding: 10px;
     border-radius: 15px;
     justify-content: space-between;
     flex-wrap: wrap;
+    @media (max-width:666px){
+      padding: 5px;
+      margin: 5px;
+      gap: 5px;
+      text-align: center;
+      align-items: center;
+      flex-direction: column;
+    }
     select {
       width: 40%;
       border-radius: 10px;

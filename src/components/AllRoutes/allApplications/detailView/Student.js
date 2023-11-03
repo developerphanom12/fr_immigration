@@ -2,11 +2,18 @@ import React from "react";
 import styled from "styled-components";
 
 export default function Student({detail}) {
+  const formatDate = (isoDate) => {
+    const date = new Date(isoDate);
+    const day = date.getDate().toString().padStart(2, "0");
+    const month = (date.getMonth() + 1).toString().padStart(2, "0"); // Months are zero-based
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
   return (
     <Root>
       <div className="divRow">
       <p>Cams Id :- {detail?.application_id}</p> 
-      <p>Date :- {detail?.created_at}</p>
+      <p>Date :- {formatDate(detail?.created_at)}</p>
       </div>
       <div className="divRow1">
       <p>Student Name :- {detail?.student_firstname}</p>
@@ -23,6 +30,9 @@ const Root = styled.section`
   font-family: "Mulish", sans-serif;
   margin: 20px;
   background-color: #f8f8f8;
+  @media (max-width:766px){
+    margin: 0;
+  }
   .divRow{
     padding: 10px;
     background: #e6f5ff;

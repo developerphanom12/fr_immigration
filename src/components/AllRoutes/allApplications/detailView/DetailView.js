@@ -90,19 +90,25 @@ export default function DetailView() {
       </div>
 
       <div className="table">
-        {active === "student" ? (
-          <Student detail={user} />
-        ) : active === "course" ? (
-          <Course />
-        ) : active === "upload" ? (
-          <Upload />
-        ) : active === "apphistory" ? (
-          <AppHistory />
-        ) : active === "comment" ? (
-          <Comment />
-        ) : (
-          <Student />
-        )}
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              {active === "student" ? (
+                <Student detail={user} />
+              ) : active === "course" ? (
+                <Course detail={user} />
+              ) : active === "upload" ? (
+                <Upload detail={user} />
+              ) : active === "apphistory" ? (
+                <AppHistory detail={user} />
+              ) : active === "comment" ? (
+                <Comment />
+              ) : (
+                <Student />
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     </Root>
   );
@@ -112,11 +118,21 @@ const Root = styled.section`
   background-color: #f8f8f8;
   height: 100%;
   padding: 20px;
-  gap: 10px;
+  @media (max-width: 800px) {
+    padding: 0;
+    h2 {
+      margin: 4px;
+    }
+  }
   h2 {
     margin: 10px;
     font-size: 32px;
     font-weight: 600;
+    @media (max-width: 786px) {
+      margin: 0;
+      font-size: small;
+      align-items: center;
+    } 
   }
   .nav_tab {
     display: flex;
@@ -128,7 +144,7 @@ const Root = styled.section`
     border-radius: 40px;
     margin: 10px;
     border-bottom: 1px solid lightgray;
-    @media (max-width: 786) {
+    @media (max-width: 786px) {
       flex-direction: column;
     }
 
@@ -142,19 +158,34 @@ const Root = styled.section`
         background-color: blue;
         color: white;
       }
-      @media (max-width:566px){
-        min-width: 150px;
-        width:100%
+      @media (max-width: 566px) {
+        min-width: 80px;
+        width: 100%;
+        padding: 5px;
+        font-size: small;
+        &:hover {
+          background-color: transparent;
+          color: black;
+        }
       }
     }
     .active {
       background-color: blue;
       color: #ffffff;
+      @media (max-width: 400px) {
+        .active {
+          background-color: transparent;
+          color: black;
+        }
+      }
     }
   }
   .table {
     border-top: 1px solid lightgray;
     width: 100%;
     height: 100%;
+    @media (max-width: 600px) {
+      padding: 0;
+    }
   }
 `;

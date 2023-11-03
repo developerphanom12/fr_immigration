@@ -93,7 +93,6 @@ export default function Applications() {
 
   const handleSubmit = () => {
     appApi();
-    // navigate("/documents");
   };
 
   useEffect(() => {

@@ -202,7 +202,7 @@ const Root = styled.section`
         border-radius: 40px;
         @media (max-width: 798px) {
           flex-direction: column;
-          width: 130px;
+          width: 80px;
           gap: 0;
         }
         &:hover {
