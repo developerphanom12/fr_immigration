@@ -18,6 +18,7 @@ export default function Applications() {
     student_whatsapp_number: "",
     student_passport_no: "",
     marital_status: "",
+    country_id:'',
     previous_visa_refusals: "",
     ielts_reading: 0,
     ielts_listening: 0,

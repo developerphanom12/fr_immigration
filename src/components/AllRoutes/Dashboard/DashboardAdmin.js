@@ -90,12 +90,12 @@ export default function DashboardAdmin() {
             </div>
           </div>
           <div className="app_table">
-            <div className="app_header">
+          <div className="app_header">
               <div>Agent Name</div>
-              <div>Student Name</div>
-              <div>University Name</div>
-              <div>Course Name</div>
-              <div>Status</div>
+              <div>Rejected Application</div>
+              <div>Pending Application</div>
+              <div>Approved Application </div>
+              <div>Total Application</div>
             </div>
             {count &&
               count?.map((i) => {

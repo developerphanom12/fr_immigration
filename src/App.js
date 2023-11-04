@@ -15,20 +15,21 @@ import AdminLogin from "./components/CommonPage/AdminLogin";
 import HistoryMain from "./components/AllRoutes/allApplications/HistoryMain";
 import DetailView from "./components/AllRoutes/allApplications/detailView/DetailView";
 import ForgotPass from "./components/CommonPage/ForgotPass";
+import StaffLogin from "./components/CommonPage/StaffLogin";
 function App() {
   const userCheck = useSelector((state) => state?.users?.userCheck);
-  // const staffCheck = useSelector((state) => state?.users?.staffCheck);
   const userDetails = useSelector((state) => state?.users?.user);
 
   const token = localStorage.getItem("token");
 
   console.log("resres123", userDetails?.role);
+  
   return (
     <Layout>
       <Routes>
-        {userCheck && token ? (
+        {userCheck && token  || userDetails.role === "staff" ? (
           userDetails && 
-          (userDetails.role === "admin" || userDetails.role === "staff") ? (
+          (userDetails.role === "admin") ? (
             <>
               <Route path="/dashboard" element={<DashboardAdmin />} />
               <Route path="*" element={<DashboardAdmin />} />
@@ -56,13 +57,11 @@ function App() {
             <Route path="*" element={<PageNF />} />
             <Route path="/" element={<HomePage />} />
             <Route path="/home" element={<HomePage />} />
-            {/* <Route path="/universities" element={<Universities />} /> */} 
-            {/* <Route path="/reach" element={<Reach />} /> */}
             <Route path="/adminlogin" element={<AdminLogin />} />
+            <Route path="/stafflogin" element={<StaffLogin/>} />
             <Route path="/login" element={<Login />} />
             <Route path="/forgot" element={<ForgotPass/>} />
             <Route path="/partner" element={<Partner />} />
-            {/* <Route path="/ambassadar" element={<Ambassadar />} /> */}
           </>
         )}
       </Routes>

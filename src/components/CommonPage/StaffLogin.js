@@ -5,22 +5,25 @@ import { styled } from "styled-components";
 import cogoToast from "cogo-toast";
 import { useDispatch } from "react-redux";
 import { userCheckAction, userDataAction } from "../../redux/users/action";
-import { EXCHANGE_URLS } from "../URLS";
+import { EXCHANGE_URLS_ADMIN } from "../URLS";
 import loginbanner from "../CommonPage/imageLogo/login_banner.png";
 
-export default function Login() {
+export default function StaffLogin() {
   const [logindata, setlogindata] = useState({
-    username: "",
+    staff_name: "",
     password: "",
   });
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const loginApi = async () => {
+  const staffLoginApi = async () => {
     try {
-      const res = await axios.post(`${EXCHANGE_URLS}/login1`, logindata);
+      const res = await axios.post(
+        `${EXCHANGE_URLS_ADMIN}/stafflogin/`,
+        logindata
+      );
       console.log("resres123", res?.data?.data?.user);
-      if (res?.status === 200) {
+      if (res?.status === 201) {
         localStorage.setItem("token", res?.data?.data?.user?.token);
         dispatch(userDataAction(res?.data?.data?.user));
         dispatch(userCheckAction(true));
@@ -33,8 +36,8 @@ export default function Login() {
   };
 
   const handleClick = () => {
-    if (logindata.username.length > 3 && logindata.password.length > 3) {
-      loginApi();
+    if (logindata.staff_name.length >= 3 && logindata.password.length >= 3) {
+      staffLoginApi();
     } else {
       cogoToast.error(
         "Username & password Length should be greater than 3 & 3 character"
@@ -51,13 +54,13 @@ export default function Login() {
       </div>
       <div className="box_div">
         <div className="user_name">
-          User Name*
+          Staff Name*
           <input
-            value={logindata.username}
+            value={logindata.staff_name}
             onChange={(e) => {
-              setlogindata({ ...logindata, username: e.target.value });
+              setlogindata({ ...logindata, staff_name: e.target.value });
             }}
-            placeholder="User Name"
+            placeholder="Staff Name"
           />
         </div>
         <div className="user_name">
@@ -81,13 +84,14 @@ export default function Login() {
           </button>
         </div>
         <div className="forget">
-          <button className="div2" onClick={()=>{navigate('/forgot')}}>Forget Password</button>
-        </div>
-        <div className="register">
-          <h5>Don't Have An Account ?</h5>
-          <button onClick={() => {
-              navigate("/partner");
-            }}>Get Started</button>
+          <button
+            className="div2"
+            onClick={() => {
+              navigate("/forgot");
+            }}
+          >
+            Forget Password
+          </button>
         </div>
       </div>
     </Root>
@@ -137,8 +141,6 @@ const Root = styled.section`
   }
 
   .box_div {
-    
-    
     width: 580px;
     height: 550px;
     display: flex;
@@ -218,7 +220,7 @@ const Root = styled.section`
       align-items: center;
       justify-content: center;
       gap: 5px;
-     
+
       button {
         background: linear-gradient(
           45deg,
@@ -233,25 +235,24 @@ const Root = styled.section`
         background-size: 300% 100%;
         transition: all 0.3s ease-in-out 0s;
         text-transform: uppercase;
-        &:hover{
+        &:hover {
           background: linear-gradient(
-          -25deg,
-          #ff6525 49%,
-          #ffffffe6 91%,
-          #ff6525 100%
-        );
+            -25deg,
+            #ff6525 49%,
+            #ffffffe6 91%,
+            #ff6525 100%
+          );
         }
       }
     }
   }
   button {
-      color: #ff6525;
-      font-family: "Mulish", sans-serif;
-      text-decoration: underline;
-      font-weight: 700;
-      font-size: 16px;
-      cursor: pointer;
-      background-color: transparent;
-    
+    color: #ff6525;
+    font-family: "Mulish", sans-serif;
+    text-decoration: underline;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: transparent;
   }
 `;

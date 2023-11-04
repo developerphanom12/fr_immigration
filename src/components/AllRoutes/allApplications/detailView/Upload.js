@@ -12,7 +12,7 @@ import cogoToast from "cogo-toast";
 import { useParams } from "react-router-dom";
 import { UserDetails } from "../../../../redux/users/action";
 
-export default function Upload({ detail }) {
+export default function Upload({ detail ,val}) {
   const [refreshFlag, setRefreshFlag] = useState(false);
   const [select, setSelect] = useState({
     newStatus: "",
@@ -60,6 +60,7 @@ export default function Upload({ detail }) {
       console.log(`Updated ${selectedDocumentType}`, res);
       cogoToast.success(`${selectedDocumentType} Submitted Successfully`);
       setRefreshFlag(!refreshFlag);
+      val(true);
     } catch (error) {
       // cogoToast.error("Error");
       console.log("error", error);

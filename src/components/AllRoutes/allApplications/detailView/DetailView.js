@@ -11,7 +11,7 @@ import axios from "axios";
 import { EXCHANGE_URLS_APPLICATION } from "../../../URLS";
 
 export default function DetailView() {
-  // const [detail,setDetail] = useState("");
+  const [val,setVal] = useState(false);
   const [user, setUser] = useState();
   const [active, setActive] = useState("student");
   let { id } = useParams();
@@ -39,7 +39,7 @@ export default function DetailView() {
 
   useEffect(() => {
     getDetail();
-  }, [id]);
+  }, [id ,val]);
 
   console.log("userr", user);
   return (
@@ -98,7 +98,7 @@ export default function DetailView() {
               ) : active === "course" ? (
                 <Course detail={user} />
               ) : active === "upload" ? (
-                <Upload detail={user} />
+                <Upload detail={user} val = {((e)=>{setVal(e)})}/>
               ) : active === "apphistory" ? (
                 <AppHistory detail={user} />
               ) : active === "comment" ? (
