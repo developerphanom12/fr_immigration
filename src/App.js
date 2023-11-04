@@ -14,6 +14,7 @@ import Action from "./components/AllRoutes/actions/Action";
 import AdminLogin from "./components/CommonPage/AdminLogin";
 import HistoryMain from "./components/AllRoutes/allApplications/HistoryMain";
 import DetailView from "./components/AllRoutes/allApplications/detailView/DetailView";
+import ForgotPass from "./components/CommonPage/ForgotPass";
 function App() {
   const userCheck = useSelector((state) => state?.users?.userCheck);
   // const staffCheck = useSelector((state) => state?.users?.staffCheck);
@@ -55,10 +56,11 @@ function App() {
             <Route path="*" element={<PageNF />} />
             <Route path="/" element={<HomePage />} />
             <Route path="/home" element={<HomePage />} />
-            {/* <Route path="/universities" element={<Universities />} /> */}
+            {/* <Route path="/universities" element={<Universities />} /> */} 
             {/* <Route path="/reach" element={<Reach />} /> */}
             <Route path="/adminlogin" element={<AdminLogin />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/forgot" element={<ForgotPass/>} />
             <Route path="/partner" element={<Partner />} />
             {/* <Route path="/ambassadar" element={<Ambassadar />} /> */}
           </>

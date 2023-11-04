@@ -81,7 +81,7 @@ export default function Login() {
           </button>
         </div>
         <div className="forget">
-          <div className="div2">Forget Password</div>
+          <button className="div2" onClick={()=>{navigate('/forgot')}}>Forget Password</button>
         </div>
         <div className="register">
           <h5>Don't Have An Account ?</h5>
@@ -137,6 +137,8 @@ const Root = styled.section`
   }
 
   .box_div {
+    
+    
     width: 580px;
     height: 550px;
     display: flex;
@@ -242,14 +244,14 @@ const Root = styled.section`
       }
     }
   }
-  .forget {
-    .div2 {
+  button {
       color: #ff6525;
       font-family: "Mulish", sans-serif;
       text-decoration: underline;
       font-weight: 700;
       font-size: 16px;
       cursor: pointer;
-    }
+      background-color: transparent;
+    
   }
 `;

@@ -18,7 +18,7 @@ export default function AppHistory({ detail }) {
         </div>
         {detail?.comments && detail?.comments.length > 0 ? (
   detail?.comments
-    .filter((comment, index, self) => {
+    .filter((comment, index, self) => {            
       return (
         index ===
         self.findIndex((c) => c.created_at === comment.created_at)
