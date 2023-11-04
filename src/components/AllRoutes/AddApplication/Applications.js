@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 // import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import {
+  EXCHANGE_URLS_ADMIN,
   EXCHANGE_URLS_APPLICATION,
   EXCHANGE_URLS_UNIVERSITY,
 } from "../../URLS";
@@ -18,7 +19,6 @@ export default function Applications() {
     student_whatsapp_number: "",
     student_passport_no: "",
     marital_status: "",
-    country_id:'',
     previous_visa_refusals: "",
     ielts_reading: 0,
     ielts_listening: 0,
@@ -29,6 +29,7 @@ export default function Applications() {
   const [applicationId, setApplicationId] = useState("");
   const [course, setCourse] = useState([]);
   const [university, setUniversity] = useState([]);
+  const [countryy, setCountryy] = useState([]);
   // const navigate = useNavigate();
 
   const appApi = async () => {
@@ -72,6 +73,24 @@ export default function Applications() {
       console.log("err", err);
     }
   };
+  const getCountry = async () => {
+    try {
+      const axiosConfig = {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      };
+      const res = await axios.get(
+        `${EXCHANGE_URLS_ADMIN}/getallcountry/`,
+        axiosConfig
+      );
+      if (res?.status === 200) {
+        setCountryy(res?.data.data);
+      }
+    } catch (err) {
+      console.log("err", err);
+    }
+  };
 
   const getUniversity = async () => {
     try {
@@ -99,6 +118,7 @@ export default function Applications() {
   useEffect(() => {
     getCourse();
     getUniversity();
+    getCountry();
   }, []);
 
   console.log("dddddd=====", data);
@@ -184,8 +204,8 @@ export default function Applications() {
                   onChange={(e) => {
                     setData({ ...data, marital_status: e.target.value });
                   }}
-                > 
-                <option>Marital Status</option>
+                >
+                  <option>Marital Status</option>
                   <option value={data.marital_status.married}>married</option>
                   <option value={data.marital_status.unmarried}>
                     unmarried
@@ -205,7 +225,9 @@ export default function Applications() {
                       previous_visa_refusals: e.target.value,
                     });
                   }}
-                > <option>Visa</option>
+                >
+                  {" "}
+                  <option>Visa</option>
                   <option value={data.previous_visa_refusals.yes}>yes</option>
                   <option value={data.previous_visa_refusals.no}>no</option>
                 </select>
@@ -269,7 +291,8 @@ export default function Applications() {
                   onChange={(e) => {
                     setData({ ...data, university_id: e.target.value });
                   }}
-                ><option>University</option>
+                >
+                  <option>University</option>
                   {university &&
                     university.map((i) => {
                       return (
@@ -282,6 +305,21 @@ export default function Applications() {
               </div>
             </div>
             <div>
+              <div className="name">
+                {" "}
+                Country Name* :-
+                <select
+                  onChange={(e) => {
+                    setData({ ...data, id: e.target.value });
+                  }}
+                >
+                  <option>Select Country</option>
+                  {countryy &&
+                    countryy.map((i) => {
+                      return <option value={i?.id}>{i.country_name}</option>;
+                    })}
+                </select>
+              </div>
               <div className="name">
                 {" "}
                 Course ID* :-
@@ -298,16 +336,16 @@ export default function Applications() {
                     })}
                 </select>
               </div>
-              <div className="name1">
-                <button
-                  className="btnn"
-                  onClick={() => {
-                    handleSubmit();
-                  }}
-                >
-                  Submit
-                </button>
-              </div>
+            </div>
+            <div className="name1">
+              <button
+                className="btnn"
+                onClick={() => {
+                  handleSubmit();
+                }}
+              >
+                Submit
+              </button>
             </div>
           </div>
         </div>
@@ -343,12 +381,11 @@ const Root = styled.section`
         display: flex;
         background: blue;
         margin: 10px;
-        @media (max-width:700px){
+        @media (max-width: 700px) {
           min-width: 100px;
           width: 100%;
           flex-direction: column;
         }
-    
       }
       .btnn:hover {
         color: #f0f8ff;
@@ -365,11 +402,11 @@ const Root = styled.section`
       gap: 10px;
       color: #202020;
       background-color: white;
-      @media (max-width:700px){
-          min-width: 100px;
-          width: 100%;
-          flex-direction: column;
-        }
+      @media (max-width: 700px) {
+        min-width: 100px;
+        width: 100%;
+        flex-direction: column;
+      }
     }
   }
   .first_div {
@@ -382,25 +419,25 @@ const Root = styled.section`
       display: flex;
       margin: 0;
     }
-    @media (max-width:709px){
-        flex-direction: column;
-      }
+    @media (max-width: 709px) {
+      flex-direction: column;
+    }
 
     .first_box1 {
       display: flex;
       flex-direction: column;
       padding: 20px;
       margin: 0px 10px;
-      
-      @media (max-width:850px){
+
+      @media (max-width: 850px) {
         padding: 0;
       }
       > div {
         display: flex;
         flex: 1;
-        @media (max-width:850px){
-        flex-direction: column;
-      }
+        @media (max-width: 850px) {
+          flex-direction: column;
+        }
       }
       input {
         border-radius: 40px;
@@ -408,7 +445,7 @@ const Root = styled.section`
         color: #202020;
         text-decoration: none;
         border: 2px solid #a5d8fa;
-        @media (max-width:600px){
+        @media (max-width: 600px) {
           min-width: 100px;
           width: 100%;
         }
