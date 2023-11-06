@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Student({detail}) {
+export default function Student({ detail }) {
   const formatDate = (isoDate) => {
     const date = new Date(isoDate);
     const day = date.getDate().toString().padStart(2, "0");
@@ -11,18 +11,79 @@ export default function Student({detail}) {
   };
   return (
     <Root>
-      <div className="divRow">
-      <p>Cams Id :- {detail?.application_id}</p> 
-      <p>Date :- {formatDate(detail?.created_at)}</p>
-      </div>
-      <div className="divRow1">
-      <p>Student Name :- {detail?.student_firstname}</p>
-      <p> Passport No :- {detail?.student_passport_no}</p>
-      </div>
-      <div className="divRow">
-      <p>Student Number :- {detail?.student_whatsapp_number}</p>
-      <p> Student E-Mail:- {detail?.student_email}</p>
-      </div>
+      <section className="">
+
+
+        <div className="container  studentdata">
+  
+          <div className="row">
+            {/* <div className="col-lg-6">
+              <div className="divRow">
+                <p>Cams Id :- </p>
+                <div className="section">
+                  {detail?.application_id}
+                </div>
+              </div>
+            </div> */}
+              <div className="col-lg-6">
+              <div className="divRow">
+              <p>Cams Id :- </p>
+                <div className="section">
+                {detail?.application_id}         
+               </div>
+              </div>
+            </div>
+            {/* <div className="col-lg-6 divRow">
+              <div className="section">
+                <p>Date :- </p>
+              </div>
+            </div> */}
+             <div className="col-lg-6">
+              <div className="divRow">
+              <p>Date :- </p> 
+                <div className="section">
+                {formatDate(detail?.created_at)}               
+               </div>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+
+            <div className="col-lg-6">
+              <div className="divRow1">
+                <p>Student Name :-</p>
+                <div className="section mt-2">
+                  {detail?.student_firstname}
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-6 divRow1">
+              <p> Passport No :-</p>
+              <div className="section mt-2">
+                {detail?.student_passport_no}
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-lg-6">
+              <div className="divRow">
+                <p>Student Number :-</p>
+                <div className="section">
+                 {detail?.student_whatsapp_number}
+                 </div>
+              </div>
+
+            </div>
+
+            <div className="col-lg-6 divRow">
+              <p> Student E-Mail:-</p>
+              <div className="section">
+               {detail?.student_email}
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </Root>
   );
 }
@@ -47,7 +108,14 @@ const Root = styled.section`
    p{
     background-color: white;
     color: gray;
-   
+   margin:0px;
    }
+  }
+
+  .studentdata{
+    border: 3px solid #120f0f30;
+    border-radius: 29px;
+    margin-top: 28px;
+    padding: 17px;
   }
 `;
