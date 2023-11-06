@@ -10,14 +10,12 @@ import china from "../MainLayouts/pictures/china.png";
 import { EXCHANGE_URLS } from "../URLS";
 import axios from "axios";
 import { Link } from "react-router-dom"; 
-import { useNavigate } from "react-router-dom";
 
 
 
 export default function Navbar() {
   const [activePop, setActivePop] = useState(false);
   const [profile, setProfile] = useState({});
-  const navigate = useNavigate();
   const [isListOpen, setIsListOpen] = useState(false); 
   const getProfile = async () => {
     const axiosConfig = {
@@ -82,7 +80,7 @@ export default function Navbar() {
                 {profile.username}
               </div>
               {isListOpen && ( 
-                <ul className="option-list">
+                <ul className="option_list">
                   <li>
                     <Link to="/user">Profile Details</Link>
                   </li>
@@ -289,5 +287,9 @@ const Root = styled.section`
 ul.open {
   display: block;
   -webkit-overflow-scrolling-y:scroll;
+}
+.option_list{
+  position: relative;
+  display: inline-block;
 }
 `;

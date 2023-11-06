@@ -102,7 +102,7 @@ export default function AddCourses() {
           {university &&
             university.map((i) => {
               return (
-                <option value={i?.university_id}key={i?.university_id}>
+                <option value={i?.university_id}key={i?.university_name}>
                   {i.university_name}</option>
               );
             })}

@@ -104,191 +104,195 @@ export default function Upload({ detail, val }) {
   useEffect(() => {
     setRefreshFlag(false);
   }, []);
+
   const selectContainerStyle = {
-    position: 'relative',
-    display: 'flex',
-    gap: '10px',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '288px',
-    padding: '20px',
-    borderRadius: '10px',
-    border: '2px dashed #555',
-    color: '#444',
-    cursor: 'pointer',
-    transition: 'background .2s ease-in-out, border .2s ease-in-out',
-};
+    position: "relative",
+    display: "flex",
+    gap: "10px",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "288px",
+    padding: "20px",
+    borderRadius: "10px",
+    border: "2px dashed #555",
+    color: "#444",
+    cursor: "pointer",
+    transition: "background .2s ease-in-out, border .2s ease-in-out",
+  };
 
-const seses = {
-  
-  position: 'relative',
-  display: 'flex',
-  // gap: '10px',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
-  height: '288',
-  padding: '20px',
-  borderRadius: '10px',
-  border: '2px dashed #555',
-  color: '#444',
-  cursor: 'pointer',
-  transition: 'background .2s ease-in-out, border .2s ease-in-out',
-};
+  const seses = {
+    position: "relative",
+    display: "flex",
+    // gap: '10px',
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "288",
+    padding: "20px",
+    borderRadius: "10px",
+    border: "2px dashed #555",
+    color: "#444",
+    cursor: "pointer",
+    transition: "background .2s ease-in-out, border .2s ease-in-out",
+  };
 
-const selectTitleStyle = {
-    color: '#444',
+  const selectTitleStyle = {
+    color: "#444",
     marginbottom: "14px",
-    fontSize: '20px',
-    fontWeight: 'bold',
-    textAlign: 'center',
-    transition: 'color .2s ease-in-out',
-};
+    fontSize: "20px",
+    fontWeight: "bold",
+    textAlign: "center",
+    transition: "color .2s ease-in-out",
+  };
 
   return (
     <Root>
-      <div className="container" >
+      <div className="container">
         <div className="row">
           <h4>Application : {id}</h4>
-
 
           {refreshFlag ? (
             " "
           ) : (
-          <>
-            {/* <h3 className="mt-3">Update Document</h3> */}
-            <div className="col-lg-6"  style={selectContainerStyle}>
-              <div className="">
-                <div className="imgg">
-                    <img src="https://www.crizac.co.uk/catalog/assets/images/upload_icon.svg" className=""class="img-fluid" alt="Upload" title="Upload Documents"></img>                
-              </div>
-              <h5>Please Upload only COLOR SCAN COPY</h5>
-              <label style={selectTitleStyle}>
-                                <select
-                  onChange={handleDocumentTypeChange}
-                  value={selectedDocumentType}
-                >
-                  <option className='hliihi'value="">Select Document Type </option>
-                   <option value="aadhar">Aadhar Card</option>
-                  <option value="pan">PAN Card</option>
-                  <option value="pass_front">Passport Front</option>
-                  <option value="pass_back">Passport Back</option>
-                  <option value="10th">10th Grade Certificate</option>
-                  <option value="12th">12th Grade Certificate</option>
-                </select>
-              </label>
-              {selectedDocumentType && (
-                <div className = "mt-2">
-                  <label>
-                    Upload Document:
-                    <input
-                      type="file"
-                      onChange={(e) => {
-                        setSelectedFile(e.target.files[0]);
-                      }}
-                    />
+            <>
+              {/* <h3 className="mt-3">Update Document</h3> */}
+              <div className="col-lg-6" style={selectContainerStyle}>
+                <div className="">
+                  <div className="imgg">
+                    <img
+                      src="https://www.crizac.co.uk/catalog/assets/images/upload_icon.svg"
+                      className=""
+                      class="img-fluid"
+                      alt="Upload"
+                      title="Upload Documents"
+                    ></img>
+                  </div>
+                  <h5>Please Upload only COLOR SCAN COPY</h5>
+                  <label style={selectTitleStyle}>
+                    <select
+                      onChange={handleDocumentTypeChange}
+                      value={selectedDocumentType}
+                    >
+                      <option className="hliihi" value="">
+                        Select Document Type{" "}
+                      </option>
+                      <option value="aadhar">Aadhar Card</option>
+                      <option value="pan">PAN Card</option>
+                      <option value="pass_front">Passport Front</option>
+                      <option value="pass_back">Passport Back</option>
+                      <option value="10th">10th Grade Certificate</option>
+                      <option value="12th">12th Grade Certificate</option>
+                    </select>
                   </label>
-                  <button onClick={handleSubmitt}>Submit</button>
+                  {selectedDocumentType && (
+                    <div className="mt-2">
+                      <label>
+                        Upload Document:
+                        <input
+                          type="file"
+                          onChange={(e) => {
+                            setSelectedFile(e.target.files[0]);
+                          }}
+                        />
+                      </label>
+                      <button onClick={handleSubmitt}>Submit</button>
+                    </div>
+                  )}
                 </div>
-              )}
               </div>
-            </div>
             </>
           )}
-          
+
           <div className="col-lg-1"></div>
           <>
-          
-            <div className="col-lg-5"  >
+            <div className="col-lg-5">
+              <div className="" style={seses}>
+                <div className="view">
+                  <a
+                    href={`${IMG_URL}/${detail?.documents[0]?.file_path}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    View Aadhar{" "}
+                    <button>
+                      <BsFillEyeFill />
+                    </button>
+                  </a>
+                </div>
+                <div className="view">
+                  {" "}
+                  <a
+                    href={`${IMG_URL}/${detail?.documents[1]?.file_path}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    View Pancard{" "}
+                    <button>
+                      {" "}
+                      <BsFillEyeFill />
+                    </button>
+                  </a>
+                </div>
+                <div className="view">
+                  {" "}
+                  <a
+                    href={`${IMG_URL}/${detail?.documents[5]?.file_path}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    View Intermediate{" "}
+                    <button>
+                      {" "}
+                      <BsFillEyeFill />
+                    </button>
+                  </a>
+                </div>
+                <div className="view">
+                  {" "}
+                  <a
+                    href={`${IMG_URL}/${detail?.documents[2]?.file_path}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    View Passport Front
+                    <button>
+                      {" "}
+                      <BsFillEyeFill />
+                    </button>
+                  </a>
+                </div>
+                <div className="view">
+                  <a
+                    href={`${IMG_URL}/${detail?.documents[3]?.file_path}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    View Passport back{" "}
+                    <button>
+                      <BsFillEyeFill />
+                    </button>
+                  </a>
+                </div>
 
-            <div className="" style={seses}>
-
-          <div className="view">
-            <a
-              href={`${IMG_URL}/${detail?.documents[0]?.file_path}`}
-              target="_blank"
-              rel="noreferrer"
-              >
-              View Aadhar{" "}
-              <button>
-                <BsFillEyeFill />
-              </button>
-            </a>
-          </div>
-          <div className="view">
-            {" "}
-            <a
-              href={`${IMG_URL}/${detail?.documents[1]?.file_path}`}
-              target="_blank"
-              rel="noreferrer"
-              >
-              View Pancard{" "}
-              <button>
-                {" "}
-                <BsFillEyeFill />
-              </button>
-            </a>
-          </div>
-          <div className="view">
-            {" "}
-            <a
-              href={`${IMG_URL}/${detail?.documents[5]?.file_path}`}
-              target="_blank"
-              rel="noreferrer"
-              >
-              View Intermediate{" "}
-              <button>
-                {" "}
-                <BsFillEyeFill />
-              </button>
-            </a>
-          </div>
-          <div className="view">
-            {" "}
-            <a
-              href={`${IMG_URL}/${detail?.documents[2]?.file_path}`}
-              target="_blank"
-              rel="noreferrer"
-              >
-              View Passport Front
-              <button>
-                {" "}
-                <BsFillEyeFill />
-              </button>
-            </a>
-          </div>
-          <div className="view">
-            <a
-              href={`${IMG_URL}/${detail?.documents[3]?.file_path}`}
-              target="_blank"
-              rel="noreferrer"
-              >
-              View Passport back{" "}
-              <button>
-                <BsFillEyeFill />
-              </button>
-            </a>
-          </div>
-
-          <div className="view">
-            <a
-              href={`${IMG_URL}/${detail?.documents[4]?.file_path}`}
-              target="_blank"
-              rel="noreferrer"
-              >
-              View Matric{" "}
-              <button>
-                {" "}
-                <BsFillEyeFill />
-              </button>
-            </a>
-          </div>
-                  </div>
+                <div className="view">
+                  <a
+                    href={`${IMG_URL}/${detail?.documents[4]?.file_path}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    View Matric{" "}
+                    <button>
+                      {" "}
+                      <BsFillEyeFill />
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </>
         </div>
-    </>
       </div>
-</div>
       <div className="main_box2">
         <div className="status3">
           {userCheck.role === "admin" ? (
@@ -301,7 +305,7 @@ const selectTitleStyle = {
                     applicationId: getDetails.application_id,
                   });
                 }}
-                >
+              >
                 <option value="blank">Select Status</option>
                 <option value="approved">Approve</option>
                 <option value="rejected">Reject</option>
@@ -424,7 +428,7 @@ const Root = styled.section`
   select {
     margin-bottom: 44px;
     background-color: white;
-    color:black;
+    color: black;
     line-height: 1.5em;
     padding: 8px;
     border-radius: 20px;
@@ -480,41 +484,39 @@ const Root = styled.section`
       align-items: center;
     }
   }
-//  .select{
-//   color:red;
-//   background-color: #ff6525;
-//   border: 2px dotted #000; /* 2px wide dotted border in black (#000) */
-//   color: rgba(0, 0, 0, 0.3); /* Faint black color */
-//   width:100%;
-//   height: 340px;
-//  }
+  //  .select{
+  //   color:red;
+  //   background-color: #ff6525;
+  //   border: 2px dotted #000; / 2px wide dotted border in black (#000) /
+  //   color: rgba(0, 0, 0, 0.3); / Faint black color /
+  //   width:100%;
+  //   height: 340px;
+  //  }
 
-
-.hloo{
-  color:red;
-}
-.imgg{
-  text-align:center;
-  margin-bottom: 32px;
-  margin-right: 36px;
-}
-.hl1l1{
-  padding: 8px 14px;
-    background-color: #E9521D;
-    transition: all ease-in-out .3s;
-    color: #FFF;
-    border: 1px solid #E9521D;
+  .hloo {
+    color: red;
+  }
+  .imgg {
+    text-align: center;
+    margin-bottom: 32px;
+    margin-right: 36px;
+  }
+  .hl1l1 {
+    padding: 8px 14px;
+    background-color: #e9521d;
+    transition: all ease-in-out 0.3s;
+    color: #fff;
+    border: 1px solid #e9521d;
     border-radius: 6px;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 14px;
-    /* text-transform: uppercase;
-}
-.view{
-  display:flex,
-  gap:90px
-}
-.hliihi{
-  text-align:center;
-
-}
+    text-transform: uppercase;
+  }
+  .view {
+    display: flex;
+    gap: 90px;
+  }
+  .hliihi {
+    text-align: center;
+  }
 `;
