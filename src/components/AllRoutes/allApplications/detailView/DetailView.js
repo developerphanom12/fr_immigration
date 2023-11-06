@@ -12,6 +12,7 @@ import { EXCHANGE_URLS_APPLICATION } from "../../../URLS";
 
 export default function DetailView() {
   const [val,setVal] = useState(false);
+  const [value,setValue] = useState (false);
   const [user, setUser] = useState();
   const [active, setActive] = useState("student");
   let { id } = useParams();
@@ -39,7 +40,7 @@ export default function DetailView() {
 
   useEffect(() => {
     getDetail();
-  }, [id ,val]);
+  }, [id ,val ,value]);
 
   console.log("userr", user);
   return (
@@ -102,7 +103,7 @@ export default function DetailView() {
               ) : active === "apphistory" ? (
                 <AppHistory detail={user} />
               ) : active === "comment" ? (
-                <Comment />
+                <Comment value = {((e)=>{setValue(e)})}/>
               ) : (
                 <Student />
               )}

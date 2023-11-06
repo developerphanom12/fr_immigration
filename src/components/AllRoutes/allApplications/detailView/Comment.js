@@ -5,7 +5,7 @@ import { EXCHANGE_URLS_APPLICATION } from "../../../URLS";
 import cogoToast from "cogo-toast";
 import { useSelector } from "react-redux";
 
-export default function Comment() {
+export default function Comment({value}) {
   // let { id } = useParams();
   // console.log("checkdata", id);
   const [val, setVal] = useState({
@@ -33,10 +33,11 @@ export default function Comment() {
       console.log("error", e);
     }
   };
-  console.log("val", val);
+  console.log("vallll", value);
 
   const handleSubmit = () => {
     commentApi();
+    value(true)
     cogoToast.success("Comment Added");
   };
   return (

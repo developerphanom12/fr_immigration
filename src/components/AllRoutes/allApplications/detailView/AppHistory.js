@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-export default function AppHistory({ detail }) {
+export default function AppHistory({ detail}) {
   const formatDate = (isoDate) => {
     const date = new Date(isoDate);
     const day = date.getDate().toString().padStart(2, "0");
