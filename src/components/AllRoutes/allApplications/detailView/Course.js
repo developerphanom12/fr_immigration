@@ -14,17 +14,32 @@ export default function Course({ detail }) {
       <div className="course_table">
         <div className="container-fluid">
           <div className="row">
-            <div className="col-lg-5 col-sm-5">Institution Name :-
-              <p>
+            <div className="col-lg-3 col-sm-3">
+              <div className="hlo4544554">
+
+              Institution Name
+              </div>
+              <p className="p111">
                  {detail?.university_id?.university_name}{" "}
               </p>
             </div>
-            <div className="col-lg-5 col-sm-5">Course Details :-
-              <p> {detail?.course_id?.course_level} </p>Course Name :- 
-              <p>{detail?.course_id?.course_name}</p>
+            <div className="col-lg-3 col-sm-3">
+              <div className="hlo45445514">
+              Course Details 
+              </div>
+              <p className="p111"> {detail?.course_id?.course_level} </p>
             </div>
-            <div className="col-lg-2 col-sm-2">Date :- 
-              <p>{formatDate(detail?.course_id?.update_date)}</p>
+            <div className="col-lg-3 col-sm-3">
+            <div className="hlo4544554">
+              Course Name
+              </div>
+              <p className="p111">{detail?.course_id?.course_name}</p>
+              </div>
+            <div className="col-lg-3 col-sm-3">
+              <div className="hlo4544554">
+              Date  
+              </div>
+              <p className="p111">{formatDate(detail?.course_id?.update_date)}</p>
             </div>
           </div>
         </div>
@@ -47,7 +62,7 @@ const Root = styled.section`
     }
     p {
       background-color: #fff3ee;
-     
+      font-size: 13px;
     }
   }
   @media (max-width:999px){
@@ -56,5 +71,20 @@ const Root = styled.section`
     .course_table{
       padding: 0;
     }
+  }
+  .p111{
+    color: #202020;
+    margin-top:23px;
+    text-align:left;
+  }
+  .hlo4544554{
+    color: black;
+    font-size: 21px;
+    font-weight: 800;
+  }
+  .hlo45445514{
+    color: black;
+    font-size: 21px;
+    font-weight: 800;
   }
 `;

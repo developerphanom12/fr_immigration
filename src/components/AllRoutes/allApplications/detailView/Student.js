@@ -97,6 +97,7 @@ const Root = styled.section`
   .divRow{
     padding: 10px;
     background: #e6f5ff;
+    border-radius: 23px;
     p{
       color: gray;
       background: #e6f5ff; 
@@ -113,7 +114,7 @@ const Root = styled.section`
   }
 
   .studentdata{
-    border: 3px solid #120f0f30;
+    border: 3px solid #9ce7f530;
     border-radius: 29px;
     margin-top: 28px;
     padding: 17px;
