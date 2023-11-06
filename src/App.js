@@ -16,6 +16,10 @@ import HistoryMain from "./components/AllRoutes/allApplications/HistoryMain";
 import DetailView from "./components/AllRoutes/allApplications/detailView/DetailView";
 import ForgotPass from "./components/CommonPage/ForgotPass";
 import StaffLogin from "./components/CommonPage/StaffLogin";
+import ProfileUser from "./components/MainLayouts/Profile/ProfileUser";
+import ProfileAddress from "./components/MainLayouts/Profile/ProfileAddress";
+import ProfilePassword from "./components/MainLayouts/Profile/ProfilePassword";
+
 function App() {
   const userCheck = useSelector((state) => state?.users?.userCheck);
   const userDetails = useSelector((state) => state?.users?.user);
@@ -50,6 +54,7 @@ function App() {
               <Route path="/history" element={<HistoryMain />} />
               <Route path="/urm" element={<Urm_university />} />
               <Route path="/search" element={<Search_course />} />
+             
             </>
           )
         ) : (
@@ -62,6 +67,10 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/forgot" element={<ForgotPass/>} />
             <Route path="/partner" element={<Partner />} />
+            <Route path="/user" element={<ProfileUser/>} />
+            <Route path="/address" element={<ProfileAddress/>} />
+            <Route path="/changepass" element={<ProfilePassword/>} />
+
           </>
         )}
       </Routes>

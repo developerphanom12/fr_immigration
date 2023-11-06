@@ -8,7 +8,6 @@ import Download from "./Download";
 import Loader from "../../Loader";
 import { appDetailsAction } from "../../../redux/users/action";
 import { useNavigate } from "react-router-dom";
-import DetailView from "./detailView/DetailView";
 export default function History({ popUser = () => {} }) {
   const [loader, setLoader] = useState(true);
   const [applications, setApplications] = useState([]);

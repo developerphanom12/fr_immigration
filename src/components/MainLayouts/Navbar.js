@@ -1,20 +1,24 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { FcList } from "react-icons/fc";
-import { FcBusinessman } from "react-icons/fc";
+import { FaUserCircle } from "react-icons/fa";
 import russia from "../MainLayouts/pictures/Russia.png";
 import canada from "../MainLayouts/pictures/canada.png";
 import us from "../MainLayouts/pictures/unitedstates.png";
 import maxico from "../MainLayouts/pictures/maxico.jpg";
 import china from "../MainLayouts/pictures/china.png";
-import { EXCHANGE_URLS_APPLICATION } from "../URLS";
+import { EXCHANGE_URLS } from "../URLS";
 import axios from "axios";
+import { Link } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
+
+
 
 export default function Navbar() {
   const [activePop, setActivePop] = useState(false);
-  const [profile, setProfile] = useState([]);
-  // const userDetails = useSelector((state) => state?.users.user);
-
+  const [profile, setProfile] = useState({});
+  const navigate = useNavigate();
+  const [isListOpen, setIsListOpen] = useState(false); 
   const getProfile = async () => {
     const axiosConfig = {
       headers: {
@@ -22,21 +26,24 @@ export default function Navbar() {
       },
     };
     try {
-      const res = await axios.get(
-        `${EXCHANGE_URLS_APPLICATION}/fetchallapplications`,
-        axiosConfig
-      );
-      setProfile(res?.data?.data[0].applications);
+      const res = await axios.get(`${EXCHANGE_URLS}/get/detail`, axiosConfig);
+      setProfile(res?.data?.data);
+      console.log("resp", res?.data?.data);
     } catch (e) {
       console.log(e);
     }
+  };
+
+  const toggleList = () => {
+
+    setIsListOpen(!isListOpen);
   };
 
   useEffect(() => {
     getProfile();
   }, []);
 
-
+  console.log("profile", profile);
 
   return (
     <Root>
@@ -49,7 +56,7 @@ export default function Navbar() {
         <div>
           {" "}
           <img src={canada} alt="img" />
-         <p> Canada</p>
+          <p> Canada</p>
         </div>
         <div>
           {" "}
@@ -67,17 +74,34 @@ export default function Navbar() {
           <p>China</p>
         </div>
       </div>
-      <div>
-      
-        <div className="profile">
-          <FcBusinessman />
-          {profile && profile.length > 0 && (
+      <div className="profile">
+      {profile && profile.username ? (
             <div>
-              <p>{profile[0].user_id.username}</p>
+              <FaUserCircle />
+              <div onClick={toggleList}>
+                {profile.username}
+              </div>
+              {isListOpen && ( 
+                <ul className="option-list">
+                  <li>
+                    <Link to="/user">Profile Details</Link>
+                  </li>
+                  <li>
+                    <Link to="/address">Address Details</Link>
+                  </li>
+                  <li>
+                    <Link to="/changepass">Change Password</Link>
+                  </li>
+                </ul>
+              )}
+            </div>
+          ) : (
+            <div>
+              <FaUserCircle /> Admin
             </div>
           )}
-        </div>
       </div>
+      
       <div
         className="menu"
         onClick={() => {
@@ -144,18 +168,18 @@ const Root = styled.section`
       align-items: center;
       display: flex;
       background-color: #f8f8f8;
-    border-radius: 20px;
-    padding: 6px 10px;
+      border-radius: 20px;
+      padding: 6px 10px;
       text-align: center;
       gap: 5px;
-      P{
+      P {
         color: #999;
-    font-family: 'Cairo', sans-serif;
-    font-size: 16px;
-    align-items: center;
-      display: flex;
-      margin: 0;
-    font-weight: 700;
+        font-family: "Cairo", sans-serif;
+        font-size: 16px;
+        align-items: center;
+        display: flex;
+        margin: 0;
+        font-weight: 700;
       }
       img {
         width: 40px;
@@ -166,24 +190,33 @@ const Root = styled.section`
   }
   .profile {
     display: flex;
-    height: 80px;
+    height: 70px;
     padding: 5px;
     margin: 5px;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    svg{
-    width: 35px;
-    height: 40px;
-  }
     > div {
-      border: 1px solid black;
-      padding: 5px;
+      display: flex;
+      padding: 10px;
       border-radius: 10%;
-      p {
+      align-items: center;
+      gap: 10px;
+      width: 150px;
+      background-color: #f8f8f8;
+      svg {
+        width: 25px;
+        height: 30px;
+      }
+      select {
         padding: 0px;
         margin: 0px;
         text-transform: capitalize;
-        color: #8b0000;
+        color: #474040;
+        width: 100px;
+        border: transparent;
+        border-radius: 20px;
+        padding: 5px;
       }
     }
   }
@@ -249,4 +282,12 @@ const Root = styled.section`
       color: #ffffff;
     }
   }
+  ul.closed {
+  display: none;
+}
+
+ul.open {
+  display: block;
+  -webkit-overflow-scrolling-y:scroll;
+}
 `;
