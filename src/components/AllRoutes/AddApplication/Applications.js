@@ -24,6 +24,7 @@ export default function Applications() {
     ielts_listening: 0,
     ielts_writing: 0,
     ielts_speaking: 0,
+    gender:"",
   });
   const [activeNext, setActiveNext] = useState(true);
   const [applicationId, setApplicationId] = useState("");
@@ -315,7 +316,7 @@ export default function Applications() {
                 >
                   <option>Select Country</option>
                   {countryy &&
-                    countryy.map((i) => {
+                    countryy.map((i) => {i.id
                       return <option value={i?.id}>{i.country_name}</option>;
                     })}
                 </select>
@@ -340,12 +341,14 @@ export default function Applications() {
             <div className="name1">
               <div>     {" "}
                 Select Gender<select
-                
+                onChange={(e) => {
+                  setData({ ...data, gender: e.target.value });
+                }}
                 >
                 <option>Gender</option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Other</option>
+                <option  value={data.gender.male}>Male</option>
+                <option  value={data.gender.female}>Female</option>
+                <option  value={data.gender.other}>Other</option>
                 
                 </select></div>
               <button
@@ -371,7 +374,6 @@ const Root = styled.section`
   > div {
     .name1 {
       display: flex;
-      flex-direction: column;
       width: 100%;
       padding: 20px;
       gap: 10px;
