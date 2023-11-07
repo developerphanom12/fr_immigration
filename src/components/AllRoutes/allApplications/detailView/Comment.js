@@ -1,9 +1,10 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { EXCHANGE_URLS_APPLICATION } from "../../../URLS";
 import cogoToast from "cogo-toast";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 export default function Comment({value}) {
   // let { id } = useParams();
@@ -28,6 +29,7 @@ export default function Comment({value}) {
         axiosConfig
       );
       setVal(res);
+     value(true)
       console.log("resress", res);
     } catch (e) {
       console.log("error", e);
@@ -35,11 +37,13 @@ export default function Comment({value}) {
   };
   console.log("vallll", value);
 
-  const handleSubmit = () => {
+    
+    const handleSubmit = () => {
     commentApi();
     value(true)
     cogoToast.success("Comment Added");
   };
+
   return (
     <Root>
       <div className="box1">

@@ -133,7 +133,7 @@ export default function Applications() {
             <div>
               <div className="name">
                 {" "}
-                First Name* :-
+                First Name
                 <input
                   type="name"
                   value={data.student_firstname}
@@ -144,7 +144,7 @@ export default function Applications() {
                 />
               </div>
               <div className="name">
-                Last Name* :-
+                Last Name 
                 <input
                   type="name"
                   value={data.student_lastname}
@@ -157,7 +157,7 @@ export default function Applications() {
             </div>
             <div>
               <div className="name">
-                E-Mail* :-
+                E-Mail 
                 <input
                   type="email"
                   value={data.student_email}
@@ -168,7 +168,7 @@ export default function Applications() {
                 />
               </div>
               <div className="name">
-                Passport no* :-
+                Passport no
                 <input
                   type="email"
                   value={data.student_passport_no}
@@ -182,7 +182,7 @@ export default function Applications() {
             <div>
               <div className="name">
                 {" "}
-                Whatsapp No* :-
+                Whatsapp No 
                 <input
                   type="number"
                   value={data.student_whatsapp_number}
@@ -198,7 +198,7 @@ export default function Applications() {
 
               <div className="name">
                 {" "}
-                Marital status* :-
+                Marital status 
                 <select
                   value={data.marital_status}
                   onChange={(e) => {
@@ -216,7 +216,7 @@ export default function Applications() {
             <div>
               <div className="name">
                 {" "}
-                Visa Refusal* :-
+                Visa Refusal 
                 <select
                   value={data.previous_visa_refusals}
                   onChange={(e) => {
@@ -234,7 +234,7 @@ export default function Applications() {
               </div>
               <div className="name">
                 {" "}
-                Ielts reading* :-
+                Ielts reading
                 <input
                   type="name"
                   value={data.ielts_reading}
@@ -248,7 +248,7 @@ export default function Applications() {
             <div>
               <div className="name">
                 {" "}
-                Ielts listening* :-
+                Ielts listening 
                 <input
                   type="name"
                   value={data.ielts_listening}
@@ -260,7 +260,7 @@ export default function Applications() {
               </div>
               <div className="name">
                 {" "}
-                Ielts writing* :-
+                Ielts writing 
                 <input
                   type="name"
                   value={data.ielts_writing}
@@ -274,7 +274,7 @@ export default function Applications() {
             <div>
               <div className="name">
                 {" "}
-                Ielts speaking* :-
+                Ielts speaking 
                 <input
                   type="name"
                   value={data.ielts_speaking}
@@ -286,7 +286,7 @@ export default function Applications() {
               </div>
               <div className="name">
                 {" "}
-                University ID* :-
+                University ID
                 <select
                   onChange={(e) => {
                     setData({ ...data, university_id: e.target.value });
@@ -307,7 +307,7 @@ export default function Applications() {
             <div>
               <div className="name">
                 {" "}
-                Country Name* :-
+                Country Name 
                 <select
                   onChange={(e) => {
                     setData({ ...data, id: e.target.value });
@@ -322,7 +322,7 @@ export default function Applications() {
               </div>
               <div className="name">
                 {" "}
-                Course ID* :-
+                Course ID
                 <select
                   onChange={(e) => {
                     setData({ ...data, course_id: e.target.value });
@@ -338,6 +338,16 @@ export default function Applications() {
               </div>
             </div>
             <div className="name1">
+              <div>     {" "}
+                Select Gender<select
+                
+                >
+                <option>Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+                
+                </select></div>
               <button
                 className="btnn"
                 onClick={() => {
@@ -364,9 +374,10 @@ const Root = styled.section`
       flex-direction: column;
       width: 100%;
       padding: 20px;
-      justify-content: flex-end;
       gap: 10px;
       text-align: center;
+      align-items: center;
+      justify-content: center;
       color: rgb(249, 118, 17);
       background-color: #ffffff;
       .btnn {
@@ -375,6 +386,7 @@ const Root = styled.section`
         font-size: medium;
         border-color: transparent;
         color: #ffffff;
+        width: 300px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -451,11 +463,43 @@ const Root = styled.section`
         }
       }
       select {
-        border-radius: 30px;
-        padding: 10px;
-        color: #8995ad;
-        text-decoration: none;
-        border: 2px solid #a5d8fa;
+        background-color: white;
+      color: black;
+      text-decoration: none;
+      border: 2px solid #a5d8fa;
+      line-height: 1.5em;
+      padding: 10px;
+      border-radius: 20px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: linear-gradient(45deg, transparent 50%, blue 50%),
+        linear-gradient(135deg, blue 50%, transparent 50%),
+        linear-gradient(to right, skyblue, skyblue);
+      background-position: calc(100% - 20px) calc(1em + 2px),
+        calc(100% - 15px) calc(1em + 2px), 100% 0;
+      background-size: 5px 5px, 5px 5px, 40px 45px;
+      background-repeat: no-repeat;
+      @media (max-width: 555px) {
+        padding: 8px;
+        /* width: 120px; */
+        background-size: 5px 5px, 5px 5px, 30px 45px;
+        align-items: center;
+      }
+
+      select:focus {
+        background-image: linear-gradient(45deg, white 50%, transparent 50%),
+          linear-gradient(135deg, transparent 50%, white 50%),
+          linear-gradient(to right, gray, gray);
+        background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
+          100% 0;
+        background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+        background-repeat: no-repeat;
+        border-color: grey;
+        outline: 0;
+      }
       }
     }
   }

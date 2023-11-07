@@ -13,36 +13,6 @@ export default function PreNav() {
         <img src={logo} alt="img" />
       </div>
       <div className="options">
-        {/* <div className="opt_div">
-          <button
-            className="opt_btn"
-            onClick={() => {
-              navigate("/universities");
-            }}
-          >
-            Universities
-          </button>
-        </div>
-        <div className="opt_div">
-          <button
-            className="opt_btn"
-            onClick={() => {
-              navigate("/reach");
-            }}
-          >
-            Our Reach
-          </button>
-        </div>
-        <div className="opt_div">
-          <button
-            className="opt_btn"
-            onClick={() => {
-              navigate("/ambassadar");
-            }}
-          >
-            Be our Ambassador
-          </button>
-        </div> */}
         <div className="opt_div">
           <button
             className="opt_btn"
@@ -59,16 +29,16 @@ export default function PreNav() {
             navigate("/login");
           }}
         >
-          Login
+         Agent Login
         </div>
-        {/* <div
+        <div
           className="login"
           onClick={() => {
-            navigate("/adminlogin");
+            navigate("/studentlogin");
           }}
         >
-          AdminLogin
-        </div> */}
+         Student Login
+        </div>
       </div>
 
       <div
@@ -90,36 +60,6 @@ export default function PreNav() {
           <button
             className="opt_btn"
             onClick={() => {
-              navigate("/universities");
-            }}
-          >
-            Universities
-          </button>
-        </div>
-        <div className="opt_div">
-          <button
-            className="opt_btn"
-            onClick={() => {
-              navigate("/reach");
-            }}
-          >
-            Our Reach
-          </button>
-        </div>
-        <div className="opt_div">
-          <button
-            className="opt_btn"
-            onClick={() => {
-              navigate("/ambassadar");
-            }}
-          >
-            Be our Ambassador
-          </button>
-        </div>
-        <div className="opt_div">
-          <button
-            className="opt_btn"
-            onClick={() => {
               navigate("/partner");
             }}
           >
@@ -131,7 +71,14 @@ export default function PreNav() {
             navigate("/login");
           }}
         >
-          Login
+         Agent Login
+        </div>
+        <div  className="login"
+          onClick={() => {
+            navigate("/studentlogin");
+          }}
+        >
+         Student Login
         </div>
       </div>
     </Root>
@@ -204,17 +151,16 @@ const Root = styled.section`
   .login {
     background:#FF6525;
     color: #ffffff;
-    padding: 10px 30px 10px 30px;
-    border-radius: 40px;
+    padding: 10px 10px 10px 10px;
     border-color: transparent;
     font-size: medium;
     text-align: center;
     width: 160px;
+    margin: 5px;
     cursor: pointer;
     background: linear-gradient( 45deg, #ff6525 19%, #ffffffe6 51%, #ff6525 100%);
     border-radius: 50px;
     color: #FFF;
-    padding: 10px 5px;
     background-size: 300% 100%;
     transition: all 0.3s ease-in-out 0s;
     text-transform: uppercase;

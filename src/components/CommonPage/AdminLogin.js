@@ -32,7 +32,15 @@ export default function AdminLogin() {
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleClick();
+    }
+  };
+
+
   const handleClick = () => {
+    
     if (logindata.username.length > 3 ) {
       loginApi();
     } else {
@@ -64,6 +72,7 @@ export default function AdminLogin() {
             onChange={(e) => {
               setlogindata({ ...logindata, username: e.target.value });
             }}
+            onKeyDown={handleKeyDown}
             placeholder="User Name"
           />
         </div>
@@ -74,6 +83,7 @@ export default function AdminLogin() {
             onChange={(e) => {
               setlogindata({ ...logindata, password: e.target.value });
             }}
+            onKeyDown={handleKeyDown}
             placeholder="Password"
           />
         </div>

@@ -9,7 +9,7 @@ import Loader from "../../Loader";
 import { appDetailsAction } from "../../../redux/users/action";
 import { useNavigate } from "react-router-dom";
 export default function History({ popUser = () => {} }) {
-  const [loader, setLoader] = useState(true);
+  // const [loader, setLoader] = useState(true);
   const [applications, setApplications] = useState([]);
   // const [filteredApplications, setFilteredApplications] = useState([]);
   const [searchKey, setSearchKey] = useState("");
@@ -56,7 +56,7 @@ export default function History({ popUser = () => {} }) {
   };
 
   useEffect(() => {
-    setLoader(true);
+    // setLoader(true);
     getHistory();
     getCourses();
   }, []);
@@ -106,9 +106,9 @@ export default function History({ popUser = () => {} }) {
           Search
         </button>
       </div>
-      {loader ? (
+      {/* {loader ? (
         <Loader />
-      ) : (
+      ) : ( */}
         <div className="app_table">
           <div className="app_header">
             <div>CAMS Id</div>
@@ -158,7 +158,7 @@ export default function History({ popUser = () => {} }) {
               );
             })}
         </div>
-      )}
+      {/* )} */}
     </Root>
   );
 }

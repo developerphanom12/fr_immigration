@@ -54,8 +54,8 @@ export default function AddUniversity() {
   console.log("newuniii", newUniversity);
   return (
     <Root>
-      <h4><u>Add University</u></h4>
-      <div className="courses"> University Name* :-</div>
+      <h4>Add University</h4>
+      <div className="courses"> University Name </div>
       <div className="courses">
         <input
           type="name"
@@ -69,7 +69,7 @@ export default function AddUniversity() {
           placeholder="University Name"
         />
       </div>
-      <div className="courses"> Course Type* :-</div>
+      <div className="courses"> Course Type </div>
       <div className="courses">
         <input
           type="name"
@@ -80,7 +80,7 @@ export default function AddUniversity() {
           placeholder="Course Type"
         />
       </div>
-      <div className="courses"> Founded Year* :-</div>
+      <div className="courses"> Founded Year </div>
       <div className="courses">
         <input
           type="name"
@@ -94,7 +94,7 @@ export default function AddUniversity() {
           placeholder="Founded Year"
         />
       </div>
-      <div className="courses"> Contact Number* :-</div>
+      <div className="courses"> Contact Number </div>
       <div className="courses">
         <input
           type="name"
@@ -108,7 +108,7 @@ export default function AddUniversity() {
           placeholder=" Contact_Number"
         />
       </div>
-      <div className="courses"> Person Name* :-</div>
+      <div className="courses"> Person Name </div>
       <div className="courses">
         <input
           type="name"
@@ -132,31 +132,53 @@ export default function AddUniversity() {
 const Root = styled.section`
   display: flex;
   min-height: 100vh;
+  font-family: 'cairo','sans-serif';
   height: 100%;
   padding: 5px;
   align-items: center;
   flex-direction: column;
   button {
-    border-radius: 20px;
-    background-color: rgb(251, 134, 44);
-    border: transparent;
-    padding: 5px;
-    margin: 10px;
+    background:#FF6525;
+    color: #ffffff;
+    padding: 10px 10px 10px 10px;
+    border-color: transparent;
+    font-size: medium;
+    text-align: center;
+    width: 160px;
+    margin: 5px;
     cursor: pointer;
+    background: linear-gradient( 45deg, #ff6525 19%, #ffffffe6 51%, #ff6525 100%);
+    border-radius: 50px;
+    color: #FFF;
+    background-size: 300% 100%;
+    transition: all 0.3s ease-in-out 0s;
+    text-transform: uppercase;
+    &:hover{
+          background: linear-gradient(
+          -25deg,
+          #ff6525 49%,
+          #ffffffe6 91%,
+          #ff6525 100%
+        );
+        }
   }
   .courses {
     display: flex;
     padding: 10px;
     flex-wrap: wrap;
     align-items: center;
-    color: orangered;
     /* justify-content: space-evenly; */
     input {
-      border-radius: 15px;
-      padding: 7px;
-     @media(max-width:782px){
-      width:150px;
-     }
+      border-radius: 40px;
+        padding: 10px;
+        width: 240px;
+        color: #202020;
+        text-decoration: none;
+        border: 2px solid #a5d8fa;
+        @media (max-width: 600px) {
+          min-width: 100px;
+          width: 100%;
+        }
     }
   }
 `;

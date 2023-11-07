@@ -27,33 +27,52 @@ export default function Action() {
         </button>
       </div>
       <div>
-        {active === "courses"
-          ? <AddCourses/>
-          : active === "university"
-          ? <AddUniversity/>
-          : <AddCourses/>}
+        {active === "courses" ? (
+          <AddCourses />
+        ) : active === "university" ? (
+          <AddUniversity />
+        ) : (
+          <AddCourses />
+        )}
       </div>
     </Root>
   );
 }
 
 const Root = styled.section`
-font-family: 'Mulish', sans-serif;
+  font-family: "Mulish", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f8f8f8;
+
   .nav_tab {
     display: flex;
     gap: 5px;
+    margin: 10px;
+    background-color: #e6f5ff;
+    padding: 10px;
+    border-radius: 40px;
     .btn_1 {
       background-color: transparent;
       border: none;
       width: fit-content;
       padding: 5px;
-      border-radius: 10px;
+      border-radius: 40px;
       &:hover {
-        background-color: lightpink;
+        background-color: blue;
+        color: #ffffff;
       }
     }
     .active {
-      border-bottom: 5px solid orange;
+      background-color: blue;
+      color: #ffffff;
+      @media (max-width: 400px) {
+        .active {
+          background-color: transparent;
+          color: black;
+        }
+      }
     }
   }
 `;

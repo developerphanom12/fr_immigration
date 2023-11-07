@@ -35,7 +35,10 @@ export default function StaffLogin() {
     }
   };
 
+  
+
   const handleClick = () => {
+    
     if (logindata.staff_name.length >= 3 && logindata.password.length >= 3) {
       staffLoginApi();
     } else {
@@ -60,6 +63,7 @@ export default function StaffLogin() {
             onChange={(e) => {
               setlogindata({ ...logindata, staff_name: e.target.value });
             }}
+            onKeyDown={handleKeyDown}
             placeholder="Staff Name"
           />
         </div>
@@ -71,6 +75,7 @@ export default function StaffLogin() {
             onChange={(e) => {
               setlogindata({ ...logindata, password: e.target.value });
             }}
+            onKeyDown={handleKeyDown}
             placeholder="Password"
           />
         </div>

@@ -9,9 +9,10 @@ export default function AddCourses() {
   const navigate = useNavigate();
   const [university, setUniversity] = useState([]);
   const [data, setData] = useState({
-    university_id:0,})
+    university_id: 0,
+  });
   const [newCourse, setNewCourse] = useState({
-    university_id:"",
+    university_id: "",
     course_name: "",
     course_level: "",
   });
@@ -38,7 +39,7 @@ export default function AddCourses() {
       console.log("err", err);
     }
   };
-  
+
   const getUniversity = async () => {
     try {
       const axiosConfig = {
@@ -48,10 +49,12 @@ export default function AddCourses() {
       };
       const res = await axios.get(
         `${EXCHANGE_URLS_UNIVERSITY}/getall/university`,
-        axiosConfig,university,data
+        axiosConfig,
+        university,
+        data
       );
       if (res?.status === 200) {
-        setUniversity(res?.data?.data); 
+        setUniversity(res?.data?.data);
       }
     } catch (err) {
       console.log("err", err);
@@ -59,9 +62,7 @@ export default function AddCourses() {
   };
 
   const handleClick = () => {
-    if (
-      newCourse.course_name.length > 1
-    ) {
+    if (newCourse.course_name.length > 1) {
       courseApi();
       // getUniversity();
     } else {
@@ -73,13 +74,10 @@ export default function AddCourses() {
   }, []);
 
   console.log("newCourse", newCourse);
-  console.log("setData",setData)
+  console.log("setData", setData);
   return (
     <Root>
-      <h4>
-        {" "}
-        <u>Add Courses</u>
-      </h4>
+      <h4> Add Courses</h4>
       <div className="courses"> Course Name* :-</div>
       <div className="courses">
         <input
@@ -92,7 +90,7 @@ export default function AddCourses() {
         />
       </div>
 
-      <div className="courses"> {" "} University ID* :-</div>
+      <div className="courses"> University ID* :-</div>
       <div className="courses">
         <select
           onChange={(e) => {
@@ -102,8 +100,9 @@ export default function AddCourses() {
           {university &&
             university.map((i) => {
               return (
-                <option value={i?.university_id}key={i?.university_name}>
-                  {i.university_name}</option>
+                <option value={i?.university_id} key={i?.university_name}>
+                  {i.university_name}
+                </option>
               );
             })}
         </select>
@@ -138,34 +137,97 @@ const Root = styled.section`
   min-height: 100vh;
   height: 100%;
   padding: 5px;
+  font-family: "cairo", "sans-serif";
   align-items: center;
   flex-direction: column;
   button {
-    border-radius: 17px;
-    background-color: rgb(251, 134, 44);
-    border: transparent;
-    padding: 5px;
+    background: #ff6525;
+    color: #ffffff;
+    padding: 10px 10px 10px 10px;
+    border-color: transparent;
+    font-size: medium;
+    text-align: center;
+    width: 160px;
+    margin: 5px;
     cursor: pointer;
-    margin: 10px;
+    background: linear-gradient(
+      45deg,
+      #ff6525 19%,
+      #ffffffe6 51%,
+      #ff6525 100%
+    );
+    border-radius: 50px;
+    color: #fff;
+    background-size: 300% 100%;
+    transition: all 0.3s ease-in-out 0s;
+    text-transform: uppercase;
+    &:hover {
+      background: linear-gradient(
+        -25deg,
+        #ff6525 49%,
+        #ffffffe6 91%,
+        #ff6525 100%
+      );
+    }
   }
   .courses {
     display: flex;
     padding: 10px;
     flex-wrap: wrap;
     gap: 10px;
+    width: 100%;
     align-items: center;
-    color: #FF6525;
     /* justify-content: center; */
     select {
-      width: 250px;
-      border-radius: 15px;
-      padding: 7px;
+      background-color: white;
+      color: black;
+      text-decoration: none;
+      border: 2px solid #a5d8fa;
+      line-height: 1.5em;
+      padding: 8px;
+      border-radius: 20px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      width: 240px;
+      background-image: linear-gradient(45deg, transparent 50%, blue 50%),
+        linear-gradient(135deg, blue 50%, transparent 50%),
+        linear-gradient(to right, skyblue, skyblue);
+      background-position: calc(100% - 20px) calc(1em + 2px),
+        calc(100% - 15px) calc(1em + 2px), 100% 0;
+      background-size: 5px 5px, 5px 5px, 40px 45px;
+      background-repeat: no-repeat;
+      @media (max-width: 555px) {
+        padding: 3px;
+        width: 120px;
+        background-size: 5px 5px, 5px 5px, 30px 35px;
+        align-items: center;
+      }
+
+      select:focus {
+        background-image: linear-gradient(45deg, white 50%, transparent 50%),
+          linear-gradient(135deg, transparent 50%, white 50%),
+          linear-gradient(to right, gray, gray);
+        background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
+          100% 0;
+        background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+        background-repeat: no-repeat;
+        border-color: grey;
+        outline: 0;
+      }
     }
     input {
-      border-radius: 15px;
-      padding: 7px;
-      @media (max-width: 782px) {
-        min-width: 150px;
+      border-radius: 40px;
+      padding: 10px;
+      color: #202020;
+      width: 240px;
+      text-decoration: none;
+      border: 2px solid #a5d8fa;
+      @media (max-width: 600px) {
+        min-width: 100px;
+        width: 100%;
       }
     }
   }

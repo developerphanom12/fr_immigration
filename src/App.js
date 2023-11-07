@@ -19,6 +19,8 @@ import StaffLogin from "./components/CommonPage/StaffLogin";
 import ProfileUser from "./components/MainLayouts/Profile/ProfileUser";
 import ProfileAddress from "./components/MainLayouts/Profile/ProfileAddress";
 import ProfilePassword from "./components/MainLayouts/Profile/ProfilePassword";
+import StudentLogin from "./components/StudentPortal/StudentLogin";
+import StudentDash from "./components/StudentPortal/StudentDash";
 
 function App() {
   const userCheck = useSelector((state) => state?.users?.userCheck);
@@ -64,6 +66,8 @@ function App() {
             <Route path="/home" element={<HomePage />} />
             <Route path="/adminlogin" element={<AdminLogin />} />
             <Route path="/stafflogin" element={<StaffLogin/>} />
+            <Route path="/studentlogin" element={<StudentLogin/>}/>
+            <Route path="/studentdash" element={<StudentDash/>}/>
             <Route path="/login" element={<Login />} />
             <Route path="/forgot" element={<ForgotPass/>} />
             <Route path="/partner" element={<Partner />} />

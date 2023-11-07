@@ -11,8 +11,8 @@ function Download() {
     //   };
     // Replace 'http://localhost:3300' with the actual URL of your Express.js server
     const excelDownloadUrl =
-      "http://localhost:3100/api/application/generate-exc111el";
-
+      "http://api-immigration.phanomprofessionals.com/api/application/generate-exc111el";
+      
     axios({
       method: "get",
       url: excelDownloadUrl,
