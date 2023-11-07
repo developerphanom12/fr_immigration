@@ -20,23 +20,23 @@ export default function HomeFour() {
         </div>
         <div className="five2">
           <div className="fivebox">
-            <img src={photo11} alt="image" />
+            <img src={photo11} alt="img" />
             <h4>Strategic Consultation</h4>
             <p>Action plan is curated, bespoke to fit your strategic objectives</p>
           </div>
           <div className="fivebox">
-            <img src={photo12} alt="image" />
+            <img src={photo12} alt="img" />
             <h4>Global Networking</h4>
             <p>Unlock access to verified leads from over 50 countries</p>
           </div>
           <div className="fivebox">
-            <img className="brand" src={photo13} alt="image" />{" "}
+            <img className="brand" src={photo13} alt="img" />{" "}
             <h4>Brand Development</h4>
             <p>Implementation of marketing strategies and promotions, delivering
             awareness from key stakeholders</p>
           </div>
           <div className="fivebox">
-            <img src={photo14} alt="image" /> <h4>24*7 CRM Support </h4>
+            <img src={photo14} alt="img" /> <h4>24*7 CRM Support </h4>
             <p>Rigorous and reliable, our software processes and manages your applications</p>
           </div>
         </div>
@@ -45,7 +45,7 @@ export default function HomeFour() {
         <h1 >For Recruitment Partners</h1>
         <div className="six1">
           <div className="sixx_div1">
-            <img className="img" src={six1} alt="image" />
+            <img className="img" src={six1} alt="img" />
             <h5>User-Friendly Portal</h5>
             <p>
               For reliable, convenient and centralised management of your
@@ -53,7 +53,7 @@ export default function HomeFour() {
             </p>
           </div>
           <div className="sixx_div1">
-            <img className="img" src={six2} alt="image" />
+            <img className="img" src={six2} alt="img" />
             <h5>Powerful Search Tools</h5>
             <p>
               Hit your targets and quotas with our requirement specific search
@@ -61,7 +61,7 @@ export default function HomeFour() {
             </p>
           </div>
           <div className="sixx_div1">
-            <img className="img" src={six3} alt="image" />
+            <img className="img" src={six3} alt="img" />
             <h5>Seamless Application Management</h5>
             <p>
               End-to-end verification, processing and management of student
@@ -71,7 +71,7 @@ export default function HomeFour() {
         </div>
         <div className="six2">
           <div className="sixx_div2">
-            <img className="img" src={six4} alt="image" />
+            <img className="img" src={six4} alt="img" />
             <h5>Complete VISA Assistance</h5>
             <p>
               Leverage our high success rates with end-to-end support with visa
@@ -79,7 +79,7 @@ export default function HomeFour() {
             </p>
           </div>
           <div className="sixx_div2">
-            <img className="img" src={six5} alt="image" />
+            <img className="img" src={six5} alt="img" />
             <h5>Help Students Better</h5>
             <p>
               Secure target enrolment and strategic objectives with our industry

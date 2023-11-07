@@ -1,10 +1,10 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { EXCHANGE_URLS_APPLICATION } from "../../../URLS";
 import cogoToast from "cogo-toast";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 
 export default function Comment({value}) {
   // let { id } = useParams();

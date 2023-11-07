@@ -30,11 +30,12 @@ export default function ForgotPass() {
         email
         // axiosConfig
       );
+console.log("response",response)
+
     } catch (error) {
       console.log("error", error);
     }
   };
-
   const otpApi = async () => {
     // const axiosConfig = {
     //   headers: {

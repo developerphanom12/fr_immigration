@@ -23,25 +23,25 @@ export default function HomeSec() {
         </div>
         <div className="snd2">
           <div className="pic">
-            <img src={pic1} alt="image" />
+            <img src={pic1} alt="img" />
           </div>
           <div className="pic">
-            <img src={pic2} alt="image" />
+            <img src={pic2} alt="img" />
           </div>
           <div className="pic">
-            <img src={pic3} alt="image" />
+            <img src={pic3} alt="img" />
           </div>
           <div className="pic">
-            <img src={pic4} alt="image" />
+            <img src={pic4} alt="img" />
           </div>
           <div className="pic">
-            <img src={pic5} alt="image" />
+            <img src={pic5} alt="img" />
           </div>
           <div className="pic">
-            <img src={pic6} alt="image" />
+            <img src={pic6} alt="img" />
           </div>
           <div className="pic">
-            <img src={pic7} alt="image" />
+            <img src={pic7} alt="img" />
           </div>
         </div>
       </div>

@@ -20,7 +20,7 @@ export default function Upload({ detail, val }) {
   });
   let { id } = useParams();
   console.log("checkdaata", id);
-  const userDetails = useSelector((state) => state?.users?.user);
+  // const userDetails = useSelector((state) => state?.users?.user);
   const getDetails = useSelector((state) => state?.users?.appDetails);
   const userCheck = useSelector((state) => state?.users?.user);
   const dispatch = useDispatch();

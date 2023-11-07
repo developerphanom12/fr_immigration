@@ -24,7 +24,7 @@ export default function Applications() {
     ielts_listening: 0,
     ielts_writing: 0,
     ielts_speaking: 0,
-    // country_id:'',
+    country_id:'',
     gender:"",
   });
   const [activeNext, setActiveNext] = useState(true);
@@ -75,24 +75,24 @@ export default function Applications() {
       console.log("err", err);
     }
   };
-  // const getCountry = async () => {
-  //   try {
-  //     const axiosConfig = {
-  //       headers: {
-  //         authorization: `Bearer ${localStorage.getItem("token")}`,
-  //       },
-  //     };
-  //     const res = await axios.get(
-  //       `${EXCHANGE_URLS_ADMIN}/getallcountry/`,
-  //       axiosConfig
-  //     );
-  //     if (res?.status === 200) {
-  //       setCountryy(res?.data.data);
-  //     }
-  //   } catch (err) {
-  //     console.log("err", err);
-  //   }
-  // };
+  const getCountry = async () => {
+    try {
+      const axiosConfig = {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      };
+      const res = await axios.get(
+        `${EXCHANGE_URLS_ADMIN}/getallcountry/`,
+        axiosConfig
+      );
+      if (res?.status === 200) {
+        setCountryy(res?.data.data);
+      }
+    } catch (err) {
+      console.log("err", err);
+    }
+  };
 
   const getUniversity = async () => {
     try {
@@ -120,7 +120,7 @@ export default function Applications() {
   useEffect(() => {
     getCourse();
     getUniversity();
-    // getCountry();
+    getCountry();
   }, []);
 
   console.log("dddddd=====", data);
@@ -307,12 +307,12 @@ export default function Applications() {
               </div>
             </div>
             <div>
-              {/* <div className="name">
+              <div className="name">
                 {" "}
                 Country Name 
                 <select
                   onChange={(e) => {
-                    setData({ ...data,id: e.target.value });
+                    setData({ ...data,country_id: e.target.value });
                   }}
                 >
                   <option>Select Country</option>
@@ -321,7 +321,7 @@ export default function Applications() {
                       return <option value={i?.id}>{i.country_name}</option>;
                     })}
                 </select>
-              </div> */}
+              </div>
               <div className="name">
                 {" "}
                 Course ID

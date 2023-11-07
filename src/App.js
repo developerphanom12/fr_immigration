@@ -42,7 +42,7 @@ function App() {
               <Route path="/action" element={<Action />} />
               <Route path="/applications" element={<Applications />} />
               <Route path="/history" element={<HistoryMain />} />
-              <Route path="/urm" element={<Urm_university />} />
+              <Route path="/urm" element={<Urm_university />} />  
               <Route path="/search" element={<Search_course />} />
             <Route path="/detailview/:id" element={<DetailView />} />
 

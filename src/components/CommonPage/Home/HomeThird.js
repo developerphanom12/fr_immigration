@@ -57,7 +57,7 @@ export default function HomeThird() {
         </div>
         <div className="fourrr">
           <div className="four_2">
-            <img src={photo4} alt="image" /> <h2>For our Universities</h2>
+            <img src={photo4} alt="img" /> <h2>For our Universities</h2>
             <div className="arrow1">
               <FaArrowRightLong />
               Connect with over 1,500 trusted overseas consultants
@@ -90,7 +90,7 @@ export default function HomeThird() {
             </div>
           </div>
           <div className="four_1">
-            <img src={photo3} alt="image" />
+            <img src={photo3} alt="img" />
           </div>
         </div>
       </div>

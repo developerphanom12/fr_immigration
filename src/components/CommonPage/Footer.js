@@ -55,7 +55,7 @@ export default function Footer() {
                                 <p className='mt-1 p1ofo'> 24 Great Chapel Street, Soho London, UK. W1F 4FS</p>
                                 <div className='flagbox22'>
                                     <div className=' gfhf'>
-                                        <img src={email111} className='img-fluid' />
+                                        <img src={email111} alt='img' className='img-fluid' />
 
                                     </div>
                                     <div className="contact-location ">
@@ -65,7 +65,7 @@ export default function Footer() {
                                 </div>
                                 <div className='flagbox22'>
                                     <div className=' gfhf'>
-                                        <img src={phonegaya} className='img-fluid' />
+                                        <img src={phonegaya} alt='img' className='img-fluid' />
 
                                     </div>
                                     <div className="contact-location ">
@@ -90,7 +90,7 @@ export default function Footer() {
 
                                 <div className='flagbox221'>
                                     <div className=' gfhf'>
-                                        <img src={window} className='img-fluid img-foter' />
+                                        <img src={window} alt='img' className='img-fluid img-foter' />
 
                                     </div>
                                     <div className="contact-location ">
@@ -101,7 +101,7 @@ export default function Footer() {
 
                                 <div className='flagbox221'>
                                     <div className=' gfhf'>
-                                        <img src={mac} className='img-fluid img-foter' />
+                                        <img src={mac} alt='img'  className='img-fluid img-foter' />
 
                                     </div>
                                     <div className="contact-location ">
@@ -128,11 +128,11 @@ export default function Footer() {
                             <div className='headofice1'>
                                 <p className='p1ffo2'>Download App</p>
                                 <div className=' flagfooter'>
-                                    <img src={google} className='img-fluid img-foter1' />
+                                    <img src={google} alt='img' className='img-fluid img-foter1' />
 
                                 </div>
                                 <div className=' flagfooter'>
-                                    <img src={ico121} className='img-fluid img-foter1' />
+                                    <img src={ico121} alt='img'  className='img-fluid img-foter1' />
 
                                 </div>
                             </div>
@@ -154,13 +154,13 @@ export default function Footer() {
                         <div className="col-lg-6 text-center text-lg-right">
                             <ul className="list-inline">
                                 <li className="list-inline-item">
-                                    <a >Privacy Policy</a>
+                                    <p >Privacy Policy</p>
                                 </li>
                                 <li className="list-inline-item">
-                                    <a>Terms of Service</a>
+                                    <p>Terms of Service</p>
                                 </li>
                                 <li className="list-inline-item ">
-                                    <a>Contact Us</a>
+                                    <p>Contact Us</p>
                                 </li>
                             </ul>
                         </div>

@@ -71,7 +71,7 @@ export default function AddCourses() {
   };
   useEffect(() => {
     getUniversity();
-  }, []);
+  }, [getUniversity]);
 
   console.log("newCourse", newCourse);
   console.log("setData", setData);

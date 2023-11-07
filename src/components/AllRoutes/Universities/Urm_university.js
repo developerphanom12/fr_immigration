@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
 import axios from "axios";
 import { EXCHANGE_URLS_IMAGE, EXCHANGE_URLS_UNIVERSITY } from "../../URLS";
-import Loader from "../../Loader";
+// import Loader from "../../Loader";
 
 export default function Urm_university() {
   
