@@ -5,7 +5,7 @@ import { EXCHANGE_URLS_APPLICATION } from "../../URLS";
 import { useDispatch } from "react-redux";
 import { BsFillEyeFill } from "react-icons/bs";
 import Download from "./Download";
-import Loader from "../../Loader";
+// import Loader from "../../Loader";
 import { appDetailsAction } from "../../../redux/users/action";
 import { useNavigate } from "react-router-dom";
 export default function History({ popUser = () => {} }) {

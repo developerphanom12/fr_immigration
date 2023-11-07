@@ -91,7 +91,7 @@ export default function Search_course() {
                     if (index % 10 === 0) {
                       return (
                         <div key={index} className="courses_row">
-                          {courseData.slice(index, index + 2).map((course, i) => (
+                          {courseData.slice(index, index + 10).map((course, i) => (
                             <div key={i} className="courses_child1">
                               <img
                                 src={`${EXCHANGE_URLS_IMAGE}/${course.university_id.university_image}`}
