@@ -316,7 +316,7 @@ export default function Applications() {
                 >
                   <option>Select Country</option>
                   {countryy &&
-                    countryy.map((i) => {i.id
+                    countryy.map((i) => {i.country_id
                       return <option value={i?.id}>{i.country_name}</option>;
                     })}
                 </select>

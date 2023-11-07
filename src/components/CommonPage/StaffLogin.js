@@ -35,7 +35,11 @@ export default function StaffLogin() {
     }
   };
 
-  
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleClick();
+    }
+  };
 
   const handleClick = () => {
     
