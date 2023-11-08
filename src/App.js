@@ -21,6 +21,7 @@ import ProfileAddress from "./components/MainLayouts/Profile/ProfileAddress";
 import ProfilePassword from "./components/MainLayouts/Profile/ProfilePassword";
 import StudentLogin from "./components/StudentPortal/StudentLogin";
 import StudentDash from "./components/StudentPortal/StudentDash";
+import Register from "./components/StudentPortal/Register";
 
 function App() {
   const userCheck = useSelector((state) => state?.users?.userCheck);
@@ -44,7 +45,7 @@ function App() {
               <Route path="/history" element={<HistoryMain />} />
               <Route path="/urm" element={<Urm_university />} />  
               <Route path="/search" element={<Search_course />} />
-            <Route path="/detailview/:id" element={<DetailView />} />
+              <Route path="/detailview/:id" element={<DetailView />} />
 
             </>
           ) : (
@@ -68,12 +69,13 @@ function App() {
             <Route path="/stafflogin" element={<StaffLogin/>} />
             <Route path="/studentlogin" element={<StudentLogin/>}/>
             <Route path="/studentdash" element={<StudentDash/>}/>
+            <Route path="/register" element={<Register/>}/>
             <Route path="/login" element={<Login />} />
             <Route path="/forgot" element={<ForgotPass/>} />
             <Route path="/partner" element={<Partner />} />
-            <Route path="/user" element={<ProfileUser/>} />
+            {/* <Route path="/user" element={<ProfileUser/>} />
             <Route path="/address" element={<ProfileAddress/>} />
-            <Route path="/changepass" element={<ProfilePassword/>} />
+            <Route path="/changepass" element={<ProfilePassword/>} /> */}
 
           </>
         )}

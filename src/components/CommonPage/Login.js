@@ -113,6 +113,9 @@ const Root = styled.section`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  padding-bottom: 20px;
+  font: 22px "Mulish", sans-serif;
+
 
   .logimg {
     h4 {
@@ -135,7 +138,7 @@ const Root = styled.section`
     position: bottom;
     img {
       max-width: 500px;
-      max-height: 700px;
+      max-height: 520px;
       display: flex;
       justify-content: flex-end;
       @media (max-width: 700px) {

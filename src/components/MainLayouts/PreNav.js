@@ -14,6 +14,14 @@ export default function PreNav() {
       </div>
       <div className="options">
         <div className="opt_div">
+        <button
+            className="opt_btn"
+            onClick={() => {
+              navigate("/register");
+            }}
+          >
+           Register as a Student
+          </button>
           <button
             className="opt_btn"
             onClick={() => {
@@ -57,6 +65,14 @@ export default function PreNav() {
         }}
       >
         <div className="opt_div">
+        <button
+            className="opt_btn"
+            onClick={() => {
+              navigate("/register");
+            }}
+          >
+           Register as a Student
+          </button>
           <button
             className="opt_btn"
             onClick={() => {

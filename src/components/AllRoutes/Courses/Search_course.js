@@ -9,14 +9,13 @@ export default function Search_course() {
   const [courseData, setCourseData] = useState([]);
   const [searchKey, setSearchKey] = useState("");
 
-
   const courseApi = async (searchKey) => {
     try {
       const res = await axios.get(`${EXCHANGE_URLS_UNIVERSITY}/get/allcourse`);
       console.log("resres123", res);
       // if (res.status === 201) {
-        setCourseData(res?.data?.data);
-        // setLoader(false)
+      setCourseData(res?.data?.data);
+      // setLoader(false)
       // }
     } catch (err) {
       console.log("err", err);
@@ -25,7 +24,6 @@ export default function Search_course() {
 
   useEffect(() => {
     courseApi();
-    
   }, []);
 
   console.log("courseData", courseData);
@@ -46,23 +44,21 @@ export default function Search_course() {
       console.error("Error searching:", e);
     }
   };
-  
-  useEffect(()=>{
-    if(searchKey != null){
-      const debounce = setTimeout(()=>{
-        courseApi(searchKey)
-      },1000);
-      return(
-        clearTimeout(debounce)
-      )
+
+  useEffect(() => {
+    if (searchKey != null) {
+      const debounce = setTimeout(() => {
+        courseApi(searchKey);
+      }, 1000);
+      return clearTimeout(debounce);
     }
-  })
- console.log("setSearchQuery",setSearchQuery)
+  });
+  console.log("setSearchQuery", setSearchQuery);
   return (
     <Root>
       <h4>Search Courses Here</h4>
       <div className="search_box">
-      <input
+        <input
           value={searchKey}
           onChange={(e) => {
             setSearchKey(e.target.value);
@@ -77,47 +73,47 @@ export default function Search_course() {
           Search
         </button>
       </div>
-     
-     
+
       <div className="courses_div">
         <h2>Total Courses: {courseData?.length}</h2>
         <div className="container">
-          <div className="row">
-            <div className="col-lg-12 mt-5">
+          <div className=" ">
+            <div>
               <div className="courses_box">
-                {courseData && courseData.length > 0 && (
+                {courseData &&
+                  courseData.length > 0 &&
                   courseData.map((course, index) => {
                     // Render a new row for every 3 courses
-                    if (index % 10 === 0) {
+                    if (index % 3 === 0) {
                       return (
                         <div key={index} className="courses_row">
-                          {courseData.slice(index, index + 10).map((course, i) => (
-                            <div key={i} className="courses_child1">
-                              <img
-                                src={`${EXCHANGE_URLS_IMAGE}/${course.university_id.university_image}`}
-                                alt="img"
-                              />
-                              <div className="courses_child2">
-                                <h5>{course.course_name}</h5>
-                                <p>{course.university_id.university_name}</p>
-                                <div className="courses_child3">
-                                  <button>{course.course_level}</button>
+                          {courseData
+                            .slice(index, index + 3)
+                            .map((course, i) => (
+                              <div key={i} className="courses_child1">
+                                <img
+                                  src={`${EXCHANGE_URLS_IMAGE}/${course.university_id.university_image}`}
+                                  alt="img"
+                                />
+                                <div className="courses_child2">
+                                  <h5>{course.course_name}</h5>
+                                  <p>{course.university_id.university_name}</p>
+                                  <div className="courses_child3">
+                                    <button>{course.course_level}</button>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          ))}
+                            ))}
                         </div>
                       );
                     }
                     return null;
-                  })
-                )}
+                  })}
               </div>
             </div>
           </div>
         </div>
       </div>
-    
     </Root>
   );
 }
@@ -125,7 +121,8 @@ export default function Search_course() {
 const Root = styled.section`
   height: 100%;
   min-height: 100vh;
-  h2{
+
+  h2 {
     margin-top: 10px;
   }
 
@@ -137,15 +134,14 @@ const Root = styled.section`
       border: transparent;
       padding: 5px;
       width: 100%;
-
     }
     button {
       width: 80px;
       border: transparent;
       border-radius: 5px;
-      background-color:#1E90FF;
+      background-color: #1e90ff;
       color: white;
-      &:hover{
+      &:hover {
         cursor: pointer;
         background-color: green;
       }
@@ -160,33 +156,33 @@ const Root = styled.section`
       display: flex;
       gap: 10px;
       height: 100%;
-       flex: 1;
-      @media (max-width:876px){
+      flex: 1;
+      @media (max-width: 876px) {
         flex-direction: column;
       }
       .courses_child1 {
         display: flex;
         gap: 10px;
-        margin:10px 0px;
+        margin: 10px 0px;
         padding: 10px;
         border-radius: 15px;
         justify-content: space-evenly;
         align-items: center;
         text-align: center;
         border: 1px solid gray;
-        border-bottom: 5px solid #87CEFA;
+        border-bottom: 5px solid #87cefa;
         img {
           width: 100px;
           height: 100px;
           object-fit: cover;
-          min-width:50px;
+          min-width: 50px;
           min-height: 50px;
           border-radius: 10px;
         }
         .courses_child2 {
           align-items: center;
           h5 {
-            color: #6495ED;
+            color: #6495ed;
             text-transform: capitalize;
           }
           .courses_child3 {
@@ -194,7 +190,7 @@ const Root = styled.section`
             button {
               width: 150px;
               color: white;
-              background-color:	#FF7F50;
+              background-color: #ff7f50;
               border-radius: 10px;
               margin: 10px;
               border: none;

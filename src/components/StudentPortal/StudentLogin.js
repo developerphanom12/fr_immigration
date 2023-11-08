@@ -1,10 +1,53 @@
 // import React from 'react'
 // import styled from 'styled-components'
 // import loginbanner from "../CommonPage/imageLogo/login_banner.png"
-// import { useNavigate } from 'react-router-dom'
+
+// import { useDispatch } from "react-redux";
+// import { useNavigate } from "react-router-dom";
 
 
 // export default function StudentLogin() {
+    // const [logindata, setlogindata] = useState({
+    //     username: "",
+    //     password: "",
+    //   });
+    //   const navigate = useNavigate();
+    //   const dispatch = useDispatch();
+    
+    //   const loginApi = async () => {
+    //     try {
+    //       const res = await axios.post(`${EXCHANGE_URLS}/studentlogin`, logindata);
+    //       console.log("resres123", res?.data?.data?.user);
+    //       if (res?.status === 200) {
+    //         localStorage.setItem("token", res?.data?.data?.user?.token);
+    //         dispatch(userDataAction(res?.data?.data?.user));
+    //         dispatch(userCheckAction(true));
+    //         cogoToast.success(" Student Login SuccessFully");
+    //         navigate("/dashboardd");
+    //       }
+    //     } catch (err) {
+    //       console.log("err", err);
+    //     }
+    //   };
+    
+    //   const handleKeyDown = (e) => {
+    //     if (e.key === "Enter") {
+    //       handleClick();
+    //     }
+    //   };
+    
+    //   const handleClick = () => {
+        
+    //     if (logindata.username.length > 3 && logindata.password.length > 3) {
+    //       loginApi();
+    //     } else {
+    //       cogoToast.error(
+    //         "Username & password Length should be greater than 3 & 3 character"
+    //       );
+    //     }
+    //   };
+    
+    //   console.log("logindata", logindata);
 //   const navigate = useNavigate();
 //   return (
 //     <Root>
