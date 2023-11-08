@@ -37,7 +37,7 @@ function App() {
           userDetails && 
           (userDetails.role === "admin") ? (
             <>
-              <Route path="/dashboard" element={<DashboardAdmin />} />
+              <Route path="/dashboardd" element={<DashboardAdmin />} />
               <Route path="*" element={<DashboardAdmin />} />
               <Route path="/action" element={<Action />} />
               <Route path="/applications" element={<Applications />} />
@@ -49,7 +49,7 @@ function App() {
             </>
           ) : (
             <>
-             <Route path="/dashboard" element={<DashboardAdmin />} />
+             <Route path="/dashboardd" element={<DashboardAdmin />} />
             <Route path="/detailview/:id" element={<DetailView />} />
               <Route path="*" element={<DashboardAdmin />} />
               <Route path="/applications" element={<Applications />} />

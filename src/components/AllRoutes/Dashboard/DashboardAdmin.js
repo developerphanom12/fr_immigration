@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { EXCHANGE_URLS_APPLICATION } from "../../URLS";
-import Loader from "../../Loader";
+// import Loader from "../../Loader";
+
+
 export default function DashboardAdmin() {
-  const [loader, setLoader] = useState(true);
+  // const [loader, setLoader] = useState(true);
   const [count, setCount] = useState([]);
-  const [dashboard, setDashboard] = useState();
+  const [dashboardVal, setDashboardVal] = useState();
 
   const dashboardApi = async () => {
     const axiosConfig = {
@@ -20,8 +22,8 @@ export default function DashboardAdmin() {
         axiosConfig
       );
       console.log("resss", res?.data?.data);
-      setDashboard(res?.data?.data);
-      setLoader(false);
+      setDashboardVal(res?.data?.data);
+      // setLoader(false);
     } catch (err) {
       console.log("err", err);
     }
@@ -41,7 +43,7 @@ export default function DashboardAdmin() {
       console.log("getby", res.status);
       if (res?.status == 201) {
         setCount(res?.data?.data);
-        setLoader(false);
+        // setLoader(false);
       }
     } catch (err) {
       console.log("err", err);
@@ -50,41 +52,41 @@ export default function DashboardAdmin() {
   useEffect(() => {
     countApi();
     dashboardApi();
-    setLoader(false);
+    // setLoader(false);
   }, []);
 
   // const handlePassData = (i) => {
   //   dispatch(appDetailsAction(i));
   // };
-  console.log("dashboarddd", dashboard);
+  console.log("dashboarddd", dashboardVal);
   console.log("count====", count);
   return (
     <Root>
-      <h3> Dashboard</h3>
-      {loader ? (
+      <h3>Welcome To Dashboard</h3>
+      {/* {loader ? (
         <Loader />
       ) : (
-        <>
+        <> */}
           <div className="dashboard_details">
             <div className="details">
               <div>
                 <p>
-                  Approve Documents <p>{dashboard?.approved ?? 0}</p>
+                  Approve Documents <p>{dashboardVal?.approved ?? 0}</p>
                 </p>
               </div>
               <div>
                 <p>
-                  Application Pending<p>{dashboard?.pending ?? 0}</p>
+                  Application Pending<p>{dashboardVal?.pending ?? 0}</p>
                 </p>
               </div>
               <div>
                 <p>
-                  Rejected Documents<p>{dashboard?.rejected ?? 0}</p>
+                  Rejected Documents<p>{dashboardVal?.rejected ?? 0}</p>
                 </p>
               </div>
               <div>
                 <p>
-                  Total Applications<p>{dashboard?.totalApplications ?? 0}</p>
+                  Total Applications<p>{dashboardVal?.totalApplications ?? 0}</p>
                 </p>
               </div>
             </div>
@@ -110,8 +112,8 @@ export default function DashboardAdmin() {
                 );
               })}
           </div>
-        </>
-      )}
+        {/* </>
+      )} */}
     </Root>
   );
 }

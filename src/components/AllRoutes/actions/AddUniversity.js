@@ -30,7 +30,7 @@ export default function AddUniversity() {
       if (res.status === 201) {
         setnewUniversity(res?.data);
         cogoToast.success("Submit SuccessFully");
-        navigate("/dashboard");
+        navigate("/dashboardd");
       }
     } catch (err) {
       console.log("err", err);

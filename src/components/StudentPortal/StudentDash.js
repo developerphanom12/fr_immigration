@@ -1,14 +1,14 @@
-import React from 'react'
-import styled from 'styled-components'
+// import React from 'react'
+// import styled from 'styled-components'
 
-export default function StudentDash() {
-  return (
-    <Root>StudentDash
+// export default function StudentDash() {
+//   return (
+//     <Root>StudentDash
 
         
-    </Root>
-  )
-}
-const Root = styled.section`
+//     </Root>
+//   )
+// }
+// const Root = styled.section`
 
-`
+// `

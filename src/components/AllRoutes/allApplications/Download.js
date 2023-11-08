@@ -11,7 +11,7 @@ function Download() {
     //   };
     // Replace 'http://localhost:3300' with the actual URL of your Express.js server
     const excelDownloadUrl =
-      "http://api-immigration.phanomprofessionals.com/api/application/generate-exc111el";
+      "https://api-immigration.phanomprofessionals.com/api/application/generate-exc111el";
       
     axios({
       method: "get",
@@ -31,12 +31,14 @@ function Download() {
         a.href = url;
         a.download = "application_data.xlsx";
         a.click();
+        console.log("response.data",response.data)
       })
       .catch((error) => {
         console.error("Error downloading file:", error);
         // Handle any errors here
       });
   };
+
 
   return (
     <Root>

@@ -24,8 +24,8 @@ export default function Applications() {
     ielts_listening: 0,
     ielts_writing: 0,
     ielts_speaking: 0,
-    country_id:'',
-    gender:"",
+    country_id: "",
+    gender: "",
   });
   const [activeNext, setActiveNext] = useState(true);
   const [applicationId, setApplicationId] = useState("");
@@ -146,7 +146,7 @@ export default function Applications() {
                 />
               </div>
               <div className="name">
-                Last Name 
+                Last Name
                 <input
                   type="name"
                   value={data.student_lastname}
@@ -159,7 +159,7 @@ export default function Applications() {
             </div>
             <div>
               <div className="name">
-                E-Mail 
+                E-Mail
                 <input
                   type="email"
                   value={data.student_email}
@@ -184,7 +184,7 @@ export default function Applications() {
             <div>
               <div className="name">
                 {" "}
-                Whatsapp No 
+                Whatsapp No
                 <input
                   type="number"
                   value={data.student_whatsapp_number}
@@ -200,7 +200,7 @@ export default function Applications() {
 
               <div className="name">
                 {" "}
-                Marital status 
+                Marital status
                 <select
                   value={data.marital_status}
                   onChange={(e) => {
@@ -218,7 +218,7 @@ export default function Applications() {
             <div>
               <div className="name">
                 {" "}
-                Visa Refusal 
+                Visa Refusal
                 <select
                   value={data.previous_visa_refusals}
                   onChange={(e) => {
@@ -250,7 +250,7 @@ export default function Applications() {
             <div>
               <div className="name">
                 {" "}
-                Ielts listening 
+                Ielts listening
                 <input
                   type="name"
                   value={data.ielts_listening}
@@ -262,7 +262,7 @@ export default function Applications() {
               </div>
               <div className="name">
                 {" "}
-                Ielts writing 
+                Ielts writing
                 <input
                   type="name"
                   value={data.ielts_writing}
@@ -276,7 +276,7 @@ export default function Applications() {
             <div>
               <div className="name">
                 {" "}
-                Ielts speaking 
+                Ielts speaking
                 <input
                   type="name"
                   value={data.ielts_speaking}
@@ -309,10 +309,10 @@ export default function Applications() {
             <div>
               <div className="name">
                 {" "}
-                Country Name 
+                Country Name
                 <select
                   onChange={(e) => {
-                    setData({ ...data,country_id: e.target.value });
+                    setData({ ...data, country_id: e.target.value });
                   }}
                 >
                   <option>Select Country</option>
@@ -340,18 +340,20 @@ export default function Applications() {
               </div>
             </div>
             <div className="name1">
-              <div>     {" "}
-                Select Gender<select
-                onChange={(e) => {
-                  setData({ ...data, gender: e.target.value });
-                }}
+              <div className="name">
+                {" "}
+                Select Gender
+                <select
+                  onChange={(e) => {
+                    setData({ ...data, gender: e.target.value });
+                  }}
                 >
-                <option>Gender</option>
-                <option  value={data.gender.male}>Male</option>
-                <option  value={data.gender.female}>Female</option>
-                <option  value={data.gender.other}>Other</option>
-                
-                </select></div>
+                  <option>Gender</option>
+                  <option value={data.gender.male}>Male</option>
+                  <option value={data.gender.female}>Female</option>
+                  <option value={data.gender.other}>Other</option>
+                </select>
+              </div>
               <button
                 className="btnn"
                 onClick={() => {
@@ -382,6 +384,45 @@ const Root = styled.section`
       align-items: center;
       justify-content: center;
       background-color: #ffffff;
+      select {
+        background-color: white;
+        color: black;
+        text-decoration: none;
+        border: 2px solid #a5d8fa;
+        line-height: 1.5em;
+        padding: 10px;
+        border-radius: 20px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: linear-gradient(45deg, transparent 50%, blue 50%),
+          linear-gradient(135deg, blue 50%, transparent 50%),
+          linear-gradient(to right, skyblue, skyblue);
+        background-position: calc(100% - 20px) calc(1em + 2px),
+          calc(100% - 15px) calc(1em + 2px), 100% 0;
+        background-size: 5px 5px, 5px 5px, 40px 45px;
+        background-repeat: no-repeat;
+        @media (max-width: 555px) {
+          padding: 8px;
+          /* width: 120px; */
+          background-size: 5px 5px, 5px 5px, 30px 45px;
+          align-items: center;
+        }
+
+        select:focus {
+          background-image: linear-gradient(45deg, white 50%, transparent 50%),
+            linear-gradient(135deg, transparent 50%, white 50%),
+            linear-gradient(to right, gray, gray);
+          background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
+            100% 0;
+          background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+          background-repeat: no-repeat;
+          border-color: grey;
+          outline: 0;
+        }
+      }
       .btnn {
         padding: 10px;
         border-radius: 30px;
@@ -466,42 +507,42 @@ const Root = styled.section`
       }
       select {
         background-color: white;
-      color: black;
-      text-decoration: none;
-      border: 2px solid #a5d8fa;
-      line-height: 1.5em;
-      padding: 10px;
-      border-radius: 20px;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      background-image: linear-gradient(45deg, transparent 50%, blue 50%),
-        linear-gradient(135deg, blue 50%, transparent 50%),
-        linear-gradient(to right, skyblue, skyblue);
-      background-position: calc(100% - 20px) calc(1em + 2px),
-        calc(100% - 15px) calc(1em + 2px), 100% 0;
-      background-size: 5px 5px, 5px 5px, 40px 45px;
-      background-repeat: no-repeat;
-      @media (max-width: 555px) {
-        padding: 8px;
-        /* width: 120px; */
-        background-size: 5px 5px, 5px 5px, 30px 45px;
-        align-items: center;
-      }
-
-      select:focus {
-        background-image: linear-gradient(45deg, white 50%, transparent 50%),
-          linear-gradient(135deg, transparent 50%, white 50%),
-          linear-gradient(to right, gray, gray);
-        background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
-          100% 0;
-        background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+        color: black;
+        text-decoration: none;
+        border: 2px solid #a5d8fa;
+        line-height: 1.5em;
+        padding: 10px;
+        border-radius: 20px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: linear-gradient(45deg, transparent 50%, blue 50%),
+          linear-gradient(135deg, blue 50%, transparent 50%),
+          linear-gradient(to right, skyblue, skyblue);
+        background-position: calc(100% - 20px) calc(1em + 2px),
+          calc(100% - 15px) calc(1em + 2px), 100% 0;
+        background-size: 5px 5px, 5px 5px, 40px 45px;
         background-repeat: no-repeat;
-        border-color: grey;
-        outline: 0;
-      }
+        @media (max-width: 555px) {
+          padding: 8px;
+          /* width: 120px; */
+          background-size: 5px 5px, 5px 5px, 30px 45px;
+          align-items: center;
+        }
+
+        select:focus {
+          background-image: linear-gradient(45deg, white 50%, transparent 50%),
+            linear-gradient(135deg, transparent 50%, white 50%),
+            linear-gradient(to right, gray, gray);
+          background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
+            100% 0;
+          background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+          background-repeat: no-repeat;
+          border-color: grey;
+          outline: 0;
+        }
       }
     }
   }

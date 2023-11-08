@@ -33,7 +33,7 @@ export default function AddCourses() {
         setNewCourse(res?.data);
         setUniversity(res?.data?.data);
         cogoToast.success("Submit SuccessFully");
-        navigate("/dashboard");
+        navigate("/dashboardd");
       }
     } catch (err) {
       console.log("err", err);

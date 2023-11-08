@@ -25,7 +25,7 @@ export default function AdminLogin() {
         dispatch(userDataAction(res?.data?.data?.user));
         dispatch(userCheckAction(true));
         cogoToast.success("Login SuccessFully");
-        navigate("/dashboard");
+        navigate("/dashboardd");
       }
     } catch (err) {
       console.log("err", err);

@@ -29,7 +29,7 @@ export default function Comment({value}) {
         axiosConfig
       );
       setVal(res);
-     value(true)
+      value(true)
       console.log("resress", res);
     } catch (e) {
       console.log("error", e);
@@ -40,7 +40,7 @@ export default function Comment({value}) {
     
     const handleSubmit = () => {
     commentApi();
-    value(true)
+    value(true);
     cogoToast.success("Comment Added");
   };
 

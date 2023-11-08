@@ -42,9 +42,9 @@ export default function SideBar() {
         <div className="nav_section">
           <p className="caption">ANALYTICS</p>
           <div
-            className={activeParam === "dashboard" ? "active" : ""}
+            className={activeParam === "dashboardd" ? "active" : ""}
             onClick={() => {
-              navigate("/dashboard");
+              navigate("/dashboardd");
             }}
           >
             <FaHome />
