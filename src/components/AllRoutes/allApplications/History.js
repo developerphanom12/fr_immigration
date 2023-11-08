@@ -9,7 +9,6 @@ import Download from "./Download";
 import { appDetailsAction } from "../../../redux/users/action";
 import { useNavigate } from "react-router-dom";
 
-
 export default function History({ popUser = () => {} }) {
   const [applications, setApplications] = useState([]);
   // const [filteredApplications, setFilteredApplications] = useState([]);
@@ -108,55 +107,55 @@ export default function History({ popUser = () => {} }) {
       {/* {loader ? (
         <Loader />
       ) : ( */}
-        <div className="app_table">
-          <div className="app_header">
-            <div>CAMS Id</div>
-            <div>Student Name</div>
-            <div>University Name</div>
-            <div>Course Name</div>
-            <div>Status</div>
-            <div>View</div>
-          </div>
-          {applications &&
-            applications.map((i) => {
-              return (
+      <div className="app_table">
+        <div className="app_header">
+          <div>CAMS Id</div>
+          <div>Student Name</div>
+          <div>University Name</div>
+          <div>Course Name</div>
+          <div>Status</div>
+          <div>View</div>
+        </div>
+        {applications &&
+          applications.map((i) => {
+            return (
+              <div
+                className="app_body"
+                onClick={() => {
+                  handlePassData(i);
+                }}
+              >
+                <div className="cams">#{i?.application_id}</div>
+                <div>
+                  <p>
+                    <span>{i?.student_firstname}</span>
+                  </p>
+                  <p>
+                    Passport No: <span>{i?.student_passport_no}</span>
+                  </p>
+                  <p>
+                    Counsellor : <span>{i?.user_id.username}</span>
+                  </p>
+                </div>
+                <div>
+                  <h6>{i?.university_id.university_name}</h6>
+                  <p className="person">{i?.university_id.person_name}</p>
+                  <p className="person">{i?.university_id.contact_number}</p>
+                </div>
+                <div>{i?.course_id?.course_name}</div>
+                <div>{i?.application_status}</div>
                 <div
-                  className="app_body"
+                  className="iconn"
                   onClick={() => {
-                    handlePassData(i);
+                    navigate(`/detailview/${i?.application_id}`);
                   }}
                 >
-                  <div className="cams">#{i?.application_id}</div>
-                  <div>
-                    <p>
-                      <span>{i?.student_firstname}</span>
-                    </p>
-                    <p>
-                      Passport No: <span>{i?.student_passport_no}</span>
-                    </p>
-                    <p>
-                      Counsellor : <span>{i?.user_id.username}</span>
-                    </p>
-                  </div>
-                  <div>
-                    <p>{i?.university_id.university_name}</p>
-                    <p>{i?.university_id.person_name}</p>
-                    <p>{i?.university_id.contact_number}</p>
-                  </div>
-                  <div>{i?.course_id?.course_name}</div>
-                  <div>{i?.application_status}</div>
-                  <div
-                    className="iconn"
-                    onClick={() => {
-                      navigate(`/detailview/${i?.application_id}`);
-                    }}
-                  >
-                    <BsFillEyeFill />
-                  </div>
+                  <BsFillEyeFill />
                 </div>
-              );
-            })}
-        </div>
+              </div>
+            );
+          })}
+      </div>
       {/* )} */}
     </Root>
   );
@@ -166,7 +165,11 @@ const Root = styled.section`
   flex-direction: column;
   gap: 10px;
   background-color: #f8f8f8;
-  font-family: "Mulish", "sana-serif";
+  color: #202020;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  vertical-align: middle;
   .header {
     display: flex;
     justify-content: space-between;
@@ -232,26 +235,36 @@ const Root = styled.section`
     padding: 0;
     margin: 0;
     text-transform: capitalize;
+    text-align: left;
+    font-family: "open-sans", "sana-serif";
   }
 
   .app_table {
     display: flex;
     flex-direction: column;
     margin: 20px;
+    font-family: "Mulish", "sana-serif";
     .app_header {
       display: flex;
       background-color: #fff3ee;
+      text-align: center;
+
       > div {
         flex: 1;
         border: 1px solid #dee2e6;
         padding: 20px;
+        /* text-align: center; */
       }
     }
     .app_body {
       display: flex;
       font-family: "Cairo", sans-serif;
+
       .cams {
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .iconn {
         display: flex;
@@ -264,6 +277,17 @@ const Root = styled.section`
         padding: 5px;
         text-transform: capitalize;
         background-color: #e7e7e8;
+        text-align: center;
+        padding: 20px 5px;
+        .person {
+          color: #8995ad;
+          font-size: 15px;
+        }
+        h6 {
+          font-weight: 600;
+          text-align: left;
+          font-size: small;
+        }
 
         span {
           font-weight: 600;
@@ -309,7 +333,6 @@ const Root = styled.section`
         > div {
           /* flex: 1; */
           font-size: smaller;
-
         }
       }
     }

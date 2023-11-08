@@ -339,7 +339,7 @@ export default function Applications() {
                 </select>
               </div>
             </div>
-            <div className="name1">
+            <div >
               <div className="name">
                 {" "}
                 Select Gender
@@ -355,7 +355,6 @@ export default function Applications() {
                 </select>
               </div>
               <button
-                className="btnn"
                 onClick={() => {
                   handleSubmit();
                 }}
@@ -423,30 +422,40 @@ const Root = styled.section`
           outline: 0;
         }
       }
-      .btnn {
-        padding: 10px;
-        border-radius: 30px;
-        font-size: medium;
-        border-color: transparent;
-        color: #ffffff;
-        width: 300px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-        background: blue;
-        margin: 10px;
-        @media (max-width: 700px) {
-          min-width: 100px;
-          width: 100%;
-          flex-direction: column;
-        }
+    }
+    button {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 50px;
+      padding: 10px;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      margin-top: 20px ;
+      border-radius: 30px;
+      border: transparent;
+      background: linear-gradient(
+        45deg,
+        #0146ff 19%,
+        #0146ff96 48%,
+        #0146ff 100%
+      );
+      &:hover {
+        background: linear-gradient(
+          -25deg,
+          #0146ff 19%,
+          #0146ff96 88%,
+          transparent 100%
+        );
+        transition: all 0.3s ease-in-out 0s;
       }
-      .btnn:hover {
-        color: #f0f8ff;
-        background: #ff6525;
-        cursor: pointer;
-      }
+      border-radius: 50px;
+      color: #fff;
+      padding: 20px 30px;
+      background-size: 300% 100%;
+      transition: all 0.3s ease-in-out 0s;
+      text-transform: uppercase;
     }
     .name {
       display: flex;
@@ -490,6 +499,7 @@ const Root = styled.section`
       > div {
         display: flex;
         flex: 1;
+        align-items: center;
         @media (max-width: 850px) {
           flex-direction: column;
         }
