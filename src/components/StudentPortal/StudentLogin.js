@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { EXCHANGE_URLS_STUDENT } from '../URLS';
 import axios from 'axios';
 import cogoToast from 'cogo-toast';
+import { userCheckAction, userDataAction } from '../../redux/users/action';
 
 
 export default function StudentLogin() {
@@ -23,7 +24,7 @@ export default function StudentLogin() {
           console.log("resres123", res?.data?.data?.user);
           if (res?.status === 200) {
             localStorage.setItem("token", res?.data?.data?.user?.token);
-            dispatch(userDataAction(res?.data?.data?.user));
+            dispatch(userDataAction,userCheckAction(res?.data?.data?.user));
             dispatch(userCheckAction(true));
             cogoToast.success(" Student Login SuccessFully");
             navigate("/dashboardd");

@@ -3,8 +3,11 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { EXCHANGE_URLS_ADMIN } from "../../URLS";
 import cogoToast from "cogo-toast";
+import { useNavigate } from "react-router-dom";
 
 export default function CreateStaff() {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     staff_name: "",
     password: "",
@@ -28,7 +31,7 @@ export default function CreateStaff() {
     //     staff_phone_number: "",
     //     country_id:""
     //   });
-      navigate("/dashboardd");
+       navigate("/applications");
     } catch (err) {
       console.log("err", err);
     }
