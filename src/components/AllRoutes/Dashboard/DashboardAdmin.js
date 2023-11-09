@@ -41,7 +41,7 @@ export default function DashboardAdmin() {
         axiosConfig
       );
       console.log("getby", res.status);
-      if (res?.status == 201) {
+      if (res?.status === 201) {
         setCount(res?.data?.data);
         // setLoader(false);
       }

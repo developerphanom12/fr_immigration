@@ -30,6 +30,15 @@ export default function PreNav() {
           >
             Be a partner
           </button>
+          <button
+            className="opt_btn"
+            onClick={() => {
+              navigate("/reach");
+            }}
+          >
+            Our Network
+          </button>
+          
         </div>
         <div
           className="login"

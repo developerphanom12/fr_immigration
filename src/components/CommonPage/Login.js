@@ -26,6 +26,8 @@ export default function Login() {
         dispatch(userCheckAction(true));
         cogoToast.success("Login SuccessFully");
         navigate("/dashboardd");
+      }else{
+        cogoToast.error("Username Or Password Incorrect")
       }
     } catch (err) {
       console.log("err", err);
@@ -115,7 +117,13 @@ const Root = styled.section`
   background-size: cover;
   padding-bottom: 20px;
   font: 22px "Mulish", sans-serif;
-
+@media (max-width:999px){
+  flex-direction: column;
+  .logimg{
+    min-height: 250px;
+    height: 100%;
+  }
+}
 
   .logimg {
     h4 {
@@ -143,7 +151,7 @@ const Root = styled.section`
       justify-content: flex-end;
       @media (max-width: 700px) {
         height: 300px;
-        width: 220px;
+        width: 320px;
       }
     }
   }

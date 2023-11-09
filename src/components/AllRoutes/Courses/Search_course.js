@@ -82,33 +82,21 @@ export default function Search_course() {
               <div className="courses_box">
                 {courseData &&
                   courseData.length > 0 &&
-                  courseData.map((course, index) => {
-                    // Render a new row for every 3 courses
-                    if (index % 3 === 0) {
-                      return (
-                        <div key={index} className="courses_row">
-                          {courseData
-                            .slice(index, index + 3)
-                            .map((course, i) => (
-                              <div key={i} className="courses_child1">
-                                <img
-                                  src={`${EXCHANGE_URLS_IMAGE}/${course.university_id.university_image}`}
-                                  alt="img"
-                                />
-                                <div className="courses_child2">
-                                  <h5>{course.course_name}</h5>
-                                  <p>{course.university_id.university_name}</p>
-                                  <div className="courses_child3">
-                                    <button>{course.course_level}</button>
-                                  </div>
-                                </div>
-                              </div>
-                            ))}
+                  courseData.map((course, index) => (
+                    <div key={index} className="courses_child1">
+                      <img
+                        src={`${EXCHANGE_URLS_IMAGE}/${course.university_id.university_image}`}
+                        alt="img"
+                      />
+                      <div className="courses_child2">
+                        <h5>{course.course_name}</h5>
+                        <p>{course.university_id.university_name}</p>
+                        <div className="courses_child3">
+                          <button>{course.course_level}</button>
                         </div>
-                      );
-                    }
-                    return null;
-                  })}
+                      </div>
+                    </div>
+                  ))}
               </div>
             </div>
           </div>
@@ -156,7 +144,7 @@ const Root = styled.section`
       display: flex;
       gap: 10px;
       height: 100%;
-      flex: 1;
+      flex-wrap:wrap;
       @media (max-width: 876px) {
         flex-direction: column;
       }

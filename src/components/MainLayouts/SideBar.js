@@ -87,6 +87,7 @@ export default function SideBar() {
             <p>Search Course</p>
           </div>
           {userDetails.role === "admin" ? (
+            <>
             <div
               className={activeParam === "action" ? "active" : ""}
               onClick={() => {
@@ -96,6 +97,16 @@ export default function SideBar() {
               {<MdPersonSearch />}
               <p>Action</p>
             </div>
+            <div
+            className={activeParam === "action" ? "active" : ""}
+            onClick={() => {
+              navigate("/createstaff");
+            }}
+          >
+            {<MdPersonSearch />}
+            <p>Create Staff</p>
+          </div>
+          </>
           ) : (
             ""
           )}

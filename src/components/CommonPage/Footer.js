@@ -30,7 +30,7 @@ export default function Footer() {
 
                             <div className='iot111er'>
                                 <img src={logo3} alt='dfdffd' className='img-fluid imgf1ooter' />
-                                <p className='paragraph1'>The Crizac platform is the ultimate solution for Institutions and Recruitment partners alike to unlock global access, gain awareness and achieve strategic objectives</p>
+                                <p className='paragraph1'>The Phanom platform is the ultimate solution for Institutions and Recruitment partners alike to unlock global access, gain awareness and achieve strategic objectives</p>
 
                                 <div className=' mt-3'>
                                     <img src={fb} alt='' className='img-fluid footerimg' />
@@ -59,7 +59,7 @@ export default function Footer() {
 
                                     </div>
                                     <div className="contact-location ">
-                                        <a className="afooter  " href="mailto:info@crizac.co.uk">info@crizac.co.uk</a>
+                                        <a className="afooter  " href="mailto:info@crizac.co.uk">info@Phanom.co.uk</a>
                                     </div>
 
                                 </div>
@@ -87,6 +87,7 @@ export default function Footer() {
 
                                 <h3 className='H3FOOTER mt-2'>REMOTE ASSITANCE</h3>
 
+                                <div className='p_tag'> 
 
                                 <div className='flagbox221'>
                                     <div className=' gfhf'>
@@ -109,6 +110,7 @@ export default function Footer() {
                                     </div>
 
                                 </div>
+                                </div>
                             </div>
 
                         </div>
@@ -116,10 +118,13 @@ export default function Footer() {
                         <div className="col-lg-2 ">
                             <div className='headofice1'>
                                 <h1 className='h1foo'>Phanom ltd</h1>
+                                <div className='p_tag'>
+
                                 <p className='p1foo'>Sign In</p>
                                 <p className='p1foo'>About Us</p>
                                 <p className='p1foo'>FAQ</p>
                                 <p className='p1foo'> Contact Us</p>
+                                </div>
 
                             </div>
                         </div>
@@ -127,6 +132,8 @@ export default function Footer() {
                         <div className="col-lg-2 ">
                             <div className='headofice1'>
                                 <p className='p1ffo2'>Download App</p>
+                                <div className='p_tag'>
+
                                 <div className=' flagfooter'>
                                     <img src={google} alt='img' className='img-fluid img-foter1' />
 
@@ -134,6 +141,7 @@ export default function Footer() {
                                 <div className=' flagfooter'>
                                     <img src={ico121} alt='img'  className='img-fluid img-foter1' />
 
+                                </div>
                                 </div>
                             </div>
 
@@ -147,7 +155,7 @@ export default function Footer() {
                     <div className="row align-items-center text-lg-left text-center">
                         <div className="col-lg-6 hfh mb-lg-0 mb-2">
                             <div className='hfh mt-2'>
-                                <p className='hhh12121212112'>&copy; {new Date().getFullYear()} Phanom Professonal</p>
+                                <p className='hhh12121212112'>&copy; {new Date().getFullYear()} Phanom Professional</p>
                             </div>
                         </div>
 

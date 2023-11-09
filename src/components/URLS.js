@@ -17,3 +17,4 @@ export const  EXCHANGE_URLS_IMAGE = 'https://api-immigration.phanomprofessionals
 export const EXCHANGE_URLS_APPLICATION = 'https://api-immigration.phanomprofessionals.com/api/application';
 export const IMG_URL = 'https://api-immigration.phanomprofessionals.com/application';
 export const EXCHANGE_URLS_ADMIN = 'https://api-immigration.phanomprofessionals.com/api/admin';
+export const EXCHANGE_URLS_STUDENT  = `https://api-immigration.phanomprofessionals.com/api/student`

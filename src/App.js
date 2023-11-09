@@ -16,12 +16,15 @@ import HistoryMain from "./components/AllRoutes/allApplications/HistoryMain";
 import DetailView from "./components/AllRoutes/allApplications/detailView/DetailView";
 import ForgotPass from "./components/CommonPage/ForgotPass";
 import StaffLogin from "./components/CommonPage/StaffLogin";
-import ProfileUser from "./components/MainLayouts/Profile/ProfileUser";
-import ProfileAddress from "./components/MainLayouts/Profile/ProfileAddress";
-import ProfilePassword from "./components/MainLayouts/Profile/ProfilePassword";
+// import ProfileUser from "./components/MainLayouts/Profile/ProfileUser";
+// import ProfileAddress from "./components/MainLayouts/Profile/ProfileAddress";
+// import ProfilePassword from "./components/MainLayouts/Profile/ProfilePassword";
 import StudentLogin from "./components/StudentPortal/StudentLogin";
-import StudentDash from "./components/StudentPortal/StudentDash";
 import Register from "./components/StudentPortal/Register";
+import CreateStaff from "./components/AllRoutes/actions/CreateStaff";
+import LatestUpdates from "./components/StudentPortal/LatestUpdates";
+import Reach from "./components/CommonPage/Reach";
+// import Student from "./components/AllRoutes/allApplications/detailView/Student";
 
 function App() {
   const userCheck = useSelector((state) => state?.users?.userCheck);
@@ -30,11 +33,11 @@ function App() {
   const token = localStorage.getItem("token");
 
   console.log("resres123", userDetails?.role);
-  
+
   return (
     <Layout>
       <Routes>
-        {userCheck && token  || userDetails.role === "staff" ? (
+        {/* {userCheck && token  || userDetails.role === "staff" || userDetails.role === "student"  ? (
           userDetails && 
           (userDetails.role === "admin") ? (
             <>
@@ -68,15 +71,73 @@ function App() {
             <Route path="/adminlogin" element={<AdminLogin />} />
             <Route path="/stafflogin" element={<StaffLogin/>} />
             <Route path="/studentlogin" element={<StudentLogin/>}/>
-            <Route path="/studentdash" element={<StudentDash/>}/>
             <Route path="/register" element={<Register/>}/>
             <Route path="/login" element={<Login />} />
             <Route path="/forgot" element={<ForgotPass/>} />
             <Route path="/partner" element={<Partner />} />
-            {/* <Route path="/user" element={<ProfileUser/>} />
+            <Route path="/user" element={<ProfileUser/>} />
             <Route path="/address" element={<ProfileAddress/>} />
-            <Route path="/changepass" element={<ProfilePassword/>} /> */}
+            <Route path="/changepass" element={<ProfilePassword/>} />
 
+          </>
+        )} */}
+
+        {userCheck && token ? ( // If the user is authenticated
+          <>
+            <Route path="/dashboardd" element={<DashboardAdmin />} />
+            <Route path="/applications" element={<Applications />} />
+            <Route path="/history" element={<HistoryMain />} />
+            <Route path="/detailview/:id" element={<DetailView />} />
+            <Route path="/urm" element={<Urm_university />} />
+            <Route path="/search" element={<Search_course />} />
+            {userDetails.role === "admin" ? (
+              // Admin-specific routes
+              <>
+                <Route path="/dashboardd" element={<DashboardAdmin />} />
+                <Route path="/createstaff" element={<CreateStaff/>}/>
+                <Route path="/action" element={<Action />} />
+                <Route path="/applications" element={<Applications />} />
+                <Route path="/history" element={<HistoryMain />} />
+                <Route path="/detailview/:id" element={<DetailView />} />
+                <Route path="/urm" element={<Urm_university />} />
+                <Route path="/search" element={<Search_course />} />
+              </>
+            ) : userDetails.role === "staff" ? (
+              // Staff-specific routes
+              <>
+                <Route path="/dashboardd" element={<DashboardAdmin />} />
+                <Route path="/history" element={<HistoryMain />} />
+                <Route path="/detailview/:id" element={<DetailView />} />
+                <Route path="/urm" element={<Urm_university />} />
+                <Route path="/search" element={<Search_course />} />
+              </>
+            ) : userDetails.role === "student" ? (
+              // Student-specific routes
+              <>
+                <Route path="/latestupdates" element={<LatestUpdates />} />
+                <Route path="/dashboardd" element={<DashboardAdmin />} />
+                <Route path="/applications" element={<Applications />} />
+                <Route path="/history" element={<HistoryMain />} />
+                <Route path="/detailview/:id" element={<DetailView />} />
+                <Route path="/urm" element={<Urm_university />} />
+                <Route path="/search" element={<Search_course />} />
+              </>
+            ) : null}
+          </>
+        ) : (
+          // If the user is not authenticated
+          <>
+            <Route path="*" element={<PageNF />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/adminlogin" element={<AdminLogin />} />
+            <Route path="/stafflogin" element={<StaffLogin />} />
+            <Route path="/studentlogin" element={<StudentLogin />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/forgot" element={<ForgotPass />} />
+            <Route path="/partner" element={<Partner />} />
+            <Route path="reach" element={<Reach/>} />
           </>
         )}
       </Routes>

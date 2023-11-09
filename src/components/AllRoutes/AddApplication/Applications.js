@@ -288,7 +288,7 @@ export default function Applications() {
               </div>
               <div className="name">
                 {" "}
-                University ID
+                University Name
                 <select
                   onChange={(e) => {
                     setData({ ...data, university_id: e.target.value });
@@ -324,7 +324,7 @@ export default function Applications() {
               </div>
               <div className="name">
                 {" "}
-                Course ID
+                Course Name
                 <select
                   onChange={(e) => {
                     setData({ ...data, course_id: e.target.value });
@@ -359,7 +359,7 @@ export default function Applications() {
                   handleSubmit();
                 }}
               >
-                Submit
+                Next
               </button>
             </div>
           </div>

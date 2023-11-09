@@ -26,6 +26,8 @@ export default function AdminLogin() {
         dispatch(userCheckAction(true));
         cogoToast.success("Login SuccessFully");
         navigate("/dashboardd");
+      }else{
+        cogoToast.error("Username Or Password Incorrect")
       }
     } catch (err) {
       console.log("err", err);

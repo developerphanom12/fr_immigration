@@ -29,11 +29,6 @@ const UserReducer = (state = initialState, action) => {
         ...state,
         appDetails: action.payload,
       };
-    case "USER_DETAILS":
-      return {
-        ...state,
-        appDetails: action.payload,
-      };
       case 'SET_USER_CHECK':
         return {
           ...state,
