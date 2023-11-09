@@ -395,6 +395,7 @@ const Root = styled.section`
     background-size: 300% 100%;
     transition: all 0.3s ease-in-out 0s;
     text-transform: uppercase;
+    margin-right:108px;
     &:hover{
           background: linear-gradient(
           -25deg,
@@ -426,6 +427,7 @@ const Root = styled.section`
     background-size: 300% 100%;
     transition: all 0.3s ease-in-out 0s;
     text-transform: uppercase;
+    margin-right:108px;
     &:hover{
           background: linear-gradient(
           -25deg,

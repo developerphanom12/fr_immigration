@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import loginbanner from "../CommonPage/imageLogo/login_banner.png"
-
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { EXCHANGE_URLS_STUDENT } from '../URLS';
@@ -11,54 +10,55 @@ import { userCheckAction, userDataAction } from '../../redux/users/action';
 
 
 export default function StudentLogin() {
-    const [logindata, setlogindata] = useState({
-        username: "",
-        password: "",
-      });
-      const navigate = useNavigate();
-      const dispatch = useDispatch();
-    
-      const loginApi = async () => {
-        try {
-          const res = await axios.post(`${EXCHANGE_URLS_STUDENT}/studentlogin`, logindata);
-          console.log("resres123", res?.data?.data?.user);
-          if (res?.status === 200) {
-            localStorage.setItem("token", res?.data?.data?.user?.token);
-            dispatch(userDataAction,userCheckAction(res?.data?.data?.user));
-            dispatch(userCheckAction(true));
-            cogoToast.success(" Student Login SuccessFully");
-            navigate("/dashboardd");
-          }else{
-  cogoToast.error("Username Or Password Incorrect")
+  const navigate = useNavigate();
 
-}
-        } catch (err) {
-          console.log("err", err);
-        }
-      };
-    
-      const handleKeyDown = (e) => {
-        if (e.key === "Enter") {
-          handleClick();
-        }
-      };
-    
-      const handleClick = () => {
-        
-        if (logindata.username.length > 3 && logindata.password.length > 3) {
-          loginApi();
-        } else {
-          cogoToast.error(
-            "Username & password Length should be greater than 3 & 3 character"
-          );
-        }
-      };
-    
-      console.log("logindata", logindata);
-//   const navigate = useNavigate();
+  const [logindata, setlogindata] = useState({
+    username: "",
+    password: "",
+  });
+  const dispatch = useDispatch();
+
+  const loginApi = async () => {
+    try {
+      const res = await axios.post(`${EXCHANGE_URLS_STUDENT}/studentlogin`, logindata);
+      console.log("resres123", res?.data?.data?.user);
+
+      if (res?.status === 200) {
+        localStorage.setItem("token", res?.data?.data?.user?.token);
+        dispatch(userDataAction(res?.data?.data?.user));
+        dispatch(userCheckAction(true));
+        cogoToast.success("Login SuccessFully");
+        navigate("/dashboardd");
+      } else {
+        cogoToast.error("Username Or Password Incorrect")
+      }
+    } catch (err) {
+      console.log("err", err);
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleClick();
+    }
+  };
+
+  const handleClick = () => {
+
+    if (logindata.username.length > 3 && logindata.password.length > 3) {
+      loginApi();
+    } else {
+      cogoToast.error(
+        "Username & password Length should be greater than 3 & 3 character"
+      );
+    }
+  };
+
+  console.log("logindata", logindata);
+  //   const navigate = useNavigate();
   return (
     <Root>
-  <div className="logimg">
+      <div className="logimg">
         <h4>Sign-in to join the Phanom Online Portal</h4>
         <img src={loginbanner} alt="img" />
       </div>
@@ -94,18 +94,18 @@ export default function StudentLogin() {
           </button>
         </div>
         <div className="forget">
-          <button className="div2" 
-          onClick={()=>{navigate('/forgot')}}
+          <button className="div2"
+            onClick={() => { navigate('/forgot') }}
           >Forget Password</button>
         </div>
         <div className="register">
           <h5>Don't Have An Account ?</h5>
           <button
-           onClick={() => {
+            onClick={() => {
               navigate("/register");
             }}
-            >
-              Get Started</button>
+          >
+            Get Started</button>
         </div>
       </div>
 

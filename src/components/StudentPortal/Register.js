@@ -512,8 +512,7 @@ const Root = styled.section`
       font-size: medium;
       color: #ffffff;
       background: rgb(255 94 0);
-      margin: 20px;
-      background: linear-gradient(
+margin-right:108px;      background: linear-gradient(
         45deg,
         #ff6525 19%,
         #ffffffe6 51%,
