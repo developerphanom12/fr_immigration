@@ -353,6 +353,8 @@ const Root = styled.section`
   button {
     border: 2px solid #a5d8fa;
     margin-left: 10px;
+    width: 40px;
+    height: 40px;
     justify-content: flex-end;
     @media (max-width: 766px) {
       margin: 0;
@@ -365,6 +367,8 @@ const Root = styled.section`
     margin: 5px;
     padding: 10px;
     width: 250px;
+    justify-content: space-between;
+
     a {
       width: 181px;
       display: flex;
