@@ -123,9 +123,11 @@ const Root = styled.section`
     color: black;
     border-color: transparent;
     font-size: medium;
-    padding: 5px;
+    padding: 10px;
+    margin: 5px;
     cursor: pointer;
     width: 200px ;
+    height: 44px;
 
   }
   
