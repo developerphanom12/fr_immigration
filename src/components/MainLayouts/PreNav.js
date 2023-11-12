@@ -114,6 +114,7 @@ const Root = styled.section`
   display: flex;
   height: 80px;
   align-items: center;
+  z-index: 10;
   overflow: hidden;
   position:fixed;
   width: 100%;

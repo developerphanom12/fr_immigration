@@ -19,74 +19,72 @@ export default function HomeFirst({ onSearch }) {
 
   return (
     <Root>
-      <div className="main">
-        <div className="firstbox">
-          <div className="line">
-            <h3 className="line1">Your Gateway to Global Connection</h3>
-            <h2 className="line2">
-              The Ultimate Destination for Universities and Strategic
-              Recruitment Partnerships
-            </h2>
-            <h6>
-              Through our network, industry knowledge, and personalized business
-              solutions, we enable Universities and Recruitment Partners to
-              effortlessly navigate the recruitment process while achieving
-              their targets.
-            </h6>
-            <div className="search">
-              <input
-                className="searchbar"
-                type="text"
-                placeholder="Type University Name..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-              <button className="searchbar2" onClick={handleSearch}>
-                <AiOutlineSearch />
-                ADVANCED SEARCH
-              </button>
-            </div>
+      <div className="firstbox">
+        <div className="line">
+          <h2 className="line1">Your Gateway to Global Connection</h2>
+          <h1 className="line2">
+            The Ultimate Destination for Universities and Strategic Recruitment
+            Partnerships
+          </h1>
+          <h6>
+            Through our network, industry knowledge, and personalized business
+            solutions, we enable Universities and Recruitment Partners to
+            effortlessly navigate the recruitment process while achieving their
+            targets.
+          </h6>
+          <div className="search">
+            <input
+              className="searchbar"
+              type="text"
+              placeholder="Type University Name..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <button className="searchbar2" onClick={handleSearch}>
+              <AiOutlineSearch />
+              ADVANCED SEARCH
+            </button>
           </div>
-          <div className="pictures">
-            <div className="photo2">
-              <img src={photo1} alt="img" />
-            </div>
-            <div className="photo"></div>
-            <div className="photo3">
-              <img src={photo2} alt="img" />
-            </div>
-            <div className="photo"></div>
-            <div className="photo2">
-              <img src={photo3} alt="img" />
-            </div>
-            <div className="photo"></div>
-            <div className="photo">
-              <h4 className="h4">80,000+ courses</h4>
-            </div>
-            <div className="photo3">
-              <img src={photo3} alt="img" />
-            </div>
-            <div className="photo"></div>
-            <div className="photo1">
-              <img src={photo4} alt="img" />
-            </div>
-            <div className="photo"></div>
-            <div className="photo3">
-              <img src={photo5} alt="img" />
-            </div>
-            <div className="photo4">
-              <img src={photo6} alt="img" />
-            </div>
-            <div className="photo"></div>
-            <div className="photo4">
-              <img src={photo7} alt="img" />
-            </div>
-            <div className="photo">
-              <h4 className="h4">500,000+ Students</h4>
-            </div>
-            <div className="photo1">
-              <img src={photo8} alt="img" />
-            </div>
+        </div>
+        <div className="pictures">
+          <div className="photo2">
+            <img src={photo1} alt="img" />
+          </div>
+          <div className="photo"></div>
+          <div className="photo3">
+            <img src={photo2} alt="img" />
+          </div>
+          <div className="photo"></div>
+          <div className="photo2">
+            <img src={photo3} alt="img" />
+          </div>
+          <div className="photo"></div>
+          <div className="photo">
+            <h4 className="h4">80,000+ courses</h4>
+          </div>
+          <div className="photo3">
+            <img src={photo3} alt="img" />
+          </div>
+          <div className="photo"></div>
+          <div className="photo1">
+            <img src={photo4} alt="img" />
+          </div>
+          <div className="photo"></div>
+          <div className="photo3">
+            <img src={photo5} alt="img" />
+          </div>
+          <div className="photo4">
+            <img src={photo6} alt="img" />
+          </div>
+          <div className="photo"></div>
+          <div className="photo4">
+            <img src={photo7} alt="img" />
+          </div>
+          <div className="photo">
+            <h4 className="h4">500,000+ Students</h4>
+          </div>
+          <div className="photo1">
+            <img src={photo8} alt="img" />
           </div>
         </div>
       </div>
@@ -99,26 +97,31 @@ const Root = styled.section`
   width: 100%;
   background: #fff3ee;
   height: 600px;
-  /* .main{
-    padding: 40px;
-    gap: 20px;
-  } */
+  font-family: "Mulish", "sans-serif";
+
   .firstbox {
     background: #fff3ee;
     padding: 30px;
     font-size: larger;
     display: flex;
+    height: 100%;
     flex-wrap: wrap;
+    font: "Mulish", "sans-serif";
+
     .line {
       flex: 1;
+      display: flex;
       padding: 20px;
+      flex-direction: column;
+      justify-content: space-evenly;
       .line1 {
-        /* font-family: 'Courier New'; */
         color: #ff6525;
       }
       .line2 {
-        color: #6495ed;
+        color: #005082;
         padding: 10px;
+        font-weight: 800;
+        font-family: "Mulish", "sans-serif";
       }
       .search {
         height: 48px;
@@ -126,6 +129,7 @@ const Root = styled.section`
         border-radius: 20px;
         display: flex;
         flex-wrap: wrap;
+        padding: 5px;
         justify-content: space-between;
         background: #ffffff;
         margin: 20px;
@@ -134,6 +138,12 @@ const Root = styled.section`
           height: 40px;
           border-radius: 20px;
           border-color: transparent;
+        }
+        @media (max-width:780px){
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin: 5px;
         }
         .searchbar2 {
           background: #1e90ff;
@@ -166,19 +176,20 @@ const Root = styled.section`
         display: flex;
         flex: 1;
         flex-wrap: wrap;
-        min-height: 100px;
-        min-width: 100px;
+        min-height: 120px;
+        min-width: 120px;
         .photo {
-          width: 100px;
-          height: 100px;
+          width: 120px;
+          height: 120px;
+          object-fit: cover;
         }
         img {
-          max-height: 100px;
+          max-height: 120px;
           width: 100%;
           height: 100%;
           min-height: 50px;
           min-width: 50px;
-          max-width: 100px;
+          max-width: 120px;
         }
       }
 
@@ -211,35 +222,90 @@ const Root = styled.section`
     }
   }
 
-  @media (max-width: 999px) {
+   @media (max-width: 999px) {
     .firstbox {
       flex-wrap: wrap;
-      flex-direction: column;
+      padding: 10px;
     }
-
+    
     .line {
       display: flex;
+      flex-direction: column;
       flex-wrap: wrap;
       width: 100%;
       margin: 20px 0;
     }
-
+  }
+  @media (max-width: 999px) { 
     .pictures {
       flex-wrap: wrap;
       width: 100%;
-      min-width: 200px;
+      flex-direction: column;
+      min-width: 250px;
       height: 100%;
-      min-height: 200px;
-      /* display:none; */
-      .photo.photo1,
-      .photo1,
-      .photo2,
-      .photo3,
+      min-height: 250px;
+      .photo{
+        min-width: 50px;
+        min-height: 50px;
+        height:100%;
+        width: 100%;
+      }
+      .photo1 {
+        min-width: 50px;
+        min-height: 50px;
+        height:100%;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      img{
+        min-width: 50px;
+        width: 100%;
+        height: 100%;
+        min-height: 50px;
+      }
+      .photo2 {
+        min-width: 50px;
+        min-height: 50px;
+        height:100%;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      img{
+        min-width: 50px;
+        width: 100%;
+        height: 100%;
+        min-height: 50px;
+      }
+      .photo3 {
+        min-width: 50px;
+        min-height: 50px;
+        height:100%;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      img{
+        min-width: 50px;
+        width: 100%;
+        height: 100%;
+        min-height: 50px;
+      }
       .photo4 {
         min-width: 50px;
-        /* width: 100%; */
+        min-height: 50px;
+        height:100%;
+        width: 100%;
         margin-bottom: 20px;
+      }
+      img{
+        min-width: 50px;
+        width: 100%;
+        height: 100%;
+        min-height: 50px;
       }
     }
   }
+  
+
+  
+
 `;
