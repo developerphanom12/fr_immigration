@@ -26,8 +26,8 @@ export default function Login() {
         dispatch(userCheckAction(true));
         cogoToast.success("Login SuccessFully");
         navigate("/dashboardd");
-      }else{
-        cogoToast.error("Username Or Password Incorrect")
+      } else {
+        cogoToast.error("Username Or Password Incorrect");
       }
     } catch (err) {
       console.log("err", err);
@@ -41,7 +41,6 @@ export default function Login() {
   };
 
   const handleClick = () => {
-    
     if (logindata.username.length > 3 && logindata.password.length > 3) {
       loginApi();
     } else {
@@ -82,7 +81,7 @@ export default function Login() {
             placeholder="Password"
           />
         </div>
-        <div>
+        <div className="button_div">
           <button
             onClick={() => {
               handleClick();
@@ -92,13 +91,23 @@ export default function Login() {
           </button>
         </div>
         <div className="forget">
-          <button className="div2" onClick={()=>{navigate('/forgot')}}>Forget Password</button>
+          <button
+            onClick={() => {
+              navigate("/forgot");
+            }}
+          >
+            Forget Password
+          </button>
         </div>
         <div className="register">
           <h5>Don't Have An Account ?</h5>
-          <button onClick={() => {
+          <button
+            onClick={() => {
               navigate("/partner");
-            }}>Get Started</button>
+            }}
+          >
+            Get Started
+          </button>
         </div>
       </div>
     </Root>
@@ -117,13 +126,10 @@ const Root = styled.section`
   background-size: cover;
   padding-bottom: 20px;
   font: 22px "Mulish", sans-serif;
-@media (max-width:999px){
-  flex-direction: column;
-  .logimg{
-    min-height: 250px;
-    height: 100%;
+  @media (max-width: 999px) {
+    display: flex;
+    flex-direction: column;
   }
-}
 
   .logimg {
     h4 {
@@ -138,7 +144,6 @@ const Root = styled.section`
     background-repeat: no-repeat;
     padding: 20px 0px 0px 0px;
     margin: 0px 30px 10px 30px;
-    /* background-size:100%; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -149,16 +154,15 @@ const Root = styled.section`
       max-height: 520px;
       display: flex;
       justify-content: flex-end;
-      @media (max-width: 700px) {
-        height: 300px;
-        width: 320px;
+      @media (max-width:999px){
+        width:200px ;
+        height: 220px;
+        justify-content: center;
       }
     }
   }
 
   .box_div {
-    
-    
     width: 580px;
     height: 550px;
     display: flex;
@@ -170,42 +174,6 @@ const Root = styled.section`
     flex-wrap: wrap;
     font: 16px "Mulish", sans-serif;
     color: #353535;
-
-    button {
-      display: flex;
-      flex-direction: column;
-      width: 390px;
-      height: 55px;
-      padding: 15px;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      margin: 8px 0px 8px 0px;
-      border-radius: 30px;
-      border: transparent;
-      background: linear-gradient(
-        45deg,
-        #0146ff 19%,
-        #0146ff96 48%,
-        #0146ff 100%
-      );
-      &:hover {
-        background: linear-gradient(
-          -25deg,
-          #0146ff 19%,
-          #0146ff96 88%,
-          transparent 100%
-        );
-        transition: all 0.3s ease-in-out 0s;
-      }
-      border-radius: 50px;
-      color: #fff;
-      padding: 20px 30px;
-      background-size: 300% 100%;
-      transition: all 0.3s ease-in-out 0s;
-      text-transform: uppercase;
-    }
-
     .user_name {
       display: flex;
       flex-direction: column;
@@ -216,19 +184,79 @@ const Root = styled.section`
       gap: 5px;
       padding: 10px;
       font: 16px "Mulish", sans-serif;
+      input {
+        width: 100%;
+        padding: 20px;
+        cursor: pointer;
+        border: transparent;
+        border-radius: 30px;
+        background-color: #e8f0fe;
+      }
+      @media (max-width:999px){
+        width: 210px;
+        height: 50px;
+      }
     }
-    input {
-      width: 100%;
-      padding: 20px;
-      cursor: pointer;
-      border: transparent;
-      border-radius: 30px;
-      background-color: #e8f0fe;
+    .button_div {
+      button {
+        display: flex;
+        flex-direction: column;
+        width: 390px;
+        height: 55px;
+        padding: 15px;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        margin: 8px 0px 8px 0px;
+        border-radius: 30px;
+        border: transparent;
+        background: linear-gradient(
+          45deg,
+          #0146ff 19%,
+          #0146ff96 48%,
+          #0146ff 100%
+        );
+        @media (max-width:999px){
+          width: 200px;
+          height: 35px;
+        }
+        &:hover {
+          background: linear-gradient(
+            -25deg,
+            #0146ff 19%,
+            #0146ff96 88%,
+            transparent 100%
+          );
+          transition: all 0.3s ease-in-out 0s;
+        }
+        border-radius: 50px;
+        color: #fff;
+        padding: 20px 30px;
+        background-size: 300% 100%;
+        transition: all 0.3s ease-in-out 0s;
+        text-transform: uppercase;
+      }
     }
+    .forget {
+      padding: 10px;
+      text-align: right;
 
-    .user_btn:hover {
-      background-color: green;
-      color: white;
+      button {
+        color: #ff6525;
+        font-family: "Mulish", sans-serif;
+        text-decoration: underline;
+        font-weight: 700;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        padding: 10px;
+        text-align: right;
+        background-color: transparent;
+        @media (max-width:999px){
+          width: 200px;
+          height: 35px;
+        }
+      }
     }
 
     .register {
@@ -238,8 +266,13 @@ const Root = styled.section`
       align-items: center;
       justify-content: center;
       gap: 5px;
-     
+
       button {
+        border: none;
+        @media (max-width:999px){
+          width: 200px;
+          height: 35px;
+        }
         background: linear-gradient(
           45deg,
           #ff6525 19%,
@@ -253,25 +286,15 @@ const Root = styled.section`
         background-size: 300% 100%;
         transition: all 0.3s ease-in-out 0s;
         text-transform: uppercase;
-        &:hover{
+        &:hover {
           background: linear-gradient(
-          -25deg,
-          #ff6525 49%,
-          #ffffffe6 91%,
-          #ff6525 100%
-        );
+            -25deg,
+            #ff6525 49%,
+            #ffffffe6 91%,
+            #ff6525 100%
+          );
         }
       }
     }
-  }
-  button {
-      color: #ff6525;
-      font-family: "Mulish", sans-serif;
-      text-decoration: underline;
-      font-weight: 700;
-      font-size: 16px;
-      cursor: pointer;
-      background-color: transparent;
-    
   }
 `;
