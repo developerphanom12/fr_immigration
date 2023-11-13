@@ -112,7 +112,7 @@ export default function Upload({ detail, val }) {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    height: "288px",
+    height: "248px",
     padding: "20px",
     borderRadius: "10px",
     border: "2px dashed #555",
@@ -157,9 +157,9 @@ export default function Upload({ detail, val }) {
           ) : (
             <>
               {/* <h3 className="mt-3">Update Document</h3> */}
-              <div className="col-lg-6" style={selectContainerStyle}>
+              <div className="col-lg-6" >
                 <div className="">
-                  <div className="imgg">
+                  <div className="imgg" style={selectContainerStyle}>
                     <img
                       src="https://www.crizac.co.uk/catalog/assets/images/upload_icon.svg"
                       className=""
@@ -201,6 +201,7 @@ export default function Upload({ detail, val }) {
                   )}
                 </div>
               </div>
+
             </>
           )}
 
@@ -443,7 +444,7 @@ const Root = styled.section`
     box-sizing: border-box;
     -webkit-appearance: none;
     -moz-appearance: none;
-    width: 240px;
+    width: 270px;
     background-image: linear-gradient(45deg, transparent 50%, blue 50%),
       linear-gradient(135deg, blue 50%, transparent 50%),
       linear-gradient(to right, skyblue, skyblue);
@@ -453,7 +454,8 @@ const Root = styled.section`
     background-repeat: no-repeat;
     @media (max-width: 555px) {
       padding: 3px;
-      width: 120px;
+      width: 160px;
+      font-size: 10px;
       background-size: 5px 5px, 5px 5px, 30px 35px;
       align-items: center;
     }

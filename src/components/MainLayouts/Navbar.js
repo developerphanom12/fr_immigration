@@ -9,14 +9,14 @@ import maxico from "../MainLayouts/pictures/maxico.jpg";
 import china from "../MainLayouts/pictures/china.png";
 import { EXCHANGE_URLS } from "../URLS";
 import axios from "axios";
-import { Link } from "react-router-dom"; 
-
-
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import cogoToast from "cogo-toast";
 
 export default function Navbar() {
   const [activePop, setActivePop] = useState(false);
   const [profile, setProfile] = useState({});
-  const [isListOpen, setIsListOpen] = useState(false); 
+  const [isListOpen, setIsListOpen] = useState(false);
   const getProfile = async () => {
     const axiosConfig = {
       headers: {
@@ -32,19 +32,12 @@ export default function Navbar() {
     }
   };
 
-  const toggleList = () => {
-
-    setIsListOpen(!isListOpen);
-  };
-
   useEffect(() => {
     getProfile();
   }, []);
 
-  console.log("profile", profile);
-
   return (
-    <Root>
+    <Root >
       <div className="flags">
         <div>
           {" "}
@@ -72,34 +65,27 @@ export default function Navbar() {
           <p>China</p>
         </div>
       </div>
-      <div className="profile">
-      {profile && profile.username ? (
-            <div>
-              <FaUserCircle />
-              <div onClick={toggleList}>
-                {profile.username}
-              </div>
-              {isListOpen && ( 
-                <ul className="option_list">
-                  <li>
-                    <Link to="/user">Profile Details</Link>
-                  </li>
-                  <li>
-                    <Link to="/address">Address Details</Link>
-                  </li>
-                  <li>
-                    <Link to="/changepass">Change Password</Link>
-                  </li>
-                </ul>
-              )}
-            </div>
-          ) : (
-            <div>
-              <FaUserCircle /> Admin
-            </div>
-          )}
+      <div
+        className="profile"
+        onClick={() => {
+          setIsListOpen(!isListOpen);
+        }}
+      >
+        <FaUserCircle />
+        <div>{profile?.username ? profile.username : "Unknown"}</div>
+        <div className={isListOpen ? "option_list" : "off"}>
+          <p>
+            <Link to="/user">Profile Details</Link>
+          </p>
+          <p>
+            <Link to="/address">Address Details</Link>
+          </p>
+          <p>
+            <Link to="/changepass">Change Password</Link>
+          </p>
+        </div>
       </div>
-      
+
       <div
         className="menu"
         onClick={() => {
@@ -188,34 +174,46 @@ const Root = styled.section`
   }
   .profile {
     display: flex;
-    height: 70px;
     padding: 5px;
     margin: 5px;
-    flex-direction: column;
+    gap: 7px;
     justify-content: center;
     align-items: center;
-    > div {
-      display: flex;
-      padding: 10px;
-      border-radius: 10%;
-      align-items: center;
-      gap: 10px;
-      width: 150px;
-      background-color: #f8f8f8;
-      svg {
-        width: 25px;
-        height: 30px;
-      }
-      select {
-        padding: 0px;
-        margin: 0px;
-        text-transform: capitalize;
-        color: #474040;
-        width: 100px;
-        border: transparent;
-        border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: lightgray;
+    svg {
+      width: 25px;
+      height: 30px;
+    }
+
+    .option_list {
+      background-color: lightgray;
+      z-index: 1;
+      top: 10;
+      top: 5;
+      right: 50;
+      top: 110%;
+      position: absolute;
+      width: 170px;
+      border: 1px solid lightgray;
+      text-decoration: none;
+      p{
+        margin: 0;
         padding: 5px;
+        &:hover{
+          background-color: white;
+        }
       }
+      a{
+        text-decoration: none;
+        color: black;
+      }
+    }
+    .off {
+      display: none;
     }
   }
   .notification {
@@ -281,15 +279,15 @@ const Root = styled.section`
     }
   }
   ul.closed {
-  display: none;
-}
+    display: none;
+  }
 
-ul.open {
-  display: block;
-  -webkit-overflow-scrolling-y:scroll;
-}
-.option_list{
-  position: relative;
-  display: inline-block;
-}
+  ul.open {
+    display: block;
+    -webkit-overflow-scrolling-y: scroll;
+  }
+  .option_list {
+    position: relative;
+    display: inline-block;
+  }
 `;

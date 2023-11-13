@@ -18,4 +18,6 @@ export default function HistoryMain() {
   );
 }
 
-const Root = styled.section``;
+const Root = styled.section`
+height: 100%;
+`;

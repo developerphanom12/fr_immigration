@@ -83,7 +83,7 @@ const Root = styled.section`
       width: 100%;
       /* align-items: center; */
       /* justify-content: space-between; */
-      overflow: hidden;
+      /* overflow: hidden; */
       /* position: fixed; */
     }
     .main_body {

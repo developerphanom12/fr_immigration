@@ -16,9 +16,9 @@ import HistoryMain from "./components/AllRoutes/allApplications/HistoryMain";
 import DetailView from "./components/AllRoutes/allApplications/detailView/DetailView";
 import ForgotPass from "./components/CommonPage/ForgotPass";
 import StaffLogin from "./components/CommonPage/StaffLogin";
-// import ProfileUser from "./components/MainLayouts/Profile/ProfileUser";
-// import ProfileAddress from "./components/MainLayouts/Profile/ProfileAddress";
-// import ProfilePassword from "./components/MainLayouts/Profile/ProfilePassword";
+import ProfileUser from "./components/MainLayouts/Profile/ProfileUser";
+import ProfileAddress from "./components/MainLayouts/Profile/ProfileAddress";
+import ProfilePassword from "./components/MainLayouts/Profile/ProfilePassword";
 import StudentLogin from "./components/StudentPortal/StudentLogin";
 import Register from "./components/StudentPortal/Register";
 import CreateStaff from "./components/AllRoutes/actions/CreateStaff";
@@ -101,6 +101,9 @@ function App() {
                 <Route path="/detailview/:id" element={<DetailView />} />
                 <Route path="/urm" element={<Urm_university />} />
                 <Route path="/search" element={<Search_course />} />
+                <Route path="/user" element={<ProfileUser/>} />
+            <Route path="/address" element={<ProfileAddress/>} />
+            <Route path="/changepass" element={<ProfilePassword/>} />
               </>
             ) : userDetails.role === "staff" ? (
               // Staff-specific routes

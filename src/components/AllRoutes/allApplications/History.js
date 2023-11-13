@@ -8,9 +8,11 @@ import Download from "./Download";
 // import Loader from "../../Loader";
 import { appDetailsAction } from "../../../redux/users/action";
 import { useNavigate } from "react-router-dom";
+import Loader from "../../Loader";
 
 export default function History({ popUser = () => {} }) {
   const [applications, setApplications] = useState([]);
+  const [loader, setLoader] = useState(true);
   // const [filteredApplications, setFilteredApplications] = useState([]);
   const [searchKey, setSearchKey] = useState("");
   const [courses, setCourses] = useState([]);
@@ -32,6 +34,7 @@ export default function History({ popUser = () => {} }) {
         axiosConfig
       );
       setApplications(res?.data?.data[0].applications);
+      setLoader(false);
     } catch (e) {
       console.log(e);
     }
@@ -49,12 +52,14 @@ export default function History({ popUser = () => {} }) {
         axiosConfig
       );
       setCourses(res?.data?.data[0].applications);
+      setLoader(false);
     } catch (e) {
       console.log(e);
     }
   };
 
   useEffect(() => {
+    setLoader(true);
     getHistory();
     getCourses();
   }, []);
@@ -83,80 +88,83 @@ export default function History({ popUser = () => {} }) {
 
   return (
     <Root>
-      {" "}
-      <div className="header">
-        <h1>Application History</h1>
-        <Download />
-      </div>
-      <div className="search_box">
-        <input
-          value={searchKey}
-          onChange={(e) => {
-            setSearchKey(e.target.value);
-          }}
-          placeholder="Search Courses By Name Or Number..."
-        ></input>
-        <button
-          onClick={() => {
-            handleSearch();
-          }}
-        >
-          Search
-        </button>
-      </div>
-      {/* {loader ? (
+      {loader ? (
         <Loader />
-      ) : ( */}
-      <div className="app_table">
-        <div className="app_header">
-          <div>CAMS Id</div>
-          <div>Student Name</div>
-          <div>University Name</div>
-          <div>Course Name</div>
-          <div>Status</div>
-          <div>View</div>
-        </div>
-        {applications &&
-          applications.map((i) => {
-            return (
-              <div
-                className="app_body"
-                onClick={() => {
-                  handlePassData(i);
-                }}
-              >
-                <div className="cams">#{i?.application_id}</div>
-                <div>
-                  <p>
-                    <span>{i?.student_firstname}</span>
-                  </p>
-                  <p>
-                    Passport No: <span>{i?.student_passport_no}</span>
-                  </p>
-                  <p>
-                    Counsellor : <span>{i?.user_id.username}</span>
-                  </p>
-                </div>
-                <div>
-                  <h6>{i?.university_id.university_name}</h6>
-                  <p className="person">{i?.university_id.person_name}</p>
-                  <p className="person">{i?.university_id.contact_number}</p>
-                </div>
-                <div>{i?.course_id?.course_name}</div>
-                <div>{i?.application_status}</div>
-                <div
-                  className="iconn"
-                  onClick={() => {
-                    navigate(`/detailview/${i?.application_id}`);
-                  }}
-                >
-                  <BsFillEyeFill />
-                </div>
-              </div>
-            );
-          })}
-      </div>
-      {/* )} */}
+      ) : (
+        <>
+          <div className="header">
+            <h1>Application History</h1>
+            <Download />
+          </div>
+          <div className="search_box">
+            <input
+              value={searchKey}
+              onChange={(e) => {
+                setSearchKey(e.target.value);
+              }}
+              placeholder="Search Courses By Name Or Number..."
+            ></input>
+            <button
+              onClick={() => {
+                handleSearch();
+              }}
+            >
+              Search
+            </button>
+          </div>
+          <div className="app_table">
+            <div className="app_header">
+              <div>CAMS Id</div>
+              <div>Student Name</div>
+              <div>University Name</div>
+              <div>Course Name</div>
+              <div>Status</div>
+              <div>View</div>
+            </div>
+            {applications &&
+              applications.map((i) => {
+                return (
+                  <div
+                    className="app_body"
+                    onClick={() => {
+                      handlePassData(i);
+                    }}
+                  >
+                    <div className="cams">#{i?.application_id}</div>
+                    <div>
+                      <p>
+                        <span>{i?.student_firstname}</span>
+                      </p>
+                      <p>
+                        Passport No: <span>{i?.student_passport_no}</span>
+                      </p>
+                      <p>
+                        Counsellor : <span>{i?.user_id.username}</span>
+                      </p>
+                    </div>
+                    <div>
+                      <h6>{i?.university_id.university_name}</h6>
+                      <p className="person">{i?.university_id.person_name}</p>
+                      <p className="person">
+                        {i?.university_id.contact_number}
+                      </p>
+                    </div>
+                    <div>{i?.course_id?.course_name}</div>
+                    <div>{i?.application_status}</div>
+                    <div
+                      className="iconn"
+                      onClick={() => {
+                        navigate(`/detailview/${i?.application_id}`);
+                      }}
+                    >
+                      <BsFillEyeFill />
+                    </div>
+                  </div>
+                );
+              })}
+          </div>
+        </>
+      )}
     </Root>
   );
 }
@@ -170,6 +178,7 @@ const Root = styled.section`
   font-size: 14px;
   font-weight: normal;
   vertical-align: middle;
+  height: 100%;
   .header {
     display: flex;
     justify-content: space-between;

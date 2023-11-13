@@ -46,7 +46,7 @@ export default function HomeFirst({ onSearch }) {
             </button>
           </div>
         </div>
-        <div className="pictures">
+        <div className="toggle_pictures">
           <div className="photo2">
             <img src={photo1} alt="img" />
           </div>
@@ -59,6 +59,9 @@ export default function HomeFirst({ onSearch }) {
             <img src={photo3} alt="img" />
           </div>
           <div className="photo"></div>
+          <div className="photo3">
+            <img src={photo5} alt="img" />
+          </div>
           <div className="photo">
             <h4 className="h4">80,000+ courses</h4>
           </div>
@@ -70,9 +73,6 @@ export default function HomeFirst({ onSearch }) {
             <img src={photo4} alt="img" />
           </div>
           <div className="photo"></div>
-          <div className="photo3">
-            <img src={photo5} alt="img" />
-          </div>
           <div className="photo4">
             <img src={photo6} alt="img" />
           </div>
@@ -83,6 +83,10 @@ export default function HomeFirst({ onSearch }) {
           <div className="photo">
             <h4 className="h4">500,000+ Students</h4>
           </div>
+          <div className="photo3">
+            <img src={photo2} alt="img" />
+          </div>
+          <div className="photo"></div>
           <div className="photo1">
             <img src={photo8} alt="img" />
           </div>
@@ -101,7 +105,7 @@ const Root = styled.section`
 
   .firstbox {
     background: #fff3ee;
-    padding: 30px;
+    padding: 25px;
     font-size: larger;
     display: flex;
     height: 100%;
@@ -111,11 +115,12 @@ const Root = styled.section`
     .line {
       flex: 1;
       display: flex;
-      padding: 20px;
+      padding: 15px;
       flex-direction: column;
       justify-content: space-evenly;
       .line1 {
         color: #ff6525;
+        font-weight: 700;
       }
       .line2 {
         color: #005082;
@@ -166,30 +171,37 @@ const Root = styled.section`
       width: 100px;
       text-align: center;
     }
-    .pictures {
+    .toggle_pictures {
       display: flex;
       flex: 1;
       width: 100%;
       height: 100%;
       flex-wrap: wrap;
+      @media(max-width: 1115px){
+        display: none;
+      }
       > div {
         display: flex;
-        flex: 1;
+        /* flex: 1; */
         flex-wrap: wrap;
-        min-height: 120px;
-        min-width: 120px;
+        max-height: 120px;
+        max-width: 120px;
+        width: 100%;
+         height: 100%;
         .photo {
-          width: 120px;
-          height: 120px;
+          max-width: 120px;
+          max-height: 120px;
+          width: 100%;
+         height: 100%;
           object-fit: cover;
         }
         img {
           max-height: 120px;
           width: 100%;
           height: 100%;
-          min-height: 50px;
-          min-width: 50px;
           max-width: 120px;
+          object-fit: cover;
+
         }
       }
 
@@ -235,16 +247,16 @@ const Root = styled.section`
       width: 100%;
       margin: 20px 0;
     }
-  }
-  @media (max-width: 999px) { 
-    .pictures {
-      flex-wrap: wrap;
+    .toggle_pictures{
+      background-color: red;
+      display: none;
+      /* flex-wrap: wrap;
       width: 100%;
       flex-direction: column;
-      min-width: 250px;
+      max-width: 200px;
       height: 100%;
-      min-height: 250px;
-      .photo{
+      max-height: 200px; */
+      /* .photo{
         min-width: 50px;
         min-height: 50px;
         height:100%;
@@ -301,11 +313,11 @@ const Root = styled.section`
         width: 100%;
         height: 100%;
         min-height: 50px;
-      }
+      } */
     }
   }
+ 
   
 
-  
 
 `;

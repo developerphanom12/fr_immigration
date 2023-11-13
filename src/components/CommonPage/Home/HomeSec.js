@@ -73,9 +73,10 @@ export default function HomeSec() {
   );
 }
 const Root = styled.section`
+font-family: 'Mulish','sans-serif';
   .sndbox {
     display: flex;
-    margin: 40px;
+    margin: 20px;
     padding: 20px;
     h2{
       color: #4169e1;
@@ -84,6 +85,11 @@ const Root = styled.section`
     .snd1 {
       width: 300px;
       color: black;
+      padding: 10px;
+      svg{
+        width: 20px;
+        height: 20px;
+      }
     }
 
     .snd2 {

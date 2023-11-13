@@ -2,60 +2,62 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { FcList } from "react-icons/fc";
-import logo from '../CommonPage/imageLogo/phanom.jpg'
+import logo from "../CommonPage/imageLogo/phanom.jpg";
 
 export default function PreNav() {
   const navigate = useNavigate();
   const [activePop, setActivePop] = useState(false);
   return (
     <Root>
-      <div className="logo" onClick={()=>{navigate('/')}}>
+      <div
+        className="logo"
+        onClick={() => {
+          navigate("/");
+        }}
+      >
         <img src={logo} alt="img" />
       </div>
       <div className="options">
-        <div className="opt_div">
         <button
-            className="opt_btn"
-            onClick={() => {
-              navigate("/register");
-            }}
-          >
-           Register as a Student
-          </button>
-          <button
-            className="opt_btn"
-            onClick={() => {
-              navigate("/partner");
-            }}
-          >
-            Be a partner
-          </button>
-          <button
-            className="opt_btn"
-            onClick={() => {
-              navigate("/reach");
-            }}
-          >
-            Our Network
-          </button>
-          
-        </div>
-        <div
+          className="opt_btn"
+          onClick={() => {
+            navigate("/register");
+          }}
+        >
+          Student Register
+        </button>
+        <button
+          className="opt_btn"
+          onClick={() => {
+            navigate("/partner");
+          }}
+        >
+          Be a partner
+        </button>
+        <button
+          className="opt_btn"
+          onClick={() => {
+            navigate("/reach");
+          }}
+        >
+          Our Network
+        </button>
+        <button
           className="login"
           onClick={() => {
             navigate("/login");
           }}
         >
-         Agent Login
-        </div>
-        <div
+          AGENT LOGIN
+        </button>
+        <button
           className="login"
           onClick={() => {
             navigate("/studentlogin");
           }}
         >
-         Student Login
-        </div>
+          STUDENT LOGIN
+        </button>
       </div>
 
       <div
@@ -74,13 +76,13 @@ export default function PreNav() {
         }}
       >
         <div className="opt_div">
-        <button
+          <button
             className="opt_btn"
             onClick={() => {
               navigate("/register");
             }}
           >
-           Register as a Student
+            Register as a Student
           </button>
           <button
             className="opt_btn"
@@ -91,19 +93,21 @@ export default function PreNav() {
             Be a partner
           </button>
         </div>
-        <div  className="login"
+        <div
+          className="login"
           onClick={() => {
             navigate("/login");
           }}
         >
-         Agent Login
+          Agent Login
         </div>
-        <div  className="login"
+        <div
+          className="login"
           onClick={() => {
             navigate("/studentlogin");
           }}
         >
-         Student Login
+          Student Login
         </div>
       </div>
     </Root>
@@ -116,22 +120,9 @@ const Root = styled.section`
   align-items: center;
   z-index: 10;
   overflow: hidden;
-  position:fixed;
+  position: fixed;
   width: 100%;
   background-color: #fff;
-  .opt_btn {
-    background: none;
-    color: black;
-    border-color: transparent;
-    font-size: medium;
-    padding: 10px;
-    margin: 5px;
-    cursor: pointer;
-    width: 200px ;
-    height: 44px;
-
-  }
-  
 
   .logo {
     width: 200px;
@@ -145,7 +136,45 @@ const Root = styled.section`
     flex: 1;
     display: flex;
     justify-content: right;
+    gap: 10px;
+    button{
+      width: fit-content;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 40px;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      &:hover {
+        background-color: lightgray;
+      }
+    }
 
+    .login {
+    color: #ffffff;
+    padding: 10px;
+    border-color: transparent;
+    cursor: pointer;
+    background: linear-gradient(
+      45deg,
+      #ff6525 19%,
+      #ffffffe6 51%,
+      #ff6525 100%
+    );
+    border-radius: 50px;
+    background-size: 300% 100%;
+    transition: all 0.3s ease-in-out 0s;
+    &:hover {
+      background: linear-gradient(
+        -25deg,
+        #ff6525 49%,
+        #ffffffe6 91%,
+        #ff6525 100%
+      );
+    }
+  }
+ 
     @media (max-width: 850px) {
       display: none;
     }
@@ -154,7 +183,6 @@ const Root = styled.section`
     @media (max-width: 850px) {
       display: block;
       padding-right: 10px;
-
     }
   }
   .menu {
@@ -169,37 +197,12 @@ const Root = styled.section`
     position: fixed;
     top: 0;
     background-color: #fff;
-    height:400px;
+    height: 400px;
     width: 100%;
     background: #ff7f50;
   }
   .no_pop {
     display: none;
   }
-  .login {
-    background:#FF6525;
-    color: #ffffff;
-    padding: 10px 10px 10px 10px;
-    border-color: transparent;
-    font-size: medium;
-    text-align: center;
-    width: 160px;
-    margin: 5px;
-    cursor: pointer;
-    background: linear-gradient( 45deg, #ff6525 19%, #ffffffe6 51%, #ff6525 100%);
-    border-radius: 50px;
-    color: #FFF;
-    background-size: 300% 100%;
-    transition: all 0.3s ease-in-out 0s;
-    text-transform: uppercase;
-    &:hover{
-          background: linear-gradient(
-          -25deg,
-          #ff6525 49%,
-          #ffffffe6 91%,
-          #ff6525 100%
-        );
-        }
-  }
-`
-   
+ 
+`;

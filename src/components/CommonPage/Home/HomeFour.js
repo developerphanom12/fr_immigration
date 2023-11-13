@@ -22,7 +22,9 @@ export default function HomeFour() {
           <div className="fivebox">
             <img src={photo11} alt="img" />
             <h4>Strategic Consultation</h4>
-            <p>Action plan is curated, bespoke to fit your strategic objectives</p>
+            <p>
+              Action plan is curated, bespoke to fit your strategic objectives
+            </p>
           </div>
           <div className="fivebox">
             <img src={photo12} alt="img" />
@@ -32,18 +34,23 @@ export default function HomeFour() {
           <div className="fivebox">
             <img className="brand" src={photo13} alt="img" />{" "}
             <h4>Brand Development</h4>
-            <p>Implementation of marketing strategies and promotions, delivering
-            awareness from key stakeholders</p>
+            <p>
+              Implementation of marketing strategies and promotions, delivering
+              awareness from key stakeholders
+            </p>
           </div>
           <div className="fivebox">
             <img src={photo14} alt="img" /> <h4>24*7 CRM Support </h4>
-            <p>Rigorous and reliable, our software processes and manages your applications</p>
+            <p>
+              Rigorous and reliable, our software processes and manages your
+              applications
+            </p>
           </div>
         </div>
       </div>
       <div className="main_six">
-        <h1 >For Recruitment Partners</h1>
-        <div className="six1">
+        <h1>For Recruitment Partners</h1>
+        <div className="child_1">
           <div className="sixx_div1">
             <img className="img" src={six1} alt="img" />
             <h5>User-Friendly Portal</h5>
@@ -68,8 +75,6 @@ export default function HomeFour() {
               applications
             </p>
           </div>
-        </div>
-        <div className="six2">
           <div className="sixx_div2">
             <img className="img" src={six4} alt="img" />
             <h5>Complete VISA Assistance</h5>
@@ -138,14 +143,14 @@ const Root = styled.section`
         min-width: 180px;
         max-width: 220px;
         .brand {
-          margin:10px;
+          margin: 10px;
           width: 108px;
-          padding-top:5px;
+          padding-top: 5px;
           background-color: white;
           height: 108px;
         }
-        p{
-          color:black;
+        p {
+          color: black;
         }
 
         img {
@@ -171,60 +176,37 @@ const Root = styled.section`
     color: #4169e1;
     display: flex;
     /* flex-wrap: wrap; */
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
     padding: 40px 20px;
     margin-bottom: 20px;
     text-align: center;
+    .child_1 {
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
 
-    h5 {
-      display: flex;
-      justify-content: center;
-    }
-    p {
-      color: black;
-    }
-    .six1 {
-      display: flex;
-      padding: 10px;
-      min-height: 200px;
-      height: 100%;
-      justify-content: space-evenly;
-      .sixx_div1 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        padding: 10px;
-      }
-    }
-    .six2 {
-      display: flex;
-      justify-content: space-around;
-      min-height: 200px;
-      height: 100%;
-      .sixx_div2 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        p {
-          width: 400px;
+      > div {
+        min-width: 300px;
+        flex: 1;
+        height: fit-content;
+        img {
+          width: 100%;
+          height: 100%;
+          height: 200px;
+          width: 200px;
+          transition: transform 0.4s;
+        }
+        img:hover {
+          transform: scale(1.1);
+          cursor: pointer;
         }
       }
     }
-    img {
-      min-width: 50px;
-      width: 100%;
-      height: 100%;
-      min-height: 50px;
-      max-height: 250px;
-      max-width: 250px;
-      transition: transform 0.4s;
-    }
-    img:hover {
-      transform: scale(1.1);
-      cursor: pointer;
+    p {
+      color: black;
     }
   }
   @media (max-width: 999px) {
@@ -235,32 +217,6 @@ const Root = styled.section`
       width: auto;
       .h3 {
         justify-content: center;
-      }
-
-      .six1,
-      .six2 {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 10px;
-
-        .sixx_div1,
-        .sixx_div2 {
-          display: flex;
-          flex-direction: column;
-        }
-      }
-
-      img {
-        height: 50px;
-        height: 100%;
-        width: 100%;
-        min-width: 50px;
-        transition: transform 0.4s;
-
-        &:hover {
-          transform: scale(1.1);
-        }
       }
     }
   }
