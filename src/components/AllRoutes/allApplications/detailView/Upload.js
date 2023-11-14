@@ -14,6 +14,7 @@ import { UserDetails } from "../../../../redux/users/action";
 
 export default function Upload({ detail, val }) {
   const [refreshFlag, setRefreshFlag] = useState(false);
+  const [preImg, setPreImg] = useState("");
   const [select, setSelect] = useState({
     newStatus: "",
     applicationId: "",
@@ -30,6 +31,7 @@ export default function Upload({ detail, val }) {
   const handleDocumentTypeChange = (e) => {
     setSelectedDocumentType(e.target.value);
     setSelectedFile();
+
   };
   const submitDoc = async () => {
     if (!selectedDocumentType) {
@@ -101,6 +103,14 @@ export default function Upload({ detail, val }) {
     approveApi();
   };
 
+  const handleObjectUrl = (e)=>{
+    if(e){
+      setPreImg(URL.createObjectURL(e))
+    }else{
+      setPreImg("")
+    }
+  }
+
   useEffect(() => {
     setRefreshFlag(false);
   }, []);
@@ -157,18 +167,27 @@ export default function Upload({ detail, val }) {
           ) : (
             <>
               {/* <h3 className="mt-3">Update Document</h3> */}
-              <div className="col-lg-6" >
+              <div className="col-lg-6">
                 <div className="">
                   <div className="imgg" style={selectContainerStyle}>
                     <img
-                      src="https://www.crizac.co.uk/catalog/assets/images/upload_icon.svg"
-                      className=""
-                      class="img-fluid"
+                      // src="https://www.crizac.co.uk/catalog/assets/images/upload_icon.svg"
+                      src={preImg? preImg: "https://www.crizac.co.uk/catalog/assets/images/upload_icon.svg"}
                       alt="Upload"
-                      title="Upload Documents"
+                      className="inside_img"
                     ></img>
+                    {selectedDocumentType && (
+                      <input
+                        type="file"
+                        onChange={(e) => {
+                          setSelectedFile(e.target.files[0]);
+                          handleObjectUrl(e.target.files[0])
+                        }}
+                      />
+                    )}
+
                   </div>
-                  <h5>Please Upload only COLOR SCAN COPY</h5>
+                  <h5>Please Select Type To Upload Document Images</h5>
                   <label style={selectTitleStyle}>
                     <select
                       onChange={handleDocumentTypeChange}
@@ -187,21 +206,14 @@ export default function Upload({ detail, val }) {
                   </label>
                   {selectedDocumentType && (
                     <div className="mt-2">
-                      <label>
-                        Upload Document:
-                        <input
-                          type="file"
-                          onChange={(e) => {
-                            setSelectedFile(e.target.files[0]);
-                          }}
-                        />
-                      </label>
+                      {/* <label>
+
+                      </label> */}
                       <button onClick={handleSubmitt}>Submit</button>
                     </div>
                   )}
                 </div>
               </div>
-
             </>
           )}
 
@@ -506,6 +518,22 @@ const Root = styled.section`
     text-align: center;
     margin-bottom: 32px;
     margin-right: 36px;
+    position: relative;
+    cursor: pointer;
+    &:hover{
+      opacity: 0.5;
+    }
+    .inside_img{
+      height: 220px;
+      width: 220px;
+      object-fit: contain;
+    }
+    input{
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+    }
   }
   .hl1l1 {
     padding: 8px 14px;
