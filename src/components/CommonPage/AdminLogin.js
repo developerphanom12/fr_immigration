@@ -105,7 +105,7 @@ export default function AdminLogin() {
   );
 }
 const Root = styled.section`
-width: 100%;
+ width: 100%;
   height: 100%;
   min-height: 100vh;
   min-width: 100vw;
@@ -115,6 +115,18 @@ width: 100%;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  padding-bottom: 20px;
+  position: relative;
+      top: 25px;
+  font: 22px "Mulish", sans-serif;
+  @media (max-width: 1019px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+      top: 72px;
+  }
 
   .logimg {
     h4 {
@@ -125,99 +137,190 @@ width: 100%;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     background-color: #d8e6f4;
-    background-position: center bottom;
+    background-position: center;
     background-repeat: no-repeat;
     padding: 20px 0px 0px 0px;
     margin: 0px 30px 10px 30px;
-    /* background-size:100%; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 85%;
+    height: 90%;
+    width: 45%;
     position: bottom;
     img {
-      max-width: 500px;
-      max-height: 700px;
+      max-width: 100%;
+      max-height: 100%;
       display: flex;
       justify-content: flex-end;
-      @media (max-width: 700px) {
-        height: 300px;
-        width: 220px;
+      @media (max-width: 809px) {
+        justify-content: center;
       }
+    }
+    @media (max-width: 809px) {
+      padding: 10px;
+     width: 100%;
+     margin: 20px 20px;
     }
   }
 
   .box_div {
-    width: 580px;
-    height: 550px;
+    height: 86%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: left;
     justify-content: center;
     background-color: #ffffff;
     flex-wrap: wrap;
+    padding: 20px;
     font: 16px "Mulish", sans-serif;
     color: #353535;
+    @media (max-width: 800px) {
+      padding: 10px;
+      width: 100%;
+     flex-direction: column;
+     margin: 20px 20px;
 
-    button {
-      display: flex;
-      flex-direction: column;
-      width: 390px;
-      height: 55px;
-      padding: 15px;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      margin: 8px 0px 8px 0px;
-      border-radius: 30px;
-      border: transparent;
-      background: linear-gradient(
-        45deg,
-        #0146ff 19%,
-        #0146ff96 48%,
-        #0146ff 100%
-      );
-      &:hover {
-        background: linear-gradient(
-          -25deg,
-          #0146ff 19%,
-          #0146ff96 88%,
-          transparent 100%
-        );
-        transition: all 0.3s ease-in-out 0s;
-      }
-      border-radius: 50px;
-      color: #fff;
-      padding: 20px 30px;
-      background-size: 300% 100%;
-      transition: all 0.3s ease-in-out 0s;
-      text-transform: uppercase;
     }
-
     .user_name {
       display: flex;
       flex-direction: column;
-      width: 410px;
-      height: 100px;
+      width: 100%;
       justify-content: center;
-      /* align-items: center; */
       gap: 5px;
       padding: 10px;
       font: 16px "Mulish", sans-serif;
+      @media (max-width: 799px) {
+        align-items: center;
+        padding: 0px;
+        gap: 0px; 
+      height: 80px; 
+      }
+      input {
+        width: 100%;
+        padding: 20px;
+        cursor: pointer;
+        border: transparent;
+        border-radius: 30px;
+        background-color: #e8f0fe;
+        @media (max-width: 809px) {
+         
+          height: 35px;
+          padding: 10px;
+        }
+      }
     }
-    input {
+    .button_div {
+      width:100%;
+
+      button {
+        display: flex;
+        flex-direction: column;
+        width:100%;
+        height: 55px;
+        padding: 15px;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        margin: 8px 0px 8px 0px;
+        border-radius: 30px;
+        border: transparent;
+        background: linear-gradient(
+          45deg,
+          #0146ff 19%,
+          #0146ff96 48%,
+          #0146ff 100%
+        );
+        @media (max-width: 899px) {
+          height: 35px;
+        }
+        &:hover {
+          background: linear-gradient(
+            -25deg,
+            #0146ff 19%,
+            #0146ff96 88%,
+            transparent 100%
+          );
+          transition: all 0.3s ease-in-out 0s;
+        }
+        border-radius: 50px;
+        color: #fff;
+        padding: 20px 30px;
+        background-size: 300% 100%;
+        transition: all 0.3s ease-in-out 0s;
+        text-transform: uppercase;
+      }
+    }
+    .forget {
+      padding: 10px;
+      text-align: right;
       width: 100%;
-      padding: 20px;
-      cursor: pointer;
-      border: transparent;
-      border-radius: 30px;
-      background-color: #e8f0fe;
+      @media (max-width: 800px) {
+          height: 35px;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      button {
+        color: #ff6525;
+        font-family: "Mulish", sans-serif;
+        text-decoration: underline;
+        font-weight: 700;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        padding: 10px;
+        text-align: right;
+        background-color: transparent;
+        @media (max-width: 899px) {
+          height: 35px;
+          text-align: center;
+        }
+      }
     }
 
-    .user_btn:hover {
-      background-color: green;
-      color: white;
+    .register {
+      display: flex;
+      font: 20px;
+      width:100%;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      @media (max-width: 889px) {
+        flex-direction: column;
+      }
+      button {
+        border: none;
+        @media (max-width: 809px) {
+          width: 100%;
+          height: 35px;
+        }
+        background: linear-gradient(
+          45deg,
+          #ff6525 19%,
+          #ffffffe6 51%,
+          #ff6525 100%
+        );
+        border-radius: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40%;
+        color: #fff;
+        padding: 20px 15px;
+        background-size: 300% 100%;
+        transition: all 0.3s ease-in-out 0s;
+        text-transform: uppercase;
+        &:hover {
+          background: linear-gradient(
+            -25deg,
+            #ff6525 49%,
+            #ffffffe6 91%,
+            #ff6525 100%
+          );
+        }
+      }
     }
   }
 `;

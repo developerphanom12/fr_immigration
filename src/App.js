@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Routes,Router } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Login from "./components/CommonPage/Login";
 import Layout from "./components/MainLayouts/Layout";
 import { useSelector } from "react-redux";
@@ -24,6 +24,15 @@ import Register from "./components/StudentPortal/Register";
 import CreateStaff from "./components/AllRoutes/actions/CreateStaff";
 import LatestUpdates from "./components/StudentPortal/LatestUpdates";
 import Reach from "./components/CommonPage/Reach";
+import Profile from "./components/MainLayouts/Profile/Profile";
+import UniLogin from "./components/universityPortal/UniLogin";
+import UniRegister from "./components/universityPortal/UniRegister";
+import AddCourses from "./components/universityPortal/UniAddCourses";
+import UniAddCourses from "./components/universityPortal/UniAddCourses";
+import PgRequire from "./components/universityPortal/PgRequire";
+import UgRequire from "./components/universityPortal/UgRequire";
+import ListCourses from "./components/universityPortal/ListCourses";
+import UniDashboard from "./components/universityPortal/UniDashboard";
 // import Student from "./components/AllRoutes/allApplications/detailView/Student";
 
 function App() {
@@ -89,21 +98,23 @@ function App() {
             <Route path="/history" element={<HistoryMain />} />
             <Route path="/detailview/:id" element={<DetailView />} />
             <Route path="/urm" element={<Urm_university />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/changepass" element={<ProfilePassword />} />
             <Route path="/search" element={<Search_course />} />
             {userDetails.role === "admin" ? (
               // Admin-specific routes
               <>
                 <Route path="/dashboardd" element={<DashboardAdmin />} />
-                <Route path="/createstaff" element={<CreateStaff/>}/>
+                <Route path="/createstaff" element={<CreateStaff />} />
                 <Route path="/action" element={<Action />} />
                 <Route path="/applications" element={<Applications />} />
                 <Route path="/history" element={<HistoryMain />} />
                 <Route path="/detailview/:id" element={<DetailView />} />
                 <Route path="/urm" element={<Urm_university />} />
                 <Route path="/search" element={<Search_course />} />
-                <Route path="/user" element={<ProfileUser/>} />
-            <Route path="/address" element={<ProfileAddress/>} />
-            <Route path="/changepass" element={<ProfilePassword/>} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/latestupdates" element={<LatestUpdates />} />
+                <Route path="/changepass" element={<ProfilePassword />} />
               </>
             ) : userDetails.role === "staff" ? (
               // Staff-specific routes
@@ -113,6 +124,8 @@ function App() {
                 <Route path="/detailview/:id" element={<DetailView />} />
                 <Route path="/urm" element={<Urm_university />} />
                 <Route path="/search" element={<Search_course />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/changepass" element={<ProfilePassword />} />
               </>
             ) : userDetails.role === "student" ? (
               // Student-specific routes
@@ -123,9 +136,25 @@ function App() {
                 <Route path="/history" element={<HistoryMain />} />
                 <Route path="/detailview/:id" element={<DetailView />} />
                 <Route path="/urm" element={<Urm_university />} />
-                <Route path="/search" element={<Search_course />} />
+                <Route path="/user" element={<ProfileUser />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/changepass" element={<ProfilePassword />} />
               </>
-            ) : null}
+            ) 
+            // : userDetails.role === "university" ? (
+            //   //University-specific routes
+            //   <>
+            //   <Route path="/unilogin" element={<UniLogin/>} /> 
+            //   <Route path="/uniregister" element={<UniRegister/>} /> 
+            //   <Route path="/uniaddcourses" element={<UniAddCourses/>} /> 
+            //   <Route path="/listcourses" element={<ListCoursesCourses/>} /> 
+            //   <Route path="/pgrequire" element={<PgRequire/>} /> 
+            //   <Route path="/ugrequire" element={<UgRequire/>} /> 
+            //   <Route path="/unidash" element={<UniDashboard/>} /> 
+              
+            //   </>
+            // )
+             : null}
           </>
         ) : (
           // If the user is not authenticated
@@ -140,7 +169,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/forgot" element={<ForgotPass />} />
             <Route path="/partner" element={<Partner />} />
-            <Route path="reach" element={<Reach/>} />
+            <Route path="reach" element={<Reach />} />
           </>
         )}
       </Routes>

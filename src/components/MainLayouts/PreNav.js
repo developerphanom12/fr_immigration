@@ -18,6 +18,14 @@ export default function PreNav() {
         <img src={logo} alt="img" />
       </div>
       <div className="options">
+      {/* <button
+          className="opt_btn"
+          onClick={() => {
+            navigate("/uniregister");
+          }}
+        >
+          University Register
+        </button> */}
         <button
           className="opt_btn"
           onClick={() => {
@@ -35,14 +43,6 @@ export default function PreNav() {
           Be a partner
         </button>
         <button
-          className="opt_btn"
-          onClick={() => {
-            navigate("/reach");
-          }}
-        >
-          Our Network
-        </button>
-        <button
           className="login"
           onClick={() => {
             navigate("/login");
@@ -58,6 +58,14 @@ export default function PreNav() {
         >
           STUDENT LOGIN
         </button>
+        {/* <button
+          className="login"
+          onClick={() => {
+            navigate("/unilogin");
+          }}
+        >
+          UNIVERSITY LOGIN
+        </button> */}
       </div>
 
       <div

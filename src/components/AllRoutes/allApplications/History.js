@@ -59,7 +59,7 @@ export default function History({ popUser = () => {} }) {
   };
 
   useEffect(() => {
-    setLoader(true);
+    setLoader(false);
     getHistory();
     getCourses();
   }, []);

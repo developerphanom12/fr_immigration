@@ -87,6 +87,45 @@ export default function SideBar() {
             {<MdSearch />}
             <p>Search Course</p>
           </div>
+          {/* {userDetails.role === "student" ? (<>
+          
+            <div
+              className={activeParam === "action" ? "active" : ""}
+              onClick={() => {
+                navigate("/latestupdates");
+              }}
+            >
+              {<MdPersonSearch />}
+              <p>Latest Updates</p>
+            </div>
+          </>):""} */}
+
+
+          {/* {userDetails.role === "university" ? (
+          <>
+          <div
+            className={activeParam === "dashboardd" ? "active" : ""}
+            onClick={() => {
+              navigate("/unidash");
+            }}
+          >
+            <FaHome />
+            <p>Dashboard</p>
+          </div>
+          <div
+            className={activeParam === "applications" ? "active" : ""}
+            onClick={() => {
+              navigate("/uniaddcourses");
+            }}
+          >
+            {<MdPersonSearch />}
+            <p>Add New Applicaton</p>
+          </div>
+  
+          </>
+          ):""} */}
+
+
           {userDetails.role === "admin" ? (
             <>
             <div
@@ -199,10 +238,6 @@ const Root = styled.section`
       @media (max-width: 798px) {
         flex-direction: column;
         font-size: 13px;
-        width: 130px;
-        margin: 2px;
-        padding: 5px;
-        gap: 0;
       }
       > div {
         display: flex;
@@ -216,6 +251,9 @@ const Root = styled.section`
           flex-direction: column;
           width: 80px;
           gap: 0;
+        
+        border-radius: 20px;
+
         }
         &:hover {
           background: linear-gradient(
@@ -249,6 +287,7 @@ const Root = styled.section`
             #0146ff96 98%,
             #0146ff 100%
           );
+          color: white;
         @media (max-width: 800px) {
           background:transparent;
           &:hover{

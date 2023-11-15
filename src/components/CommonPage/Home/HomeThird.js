@@ -17,7 +17,7 @@ export default function HomeThird() {
         </div>
         <div className="fourrr">
           <div className="four_1">
-            <img src={photo1} alt="img" />
+            <img src={photo3} alt="img" />
           </div>
           <div className="four_2">
             <img src={photo2} alt="img" />
@@ -90,7 +90,7 @@ export default function HomeThird() {
             </div>
           </div>
           <div className="four_1">
-            <img src={photo3} alt="img" />
+            <img src={photo1} alt="img" />
           </div>
         </div>
       </div>

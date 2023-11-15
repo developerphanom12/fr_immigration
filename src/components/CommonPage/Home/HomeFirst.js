@@ -55,15 +55,15 @@ export default function HomeFirst({ onSearch }) {
             <img src={photo2} alt="img" />
           </div>
           <div className="photo"></div>
-          <div className="photo2">
-            <img src={photo3} alt="img" />
-          </div>
           <div className="photo"></div>
-          <div className="photo3">
-            <img src={photo5} alt="img" />
+          <div className="photo1">
+            <img src={photo8} alt="img" />
           </div>
           <div className="photo">
             <h4 className="h4">80,000+ courses</h4>
+          </div>
+          <div className="photo3">
+            <img src={photo5} alt="img" />
           </div>
           <div className="photo3">
             <img src={photo3} alt="img" />
@@ -73,23 +73,17 @@ export default function HomeFirst({ onSearch }) {
             <img src={photo4} alt="img" />
           </div>
           <div className="photo"></div>
-          <div className="photo4">
-            <img src={photo6} alt="img" />
-          </div>
           <div className="photo"></div>
           <div className="photo4">
-            <img src={photo7} alt="img" />
+            <img src={photo6} alt="img" />
           </div>
           <div className="photo">
             <h4 className="h4">500,000+ Students</h4>
           </div>
-          <div className="photo3">
-            <img src={photo2} alt="img" />
+          <div className="photo4">
+            <img src={photo7} alt="img" />
           </div>
-          <div className="photo"></div>
-          <div className="photo1">
-            <img src={photo8} alt="img" />
-          </div>
+  
         </div>
       </div>
     </Root>

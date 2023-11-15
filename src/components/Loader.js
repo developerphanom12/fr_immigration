@@ -9,7 +9,7 @@ const Loader = () => {
       setDataLoaded(true);
     }, 3000);
   }, []);
-
+console.log("dataLoaded",dataLoaded)
   return (
     <Root>
       <div className="logo">

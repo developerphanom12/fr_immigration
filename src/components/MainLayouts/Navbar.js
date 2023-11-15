@@ -10,13 +10,11 @@ import china from "../MainLayouts/pictures/china.png";
 import { EXCHANGE_URLS } from "../URLS";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import cogoToast from "cogo-toast";
 
 export default function Navbar() {
   const [activePop, setActivePop] = useState(false);
-  const [profile, setProfile] = useState({});
   const [isListOpen, setIsListOpen] = useState(false);
+  const [profile, setProfile] = useState({});
   const getProfile = async () => {
     const axiosConfig = {
       headers: {
@@ -75,10 +73,7 @@ export default function Navbar() {
         <div>{profile?.username ? profile.username : "Unknown"}</div>
         <div className={isListOpen ? "option_list" : "off"}>
           <p>
-            <Link to="/user">Profile Details</Link>
-          </p>
-          <p>
-            <Link to="/address">Address Details</Link>
+            <Link to="/profile">Profile Details</Link>
           </p>
           <p>
             <Link to="/changepass">Change Password</Link>
@@ -142,7 +137,7 @@ const Root = styled.section`
     margin: 10px 0px;
     gap: 10px;
     padding: 8px;
-    @media (max-width: 850px) {
+    @media (max-width: 1020px) {
       display: none;
     }
 
@@ -232,14 +227,14 @@ const Root = styled.section`
     }
   }
   .menu {
-    @media (max-width: 850px) {
+    @media (max-width: 1020px) {
       display: block;
       padding-right: 10px;
       justify-content: left;
     }
   }
   .menu {
-    @media (min-width: 851px) {
+    @media (min-width: 1022px) {
       display: none;
     }
   }

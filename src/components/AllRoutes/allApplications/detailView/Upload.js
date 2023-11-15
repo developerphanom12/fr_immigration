@@ -168,7 +168,7 @@ export default function Upload({ detail, val }) {
             <>
               {/* <h3 className="mt-3">Update Document</h3> */}
               <div className="col-lg-6">
-                <div className="">
+                <div className="1">
                   <div className="imgg" style={selectContainerStyle}>
                     <img
                       // src="https://www.crizac.co.uk/catalog/assets/images/upload_icon.svg"
@@ -206,9 +206,6 @@ export default function Upload({ detail, val }) {
                   </label>
                   {selectedDocumentType && (
                     <div className="mt-2">
-                      {/* <label>
-
-                      </label> */}
                       <button onClick={handleSubmitt}>Submit</button>
                     </div>
                   )}
@@ -470,6 +467,7 @@ const Root = styled.section`
       font-size: 10px;
       background-size: 5px 5px, 5px 5px, 30px 35px;
       align-items: center;
+      margin: 10px;
     }
 
     select:focus {
@@ -502,14 +500,6 @@ const Root = styled.section`
       align-items: center;
     }
   }
-  //  .select{
-  //   color:red;
-  //   background-color: #ff6525;
-  //   border: 2px dotted #000; / 2px wide dotted border in black (#000) /
-  //   color: rgba(0, 0, 0, 0.3); / Faint black color /
-  //   width:100%;
-  //   height: 340px;
-  //  }
 
   .hloo {
     color: red;
@@ -524,9 +514,10 @@ const Root = styled.section`
       opacity: 0.5;
     }
     .inside_img{
-      height: 220px;
-      width: 220px;
+      height:100%;
+      width:100%;
       object-fit: contain;
+     
     }
     input{
       position: absolute;
@@ -552,5 +543,11 @@ const Root = styled.section`
   }
   .hliihi {
     text-align: center;
+  }
+  .mt-2{
+    button{
+    width:  100px;
+    margin: 10px;
+    }
   }
 `;
