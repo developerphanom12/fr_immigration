@@ -84,13 +84,22 @@ export default function StudentLogin() {
             placeholder="Password"
           />
         </div>
-        <div>
+        <div className='button_div'>
           <button
             onClick={() => {
               handleClick();
             }}
           >
             Log-in
+          </button>
+        </div>
+        <div className="forget">
+          <button
+            onClick={() => {
+              navigate("/forgot");
+            }}
+          >
+            Forget Password
           </button>
         </div>
         <div className="register">
@@ -213,9 +222,8 @@ const Root = styled.section`
         }
       }
     }
-    >div {
+    .button_div {
       width:100%;
-
       button {
         display: flex;
         flex-direction: column;
@@ -258,6 +266,7 @@ const Root = styled.section`
       padding: 10px;
       text-align: right;
       width: 100%;
+      background-color:none;
       @media (max-width: 800px) {
           height: 35px;
           text-align: center;

@@ -27,6 +27,7 @@ export default function Register() {
   const registerApi = async () => {
     console.log("yyyyy", formData);
     const { confirm_password, ...data } = formData;
+    
     try {
       const res = await axios.post(`${EXCHANGE_URLS_STUDENT}/studentregister`, {
         ...data,

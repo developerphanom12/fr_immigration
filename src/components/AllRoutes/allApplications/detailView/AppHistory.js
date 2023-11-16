@@ -8,6 +8,8 @@ export default function AppHistory({ detail }) {
     const year = date.getFullYear();
     return `${day}/${month}/${year}`;
   };
+
+
   return (
     <Root>
       <div className="app_table">

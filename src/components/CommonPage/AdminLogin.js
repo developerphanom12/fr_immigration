@@ -66,9 +66,9 @@ export default function AdminLogin() {
       </div>
       <div className="box_div">
         <h2>
-          <u>LOG-IN</u>
+          LOG-IN
         </h2>
-        <div className="user_name">
+        <div className="user_name">Admin Name
           <input
             value={logindata.username}
             onChange={(e) => {
@@ -78,7 +78,7 @@ export default function AdminLogin() {
             placeholder="User Name"
           />
         </div>
-        <div className="user_name">
+        <div className="user_name">Password
           <input
             type="Password"
             value={logindata.password}
@@ -89,7 +89,7 @@ export default function AdminLogin() {
             placeholder="Password"
           />
         </div>
-        <div>
+        <div className="button_div">
           <button
             className="user_btn"
             onClick={() => {

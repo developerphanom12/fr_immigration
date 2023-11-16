@@ -41,112 +41,185 @@ export default function SideBar() {
 
         <div className="nav_section">
           <p className="caption">ANALYTICS</p>
-          <div
-            className={activeParam === "dashboardd" ? "active" : ""}
-            onClick={() => {
-              navigate("/dashboardd");
-            }}
-          >
-            <FaHome />
-            <p>Dashboard</p>
-          </div>
-          <div
-            className={activeParam === "applications" ? "active" : ""}
-            onClick={() => {
-              navigate("/applications");
-            }}
-          >
-            {<MdPersonSearch />}
-            <p>Add New Applicaton</p>
-          </div>
-          <div
-            className={activeParam === "history" ? "active" : ""}
-            onClick={() => {
-              navigate("/history");
-            }}
-          >
-            {<MdWorkHistory />}
-            <p>Application History</p>
-          </div>
-          
-          <div
-            className={activeParam === "urm" ? "active" : ""}
-            onClick={() => {
-              navigate("/urm");
-            }}
-          >
-            {<FaUniversity />}
-            <p>URM university</p>
-          </div>
-          <div
-            className={activeParam === "search" ? "active" : ""}
-            onClick={() => {
-              navigate("/search");
-            }}
-          >
-            {<MdSearch />}
-            <p>Search Course</p>
-          </div>
-          {/* {userDetails.role === "student" ? (<>
-          
-            <div
-              className={activeParam === "action" ? "active" : ""}
-              onClick={() => {
-                navigate("/latestupdates");
-              }}
-            >
-              {<MdPersonSearch />}
-              <p>Latest Updates</p>
-            </div>
-          </>):""} */}
 
+          {userDetails.role === "user" && "staff" && "admin" ? (
+            <>
+              <div
+                className={activeParam === "dashboardd" ? "active" : ""}
+                onClick={() => {
+                  navigate("/dashboardd");
+                }}
+              >
+                <FaHome />
+                <p>Dashboard</p>
+              </div>
+              <div
+                className={activeParam === "applications" ? "active" : ""}
+                onClick={() => {
+                  navigate("/applications");
+                }}
+              >
+                {<MdPersonSearch />}
+                <p>Add New Applicaton</p>
+              </div>
+              <div
+                className={activeParam === "history" ? "active" : ""}
+                onClick={() => {
+                  navigate("/history");
+                }}
+              >
+                {<MdWorkHistory />}
+                <p>Application History</p>
+              </div>
 
-          {/* {userDetails.role === "university" ? (
-          <>
-          <div
-            className={activeParam === "dashboardd" ? "active" : ""}
-            onClick={() => {
-              navigate("/unidash");
-            }}
-          >
-            <FaHome />
-            <p>Dashboard</p>
-          </div>
-          <div
-            className={activeParam === "applications" ? "active" : ""}
-            onClick={() => {
-              navigate("/uniaddcourses");
-            }}
-          >
-            {<MdPersonSearch />}
-            <p>Add New Applicaton</p>
-          </div>
-  
-          </>
-          ):""} */}
+              <div
+                className={activeParam === "urm" ? "active" : ""}
+                onClick={() => {
+                  navigate("/urm");
+                }}
+              >
+                {<FaUniversity />}
+                <p>URM university</p>
+              </div>
+              <div
+                className={activeParam === "search" ? "active" : ""}
+                onClick={() => {
+                  navigate("/search");
+                }}
+              >
+                {<MdSearch />}
+                <p>Search Course</p>
+              </div>
+            </>
+          ) : (
+            ""
+          )}
 
+          {userDetails.role === "student" ? (
+            <>
+              <div
+                className={activeParam === "applications" ? "active" : ""}
+                onClick={() => {
+                  navigate("/applications");
+                }}
+              >
+                {<MdPersonSearch />}
+                <p>Add New Applicaton</p>
+              </div>
+              <div
+                className={activeParam === "history" ? "active" : ""}
+                onClick={() => {
+                  navigate("/history");
+                }}
+              >
+                {<MdWorkHistory />}
+                <p>Application History</p>
+              </div>
+              <div
+                className={activeParam === "action" ? "active" : ""}
+                onClick={() => {
+                  navigate("/latestupdates");
+                }}
+              >
+                {<MdPersonSearch />}
+                <p>Latest Updates</p>
+              </div>
+              <div
+                className={activeParam === "urm" ? "active" : ""}
+                onClick={() => {
+                  navigate("/urm");
+                }}
+              >
+                {<FaUniversity />}
+                <p>URM university</p>
+              </div>
+              <div
+                className={activeParam === "search" ? "active" : ""}
+                onClick={() => {
+                  navigate("/search");
+                }}
+              >
+                {<MdSearch />}
+                <p>Search Course</p>
+              </div>
+            </>
+          ) : (
+            ""
+          )}
+
+          {userDetails.role === "university" ? (
+            <>
+              <div
+                className={activeParam === "unidash" ? "active" : ""}
+                onClick={() => {
+                  navigate("/unidash");
+                }}
+              >
+                <FaHome />
+                <p>Dashboard</p>
+              </div>
+              {/* <div
+                className={activeParam === "uniaddcourses" ? "active" : ""}
+                onClick={() => {
+                  navigate("/uniaddcourses");
+                }}
+              >
+                {<MdPersonSearch />}
+                <p>Add New Courses</p>
+              </div>
+              <div
+                className={activeParam === "ugrequire" ? "active" : ""}
+                onClick={() => {
+                  navigate("/ugrequire");
+                }}
+              >
+                {<MdPersonSearch />}
+                <p>UG Entry Requirement</p>
+              </div>
+              <div
+                className={activeParam === "pgrequire" ? "active" : ""}
+                onClick={() => {
+                  navigate("/pgrequire");
+                }}
+              >
+                {<MdPersonSearch />}
+                <p>PG Entry Requirement</p>
+              </div>
+              <div
+                className={activeParam === "listcourses" ? "active" : ""}
+                onClick={() => {
+                  navigate("/listcourses");
+                }}
+              >
+                {<MdPersonSearch />}
+                <p>Courses List</p>
+              </div> */}
+            </>
+          ) : (
+            ""
+          )}
 
           {userDetails.role === "admin" ? (
             <>
-            <div
-              className={activeParam === "action" ? "active" : ""}
-              onClick={() => {
-                navigate("/action");
-              }}
-            >
-              {<MdPersonSearch />}
-              <p>Action</p>
-            </div>
-            <div
-            className={activeParam === "action" ? "active" : ""}
-            onClick={() => {
-              navigate("/createstaff");
-            }}
-          >
-            {<MdPersonSearch />}
-            <p>Create Staff</p>
-          </div>
-          </>
+              <div
+                className={activeParam === "action" ? "active" : ""}
+                onClick={() => {
+                  navigate("/action");
+                }}
+              >
+                {<MdPersonSearch />}
+                <p>Action</p>
+              </div>
+              <div
+                className={activeParam === "action" ? "active" : ""}
+                onClick={() => {
+                  navigate("/createstaff");
+                }}
+              >
+                {<MdPersonSearch />}
+                <p>Create Staff</p>
+              </div>
+            </>
           ) : (
             ""
           )}
@@ -251,9 +324,8 @@ const Root = styled.section`
           flex-direction: column;
           width: 80px;
           gap: 0;
-        
-        border-radius: 20px;
 
+          border-radius: 20px;
         }
         &:hover {
           background: linear-gradient(
@@ -282,17 +354,16 @@ const Root = styled.section`
       }
       .active {
         background: linear-gradient(
-            45deg,
-            #0146ff 19%,
-            #0146ff96 98%,
-            #0146ff 100%
-          );
-          color: white;
+          45deg,
+          #0146ff 19%,
+          #0146ff96 98%,
+          #0146ff 100%
+        );
+        color: white;
         @media (max-width: 800px) {
-          background:transparent;
-          &:hover{
-          background: transparent;
-
+          /* background: transparent; */
+          &:hover {
+            background: transparent;
           }
         }
       }
@@ -301,7 +372,7 @@ const Root = styled.section`
   .logout {
     display: flex;
     /* justify-content: center; */
-    align-items:flex-start;
+    align-items: flex-start;
     width: 90%;
     gap: 10px;
     align-items: center;
@@ -310,7 +381,7 @@ const Root = styled.section`
     border-radius: 40px;
     font-size: 13px;
     margin: 10px;
-   
+
     @media (max-width: 798px) {
       /* flex-direction: column; */
       text-size-adjust: smaller;
@@ -321,11 +392,11 @@ const Root = styled.section`
     }
     &:hover {
       background: linear-gradient(
-            45deg,
-            #0146ff 19%,
-            #0146ff96 98%,
-            #0146ff 100%
-          );
+        45deg,
+        #0146ff 19%,
+        #0146ff96 98%,
+        #0146ff 100%
+      );
       color: white;
       cursor: pointer;
     }

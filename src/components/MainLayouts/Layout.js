@@ -47,7 +47,6 @@ const Root = styled.section`
   display: flex;
   min-height: 100vh;
   height: 100%;
-
   .sidebar {
     flex: 0 40px;
     min-height: 100vh;
@@ -60,15 +59,15 @@ const Root = styled.section`
     ::-webkit-scrollbar {
       display: none;
     }
-    @media (max-width:798px){
-            flex-direction: column;
-            text-size-adjust: smaller;
-            width: 150px;
-            padding: 10px;
-            background-color: transparent;
-          }
+    @media (max-width: 798px) {
+      flex-direction: column;
+      text-size-adjust: smaller;
+      width: 150px;
+      padding: 10px;
+      background-color: transparent;
+    }
   }
- 
+
   .main_bar {
     display: flex;
     flex-direction: column;
@@ -81,14 +80,12 @@ const Root = styled.section`
       display: flex;
       height: 80px;
       width: 100%;
-      /* align-items: center; */
-      /* justify-content: space-between; */
-      /* overflow: hidden; */
-      /* position: fixed; */
+     
     }
     .main_body {
       height: 90%;
       width: 100%;
+      padding: 10px;
       /* margin-top:80px ; */
     }
   }

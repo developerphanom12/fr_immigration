@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { EXCHANGE_URLS_APPLICATION } from "../../../URLS";
 import cogoToast from "cogo-toast";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 // import { useParams } from "react-router-dom";
 
 export default function Comment({value}) {
@@ -14,6 +15,7 @@ export default function Comment({value}) {
     comment_text: "",
     select_type: "",
   });
+  const navigate = useNavigate();
   const getDetails = useSelector((state) => state?.users?.appDetails);
 
   const commentApi = async () => {
@@ -30,6 +32,7 @@ export default function Comment({value}) {
       );
       setVal(res);
       value(true)
+      navigate('/dashboardd')
       console.log("resress", res);
     } catch (e) {
       console.log("error", e);

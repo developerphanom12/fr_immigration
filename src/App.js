@@ -17,17 +17,14 @@ import DetailView from "./components/AllRoutes/allApplications/detailView/Detail
 import ForgotPass from "./components/CommonPage/ForgotPass";
 import StaffLogin from "./components/CommonPage/StaffLogin";
 import ProfileUser from "./components/MainLayouts/Profile/ProfileUser";
-import ProfileAddress from "./components/MainLayouts/Profile/ProfileAddress";
 import ProfilePassword from "./components/MainLayouts/Profile/ProfilePassword";
 import StudentLogin from "./components/StudentPortal/StudentLogin";
 import Register from "./components/StudentPortal/Register";
 import CreateStaff from "./components/AllRoutes/actions/CreateStaff";
 import LatestUpdates from "./components/StudentPortal/LatestUpdates";
-import Reach from "./components/CommonPage/Reach";
 import Profile from "./components/MainLayouts/Profile/Profile";
 import UniLogin from "./components/universityPortal/UniLogin";
 import UniRegister from "./components/universityPortal/UniRegister";
-import AddCourses from "./components/universityPortal/UniAddCourses";
 import UniAddCourses from "./components/universityPortal/UniAddCourses";
 import PgRequire from "./components/universityPortal/PgRequire";
 import UgRequire from "./components/universityPortal/UgRequire";
@@ -140,26 +137,23 @@ function App() {
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/changepass" element={<ProfilePassword />} />
               </>
-            ) 
-            // : userDetails.role === "university" ? (
-            //   //University-specific routes
-            //   <>
-            //   <Route path="/unilogin" element={<UniLogin/>} /> 
-            //   <Route path="/uniregister" element={<UniRegister/>} /> 
-            //   <Route path="/uniaddcourses" element={<UniAddCourses/>} /> 
-            //   <Route path="/listcourses" element={<ListCoursesCourses/>} /> 
-            //   <Route path="/pgrequire" element={<PgRequire/>} /> 
-            //   <Route path="/ugrequire" element={<UgRequire/>} /> 
-            //   <Route path="/unidash" element={<UniDashboard/>} /> 
-              
-            //   </>
-            // )
-             : null}
+            ) : userDetails.role === "university" ? (
+              //University-specific routes
+              <>
+                {/* <Route path="/uniaddcourses" element={<UniAddCourses />} />
+                <Route path="/listcourses" element={<ListCourses />} />
+                <Route path="/pgrequire" element={<PgRequire />} />
+                <Route path="/ugrequire" element={<UgRequire />} /> */}
+                <Route path="/unidash" element={<UniDashboard />} />
+              </>
+            ) : ""}
           </>
         ) : (
           // If the user is not authenticated
           <>
             <Route path="*" element={<PageNF />} />
+            <Route path="/unilogin" element={<UniLogin />} />
+            <Route path="/uniregister" element={<UniRegister />} />
             <Route path="/" element={<HomePage />} />
             <Route path="/home" element={<HomePage />} />
             <Route path="/adminlogin" element={<AdminLogin />} />
@@ -169,7 +163,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/forgot" element={<ForgotPass />} />
             <Route path="/partner" element={<Partner />} />
-            <Route path="reach" element={<Reach />} />
+            {/* <Route path="reach" element={<Reach />} /> */}
           </>
         )}
       </Routes>

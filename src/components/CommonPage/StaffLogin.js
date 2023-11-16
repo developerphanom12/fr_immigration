@@ -86,7 +86,7 @@ export default function StaffLogin() {
             placeholder="Password"
           />
         </div>
-        <div>
+        <div className="button_div">
           <button
             onClick={() => {
               handleClick();

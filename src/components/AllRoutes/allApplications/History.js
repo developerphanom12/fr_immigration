@@ -86,6 +86,18 @@ export default function History({ popUser = () => {} }) {
     popUser(true);
   };
 
+  const uniqueApplications = applications.reduce((uniqueArray, currentItem) => {
+    // Check if the uniqueArray already contains an item with the same application_id
+    const isUnique = uniqueArray.some(item => item?.application_id === currentItem?.application_id);
+  
+    // If the application_id is not present in uniqueArray, add the currentItem to the uniqueArray
+    if (!isUnique) {
+      uniqueArray.push(currentItem);
+    }
+  
+    return uniqueArray;
+  }, []);
+
   return (
     <Root>
       {loader ? (
@@ -121,8 +133,8 @@ export default function History({ popUser = () => {} }) {
               <div>Status</div>
               <div>View</div>
             </div>
-            {applications &&
-              applications.map((i) => {
+            {uniqueApplications &&
+             uniqueApplications.map(i => {
                 return (
                   <div
                     className="app_body"
