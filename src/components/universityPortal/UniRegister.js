@@ -6,16 +6,9 @@ import styled from "styled-components";
 import { EXCHANGE_URLS_UNIVERSITY } from "../URLS";
 
 export default function UniRegister() {
-  const [preImgUniversity, setPreImgUniversity] = useState("");
-  const [preImgCertificate, setPreImgCertificate] = useState(""); 
+  const [universityImagePreview, setUniversityImagePreview] = useState("");
+  const [certificatePreview, setCertificatePreview] = useState("");
 
-  const [add, setAdd] = useState({
-    street_address: "",
-    city: "",
-    state: "",
-    country: "",
-    postal_code: "",
-  });
   const [formData, setFormData] = useState({
     university_name: "",
     ambassador_name: "",
@@ -27,44 +20,51 @@ export default function UniRegister() {
     registration_certificate: "",
   });
 
-  // const handleUniversityImageUpload = (e) => {
-  //   if (e) {
-  //     setPreImgUniversity(URL.createObjectURL(e));
-  //   }
-  // };
+  const [add, setAdd] = useState({
+    street_address: "",
+    city: "",
+    state: "",
+    country: "",
+    postal_code: "",
+  });
 
-  // const handleCertificateUpload = (e) => {
-  //   if (e) {
-  //     setPreImgCertificate(URL.createObjectURL(e));
-  //   }
-  // };
   const navigate = useNavigate();
 
-  const registerApi = async () => {
-    const { confirm_password, ...fdata } = formData;
-    if (!preImgUniversity) {
-      cogoToast.error("Please select a document type");
-      return;
+  const handleUniversityImagePreview = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setFormData({ ...formData, university_image: file });
+      setUniversityImagePreview(URL.createObjectURL(file));
+    } else {
+      setFormData({ ...formData, university_image: "" });
+      setUniversityImagePreview("");
     }
+  };
 
-    if (!preImgCertificate) {
-      cogoToast.error("Please select a file to upload");
-      return;
+  const handleCertificatePreview = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setFormData({ ...formData, registration_certificate: file });
+      setCertificatePreview(URL.createObjectURL(file));
+    } else {
+      setFormData({ ...formData, registration_certificate: "" });
+      setCertificatePreview("");
     }
+  };
+
+  const registerApi = async () => {
+    // Add validation checks here before making the API call
     const data = new FormData();
-    data.append('additional_field', preImgUniversity)
-    data.append("certificate", preImgCertificate);
-    
+    data.append("university_image", universityImagePreview);
+    data.append("registration_certificate", certificatePreview);
     try {
       const res = await axios.post(`${EXCHANGE_URLS_UNIVERSITY}/register`, {
-        ...data,
-        ...fdata,
+        ...formData,
         address: add,
       });
 
-      console.log("resres", res);
       if (res?.status === 200) {
-        cogoToast.success("Register SuccessFully");
+        cogoToast.success("Registered Successfully");
         setFormData({
           university_name: "",
           ambassador_name: "",
@@ -82,14 +82,15 @@ export default function UniRegister() {
           country: "",
           postal_code: "",
         });
-
+        setUniversityImagePreview("");
+        setCertificatePreview("");
         navigate("/unilogin");
       }
     } catch (err) {
-      console.log("err", err);
+      console.error("Error:", err);
+      cogoToast.error("Registration Failed");
     }
   };
-
   const selectContainerStyle = {
     position: "relative",
     display: "flex",
@@ -97,8 +98,7 @@ export default function UniRegister() {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    height: "70%",
-    width: "40%",
+    height: "248px",
     padding: "20px",
     borderRadius: "10px",
     border: "2px dashed #555",
@@ -108,29 +108,9 @@ export default function UniRegister() {
   };
 
   const handleRegisterClick = () => {
-    if (formData?.password === formData?.confirm_password) {
-      registerApi();
-    } else {
-      cogoToast.error("Password and Confirm Password Does Not Match");
-    }
+    // Perform password matching validation here
+    registerApi();
   };
-  const handleUniversityImagePreview = (e) => {
-    if (e) {
-      setPreImgUniversity(URL.createObjectURL(e));
-    } else {
-      setPreImgUniversity("");
-    }
-  };
-  
-  const handleCertificatePreview = (e) => {
-    if (e) {
-      setPreImgCertificate(URL.createObjectURL(e));
-    } else {
-      setPreImgCertificate("");
-    }
-  };
-  
-
   return (
     <Root>
       <div className="first_div">
@@ -207,43 +187,33 @@ export default function UniRegister() {
             <div className="name">
               Upload University Image
               <div className="imgg" style={selectContainerStyle}>
+                Click Here
                 <img
                   src={
-                    preImgUniversity
-                      ? preImgUniversity
-                      : "https://www.crizac.co.uk/catalog/assets/images/upload_icon.svg"
+                    universityImagePreview ||
+                    "https://www.crizac.co.uk/catalog/assets/images/upload_icon.svg"
                   }
                   alt="Upload"
                   className="inside_img"
-                ></img>
-                <input
-                  type="file"
-                  value={formData?.university_image}
-                  onChange={(e) => {
-                    handleUniversityImagePreview(e.target.files[0]);
-                  }}
                 />
+                <input type="file" 
+                onChange={handleUniversityImagePreview} />
               </div>
             </div>
             <div className="name">
               Registration Certificate
               <div className="imgg" style={selectContainerStyle}>
+                Click Here
                 <img
                   src={
-                    preImgCertificate
-                      ? preImgCertificate
-                      : "https://www.crizac.co.uk/catalog/assets/images/upload_icon.svg"
+                    certificatePreview ||
+                    "https://www.crizac.co.uk/catalog/assets/images/upload_icon.svg"
                   }
                   alt="Upload"
                   className="inside_img"
-                ></img>
-                <input
-                  type="file"
-                  value={formData?.registration_certificate}
-                  onChange={(e) => {
-                    handleCertificatePreview(e.target.files[0]);
-                  }}
                 />
+                <input type="file"
+                 onChange={handleCertificatePreview} />
               </div>
             </div>
           </div>
@@ -579,11 +549,6 @@ const Root = styled.section`
         );
       }
     }
-    /* .btnn:hover {
-    color: #f0f8ff;
-    background: blue;
-    cursor: pointer;
-  } */
   }
   @media (max-width: 868px) {
     .first_box1 > div,

@@ -1,241 +1,166 @@
-// import axios from "axios";
-// import React, { useState } from "react";
-// import styled from "styled-components";
-// import { EXCHANGE_URLS_UNIVERSITY } from "../URLS";
-// import cogoToast from "cogo-toast";
-// import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import { EXCHANGE_URLS_UNIVERSITY } from "../URLS";
+import GetPg from "./GetPg";
+import { useNavigate } from "react-router-dom";
+import { UserDetails } from "../../redux/users/action";
+import { useSelector } from "react-redux";
 
-// export default function PgRequire() {
-//   const [require, setRequire] = useState({
-//     english_requirement: "",
-//     academic_requirement: "",
-//     offer_timeline: "",
-//     Credibility: "",
-//     Finance: "",
-//     Discount: "",
-//   });
+export default function PgRequire() {
+  const [require, setRequire] = useState([]);
+  const userDetails = useSelector((state) => state?.users.user);
 
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
+  const pgrequireApi = async () => {
 
-//   const pgrequireApi = async () => {
-//     try {
-//       const axiosConfig = {
-//         headers: {
-//           authorization: `Bearer ${localStorage.getItem("token")}`,
-//         },
-//       };
-//       const res = await axios.post(
-//         `${EXCHANGE_URLS_UNIVERSITY}/pgrequirement`,
-//         axiosConfig,
-//         require
-//       );
+    try {
+      const axiosConfig = {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      };
+      const res = await axios.get(
+        `${EXCHANGE_URLS_UNIVERSITY}/getallpg
+        `,
+        axiosConfig
+      );
 
-//       cogoToast.success("PG requirement add Successfully");
-//       setRequire({
-//         english_requirement: "",
-//         academic_requirement: "",
-//         offer_timeline: "",
-//         Credibility: "",
-//         Finance: "",
-//         Discount: "",
-//       });
-//       navigate("/unidash");
-//       console.log("res", res);
-//     } catch (err) {
-//       console.log("err", err);
-//     }
-//   };
+      if (res.status === 201) {
+        const uniqueRequirements = res?.data?.data
+        setRequire(uniqueRequirements);
+        console.log("res", uniqueRequirements);
+      }
+    } catch (err) {
+      console.log("err", err);
+    }
+  };
 
-//   const handleClick = () => {
-//     pgrequireApi();
-//   };
+  useEffect(() => {
+    pgrequireApi();
+  }, []);
 
-//   console.log("require", require);
-//   return (
-//     <Root>
-//       <h3>PG Entry Requirement</h3>
-//       <div className="child1">
-//         <div className="child2">
-//           <p>English Requirement</p>
-//           <input
-//             type="name"
-//             value={require?.english_requirement}
-//             onChange={(e) => {
-//               setRequire({ ...require, english_requirement: e.target.value });
-//             }}
-//             placeholder="English Requirement"
-//           />
-//         </div>
-//         <div className="child2">
-//           <p>Academic Requirement</p>
-//           <input
-//             type="name"
-//             value={require?.academic_requirement}
-//             onChange={(e) => {
-//               setRequire({ ...require, academic_requirement: e.target.value });
-//             }}
-//             placeholder="Academic Requirement"
-//           />
-//         </div>
-//         <div className="child2">
-//           <p>Offer Timeline</p>
-//           <input
-//             type="name"
-//             value={require?.offer_timeline}
-//             onChange={(e) => {
-//               setRequire({ ...require, offer_timeline: e.target.value });
-//             }}
-//             placeholder="Offer Timeline"
-//           />
-//         </div>
-//         <div className="child2">
-//           Credibility
-//           <select
-//             value={require.Credibility}
-//             onChange={(e) => {
-//               setRequire({ ...require, Credibility: e.target.value });
-//             }}
-//           >
-//             <option value="">SELECT OPTION</option>
-//             <option value="yes">Yes</option>
-//             <option value="no">No</option>
-//           </select>
-//         </div>
-//         <div className="child2">
-//           {" "}
-//           Finance
-//           <select
-//             value={require.Finance}
-//             onChange={(e) => {
-//               setRequire({ ...require, Finance: e.target.value });
-//             }}
-//           >
-//             <option value="">SELECT OPTION</option>
-//             <option value="yes">Yes</option>
-//             <option value="no">No</option>
-//           </select>
-//         </div>
-//         <div className="child2">
-//           <p>Discount</p>
-//           <input
-//             type="name"
-//             value={require?.Discount}
-//             onChange={(e) => {
-//               setRequire({ ...require, Discount: e.target.value });
-//             }}
-//             placeholder="Discount"
-//           />
-//         </div>
-//         <div className="child2">
-//           <button
-//             onClick={() => {
-//               handleClick();
-//             }}
-//           >
-//             Submit
-//           </button>
-//         </div>
-//       </div>
-//     </Root>
-//   );
-// }
-// const Root = styled.section`
-//   font-family: "Mulish", "sans-serif";
-//   .child1 {
-//     width: 90%;
-//     .child2 {
-//       width: 70%;
-//       padding: 10px;
-//       p {
-//         margin: 5px;
-//       }
-//       input {
-//         border-radius: 40px;
-//         padding: 10px;
-//         color: #202020;
-//         width: 60%;
-//         text-decoration: none;
-//         border: 2px solid #a5d8fa;
-//         @media (max-width: 600px) {
-//           width: 100%;
-//         }
-//       }
+  console.log("require", require);
+  return (
+    <Root>
+      <h3>PG Entry Requirement</h3>
+      {userDetails.role === "university" ? (
+        <div>
+          <button
+            onClick={() => {
+              navigate("/getpg");
+            }}
+          >
+            Add PG Requirements
+          </button>
+        </div>
+      ) : (
+        ""
+      )}
 
-//       input:focus,
-//       input:active {
-//         border-color: #ff6525;
-//       }
-//       select {
-//         background-color: white;
-//         color: black;
-//         text-decoration: none;
-//         border: 2px solid #a5d8fa;
-//         line-height: 1.5em;
-//         padding: 8px;
-//         border-radius: 20px;
-//         -webkit-box-sizing: border-box;
-//         -moz-box-sizing: border-box;
-//         box-sizing: border-box;
-//         -webkit-appearance: none;
-//         -moz-appearance: none;
-//         width: 60%;
-//         background-image: linear-gradient(45deg, transparent 50%, blue 50%),
-//           linear-gradient(135deg, blue 50%, transparent 50%),
-//           linear-gradient(to right, skyblue, skyblue);
-//         background-position: calc(100% - 20px) calc(1em + 2px),
-//           calc(100% - 15px) calc(1em + 2px), 100% 0;
-//         background-size: 5px 5px, 5px 5px, 40px 45px;
-//         background-repeat: no-repeat;
-//         @media (max-width: 555px) {
-//           padding: 3px;
-//           width: 100%;
-//           background-size: 5px 5px, 5px 5px, 30px 35px;
-//           align-items: center;
-//         }
+      <div className="app_table">
+        <div className="app_header">
+          <div>English Requirement</div>
+          <div>Academic Requirement</div>
+          <div>Offer Timeline</div>
+          <div>Credibility</div>
+          <div>Finance</div>
+          <div>Discount</div>
+        </div>
+        {require &&
+          require.map((requirement, index) => (
+            <div key={index} className="app_body">
+              <div>
+                <p>{requirement?.course_name}</p>
+              </div>
+              <div>
+                <p>{requirement?.department}</p>
+              </div>
+              <div>
+                <p>{requirement?.subject}</p>
+              </div>
+              <div>
+                <h6>{requirement?.tuition_fee}</h6>
+              </div>
+              <div>
+                <p>{requirement?.duration_years}</p>
+              </div>
+              <div>
+                <p>{requirement?.course_type}</p>
+              </div>
+            </div>
+          ))}
+      </div>
+    </Root>
+  );
+}
+const Root = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #f8f8f8;
+  color: #202020;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  vertical-align: middle;
+  height: 100%;
+  p {
+    padding: 0;
+    margin: 0;
+    text-transform: capitalize;
+    text-align: left;
+    font-family: "open-sans", "sana-serif";
+  }
 
-//         select:focus {
-//           background-image: linear-gradient(45deg, white 50%, transparent 50%),
-//             linear-gradient(135deg, transparent 50%, white 50%),
-//             linear-gradient(to right, gray, gray);
-//           background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
-//             100% 0;
-//           background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
-//           background-repeat: no-repeat;
-//           border-color: grey;
-//           outline: 0;
-//         }
-//       }
-//       button {
-//         padding: 10px;
-//         border-radius: 50px;
-//         font-size: medium;
-//         border-color: transparent;
-//         width: 60%;
-//         font-size: medium;
-//         color: #ffffff;
-//         background: rgb(255 94 0);
-//         margin-right: 108px;
-//         background: linear-gradient(
-//           45deg,
-//           #ff6525 19%,
-//           #ffffffe6 51%,
-//           #ff6525 100%
-//         );
-//         border-radius: 50px;
-//         color: #fff;
-//         padding: 10px 5px;
-//         background-size: 300% 100%;
-//         transition: all 0.3s ease-in-out 0s;
-//         text-transform: uppercase;
-//         &:hover {
-//           background: linear-gradient(
-//             -25deg,
-//             #ff6525 49%,
-//             #ffffffe6 91%,
-//             #ff6525 100%
-//           );
-//         }
-//       }
-//     }
-//   }
-// `;
+  .app_table {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    font-family: "Mulish", "sana-serif";
+    .app_header {
+      display: flex;
+      background-color: #fff3ee;
+      text-align: center;
+
+      > div {
+        flex: 1;
+        border: 1px solid #dee2e6;
+        padding: 20px;
+        /* text-align: center; */
+      }
+    }
+    .app_body {
+      display: flex;
+      font-family: "Cairo", sans-serif;
+
+      > div {
+        flex: 1;
+        border: 0.3px solid #fbfbfd;
+        padding: 5px;
+        text-transform: capitalize;
+        background-color: #e7e7e8;
+        text-align: center;
+        padding: 20px 5px;
+
+        h6 {
+          font-weight: 600;
+          text-align: left;
+          font-size: small;
+        }
+
+        &:nth-child(odd) {
+          background-color: #e7e7e8;
+        }
+
+        &:nth-child(even) {
+          background-color: white;
+        }
+      }
+      &:hover {
+        background-color: lightgray;
+        cursor: pointer;
+      }
+    }
+  }
+`;

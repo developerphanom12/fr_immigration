@@ -42,7 +42,9 @@ export default function SideBar() {
         <div className="nav_section">
           <p className="caption">ANALYTICS</p>
 
-          {userDetails.role === "user" && "staff" && "admin" ? (
+          {userDetails.role === "user" ||
+          userDetails.role === "staff" ||
+          userDetails.role === "admin" ? (
             <>
               <div
                 className={activeParam === "dashboardd" ? "active" : ""}
@@ -71,7 +73,24 @@ export default function SideBar() {
                 {<MdWorkHistory />}
                 <p>Application History</p>
               </div>
-
+              <div
+                className={activeParam === "ugrequire" ? "active" : ""}
+                onClick={() => {
+                  navigate("/ugrequire");
+                }}
+              >
+                {<MdPersonSearch />}
+                <p>UG Entry Requirement</p>
+              </div>
+              <div
+                className={activeParam === "pgrequire" ? "active" : ""}
+                onClick={() => {
+                  navigate("/pgrequire");
+                }}
+              >
+                {<MdPersonSearch />}
+                <p>PG Entry Requirement</p>
+              </div>
               <div
                 className={activeParam === "urm" ? "active" : ""}
                 onClick={() => {
@@ -125,6 +144,24 @@ export default function SideBar() {
                 <p>Latest Updates</p>
               </div>
               <div
+                className={activeParam === "ugrequire" ? "active" : ""}
+                onClick={() => {
+                  navigate("/ugrequire");
+                }}
+              >
+                {<MdPersonSearch />}
+                <p>UG Entry Requirement</p>
+              </div>
+              <div
+                className={activeParam === "pgrequire" ? "active" : ""}
+                onClick={() => {
+                  navigate("/pgrequire");
+                }}
+              >
+                {<MdPersonSearch />}
+                <p>PG Entry Requirement</p>
+              </div>
+              <div
                 className={activeParam === "urm" ? "active" : ""}
                 onClick={() => {
                   navigate("/urm");
@@ -158,7 +195,7 @@ export default function SideBar() {
                 <FaHome />
                 <p>Dashboard</p>
               </div>
-              {/* <div
+              <div
                 className={activeParam === "uniaddcourses" ? "active" : ""}
                 onClick={() => {
                   navigate("/uniaddcourses");
@@ -193,7 +230,7 @@ export default function SideBar() {
               >
                 {<MdPersonSearch />}
                 <p>Courses List</p>
-              </div> */}
+              </div>
             </>
           ) : (
             ""

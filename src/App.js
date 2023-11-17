@@ -30,6 +30,8 @@ import PgRequire from "./components/universityPortal/PgRequire";
 import UgRequire from "./components/universityPortal/UgRequire";
 import ListCourses from "./components/universityPortal/ListCourses";
 import UniDashboard from "./components/universityPortal/UniDashboard";
+import GetUg from "./components/universityPortal/GetUg";
+import GetPg from "./components/universityPortal/GetPg";
 // import Student from "./components/AllRoutes/allApplications/detailView/Student";
 
 function App() {
@@ -95,6 +97,8 @@ function App() {
             <Route path="/history" element={<HistoryMain />} />
             <Route path="/detailview/:id" element={<DetailView />} />
             <Route path="/urm" element={<Urm_university />} />
+            <Route path="/pgrequire" element={<PgRequire />} />
+            <Route path="/ugrequire" element={<UgRequire />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/changepass" element={<ProfilePassword />} />
             <Route path="/search" element={<Search_course />} />
@@ -108,6 +112,8 @@ function App() {
                 <Route path="/history" element={<HistoryMain />} />
                 <Route path="/detailview/:id" element={<DetailView />} />
                 <Route path="/urm" element={<Urm_university />} />
+                <Route path="/pgrequire" element={<PgRequire />} />
+                <Route path="/ugrequire" element={<UgRequire />} />
                 <Route path="/search" element={<Search_course />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/latestupdates" element={<LatestUpdates />} />
@@ -120,6 +126,8 @@ function App() {
                 <Route path="/history" element={<HistoryMain />} />
                 <Route path="/detailview/:id" element={<DetailView />} />
                 <Route path="/urm" element={<Urm_university />} />
+                <Route path="/pgrequire" element={<PgRequire />} />
+                <Route path="/ugrequire" element={<UgRequire />} />
                 <Route path="/search" element={<Search_course />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/changepass" element={<ProfilePassword />} />
@@ -130,6 +138,8 @@ function App() {
                 <Route path="/latestupdates" element={<LatestUpdates />} />
                 <Route path="/dashboardd" element={<DashboardAdmin />} />
                 <Route path="/applications" element={<Applications />} />
+                <Route path="/pgrequire" element={<PgRequire />} />
+                <Route path="/ugrequire" element={<UgRequire />} />
                 <Route path="/history" element={<HistoryMain />} />
                 <Route path="/detailview/:id" element={<DetailView />} />
                 <Route path="/urm" element={<Urm_university />} />
@@ -140,13 +150,17 @@ function App() {
             ) : userDetails.role === "university" ? (
               //University-specific routes
               <>
-                {/* <Route path="/uniaddcourses" element={<UniAddCourses />} />
+                <Route path="/uniaddcourses" element={<UniAddCourses />} />
                 <Route path="/listcourses" element={<ListCourses />} />
                 <Route path="/pgrequire" element={<PgRequire />} />
-                <Route path="/ugrequire" element={<UgRequire />} /> */}
+                <Route path="/ugrequire" element={<UgRequire />} />
+                <Route path="/getug" element={<GetUg />} />
+                <Route path="/getpg" element={<GetPg />} />
                 <Route path="/unidash" element={<UniDashboard />} />
               </>
-            ) : ""}
+            ) : (
+              ""
+            )}
           </>
         ) : (
           // If the user is not authenticated

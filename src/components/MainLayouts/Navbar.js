@@ -22,7 +22,7 @@ export default function Navbar() {
       },
     };
     try {
-      const res = await axios.get(`${EXCHANGE_URLS}/get/detail`, axiosConfig);
+      const res = await axios.get(`${EXCHANGE_URLS}/get/detail/by`, axiosConfig);
       setProfile(res?.data?.data);
       console.log("resp", res?.data?.data);
     } catch (e) {
