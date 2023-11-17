@@ -18,6 +18,7 @@ export default function UniRegister() {
     password: "",
     university_image: "",
     registration_certificate: "",
+    
   });
 
   const [add, setAdd] = useState({
@@ -27,7 +28,7 @@ export default function UniRegister() {
     country: "",
     postal_code: "",
   });
-
+  
   const navigate = useNavigate();
 
   const handleUniversityImagePreview = (e) => {
@@ -53,18 +54,28 @@ export default function UniRegister() {
   };
 
   const registerApi = async () => {
-    // Add validation checks here before making the API call
     const data = new FormData();
-    data.append("university_image", universityImagePreview);
-    data.append("registration_certificate", certificatePreview);
+    data.append("university_name", formData.university_name);
+    data.append("ambassador_name", formData.ambassador_name);
+    data.append("phone_number", formData.phone_number);
+    data.append("email", formData.email);
+    data.append("username", formData.username);
+    data.append("password", formData.password);
+    data.append("university_image", formData.university_image);
+    data.append("registration_certificate", formData.registration_certificate);
+
+   // Append address fields
+Object.keys(add).forEach((key) => {
+  data.append(`address[${key}]`, add[key]);
+});
+
+
     try {
-      const res = await axios.post(`${EXCHANGE_URLS_UNIVERSITY}/register`, {
-        ...formData,
-        address: add,
-      });
+      const res = await axios.post(`${EXCHANGE_URLS_UNIVERSITY}/register`, data);
 
       if (res?.status === 200) {
         cogoToast.success("Registered Successfully");
+        // Reset form data and navigate to login page
         setFormData({
           university_name: "",
           ambassador_name: "",
@@ -168,7 +179,7 @@ export default function UniRegister() {
                 onChange={(e) => {
                   setFormData({ ...formData, email: e.target.value });
                 }}
-                placeholder="Ex-Phanom@gmail.com"
+                placeholder="ex-phanom@gmail.com"
               />
             </div>
             <div className="name">
@@ -229,15 +240,16 @@ export default function UniRegister() {
           <div>
             {" "}
             <div className="name">
-              Street Address
-              <input
-                value={add?.street_address}
-                onChange={(e) => {
-                  setAdd({ ...add, street_address: e.target.value });
-                }}
-                placeholder="Street Address"
-              />
-            </div>
+  Street Address
+  <input
+    value={add?.street_address}
+    onChange={(e) => {
+      setAdd({ ...add, street_address: e.target.value });
+    }}
+    placeholder="Street Address"
+  />
+</div>
+
             <div className="name">
               City
               <input
@@ -419,7 +431,7 @@ const Root = styled.section`
       display: flex;
       flex-direction: column;
       padding: 20px;
-      /* width: 95%; */
+      /* / width: 95%; / */
       margin: 0px 10px;
 
       > div {
@@ -430,7 +442,7 @@ const Root = styled.section`
           display: flex;
           flex-direction: column;
           font-size: larger;
-          /* width: 100%; */
+          /* / width: 100%; / */
           margin-right: 10px;
           padding: 20px;
           gap: 10px;
@@ -440,7 +452,7 @@ const Root = styled.section`
           display: flex;
           flex-direction: column;
           font-size: larger;
-          /* width: 100%; */
+          /* / width: 100%; / */
           margin-right: 10px;
           padding: 20px;
           gap: 10px;
@@ -479,7 +491,7 @@ const Root = styled.section`
       flex-direction: column;
       align-items: center;
       text-align: center;
-      /* width:50%; */
+      /* / width:50%; / */
       justify-content: center;
       .btnn {
         padding: 10px;

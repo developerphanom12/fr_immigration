@@ -277,6 +277,8 @@ export default function SideBar() {
 }
 
 const Root = styled.section`
+overflow-y: scroll;
+/* scrollbar-color: blue; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;

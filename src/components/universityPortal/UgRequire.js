@@ -25,7 +25,7 @@ export default function UgRequire() {
         axiosConfig
       );
       if (res.status === 201) {
-        const uniqueRequirements = res?.data?.data
+        const uniqueRequirements = res?.data?.data;
         setRequire(uniqueRequirements);
         console.log("res", res?.data?.data);
       }
@@ -41,7 +41,7 @@ export default function UgRequire() {
     <Root>
       <h3>UG Entry Requirement</h3>
       {userDetails.role === "university" ? (
-        <div>
+        <div className="child1">
           <button
             onClick={() => {
               navigate("/getug");
@@ -68,7 +68,7 @@ export default function UgRequire() {
               <div>
                 <p>{requirement?.course_name}</p>
               </div>
-              <div>
+              <div className="child">
                 <p>{requirement?.department}</p>
               </div>
               <div>
@@ -100,6 +100,22 @@ const Root = styled.section`
   font-weight: normal;
   vertical-align: middle;
   height: 100%;
+  .child1 {
+    button {
+      width: 200px;
+      height: 40px;
+      margin: 5px;
+      border-radius: 20px;
+      border: none;
+      /* padding: 10px; */
+      background: #57be1f;
+      color: #ffffff;
+      @media (max-width: 566px) {
+        width: 120px;
+        height: 20px;
+      }
+    }
+  }
   p {
     padding: 0;
     margin: 0;
@@ -128,15 +144,17 @@ const Root = styled.section`
     .app_body {
       display: flex;
       font-family: "Cairo", sans-serif;
-
+      height: 100%;
+      .child {
+        font-size: 13px;
+      }
       > div {
         flex: 1;
         border: 0.3px solid #fbfbfd;
-        padding: 5px;
         text-transform: capitalize;
         background-color: #e7e7e8;
         text-align: center;
-        padding: 20px 5px;
+        padding: 15px 5px;
 
         h6 {
           font-weight: 600;

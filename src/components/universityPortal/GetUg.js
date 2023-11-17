@@ -1,59 +1,60 @@
-import axios from 'axios';
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import { EXCHANGE_URLS_UNIVERSITY } from '../URLS';
-import cogoToast from 'cogo-toast';
+import axios from "axios";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import { EXCHANGE_URLS_UNIVERSITY } from "../URLS";
+import cogoToast from "cogo-toast";
 
 export default function GetUg() {
-    const [require, setRequire] = useState({
-        english_requirement: "",
-        academic_requirement: "",
-        offer_timeline: "",
-        Credibility: "",
-        Finance: "",
-        Discount: "",
-      });
-    
-      const navigate = useNavigate();
-    
-      const pgrequireApi = async () => {
-        try {
-          const axiosConfig = {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`, // Changed 'authorization' to 'Authorization'
-            },
-          };
-    
-          const res = await axios.post(
-            `${EXCHANGE_URLS_UNIVERSITY}/ugrequirement`, require,
-            axiosConfig
-          );
-          if (res.status === 200) {
-            cogoToast.success("PG requirement add Successfully");
-            setRequire({
-              english_requirement: "",
-              academic_requirement: "",
-              offer_timeline: "",
-              Credibility: "",
-              Finance: "",
-              Discount: "",
-            });
-            navigate("/unidash");
-          }
-        } catch (err) {
-          console.log("err", err);
-        }
+  const [require, setRequire] = useState({
+    english_requirement: "",
+    academic_requirement: "",
+    offer_timeline: "",
+    Credibility: "",
+    Finance: "",
+    Discount: "",
+  });
+
+  const navigate = useNavigate();
+
+  const pgrequireApi = async () => {
+    try {
+      const axiosConfig = {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`, // Changed 'authorization' to 'Authorization'
+        },
       };
-    
-      const handleClick = () => {
-        pgrequireApi();
-      };
-    
-      console.log("require", require);
+
+      const res = await axios.post(
+        `${EXCHANGE_URLS_UNIVERSITY}/ugrequirement`,
+        require,
+        axiosConfig
+      );
+      if (res.status === 200) {
+        cogoToast.success("UG requirement add Successfully");
+        setRequire({
+          english_requirement: "",
+          academic_requirement: "",
+          offer_timeline: "",
+          Credibility: "",
+          Finance: "",
+          Discount: "",
+        });
+        navigate("/unidash");
+      }
+    } catch (err) {
+      console.log("err", err);
+    }
+  };
+
+  const handleClick = () => {
+    pgrequireApi();
+  };
+
+  console.log("require", require);
   return (
     <Root>
-<h3>UG Entry Requirement</h3>
+      <h3>UG Entry Requirement</h3>
       <div className="child1">
         <div className="child2">
           <p>English Requirement</p>
@@ -136,12 +137,11 @@ export default function GetUg() {
           </button>
         </div>
       </div>
-
     </Root>
-  )
+  );
 }
 const Root = styled.section`
- font-family: "Mulish", "sans-serif";
+  font-family: "Mulish", "sans-serif";
   .child1 {
     width: 90%;
     .child2 {
@@ -239,4 +239,4 @@ const Root = styled.section`
       }
     }
   }
-`
+`;

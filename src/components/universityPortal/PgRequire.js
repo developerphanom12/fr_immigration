@@ -45,7 +45,7 @@ export default function PgRequire() {
     <Root>
       <h3>PG Entry Requirement</h3>
       {userDetails.role === "university" ? (
-        <div>
+        <div className="child1">
           <button
             onClick={() => {
               navigate("/getpg");
@@ -105,6 +105,22 @@ const Root = styled.section`
   font-weight: normal;
   vertical-align: middle;
   height: 100%;
+  .child1{
+    button {
+      width: 200px;
+      height: 40px;
+      margin: 5px;
+      border-radius: 20px;
+      border: none;
+      /* padding: 10px; */
+      background: #57be1f;
+      color: #ffffff;
+      @media (max-width: 566px) {
+        width: 120px;
+        height: 20px;
+      }
+    }
+  }
   p {
     padding: 0;
     margin: 0;

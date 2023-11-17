@@ -2,13 +2,16 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { EXCHANGE_URLS_APPLICATION } from "../../URLS";
+import { useSelector } from "react-redux";
 // import Loader from "../../Loader";
 
 
 export default function DashboardAdmin() {
   // const [loader, setLoader] = useState(true);
-  const [count, setCount] = useState([]);
   const [dashboardVal, setDashboardVal] = useState();
+  const [count, setCount] = useState([]);
+  const [staffCount,setStaffCount] = useState([]);
+  const userDetails = useSelector((state) => state?.users?.user);
 
   const dashboardApi = async () => {
     const axiosConfig = {
@@ -49,17 +52,35 @@ export default function DashboardAdmin() {
       console.log("err", err);
     }
   };
+
+
+  const allStaffApi = async ()=>{
+    const axiosConfig ={
+      headers :{
+        Authorization : `Bearer ${localStorage.getItem("token")}`
+      }
+    }
+    try{
+      const res = await axios.get(`${EXCHANGE_URLS_APPLICATION}/staffcount`,axiosConfig)
+      console.log("resssss",res?.data?.data)
+      if (res?.status === 201) {
+        setStaffCount(res?.data?.data);
+        // setLoader(false);
+      }
+    }catch(err){
+      console.log("err",err)
+    }
+  }
   useEffect(() => {
     countApi();
     dashboardApi();
+    allStaffApi();
     // setLoader(false);
   }, []);
 
-  // const handlePassData = (i) => {
-  //   dispatch(appDetailsAction(i));
-  // };
+  
   console.log("dashboarddd", dashboardVal);
-  console.log("count====", count);
+  console.log("count====", staffCount);
   return (
     <Root>
       <h3>Welcome To Dashboard</h3>
@@ -112,8 +133,32 @@ export default function DashboardAdmin() {
                 );
               })}
           </div>
-        {/* </>
-      )} */}
+          {userDetails.role === "admin" ? (
+
+          <div className="app_table">
+          <div className="app_header">
+              <div>Staff Name</div>
+              <div>Rejected Application</div>
+              <div>Pending Application</div>
+              <div>Approved Application </div>
+              <div>Total Application</div>
+            </div>
+            {staffCount &&
+              staffCount?.map((i) => {
+                return (
+                  <div className="app_body">
+                    <div>{i?.username}</div>
+                    <div>{i?.rejectedCount}</div>
+                    <div>{i?.pendingCount}</div>
+                    <div>{i?.approvedCount}</div>
+                    <div>{i?.userTotalApplications}</div>
+                  </div>
+                );
+              })}
+          </div>
+
+          ):""}
+     
     </Root>
   );
 }
@@ -124,6 +169,7 @@ const Root = styled.section`
   overflow: hidden;
   height: 100%;
   background-color: #f8f8f8;
+  padding-bottom: 20px;
   h3 {
     margin: 20px;
   }

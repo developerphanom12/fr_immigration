@@ -49,19 +49,22 @@ export default function ListCourses() {
                   courseData.length > 0 &&
                   courseData.map((course, index) => (
                     <div key={index} className="courses_child1">
-                      <img
-                        src={`${EXCHANGE_URLS_IMAGE}/${course?.university?.image}`}
-                        alt="img"
-                      />
                       <div className="courses_child2">
-                        <h5>Course : {course?.course_name}</h5>
-                        <p>Department : {course?.department}</p>
-                        <p>Subject : {course?.subject}</p>
-                        <p>Tuition Fee : {course?.tuition_fee}</p>
+                        <img
+                          src={`${EXCHANGE_URLS_IMAGE}/${course?.university?.image}`}
+                          alt="img"
+                        />
                         <div className="courses_child3">
-                          <p>Duration : {course?.duration_years}</p>
+                          <div>
+                            <h5>Course : {course?.course_name}</h5>
+                            <p>Department : {course?.department}</p>
+                            <p>Subject : {course?.subject}</p>
+                            <p>Tuition Fee : {course?.tuition_fee}</p>
+                          </div>
+
                           <div>
                             {" "}
+                            <button> {course?.duration_years} Years</button>
                             <button>{course.course_type}</button>
                           </div>
                         </div>
@@ -101,30 +104,55 @@ const Root = styled.section`
         text-align: center;
         border: 1px solid gray;
         border-bottom: 5px solid #87cefa;
-        img {
-          width: 100px;
-          height: 100px;
-          object-fit: cover;
-          min-width: 50px;
-          min-height: 50px;
-          border-radius: 10px;
-        }
+
         .courses_child2 {
+          display: flex;
           align-items: center;
-          h5 {
-            color: #6495ed;
-            text-transform: capitalize;
+          img {
+            width: 120px;
+            height: 130px;
+            object-fit: cover;
+            min-width: 50px;
+            min-height: 50px;
+            border-radius: 10px;
           }
+
           .courses_child3 {
             display: flex;
             flex-direction: column;
+            > div {
+              p {
+                margin: 0;
+              }
+            }
+            h5 {
+              color: #6495ed;
+              text-align: center;
+              text-transform: capitalize;
+            }
             button {
-              width: 150px;
-              color: white;
-              background-color: #ff7f50;
-              border-radius: 10px;
-              margin: 10px;
-              border: none;
+              color: #ffffff;
+              padding: 3px;
+              margin: 5px;
+              border-color: transparent;
+              cursor: pointer;
+              background: linear-gradient(
+                45deg,
+                #ff6525 19%,
+                #ffffffe6 51%,
+                #ff6525 100%
+              );
+              border-radius: 40px;
+              background-size: 300% 100%;
+              transition: all 0.3s ease-in-out 0s;
+              &:hover {
+                background: linear-gradient(
+                  -25deg,
+                  #ff6525 49%,
+                  #ffffffe6 91%,
+                  #ff6525 100%
+                );
+              }
             }
           }
         }
