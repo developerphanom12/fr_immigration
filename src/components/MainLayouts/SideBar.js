@@ -40,7 +40,7 @@ export default function SideBar() {
         </div>
 
         <div className="nav_section">
-          <p className="caption">ANALYTICS</p>
+          
 
           {userDetails.role === "user" ||
           userDetails.role === "staff" ||
@@ -278,18 +278,15 @@ export default function SideBar() {
 
 const Root = styled.section`
 overflow-y: scroll;
-/* scrollbar-color: blue; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
   max-height: 100vh;
   color: black;
-  padding: 5px;
   font-family: 32px "Roboto", sans-serif;
   width: 100%;
-  border-right: 1px solid gray;
-  align-items: center;
+  /* align-items: center; */
   overflow-y: none;
   position: sticky;
   top: 0px;
@@ -303,13 +300,14 @@ overflow-y: scroll;
   .menu_top {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+  
     .company_logo {
       display: flex;
       justify-content: center;
       align-items: center;
       img {
-        width: 160px;
+        width: 100%;
+        padding: 10px;
         cursor: pointer;
       }
       @media (max-width: 798px) {
@@ -340,11 +338,11 @@ overflow-y: scroll;
     .nav_section {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      /* gap: 10px; */
       width: 100%;
       justify-content: space-between;
       height: 100%;
-      padding: 10px;
+      /* padding: 10px; */
       font-size: 13px;
 
       @media (max-width: 798px) {
@@ -357,7 +355,7 @@ overflow-y: scroll;
         align-items: flex-start;
         width: 100%;
         gap: 10px;
-        padding: 10px;
+        padding: 8px;
         border-radius: 40px;
         @media (max-width: 798px) {
           flex-direction: column;
@@ -412,10 +410,10 @@ overflow-y: scroll;
     display: flex;
     /* justify-content: center; */
     align-items: flex-start;
-    width: 90%;
+    width: 100%;
     gap: 10px;
     align-items: center;
-    padding: 10px;
+    padding: 8px;
     text-align: center;
     border-radius: 40px;
     font-size: 13px;

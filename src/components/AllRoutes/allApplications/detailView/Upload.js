@@ -168,7 +168,7 @@ export default function Upload({ detail, val }) {
             <>
               {/* <h3 className="mt-3">Update Document</h3> */}
               <div className="col-lg-6">
-                <div className="1">
+                <div className="a1">
                   <div className="imgg" style={selectContainerStyle}>
                     <img
                       // src="https://www.crizac.co.uk/catalog/assets/images/upload_icon.svg"
@@ -504,6 +504,7 @@ const Root = styled.section`
   .hloo {
     color: red;
   }
+ .a1{
   .imgg {
     text-align: center;
     margin-bottom: 32px;
@@ -526,6 +527,7 @@ const Root = styled.section`
       opacity: 0;
     }
   }
+ }
   .hl1l1 {
     padding: 8px 14px;
     background-color: #e9521d;

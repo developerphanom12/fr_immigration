@@ -12,7 +12,7 @@ export default function Layout({ children }) {
   return (
     <Root>
       {userCheck && token ? (
-        <div className="side_bar">
+        <div className="sideBar">
           <SideBar />
         </div>
       ) : (
@@ -47,22 +47,22 @@ const Root = styled.section`
   display: flex;
   min-height: 100vh;
   height: 100%;
-  .sidebar {
-    flex: 0 40px;
+  .sideBar {
+    flex: 0 16%;
     min-height: 100vh;
     height: 100%;
     position: sticky;
     top: 0px;
+    border-right: 1px solid gray;
     padding: 5px 5px;
-    border-right: 1px solid #3b3b3b;
-    overflow-x: scroll;
+    overflow-y: scroll;
     ::-webkit-scrollbar {
       display: none;
     }
     @media (max-width: 798px) {
       flex-direction: column;
       text-size-adjust: smaller;
-      width: 150px;
+      width: 50%;
       padding: 10px;
       background-color: transparent;
     }
@@ -78,9 +78,8 @@ const Root = styled.section`
     .top_bar {
       background: #ffffff;
       display: flex;
-      height: 80px;
+      height: 10%;
       width: 100%;
-     
     }
     .main_body {
       height: 90%;

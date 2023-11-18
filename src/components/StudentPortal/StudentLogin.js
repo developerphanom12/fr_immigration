@@ -130,8 +130,8 @@ const Root = styled.section`
   padding-bottom: 20px;
   position: relative;
   top: -16px;
-  font: 22px "Mulish", sans-serif;
-  @media (max-width: 1019px) {
+  font: 22px "Roboto", sans-serif;
+  @media (max-width: 819px) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -166,13 +166,16 @@ const Root = styled.section`
       display: flex;
       justify-content: flex-end;
       @media (max-width: 809px) {
+        display: flex;
         justify-content: center;
       }
     }
     @media (max-width: 809px) {
       padding: 10px;
-      width: 100%;
-      margin: 20px 20px;
+      width: 90%;
+      display: flex;
+      justify-content: center;
+      margin: 0px 20px;
     }
   }
 
@@ -192,16 +195,16 @@ const Root = styled.section`
       padding: 10px;
       width: 100%;
       flex-direction: column;
-      margin: 20px 20px;
+      margin: 0px 20px;
     }
     .user_name {
       display: flex;
       flex-direction: column;
-      width: 90%;
+      width: 80%;
       justify-content: center;
       gap: 5px;
       padding: 10px;
-      font: 14px "Mulish", sans-serif;
+      font: 14px "Roboto", sans-serif;
       @media (max-width: 799px) {
         align-items: center;
         padding: 0px;
@@ -230,7 +233,7 @@ const Root = styled.section`
       button {
         display: flex;
         flex-direction: column;
-        width: 97%;
+        width: 85%;
         height: 50px;
         justify-content: center;
         align-items: center;

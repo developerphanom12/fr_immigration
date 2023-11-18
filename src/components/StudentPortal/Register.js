@@ -277,7 +277,8 @@ export default function Register() {
   );
 }
 const Root = styled.section`
-  font-family: 20px "Roboto", sans-serif;
+  /* font-family: 20px "Roboto", sans-serif; */
+  font-family: 'Roboto', sans-serif;
   margin: 80px 0px 0px 0px;
   max-width: 100vw;
   width: 100%;
@@ -333,7 +334,7 @@ const Root = styled.section`
       border: 2px solid #a5d8fa;
       line-height: 1.5em;
       width: 29%;
-      padding: 8px;
+      padding: 6px;
       border-radius: 10px;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
@@ -391,7 +392,7 @@ const Root = styled.section`
   .second_div {
     display: flex;
     flex-direction: column;
-    font-family: Roboto, sans-serif;
+    font-family: 'Roboto', sans-serif;
     flex-wrap: wrap;
     width: 100%;
 
@@ -489,13 +490,13 @@ const Root = styled.section`
   .regis {
     display: flex;
     justify-content: flex-end;
-    padding: 20px;
+    padding: 10px;
     .btnn {
       padding: 10px;
       border-radius: 10px;
       font-size: small;
       border-color: transparent;
-      width: 20%;
+      width: 15%;
       font-size: medium;
       color: #ffffff;
       margin-right: 108px;

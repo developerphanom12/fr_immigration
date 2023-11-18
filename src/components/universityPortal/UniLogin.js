@@ -132,7 +132,7 @@ const Root = styled.section`
   position: relative;
   top: -16px;
   font: 22px "Roboto", sans-serif;
-  @media (max-width: 619px) {
+  @media (max-width: 19px) {
     display: flex;
     margin-top: 40px;
     flex-direction: column;
@@ -205,7 +205,7 @@ const Root = styled.section`
       justify-content: center;
       gap: 5px;
       padding: 10px;
-      font: 14px "Mulish", sans-serif;
+      font: 14px "Roboto", sans-serif;
       @media (max-width: 799px) {
         align-items: center;
         padding: 0px;

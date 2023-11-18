@@ -40,27 +40,22 @@ export default function Navbar() {
         <div>
           {" "}
           <img src={russia} alt="img" />
-          <p>Russia</p>
         </div>
         <div>
           {" "}
           <img src={canada} alt="img" />
-          <p> Canada</p>
         </div>
         <div>
           {" "}
           <img src={us} alt="img" />
-          <p>United States</p>
         </div>
         <div>
           {" "}
           <img src={maxico} alt="img" />
-          <p>Mexico</p>
         </div>
         <div>
           {" "}
           <img src={china} alt="img" />
-          <p>China</p>
         </div>
       </div>
       <div
@@ -129,7 +124,7 @@ const Root = styled.section`
   display: flex;
   align-items: center;
   flex: 1;
-  height: 80px;
+  /* height: 55%; */
   justify-content: space-evenly;
   .flags {
     display: flex;

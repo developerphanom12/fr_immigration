@@ -18,7 +18,6 @@ export default function UniRegister() {
     password: "",
     university_image: "",
     registration_certificate: "",
-    
   });
 
   const [add, setAdd] = useState({
@@ -28,7 +27,7 @@ export default function UniRegister() {
     country: "",
     postal_code: "",
   });
-  
+
   const navigate = useNavigate();
 
   const handleUniversityImagePreview = (e) => {
@@ -64,14 +63,16 @@ export default function UniRegister() {
     data.append("university_image", formData.university_image);
     data.append("registration_certificate", formData.registration_certificate);
 
-   // Append address fields
-Object.keys(add).forEach((key) => {
-  data.append(`address[${key}]`, add[key]);
-});
-
+    // Append address fields
+    Object.keys(add).forEach((key) => {
+      data.append(`address[${key}]`, add[key]);
+    });
 
     try {
-      const res = await axios.post(`${EXCHANGE_URLS_UNIVERSITY}/register`, data);
+      const res = await axios.post(
+        `${EXCHANGE_URLS_UNIVERSITY}/register`,
+        data
+      );
 
       if (res?.status === 200) {
         cogoToast.success("Registered Successfully");
@@ -105,13 +106,13 @@ Object.keys(add).forEach((key) => {
   const selectContainerStyle = {
     position: "relative",
     display: "flex",
-    gap: "10px",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    height: "248px",
-    padding: "20px",
+    height: "90%",
+    padding: "10px",
     borderRadius: "10px",
+    margin: "10px",
     border: "2px dashed #555",
     color: "#444",
     cursor: "pointer",
@@ -125,11 +126,11 @@ Object.keys(add).forEach((key) => {
   return (
     <Root>
       <div className="first_div">
-        <h1>University Registration Portal</h1>
+        <h2>University Registration Portal</h2>
 
         <div className="first_box1">
           <div>
-            <h3>Your University Details :-</h3>
+            <h4>Your University Details :-</h4>
           </div>
 
           <div>
@@ -171,7 +172,7 @@ Object.keys(add).forEach((key) => {
           </div>
 
           <div>
-            <div className="name">
+            <div className="nameyy">
               Email
               <input
                 type="email"
@@ -182,7 +183,7 @@ Object.keys(add).forEach((key) => {
                 placeholder="ex-phanom@gmail.com"
               />
             </div>
-            <div className="name">
+            <div className="nameyy">
               User Name
               <input
                 type="name"
@@ -194,62 +195,27 @@ Object.keys(add).forEach((key) => {
               />
             </div>
           </div>
-          <div>
-            <div className="name">
-              Upload University Image
-              <div className="imgg" style={selectContainerStyle}>
-                Click Here
-                <img
-                  src={
-                    universityImagePreview ||
-                    "https://www.crizac.co.uk/catalog/assets/images/upload_icon.svg"
-                  }
-                  alt="Upload"
-                  className="inside_img"
-                />
-                <input type="file" 
-                onChange={handleUniversityImagePreview} />
-              </div>
-            </div>
-            <div className="name">
-              Registration Certificate
-              <div className="imgg" style={selectContainerStyle}>
-                Click Here
-                <img
-                  src={
-                    certificatePreview ||
-                    "https://www.crizac.co.uk/catalog/assets/images/upload_icon.svg"
-                  }
-                  alt="Upload"
-                  className="inside_img"
-                />
-                <input type="file"
-                 onChange={handleCertificatePreview} />
-              </div>
-            </div>
-          </div>
         </div>
       </div>
       <div className="second_div">
         <div className="company">
           <div>
             {" "}
-            <h3> Your Address :-</h3>
+            <h4> Your Address :-</h4>
           </div>
 
           <div>
             {" "}
             <div className="name">
-  Street Address
-  <input
-    value={add?.street_address}
-    onChange={(e) => {
-      setAdd({ ...add, street_address: e.target.value });
-    }}
-    placeholder="Street Address"
-  />
-</div>
-
+              Street Address
+              <input
+                value={add?.street_address}
+                onChange={(e) => {
+                  setAdd({ ...add, street_address: e.target.value });
+                }}
+                placeholder="Street Address"
+              />
+            </div>
             <div className="name">
               City
               <input
@@ -272,7 +238,7 @@ Object.keys(add).forEach((key) => {
             </div>
           </div>
           <div>
-            <div className="name">
+            <div className="nameyy">
               Country
               <input
                 value={add?.country}
@@ -282,7 +248,7 @@ Object.keys(add).forEach((key) => {
                 placeholder="Country"
               />
             </div>
-            <div className="name">
+            <div className="nameyy">
               Postal Code
               <input
                 value={add.postal_code}
@@ -293,9 +259,41 @@ Object.keys(add).forEach((key) => {
               />
             </div>
           </div>
+          <div>
+            <div className="nameyyy">
+              Upload University Image
+              <div className="imgg" style={selectContainerStyle}>
+                Click Here
+                <img
+                  src={
+                    universityImagePreview ||
+                    "https://www.crizac.co.uk/catalog/assets/images/upload_icon.svg"
+                  }
+                  alt="Upload"
+                  className="inside_img"
+                />
+                <input type="file" onChange={handleUniversityImagePreview} />
+              </div>
+            </div>
+            <div className="nameyyy">
+              Registration Certificate
+              <div className="imgg" style={selectContainerStyle}>
+                Click Here
+                <img
+                  src={
+                    certificatePreview ||
+                    "https://www.crizac.co.uk/catalog/assets/images/upload_icon.svg"
+                  }
+                  alt="Upload"
+                  className="inside_img"
+                />
+                <input type="file" onChange={handleCertificatePreview} />
+              </div>
+            </div>
+          </div>
         </div>
         <div className="password">
-          <h3>Your Password :-</h3>
+          <h4>Your Password :-</h4>
 
           <div>
             <div className="name">
@@ -354,54 +352,193 @@ Object.keys(add).forEach((key) => {
   );
 }
 const Root = styled.section`
-  font-family: 22px "Roboto", sans-serif;
+  font-family: 20px "Roboto", sans-serif;
   margin: 80px 0px 0px 0px;
   max-width: 100vw;
   width: 100%;
-
-  input {
-    border-radius: 40px;
-    padding: 10px;
-    color: #202020;
-    text-decoration: none;
-    border: 2px solid #a5d8fa;
-    @media (max-width: 600px) {
-      width: 100%;
-    }
-  }
-
-  input:focus,
-  input:active {
-    border-color: #ff6525;
-  }
 
   .flex-container {
     display: flex;
     flex-wrap: wrap;
   }
 
-  h3 {
+  h4 {
     color: #0e4d92;
     margin: 0;
   }
-  > div {
+  .nameyy {
+    display: flex;
+    flex-direction: column;
+    font-size: small;
+    width: 32.5%;
+    margin-right: 10px;
+    color: black;
+    input {
+      border-radius: 10px;
+      padding: 5px;
+      color: #202020;
+      width: 90%;
+      text-decoration: none;
+      border: 2px solid #a5d8fa;
+      @media (max-width: 600px) {
+        width: 100%;
+      }
+    }
+    @media (max-width: 900px) {
+      width: 90%;
+    }
+
+    input:focus,
+    input:active {
+      border-color: #ff6525;
+    }
+  }
+
+  .name {
+    display: flex;
+    flex-direction: column;
+    font-size: small;
+    width: 90%;
+    margin-right: 10px;
+    color: black;
+    input {
+      border-radius: 10px;
+      padding: 5px;
+      color: #202020;
+      width: 90%;
+      text-decoration: none;
+      border: 2px solid #a5d8fa;
+      @media (max-width: 900px) {
+        width: 100%;
+      }
+    }
+
+    input:focus,
+    input:active {
+      border-color: #ff6525;
+    }
+
+    .imgg {
+      text-align: center;
+      position: relative;
+      cursor: pointer;
+      width: 40%;
+      height: 40%;
+      &:hover {
+        opacity: 0.5;
+      }
+      .inside_img {
+        width: 25%;
+        object-fit: contain;
+      }
+      input {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+      }
+    }
+    @media (max-width: 900px) {
+      width: 90%;
+    }
+  }
+  .nameyyy {
+    display: flex;
+    flex-direction: column;
+    font-size: small;
+    width: 33%;
+    margin-right: 10px;
+    color: black;
+    input {
+      border-radius: 10px;
+      padding: 5px;
+      color: #202020;
+      width: 90%;
+      text-decoration: none;
+      border: 2px solid #a5d8fa;
+      @media (max-width: 900px) {
+        width: 100%;
+      }
+    }
+
+    input:focus,
+    input:active {
+      border-color: #ff6525;
+    }
+
+    .imgg {
+      text-align: center;
+      position: relative;
+      cursor: pointer;
+      width: 70%;
+      height: 40%;
+      &:hover {
+        opacity: 0.5;
+      }
+      .inside_img {
+        width: 25%;
+        object-fit: contain;
+      }
+      input {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+      }
+    }
+  }
+
+  .nameee {
+    display: flex;
+    flex-direction: column;
+    font-size: small;
     width: 100%;
-    .name {
-      display: flex;
-      flex-direction: column;
-      font-size: larger;
-      width: 100%;
-      margin-right: 10px;
-      padding: 20px;
-      gap: 10px;
+    justify-content: space-around;
+    color: black;
+    select {
+      background-color: white;
       color: black;
+      text-decoration: none;
+      border: 2px solid #a5d8fa;
+      line-height: 1.5em;
+      width: 29%;
+      padding: 8px;
+      border-radius: 10px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: linear-gradient(45deg, transparent 50%, blue 50%),
+        linear-gradient(135deg, blue 50%, transparent 50%),
+        linear-gradient(to right, skyblue, skyblue);
+      background-position: calc(100% - 20px) calc(1em + 2px),
+        calc(100% - 15px) calc(1em + 2px), 100% 0;
+      background-size: 5px 5px, 5px 5px, 40px 45px;
+      background-repeat: no-repeat;
+      @media (max-width: 555px) {
+        padding: 8px;
+        background-size: 5px 5px, 5px 5px, 30px 45px;
+        align-items: center;
+      }
+
+      select:focus {
+        background-image: linear-gradient(45deg, white 50%, transparent 50%),
+          linear-gradient(135deg, transparent 50%, white 50%),
+          linear-gradient(to right, gray, gray);
+        background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
+          100% 0;
+        background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+        background-repeat: no-repeat;
+        border-color: grey;
+        outline: 0;
+      }
     }
   }
 
   .first_div {
-    h1 {
+    h2 {
       color: #0e4d92;
-      padding: 10px;
       display: flex;
       justify-content: center;
       margin: 0;
@@ -410,7 +547,6 @@ const Root = styled.section`
     .first_box1 {
       display: flex;
       flex-direction: column;
-      padding: 10px;
       margin: 0px 10px;
       > div {
         display: flex;
@@ -424,38 +560,37 @@ const Root = styled.section`
   .second_div {
     display: flex;
     flex-direction: column;
-    font-family: Georgia, serif;
+    font-family: Roboto, sans-serif;
     flex-wrap: wrap;
+    width: 100%;
 
     .company {
       display: flex;
       flex-direction: column;
-      padding: 20px;
-      /* / width: 95%; / */
       margin: 0px 10px;
+      width: 100%;
 
       > div {
         display: flex;
-        flex: 1;
+        padding: 10px;
+        width: 100%;
 
         .name1 {
           display: flex;
           flex-direction: column;
-          font-size: larger;
-          /* / width: 100%; / */
+          font-size: small;
+          width: 100%;
           margin-right: 10px;
-          padding: 20px;
-          gap: 10px;
           color: black;
         }
         .name2 {
           display: flex;
           flex-direction: column;
-          font-size: larger;
-          /* / width: 100%; / */
+          font-size: small;
+          width: 100%;
           margin-right: 10px;
-          padding: 20px;
-          gap: 10px;
+          /* padding: 20px; */
+          /* gap: 10px; */
           color: black;
         }
       }
@@ -464,14 +599,11 @@ const Root = styled.section`
     .password {
       display: flex;
       flex-direction: column;
-      margin: 0px 10px;
-      padding: 20px;
-      width: 100%;
+      padding: 10px;
+      width: 70%;
       > div {
         display: flex;
-        @media (max-width: 990px) {
-          flex-direction: column;
-        }
+        padding: 10px;
       }
     }
   }
@@ -491,37 +623,29 @@ const Root = styled.section`
       flex-direction: column;
       align-items: center;
       text-align: center;
-      /* / width:50%; / */
+      /* width:50%; */
       justify-content: center;
       .btnn {
         padding: 10px;
-        border-radius: 50px;
-        font-size: medium;
+        border-radius: 10px;
+        font-size: small;
         border-color: transparent;
-        width: 160px;
+        width: 80%;
         font-size: medium;
         color: #ffffff;
         background: rgb(255 94 0);
         margin: 20px;
-        background: linear-gradient(
-          45deg,
-          #ff6525 19%,
-          #ffffffe6 51%,
-          #ff6525 100%
-        );
-        border-radius: 50px;
+        background: #000080;
+        border-radius: 10px;
         color: #fff;
         padding: 10px 5px;
         background-size: 300% 100%;
         transition: all 0.3s ease-in-out 0s;
         text-transform: uppercase;
         &:hover {
-          background: linear-gradient(
-            -25deg,
-            #ff6525 49%,
-            #ffffffe6 91%,
-            #ff6525 100%
-          );
+          box-shadow: 10px 5px 5px gray;
+          transition: all 0.2s ease-in-out 0s;
+          background: linear-gradient(-25deg, #000080 49%, #000080 100%);
         }
       }
     }
@@ -529,40 +653,29 @@ const Root = styled.section`
   .regis {
     display: flex;
     justify-content: flex-end;
-    padding: 20px;
+    padding: 10px;
     .btnn {
       padding: 10px;
-      border-radius: 50px;
-      font-size: medium;
+      border-radius: 10px;
+      font-size: small;
       border-color: transparent;
-      width: 160px;
+      width: 15%;
       font-size: medium;
       color: #ffffff;
-      background: rgb(255 94 0);
       margin-right: 108px;
-      background: linear-gradient(
-        45deg,
-        #ff6525 19%,
-        #ffffffe6 51%,
-        #ff6525 100%
-      );
-      border-radius: 50px;
+      background: #000080;
       color: #fff;
-      padding: 10px 5px;
       background-size: 300% 100%;
       transition: all 0.3s ease-in-out 0s;
       text-transform: uppercase;
       &:hover {
-        background: linear-gradient(
-          -25deg,
-          #ff6525 49%,
-          #ffffffe6 91%,
-          #ff6525 100%
-        );
+        box-shadow: 10px 5px 5px gray;
+        transition: all 0.2s ease-in-out 0s;
+        background: linear-gradient(-25deg, #000080 49%, #000080 100%);
       }
     }
   }
-  @media (max-width: 868px) {
+  @media (max-width: 768px) {
     .first_box1 > div,
     .company > div,
     .password {
@@ -584,27 +697,6 @@ const Root = styled.section`
 
     .fifth_box {
       margin: 20px;
-    }
-  }
-  .imgg {
-    text-align: center;
-    /* margin-bottom: 32px;
-  margin-right: 36px; */
-    position: relative;
-    cursor: pointer;
-    &:hover {
-      opacity: 0.5;
-    }
-    .inside_img {
-      height: 80%;
-      width: 100%;
-      object-fit: contain;
-    }
-    input {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      opacity: 0;
     }
   }
 `;

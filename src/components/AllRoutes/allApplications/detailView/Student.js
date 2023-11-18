@@ -71,7 +71,7 @@ export default function Student({ detail }) {
   );
 }
 const Root = styled.section`
-  font-family: "Mulish", sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 20px;
   background-color: #f8f8f8;
   @media (max-width: 766px) {
