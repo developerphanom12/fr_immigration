@@ -143,7 +143,7 @@ console.log("response",response)
   );
 }
 const Root = styled.section`
-  font-family: "cairo", "sans-serif";
+  font-family: "Roboto", "sans-serif";
   margin-top: 80px;
   margin-bottom: 20px;
   padding: 20px;

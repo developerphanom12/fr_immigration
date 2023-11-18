@@ -137,7 +137,7 @@ const Root = styled.section`
   min-height: 100vh;
   height: 100%;
   padding: 5px;
-  font-family: "cairo", "sans-serif";
+  font-family: "Roboto", "sans-serif";
   align-items: center;
   flex-direction: column;
   button {

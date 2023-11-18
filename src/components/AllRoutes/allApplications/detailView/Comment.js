@@ -105,7 +105,7 @@ export default function Comment({value}) {
   );
 }
 const Root = styled.section`
-  font-family: "mulish", "sans-serif";
+  font-family: "Roboto", "sans-serif";
   display: flex;
   flex-direction: column;
   /* justify-content: space-evenly; */

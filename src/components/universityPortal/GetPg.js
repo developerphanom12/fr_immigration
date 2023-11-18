@@ -140,7 +140,7 @@ export default function GetPg() {
   );
 }
 const Root = styled.section`
-  font-family: "Mulish", "sans-serif";
+  font-family: "Roboto", "sans-serif";
   .child1 {
     width: 90%;
     .child2 {

@@ -52,7 +52,7 @@ export default function AppHistory({ detail }) {
 }
 const Root = styled.section`
   /* display: flex; */
-  font-family: "Cairo", sans-serif;
+  font-family: "Roboto", sans-serif;
   .app_table {
     display: flex;
     flex-direction: column;
@@ -68,7 +68,7 @@ const Root = styled.section`
     }
     .app_body {
       display: flex;
-      font-family: "Cairo", sans-serif;
+      font-family: "Roboto", sans-serif;
       > div {
         flex: 1;
         border: 0.3px solid #fbfbfd;

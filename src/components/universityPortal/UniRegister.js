@@ -354,7 +354,7 @@ Object.keys(add).forEach((key) => {
   );
 }
 const Root = styled.section`
-  font-family: 22px "Mulish", sans-serif;
+  font-family: 22px "Roboto", sans-serif;
   margin: 80px 0px 0px 0px;
   max-width: 100vw;
   width: 100%;

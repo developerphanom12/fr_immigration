@@ -48,7 +48,7 @@ export default function Course({ detail }) {
   );
 }
 const Root = styled.section`
-  font-family: "Mulish", sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 20px;
   background-color: #f8f8f8;
   .course_table {

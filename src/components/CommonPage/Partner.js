@@ -249,7 +249,7 @@ export default function Partner() {
   );
 }
 const Root = styled.section`
-  font-family: 22px "Mulish", sans-serif;
+  font-family: 22px "Roboto", sans-serif;
   margin-top: 80px;
   input {
     /* width: 85%; */

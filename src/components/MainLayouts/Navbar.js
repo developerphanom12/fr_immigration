@@ -98,27 +98,27 @@ export default function Navbar() {
         <div className="opt_btn">
           {" "}
           <img src={russia} alt="img" />
-          Russia
+       
         </div>
         <div className="opt_btn">
           {" "}
           <img src={canada} alt="img" />
-          Canada
+   
         </div>
         <div className="opt_btn">
           {" "}
           <img src={us} alt="img" />
-          United States
+      
         </div>
         <div className="opt_btn">
           {" "}
           <img src={maxico} alt="img" />
-          Mexico
+        
         </div>
         <div className="opt_btn">
           {" "}
           <img src={china} alt="img" />
-          China
+         
         </div>
       </div>
     </Root>
@@ -153,7 +153,7 @@ const Root = styled.section`
       gap: 5px;
       P {
         color: #999;
-        font-family: "Cairo", sans-serif;
+        font-family: "Roboto", sans-serif;
         font-size: 16px;
         align-items: center;
         display: flex;

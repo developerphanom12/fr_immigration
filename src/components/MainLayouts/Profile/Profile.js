@@ -39,12 +39,13 @@ export default function Profile() {
   );
 }
 const Root = styled.section`
-  font-family: "Mulish", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #f8f8f8;
   height: 100%;
+  width: 100%;
 
   .nav_tab {
     display: flex;

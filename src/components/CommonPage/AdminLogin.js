@@ -105,7 +105,7 @@ export default function AdminLogin() {
   );
 }
 const Root = styled.section`
- width: 100%;
+  width: 100%;
   height: 100%;
   min-height: 100vh;
   min-width: 100vw;
@@ -117,7 +117,7 @@ const Root = styled.section`
   background-size: cover;
   padding-bottom: 20px;
   position: relative;
-      top: 25px;
+  top: -16px;
   font: 22px "Mulish", sans-serif;
   @media (max-width: 1019px) {
     display: flex;
@@ -125,17 +125,17 @@ const Root = styled.section`
     align-items: center;
     gap: 10px;
     position: relative;
-      top: 72px;
+    top: 72px;
   }
 
   .logimg {
     h4 {
       color: #010f2e;
       text-align: center;
-      font: 22px "Mulish", sans-serif;
+      font: 20px "Roboto", sans-serif;
     }
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
     background-color: #d8e6f4;
     background-position: center;
     background-repeat: no-repeat;
@@ -144,12 +144,13 @@ const Root = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 90%;
-    width: 45%;
+    height: 80%;
+    align-items: center;
+    width: 42%;
     position: bottom;
     img {
-      max-width: 100%;
-      max-height: 100%;
+      max-width: 90%;
+      max-height: 90%;
       display: flex;
       justify-content: flex-end;
       @media (max-width: 809px) {
@@ -158,8 +159,8 @@ const Root = styled.section`
     }
     @media (max-width: 809px) {
       padding: 10px;
-     width: 100%;
-     margin: 20px 20px;
+      width: 100%;
+      margin: 20px 20px;
     }
   }
 
@@ -172,102 +173,89 @@ const Root = styled.section`
     justify-content: center;
     background-color: #ffffff;
     flex-wrap: wrap;
-    padding: 20px;
-    font: 16px "Mulish", sans-serif;
+    padding: 10px;
+    font: 16px "Roboto", sans-serif;
     color: #353535;
     @media (max-width: 800px) {
       padding: 10px;
       width: 100%;
-     flex-direction: column;
-     margin: 20px 20px;
-
+      flex-direction: column;
+      margin: 20px 20px;
     }
     .user_name {
       display: flex;
       flex-direction: column;
-      width: 100%;
+      width: 90%;
       justify-content: center;
       gap: 5px;
       padding: 10px;
-      font: 16px "Mulish", sans-serif;
+      font: 14px "Mulish", sans-serif;
       @media (max-width: 799px) {
         align-items: center;
         padding: 0px;
-        gap: 0px; 
-      height: 80px; 
+        gap: 0px;
+        height: 80px;
       }
       input {
         width: 100%;
-        padding: 20px;
+        padding: 15px;
         cursor: pointer;
         border: transparent;
-        border-radius: 30px;
+        border-radius: 10px;
         background-color: #e8f0fe;
         @media (max-width: 809px) {
-         
           height: 35px;
           padding: 10px;
         }
       }
     }
     .button_div {
-      width:100%;
+      width: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       button {
         display: flex;
         flex-direction: column;
-        width:100%;
-        height: 55px;
-        padding: 15px;
+        width: 97%;
+        height: 50px;
         justify-content: center;
         align-items: center;
         cursor: pointer;
-        margin: 8px 0px 8px 0px;
-        border-radius: 30px;
+        border-radius: 10px;
         border: transparent;
-        background: linear-gradient(
-          45deg,
-          #0146ff 19%,
-          #0146ff96 48%,
-          #0146ff 100%
-        );
+        margin: 5px;
+        background: #000080;
+        color: #fff;
+        background-size: 300% 100%;
+        transition: all 0.2s ease-in-out 0s;
+        text-transform: uppercase;
         @media (max-width: 899px) {
-          height: 35px;
+          height: 30px;
         }
         &:hover {
-          background: linear-gradient(
-            -25deg,
-            #0146ff 19%,
-            #0146ff96 88%,
-            transparent 100%
-          );
-          transition: all 0.3s ease-in-out 0s;
+          transition: all 0.2s ease-in-out 0s;
+          box-shadow: 10px 5px 5px gray;
         }
-        border-radius: 50px;
-        color: #fff;
-        padding: 20px 30px;
-        background-size: 300% 100%;
-        transition: all 0.3s ease-in-out 0s;
-        text-transform: uppercase;
       }
     }
-    .forget {
-      padding: 10px;
+    /* .forget {
       text-align: right;
-      width: 100%;
+      width: 85%;
       @media (max-width: 800px) {
-          height: 35px;
-          text-align: center;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
+        height: 30px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
       button {
-        color: #ff6525;
-        font-family: "Mulish", sans-serif;
+        color: dodgerblue;
+        font-family: "Roboto", sans-serif;
         text-decoration: underline;
         font-weight: 700;
-        font-size: 16px;
+        font-size: 18px;
         cursor: pointer;
         border: none;
         padding: 10px;
@@ -278,47 +266,39 @@ const Root = styled.section`
           text-align: center;
         }
       }
-    }
+    } */
 
     .register {
       display: flex;
-      font: 20px;
-      width:100%;
+      font: 16px;
+      width: 90%;
       align-items: center;
       justify-content: center;
-      gap: 5px;
+      gap: 20px;
       @media (max-width: 889px) {
         flex-direction: column;
       }
       button {
         border: none;
+
         @media (max-width: 809px) {
           width: 100%;
-          height: 35px;
+          height: 30px;
         }
-        background: linear-gradient(
-          45deg,
-          #ff6525 19%,
-          #ffffffe6 51%,
-          #ff6525 100%
-        );
-        border-radius: 60px;
+        background: #000080;
+        border-radius: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
         width: 40%;
         color: #fff;
-        padding: 20px 15px;
+        padding: 15px;
         background-size: 300% 100%;
-        transition: all 0.3s ease-in-out 0s;
+        transition: all 0.2s ease-in-out 0s;
         text-transform: uppercase;
         &:hover {
-          background: linear-gradient(
-            -25deg,
-            #ff6525 49%,
-            #ffffffe6 91%,
-            #ff6525 100%
-          );
+          box-shadow: 10px 5px 5px gray;
+          transition: all 0.2s ease-in-out 0s;
         }
       }
     }

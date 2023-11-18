@@ -163,7 +163,7 @@ export default function DashboardAdmin() {
   );
 }
 const Root = styled.section`
-  font-family: 32px "Cairo", sans-serif;
+  font-family: 32px "Roboto", sans-serif;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -251,7 +251,7 @@ const Root = styled.section`
     }
     .app_body {
       display: flex;
-      font-family: "Cairo", sans-serif;
+      font-family: "Roboto", sans-serif;
 
       > div {
         flex: 1;

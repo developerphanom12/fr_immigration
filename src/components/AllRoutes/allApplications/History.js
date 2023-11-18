@@ -186,7 +186,7 @@ const Root = styled.section`
   gap: 10px;
   background-color: #f8f8f8;
   color: #202020;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: normal;
   vertical-align: middle;
@@ -205,7 +205,7 @@ const Root = styled.section`
     }
     h1 {
       color: #202020;
-      font-family: "Cairo", sans-serif;
+      font-family: "Roboto", sans-serif;
       font-size: 32px;
       font-weight: 700;
     }
@@ -244,7 +244,7 @@ const Root = styled.section`
       border: none;
       border-radius: 35px;
       float: none;
-      font-family: "Cairo", sans-serif;
+      font-family: "Roboto", sans-serif;
       font-size: 18px;
       font-weight: 700;
       margin: 15px;
@@ -264,7 +264,7 @@ const Root = styled.section`
     display: flex;
     flex-direction: column;
     margin: 20px;
-    font-family: "Mulish", "sana-serif";
+    font-family: "Roboto", "sana-serif";
     .app_header {
       display: flex;
       background-color: #fff3ee;
@@ -279,7 +279,7 @@ const Root = styled.section`
     }
     .app_body {
       display: flex;
-      font-family: "Cairo", sans-serif;
+      font-family: "Roboto", sans-serif;
 
       .cams {
         text-align: center;

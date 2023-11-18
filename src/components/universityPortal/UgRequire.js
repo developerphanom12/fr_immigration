@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { EXCHANGE_URLS_UNIVERSITY } from "../URLS";
 import axios from "axios";
-import cogoToast from "cogo-toast";
-import GetUg from "./GetUg";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -95,7 +93,7 @@ const Root = styled.section`
   gap: 10px;
   background-color: #f8f8f8;
   color: #202020;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: normal;
   vertical-align: middle;
@@ -121,14 +119,14 @@ const Root = styled.section`
     margin: 0;
     text-transform: capitalize;
     text-align: left;
-    font-family: "open-sans", "sana-serif";
+    font-family: "Roboto", "sana-serif";
   }
 
   .app_table {
     display: flex;
     flex-direction: column;
     margin: 20px;
-    font-family: "Mulish", "sana-serif";
+    font-family: "Roboto", "sana-serif";
     .app_header {
       display: flex;
       background-color: #fff3ee;
@@ -143,7 +141,7 @@ const Root = styled.section`
     }
     .app_body {
       display: flex;
-      font-family: "Cairo", sans-serif;
+      font-family: "Roboto", sans-serif;
       height: 100%;
       .child {
         font-size: 13px;

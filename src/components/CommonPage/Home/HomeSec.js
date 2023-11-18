@@ -73,7 +73,7 @@ export default function HomeSec() {
   );
 }
 const Root = styled.section`
-font-family: 'Mulish','sans-serif';
+font-family: 'Roboto','sans-serif';
   .sndbox {
     display: flex;
     margin: 20px;

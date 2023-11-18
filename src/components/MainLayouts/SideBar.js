@@ -286,7 +286,7 @@ overflow-y: scroll;
   max-height: 100vh;
   color: black;
   padding: 5px;
-  font-family: 32px "Cairo", sans-serif;
+  font-family: 32px "Roboto", sans-serif;
   width: 100%;
   border-right: 1px solid gray;
   align-items: center;

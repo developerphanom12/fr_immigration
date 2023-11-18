@@ -95,7 +95,7 @@ const Root = styled.section`
   width: 100%;
   background: #fff3ee;
   height: 600px;
-  font-family: "Mulish", "sans-serif";
+  font-family: "Roboto", "sans-serif";
 
   .firstbox {
     background: #fff3ee;
@@ -104,7 +104,7 @@ const Root = styled.section`
     display: flex;
     height: 100%;
     flex-wrap: wrap;
-    font: "Mulish", "sans-serif";
+    font: "Roboto", "sans-serif";
 
     .line {
       flex: 1;
@@ -120,7 +120,7 @@ const Root = styled.section`
         color: #005082;
         padding: 10px;
         font-weight: 800;
-        font-family: "Mulish", "sans-serif";
+        font-family: "Roboto", "sans-serif";
       }
       .search {
         height: 48px;

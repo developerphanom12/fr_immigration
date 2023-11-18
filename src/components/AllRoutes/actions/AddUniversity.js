@@ -132,7 +132,7 @@ export default function AddUniversity() {
 const Root = styled.section`
   display: flex;
   min-height: 100vh;
-  font-family: 'cairo','sans-serif';
+  font-family: 'Roboto','sans-serif';
   height: 100%;
   padding: 5px;
   align-items: center;

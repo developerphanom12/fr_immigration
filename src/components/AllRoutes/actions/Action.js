@@ -40,7 +40,7 @@ export default function Action() {
 }
 
 const Root = styled.section`
-  font-family: "Mulish", sans-serif;
+  font-family: "Roboto", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -27,7 +27,7 @@ export default function Register() {
   const registerApi = async () => {
     console.log("yyyyy", formData);
     const { confirm_password, ...data } = formData;
-    
+
     try {
       const res = await axios.post(`${EXCHANGE_URLS_STUDENT}/studentregister`, {
         ...data,
@@ -70,11 +70,11 @@ export default function Register() {
   return (
     <Root>
       <div className="first_div">
-        <h1>Student Registration Portal</h1>
+        <h2>Student Registration Portal</h2>
 
         <div className="first_box1">
           <div>
-            <h3>Your Personal Details :-</h3>
+            <h4>Your Personal Details :-</h4>
           </div>
 
           <div>
@@ -149,29 +149,28 @@ export default function Register() {
                 placeholder="Phone Number"
               />
             </div>
-            
           </div>
           <div className="nameee">
-              {" "}
-              Select Gender
-              <select
-                onChange={(e) => {
-                  setFormData({ ...formData, gender: e.target.value });
-                }}
-              >
-                <option>Gender</option>
-                <option value={formData.gender.male}>Male</option>
-                <option value={formData.gender.female}>Female</option>
-                <option value={formData.gender.other}>Other</option>
-              </select>
-            </div>
+            {" "}
+            Select Gender
+            <select
+              onChange={(e) => {
+                setFormData({ ...formData, gender: e.target.value });
+              }}
+            >
+              <option>Gender</option>
+              <option value={formData.gender.male}>Male</option>
+              <option value={formData.gender.female}>Female</option>
+              <option value={formData.gender.other}>Other</option>
+            </select>
+          </div>
         </div>
       </div>
       <div className="second_div">
         <div className="company">
           <div>
             {" "}
-            <h3>Address :-</h3>
+            <h4>Address :-</h4>
           </div>
 
           <div>
@@ -219,7 +218,7 @@ export default function Register() {
           </div>
         </div>
         <div className="password">
-          <h3>Your Password :-</h3>
+          <h4>Your Password :-</h4>
 
           <div>
             <div className="name">
@@ -278,15 +277,16 @@ export default function Register() {
   );
 }
 const Root = styled.section`
-  font-family: 22px "Mulish", sans-serif;
+  font-family: 20px "Roboto", sans-serif;
   margin: 80px 0px 0px 0px;
   max-width: 100vw;
   width: 100%;
 
   input {
-    border-radius: 40px;
-    padding: 10px;
+    border-radius: 10px;
+    padding: 5px;
     color: #202020;
+    width: 90%;
     text-decoration: none;
     border: 2px solid #a5d8fa;
     @media (max-width: 600px) {
@@ -305,7 +305,7 @@ const Root = styled.section`
     flex-wrap: wrap;
   }
 
-  h3 {
+  h4 {
     color: #0e4d92;
     margin: 0;
   }
@@ -313,33 +313,28 @@ const Root = styled.section`
   .name {
     display: flex;
     flex-direction: column;
-    font-size: larger;
-    width: 100%;
+    font-size: small;
+    width: 90%;
     margin-right: 10px;
-    padding: 20px;
-    gap: 10px;
     color: black;
-}
+  }
 
-.nameee{
+  .nameee {
     display: flex;
     flex-direction: column;
-    font-size: larger;
+    font-size: small;
     width: 100%;
     justify-content: space-around;
-    margin-left: 10px;
-    gap: 10px;
     color: black;
     select {
-        background-color: white;
-        color: black;
-        text-decoration: none;
-        border: 2px solid #a5d8fa;
-        line-height: 1.5em;
-        width: 320px;
-        padding: 8px;
-    
-      border-radius: 30px;
+      background-color: white;
+      color: black;
+      text-decoration: none;
+      border: 2px solid #a5d8fa;
+      line-height: 1.5em;
+      width: 29%;
+      padding: 8px;
+      border-radius: 10px;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
@@ -354,7 +349,6 @@ const Root = styled.section`
       background-repeat: no-repeat;
       @media (max-width: 555px) {
         padding: 8px;
-        /* width: 120px; */
         background-size: 5px 5px, 5px 5px, 30px 45px;
         align-items: center;
       }
@@ -371,12 +365,11 @@ const Root = styled.section`
         outline: 0;
       }
     }
-}
+  }
 
   .first_div {
-    h1 {
+    h2 {
       color: #0e4d92;
-      padding: 10px;
       display: flex;
       justify-content: center;
       margin: 0;
@@ -385,14 +378,12 @@ const Root = styled.section`
     .first_box1 {
       display: flex;
       flex-direction: column;
-      padding: 20px;
       margin: 0px 10px;
       > div {
         display: flex;
         flex: 1;
         padding: 10px;
         gap: 5px;
-        
       }
     }
   }
@@ -400,39 +391,37 @@ const Root = styled.section`
   .second_div {
     display: flex;
     flex-direction: column;
-    font-family: Georgia, serif;
+    font-family: Roboto, sans-serif;
     flex-wrap: wrap;
+    width: 100%;
 
     .company {
       display: flex;
       flex-direction: column;
-      /* padding: 20px; */
-      /* width: 95%; */
       margin: 0px 10px;
+      width: 100%;
 
       > div {
         display: flex;
-        /* flex: 1; */
         padding: 10px;
+        width: 100%;
 
         .name1 {
           display: flex;
           flex-direction: column;
-          font-size: larger;
-          /* width: 100%; */
+          font-size: small;
+          width: 100%;
           margin-right: 10px;
-          padding: 20px;
-          gap: 10px;
           color: black;
         }
         .name2 {
           display: flex;
           flex-direction: column;
-          font-size: larger;
-          /* width: 100%; */
+          font-size: small;
+          width: 100%;
           margin-right: 10px;
-          padding: 20px;
-          gap: 10px;
+          /* padding: 20px; */
+          /* gap: 10px; */
           color: black;
         }
       }
@@ -441,11 +430,12 @@ const Root = styled.section`
     .password {
       display: flex;
       flex-direction: column;
-      margin: 0px 10px;
       padding: 20px;
       width: 50%;
       > div {
         display: flex;
+      padding: 10px;
+
       }
     }
   }
@@ -469,32 +459,28 @@ const Root = styled.section`
       justify-content: center;
       .btnn {
         padding: 10px;
-        border-radius: 50px;
-        font-size: medium;
+        border-radius: 10px;
+        font-size: small;
         border-color: transparent;
-        width: 160px;
+        width: 80%;
         font-size: medium;
         color: #ffffff;
         background: rgb(255 94 0);
         margin: 20px;
-        background: linear-gradient(
-          45deg,
-          #ff6525 19%,
-          #ffffffe6 51%,
-          #ff6525 100%
-        );
-        border-radius: 50px;
+        background:#000080;
+        border-radius: 10px;
         color: #fff;
         padding: 10px 5px;
         background-size: 300% 100%;
         transition: all 0.3s ease-in-out 0s;
         text-transform: uppercase;
         &:hover {
+          box-shadow: 10px 5px 5px gray;
+          transition: all 0.2s ease-in-out 0s;
           background: linear-gradient(
             -25deg,
-            #ff6525 49%,
-            #ffffffe6 91%,
-            #ff6525 100%
+            #000080 49%,
+            #000080 100%
           );
         }
       }
@@ -506,31 +492,25 @@ const Root = styled.section`
     padding: 20px;
     .btnn {
       padding: 10px;
-      border-radius: 50px;
-      font-size: medium;
+      border-radius: 10px;
+      font-size: small;
       border-color: transparent;
-      width: 160px;
+      width: 20%;
       font-size: medium;
       color: #ffffff;
-      background: rgb(255 94 0);
-margin-right:108px;      background: linear-gradient(
-        45deg,
-        #ff6525 19%,
-        #ffffffe6 51%,
-        #ff6525 100%
-      );
-      border-radius: 50px;
+      margin-right: 108px;
+      background:#000080;
       color: #fff;
-      padding: 10px 5px;
       background-size: 300% 100%;
       transition: all 0.3s ease-in-out 0s;
       text-transform: uppercase;
       &:hover {
+        box-shadow: 10px 5px 5px gray;
+          transition: all 0.2s ease-in-out 0s;
         background: linear-gradient(
           -25deg,
-          #ff6525 49%,
-          #ffffffe6 91%,
-          #ff6525 100%
+          #000080 49%,
+          #000080 100%
         );
       }
     }

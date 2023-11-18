@@ -476,7 +476,7 @@ const Root = styled.section`
   .first_div {
     flex-wrap: wrap;
     h1 {
-      font: 32px "cairo", sans-serif;
+      font: 32px "Roboto", sans-serif;
       color: #202020;
       font-weight: 600;
       padding: 30px;

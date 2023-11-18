@@ -82,10 +82,10 @@ const Root = styled.section`
   padding: 20px;
   gap: 10px;
   align-items: center;
-  font-family: "Mulish", "sans-serif";
+  font-family: "Roboto", "sans-serif";
   h3 {
     font-weight: 600;
-    font-family: "Mulish", "sans-serif";
+    font-family: "Roboto", "sans-serif";
   }
   .pass1 {
     input {

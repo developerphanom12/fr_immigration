@@ -115,7 +115,7 @@ export default function DetailView() {
   );
 }
 const Root = styled.section`
-  font-family: "Mulish", sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: #f8f8f8;
   height: 100%;
   padding: 20px;

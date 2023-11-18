@@ -344,7 +344,7 @@ const Root = styled.section`
   width: 100%;
   margin: 10px;
   padding: 10px;
-  font-family: "Mulish", "sana-serif";
+  font-family: "Roboto", "sana-serif";
   @media (max-width: 888px) {
     margin: 0;
     padding: 0;

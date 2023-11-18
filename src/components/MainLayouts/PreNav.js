@@ -140,16 +140,18 @@ export default function PreNav() {
 
 const Root = styled.section`
   display: flex;
-  height: 80px;
+  height: 12%;
   align-items: center;
   z-index: 10;
   overflow: hidden;
   position: fixed;
   width: 100%;
+  padding: 10px;
   background-color: #fff;
-
+  font-size: 15px;
+  border-bottom: 2px solid lightgray;
   .logo {
-    width: 200px;
+    width: 15%;
     background-color: #ffffff;
     img {
       width: 100%;
@@ -166,51 +168,46 @@ const Root = styled.section`
       display: flex;
       justify-content: center;
       align-items: center;
-      border-radius: 40px;
+      border-radius: 10px;
       padding: 10px;
       border: none;
       cursor: pointer;
       &:hover {
         background-color: lightgray;
+        box-shadow: 10px 5px 5px gray;
       }
     }
 
     .login {
       color: #ffffff;
-      padding: 10px;
+      padding: 5px;
       border-color: transparent;
       cursor: pointer;
-      background: linear-gradient(
-        45deg,
-        #ff6525 19%,
-        #ffffffe6 51%,
-        #ff6525 100%
-      );
-      border-radius: 50px;
+      background: #000080;
       background-size: 300% 100%;
-      transition: all 0.3s ease-in-out 0s;
+      transition: all 0.2s ease-in-out 0s;
       &:hover {
         background: linear-gradient(
           -25deg,
-          #ff6525 49%,
-          #ffffffe6 91%,
-          #ff6525 100%
+          #000080 49%,
+          #1130c8 91%,
+          #000080 100%
         );
       }
     }
 
-    @media (max-width: 950px) {
+    @media (max-width: 1050px) {
       display: none;
     }
   }
   .menu {
-    @media (max-width: 950px) {
+    @media (max-width: 1050px) {
       display: block;
       padding-right: 10px;
     }
   }
   .menu {
-    @media (min-width: 951px) {
+    @media (min-width: 1051px) {
       display: none;
     }
   }
