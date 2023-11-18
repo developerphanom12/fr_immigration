@@ -6,6 +6,7 @@ import { EXCHANGE_URLS_UNIVERSITY } from "../URLS";
 import axios from "axios";
 import styled from "styled-components";
 import { userCheckAction, userDataAction } from "../../redux/users/action";
+import cogoToast from "cogo-toast";
 
 export default function UniLogin() {
   const navigate = useNavigate();
