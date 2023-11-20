@@ -109,7 +109,10 @@ export default function Search_course() {
 const Root = styled.section`
   height: 100%;
   min-height: 100vh;
-
+  padding-left: 90px;
+    @media (max-width:788px){
+      padding-left: 60px;
+    }
   h2 {
     margin-top: 10px;
   }

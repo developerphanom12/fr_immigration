@@ -101,6 +101,10 @@ export default function Urm_university() {
   );
 }
 const Root = styled.section`
+padding-left: 90px;
+    @media (max-width:788px){
+      padding-left: 60px;
+    }
   h5,
   p {
     margin: 0;

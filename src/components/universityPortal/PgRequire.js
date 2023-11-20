@@ -69,22 +69,22 @@ export default function PgRequire() {
           require.map((requirement, index) => (
             <div key={index} className="app_body">
               <div>
-                <p>{requirement?.course_name}</p>
+                <p>{requirement?.english_requirement}</p>
               </div>
               <div>
-                <p>{requirement?.department}</p>
+                <p>{requirement?.academic_requirement}</p>
               </div>
               <div>
-                <p>{requirement?.subject}</p>
+                <p>{requirement?.offer_timeline}</p>
               </div>
               <div>
-                <h6>{requirement?.tuition_fee}</h6>
+                <h6>{requirement?.Credibility}</h6>
               </div>
               <div>
-                <p>{requirement?.duration_years}</p>
+                <p>{requirement?.Finance}</p>
               </div>
               <div>
-                <p>{requirement?.course_type}</p>
+                <p>{requirement?.Discount}</p>
               </div>
             </div>
           ))}
@@ -103,6 +103,10 @@ const Root = styled.section`
   font-weight: normal;
   vertical-align: middle;
   height: 100%;
+  padding-left: 90px;
+    @media (max-width:788px){
+      padding-left: 60px;
+    }
   .child1{
     button {
       width: 200px;

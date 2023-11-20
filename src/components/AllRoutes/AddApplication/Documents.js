@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import styled from "styled-components";
 import { EXCHANGE_URLS_APPLICATION } from "../../URLS";
+import { useNavigate } from "react-router-dom";
 
 export default function Documents({ appId }) {
   const [aadhar, setAadhar] = useState("");
@@ -11,6 +12,7 @@ export default function Documents({ appId }) {
   const [passBack, setPassBack] = useState("");
   const [pass10th, setPass10th] = useState("");
   const [pass12th, setPass12th] = useState("");
+  const navigate = useNavigate();
 
   const submitDoc = async () => {
     const data = new FormData();
@@ -33,6 +35,7 @@ export default function Documents({ appId }) {
         axiosConfig
       );
       console.log("resssssssss", res);
+      navigate('/history')
       cogoToast.success("Documents Submitted Successfully");
     } catch (error) {
       cogoToast.error("Error");
@@ -137,6 +140,10 @@ const Root = styled.section`
   justify-content: center;
   background-color: #f8f8f8;
   flex-direction: column;
+  padding-left: 90px;
+    @media (max-width:788px){
+      padding-left: 60px;
+    }
 
   @media (max-width: 823px) {
     gap: 10px;
@@ -216,12 +223,12 @@ const Root = styled.section`
     }
     .submit_btn {
       width: fit-content;
-      background-color: #0146ff;
+      background-color: #000080;
       border: none;
       color: white;
       padding: 8px;
       font-weight: 540;
-      border-radius: 15px;
+      border-radius: 10px;
      
     }
     .submit_btn:hover {

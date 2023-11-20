@@ -53,6 +53,10 @@ export default function AppHistory({ detail }) {
 const Root = styled.section`
   /* display: flex; */
   font-family: "Roboto", sans-serif;
+  padding-left: 80px;
+    @media (max-width:788px){
+      padding-left: 60px;
+    }
   .app_table {
     display: flex;
     flex-direction: column;

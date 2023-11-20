@@ -74,26 +74,25 @@ export default function ProfileUser() {
   );
 }
 const Root = styled.section`
-  font-family: "Roboto", "sans-serif";
-  border: 2px solid lightblue;
+  font-family: "Avenir";
+  border: 2px solid dodgerblue;
   padding: 40px;
   /* border-radius: 10px; */
-  /* background-color: #28a5f91c; */
-  box-shadow: 5px 5px lightgray;
+  background-color: #ffffff;
+  box-shadow: 6px 7px 7px gray;
   .child {
     svg {
       padding: 10px;
       width: 35%;
       height: 35%;
-      box-shadow: 2px 2px 2px 2px lightgray;
+      box-shadow: 3px 2px 2px gray;
       border-radius: 50%;
     }
   }
-
   h3 {
     font-weight: 600;
     font-family: "Roboto", "sans-serif";
-    text-shadow: 2px 2px #cbcbcb;
+    text-shadow: 3px 2px 2px #cbcbcb;
     padding: 10px;
     margin: 0;
   }
@@ -101,12 +100,8 @@ const Root = styled.section`
     display: flex;
     align-items: center;
     padding: 10px;
-    border-bottom: 3px solid #28a5f97a;
-    p {
-      /* font-size: 16px; */
-      text-transform: capitalize;
-      margin: 0;
-    }
+    border-bottom: 3px solid dodgerblue;
+   
     h6 {
       font-weight: 600;
       margin: 0;

@@ -139,6 +139,10 @@ export default function UniAddCourses() {
   )
 }
 const Root = styled.section`
+padding-left: 80px;
+    @media (max-width:788px){
+      padding-left: 60px;
+    }
 p{
   margin: 0px;
 }

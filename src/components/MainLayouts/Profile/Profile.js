@@ -43,7 +43,7 @@ const Root = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f8f8f8;
+  background-color: #f1f1f2;
   height: 100%;
   width: 100%;
 

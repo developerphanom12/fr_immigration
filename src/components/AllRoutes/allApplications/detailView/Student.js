@@ -73,6 +73,10 @@ export default function Student({ detail }) {
 const Root = styled.section`
   font-family: "Roboto", sans-serif;
   margin: 20px;
+  padding-left: 80px;
+    @media (max-width:788px){
+      padding-left: 60px;
+    }
   background-color: #f8f8f8;
   @media (max-width: 766px) {
     margin: 0;

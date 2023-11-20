@@ -277,7 +277,6 @@ export default function Register() {
   );
 }
 const Root = styled.section`
-  /* font-family: 20px "Roboto", sans-serif; */
   font-family: 'Roboto', sans-serif;
   margin: 80px 0px 0px 0px;
   max-width: 100vw;
@@ -421,8 +420,6 @@ const Root = styled.section`
           font-size: small;
           width: 100%;
           margin-right: 10px;
-          /* padding: 20px; */
-          /* gap: 10px; */
           color: black;
         }
       }
@@ -456,7 +453,6 @@ const Root = styled.section`
       flex-direction: column;
       align-items: center;
       text-align: center;
-      /* width:50%; */
       justify-content: center;
       .btnn {
         padding: 10px;

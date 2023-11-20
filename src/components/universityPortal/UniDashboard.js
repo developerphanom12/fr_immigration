@@ -11,5 +11,8 @@ export default function UniDashboard() {
   )
 }
 const Root = styled.section`
-
+padding-left: 80px;
+    @media (max-width:788px){
+      padding-left: 60px;
+    }
 `

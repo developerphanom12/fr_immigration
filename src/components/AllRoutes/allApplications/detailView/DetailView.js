@@ -118,7 +118,10 @@ const Root = styled.section`
   font-family: "Roboto", sans-serif;
   background-color: #f8f8f8;
   height: 100%;
-  padding: 20px;
+  padding-left: 80px;
+    @media (max-width:788px){
+      padding-left: 60px;
+    }
   @media (max-width: 800px) {
     padding: 0;
     h2 {

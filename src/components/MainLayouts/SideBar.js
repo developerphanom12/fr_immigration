@@ -40,8 +40,6 @@ export default function SideBar() {
         </div>
 
         <div className="nav_section">
-          
-
           {userDetails.role === "user" ||
           userDetails.role === "staff" ||
           userDetails.role === "admin" ? (
@@ -260,129 +258,72 @@ export default function SideBar() {
           ) : (
             ""
           )}
+          <div
+            className="logout"
+            onClick={() => {
+              handleLogoutClick();
+            }}
+          >
+            <FiLogOut />
+            <p>Logout</p>
+          </div>
         </div>
-      </div>
-
-      <div
-        className="logout"
-        onClick={() => {
-          handleLogoutClick();
-        }}
-      >
-        <FiLogOut />
-        <p>Logout</p>
       </div>
     </Root>
   );
 }
 
 const Root = styled.section`
-overflow-y: scroll;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
   max-height: 100vh;
   color: black;
-  font-family: 32px "Roboto", sans-serif;
-  width: 100%;
-  /* align-items: center; */
-  overflow-y: none;
+  font-family: "Roboto", sans-serif;
   position: sticky;
   top: 0px;
-  @media (max-width: 798px) {
-    width: 130px;
-    font-size: smaller;
-    flex-direction: column;
-    padding: 5px;
-    gap: 5px;
-  }
+
   .menu_top {
     display: flex;
     flex-direction: column;
-  
     .company_logo {
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 8px 0px 8px 0px;
+
       img {
         width: 100%;
-        padding: 10px;
+        padding: 4px;
         cursor: pointer;
-      }
-      @media (max-width: 798px) {
-        flex-direction: column;
-        font-size: smaller;
-        width: 100px;
-        padding: 5px;
-        background-color: transparent;
-        img {
-          width: 100px;
-          cursor: pointer;
-        }
-      }
-    }
-    .caption {
-      color: gray;
-      text-align: center;
-      font-size: 16px;
-      margin: 0;
-      @media (max-width: 798px) {
-        flex-direction: column;
-        font-size: smaller;
-        width: 100px;
-        padding: 5px;
-        background-color: transparent;
       }
     }
     .nav_section {
       display: flex;
       flex-direction: column;
-      /* gap: 10px; */
-      width: 100%;
-      justify-content: space-between;
+      padding-top: 15px;
       height: 100%;
-      /* padding: 10px; */
+      gap: 20px;
       font-size: 13px;
+      padding: 6px;
+      position: relative;
+        top: 20px;
 
-      @media (max-width: 798px) {
-        flex-direction: column;
-        font-size: 13px;
-      }
       > div {
         display: flex;
-        justify-content: center;
-        align-items: flex-start;
         width: 100%;
-        gap: 10px;
-        padding: 8px;
-        border-radius: 40px;
-        @media (max-width: 798px) {
-          flex-direction: column;
-          width: 80px;
-          gap: 0;
-
-          border-radius: 20px;
-        }
+        gap: 5px;
+       
+        border-radius: 10px;
+        align-items: center;
         &:hover {
-          background: linear-gradient(
-            45deg,
-            #0146ff 19%,
-            #0146ff96 98%,
-            #0146ff 100%
-          );
-          color: white;
           cursor: pointer;
-          @media (max-width: 700px) {
-            background-color: transparent;
-            color: black;
-          }
         }
 
         p {
-          margin: 0;
-          padding: 0;
-          flex: 1;
+          display: none;
+          font-size: small;
         }
         svg {
           width: 25px;
@@ -390,62 +331,20 @@ overflow-y: scroll;
         }
       }
       .active {
-        background: linear-gradient(
-          45deg,
-          #0146ff 19%,
-          #0146ff96 98%,
-          #0146ff 100%
-        );
         color: white;
-        @media (max-width: 800px) {
-          /* background: transparent; */
-          &:hover {
-            background: transparent;
-          }
-        }
+        background: #000080;
+        padding: 4px;
+      }
+      &:hover {
+        display: flex;
+        gap: 2px;
       }
     }
   }
-  .logout {
-    display: flex;
-    /* justify-content: center; */
-    align-items: flex-start;
-    width: 100%;
-    gap: 10px;
-    align-items: center;
-    padding: 8px;
-    text-align: center;
-    border-radius: 40px;
-    font-size: 13px;
-    margin: 10px;
-
-    @media (max-width: 798px) {
-      /* flex-direction: column; */
-      text-size-adjust: smaller;
-      width: 130px;
-      gap: 0;
-      padding: 10px;
-      background-color: transparent;
-    }
-    &:hover {
-      background: linear-gradient(
-        45deg,
-        #0146ff 19%,
-        #0146ff96 98%,
-        #0146ff 100%
-      );
-      color: white;
-      cursor: pointer;
-    }
-
-    p {
-      margin: 0;
-      padding: 0;
-      /* flex: 1; */
-    }
-    svg {
-      width: 25px;
-      height: 25px;
+  &:hover {
+    .nav_section > div > p {
+      display: block;
+      padding-top: 10px;
     }
   }
 `;

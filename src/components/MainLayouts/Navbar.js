@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { FcList } from "react-icons/fc";
 import { FaUserCircle } from "react-icons/fa";
+import { IoIosArrowDropdown } from "react-icons/io";
 import russia from "../MainLayouts/pictures/Russia.png";
 import canada from "../MainLayouts/pictures/canada.png";
 import us from "../MainLayouts/pictures/unitedstates.png";
@@ -10,8 +11,10 @@ import china from "../MainLayouts/pictures/china.png";
 import { EXCHANGE_URLS } from "../URLS";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
+  const userDetails = useSelector((state) => state?.users.user);
   const [activePop, setActivePop] = useState(false);
   const [isListOpen, setIsListOpen] = useState(false);
   const [profile, setProfile] = useState({});
@@ -22,7 +25,10 @@ export default function Navbar() {
       },
     };
     try {
-      const res = await axios.get(`${EXCHANGE_URLS}/get/detail/by`, axiosConfig);
+      const res = await axios.get(
+        `${EXCHANGE_URLS}/get/detail/by`,
+        axiosConfig
+      );
       setProfile(res?.data?.data);
       console.log("resp", res?.data?.data);
     } catch (e) {
@@ -35,7 +41,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <Root >
+    <Root>
       <div className="flags">
         <div>
           {" "}
@@ -58,6 +64,7 @@ export default function Navbar() {
           <img src={china} alt="img" />
         </div>
       </div>
+{userDetails.role === "user" || "student" || "university" ? 
       <div
         className="profile"
         onClick={() => {
@@ -65,7 +72,10 @@ export default function Navbar() {
         }}
       >
         <FaUserCircle />
-        <div>{profile?.username ? profile.username : "Unknown"}</div>
+        <div>
+          {profile?.username ? profile.username : "Unknown"}{" "}
+          <IoIosArrowDropdown />
+        </div>
         <div className={isListOpen ? "option_list" : "off"}>
           <p>
             <Link to="/profile">Profile Details</Link>
@@ -75,6 +85,8 @@ export default function Navbar() {
           </p>
         </div>
       </div>
+      :"Admin"
+}
 
       <div
         className="menu"
@@ -93,27 +105,22 @@ export default function Navbar() {
         <div className="opt_btn">
           {" "}
           <img src={russia} alt="img" />
-       
         </div>
         <div className="opt_btn">
           {" "}
           <img src={canada} alt="img" />
-   
         </div>
         <div className="opt_btn">
           {" "}
           <img src={us} alt="img" />
-      
         </div>
         <div className="opt_btn">
           {" "}
           <img src={maxico} alt="img" />
-        
         </div>
         <div className="opt_btn">
           {" "}
           <img src={china} alt="img" />
-         
         </div>
       </div>
     </Root>
@@ -124,8 +131,16 @@ const Root = styled.section`
   display: flex;
   align-items: center;
   flex: 1;
-  /* height: 55%; */
-  justify-content: space-evenly;
+  height: 100%;
+  padding: 10px;
+  width: 90%;
+  background-color: #f8f8f8;
+  justify-content: space-between;
+  border-bottom: 2px solid lightgray;
+  padding-left: 80px;
+    @media (max-width:788px){
+      padding-left: 60px;
+    }
   .flags {
     display: flex;
     height: 50px;
@@ -137,15 +152,13 @@ const Root = styled.section`
     }
 
     > div {
-      height: 38px;
-      width: 170px;
+      height: 98%;
       align-items: center;
       display: flex;
-      background-color: #f8f8f8;
-      border-radius: 20px;
+      border-radius: 10px;
       padding: 6px 10px;
       text-align: center;
-      gap: 5px;
+      gap: 10px;
       P {
         color: #999;
         font-family: "Roboto", sans-serif;
@@ -156,9 +169,9 @@ const Root = styled.section`
         font-weight: 700;
       }
       img {
-        width: 40px;
-        height: 40px;
-        border-radius: 130px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
       }
     }
   }
@@ -171,12 +184,21 @@ const Root = styled.section`
     align-items: center;
     position: relative;
     cursor: pointer;
-    padding: 10px;
     border-radius: 10px;
     background-color: lightgray;
+    &:hover{
+      box-shadow:4px 4px 5px gray;
+    }
     svg {
-      width: 25px;
+      width: 30px;
       height: 30px;
+    }
+    > div {
+      text-align: center;
+      svg {
+        width: 20px;
+        height: 20px;
+      }
     }
 
     .option_list {
@@ -190,14 +212,14 @@ const Root = styled.section`
       width: 170px;
       border: 1px solid lightgray;
       text-decoration: none;
-      p{
+      p {
         margin: 0;
         padding: 5px;
-        &:hover{
+        &:hover {
           background-color: white;
         }
       }
-      a{
+      a {
         text-decoration: none;
         color: black;
       }

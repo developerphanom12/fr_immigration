@@ -48,23 +48,21 @@ const Root = styled.section`
   min-height: 100vh;
   height: 100%;
   .sideBar {
-    flex: 0 16%;
-    min-height: 100vh;
-    height: 100%;
-    position: sticky;
-    top: 0px;
-    border-right: 1px solid gray;
-    padding: 5px 5px;
-    overflow-y: scroll;
-    ::-webkit-scrollbar {
-      display: none;
+    position: fixed;
+    width: 60px;
+    top: 0;
+    height: 100vh;
+    z-index: 100;
+    background-color: white;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    cursor: pointer;
+    box-shadow: 4px 7px 10px rgba(0, 0, 0, 0.4);
+    &:hover {
+      width: 180px;
     }
-    @media (max-width: 798px) {
-      flex-direction: column;
-      text-size-adjust: smaller;
-      width: 50%;
-      padding: 10px;
-      background-color: transparent;
+    @media screen and (min-width: 600px) {
+      width: 80px;
     }
   }
 
@@ -73,19 +71,17 @@ const Root = styled.section`
     flex-direction: column;
     flex: 1;
     width: 100%;
-    /* padding-left: 10px; */
     overflow: hidden;
+    
     .top_bar {
       background: #ffffff;
       display: flex;
-      height: 10%;
+      height: 80px;
       width: 100%;
     }
     .main_body {
       height: 90%;
       width: 100%;
-      padding: 10px;
-      /* margin-top:80px ; */
     }
   }
 `;

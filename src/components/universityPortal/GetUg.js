@@ -142,6 +142,10 @@ export default function GetUg() {
 }
 const Root = styled.section`
   font-family: "Roboto", "sans-serif";
+  padding-left: 80px;
+    @media (max-width:788px){
+      padding-left: 60px;
+    }
   .child1 {
     width: 90%;
     .child2 {

@@ -157,7 +157,10 @@ console.log("formData",formData)
   );
 }
 const Root = styled.section`
-
+padding-left: 80px;
+    @media (max-width:788px){
+      padding-left: 60px;
+    }
 .name {
     display: flex;
     flex-direction: column;

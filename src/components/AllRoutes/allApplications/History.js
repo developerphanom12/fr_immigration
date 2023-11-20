@@ -191,6 +191,10 @@ const Root = styled.section`
   font-weight: normal;
   vertical-align: middle;
   height: 100%;
+  padding-left: 80px;
+    @media (max-width:788px){
+      padding-left: 60px;
+    }
   .header {
     display: flex;
     justify-content: space-between;

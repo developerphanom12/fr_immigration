@@ -51,6 +51,10 @@ const Root = styled.section`
   font-family: "Roboto", sans-serif;
   margin: 20px;
   background-color: #f8f8f8;
+  padding-left: 80px;
+    @media (max-width:788px){
+      padding-left: 60px;
+    }
   .course_table {
     /* margin: 10px; */
     padding: 20px;

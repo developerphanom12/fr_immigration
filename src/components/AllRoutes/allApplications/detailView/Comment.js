@@ -107,6 +107,10 @@ export default function Comment({value}) {
 const Root = styled.section`
   font-family: "Roboto", "sans-serif";
   display: flex;
+  padding-left: 80px;
+    @media (max-width:788px){
+      padding-left: 60px;
+    }
   flex-direction: column;
   /* justify-content: space-evenly; */
   margin: 20px;

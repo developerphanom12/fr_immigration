@@ -45,7 +45,10 @@ const Root = styled.section`
   flex-direction: column;
   align-items: center;
   background-color: #f8f8f8;
-
+  padding-left: 80px;
+    @media (max-width:788px){
+      padding-left: 60px;
+    }
   .nav_tab {
     display: flex;
     gap: 5px;

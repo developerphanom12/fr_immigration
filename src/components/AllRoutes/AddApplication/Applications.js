@@ -118,6 +118,7 @@ export default function Applications() {
   };
 
   useEffect(() => {
+  
     getCourse();
     getUniversity();
     getCountry();
@@ -128,11 +129,11 @@ export default function Applications() {
     <Root>
       {activeNext ? (
         <div className="first_div">
-          <div>
-            <h1>Apply For New Courses</h1>
+          <div className="heading">
+            <h2>Apply For New Courses</h2>
           </div>
           <div className="first_box1">
-            <div>
+            <div className="textarea">
               <div className="name">
                 {" "}
                 First Name
@@ -157,7 +158,7 @@ export default function Applications() {
                 />
               </div>
             </div>
-            <div>
+            <div className="textarea">
               <div className="name">
                 E-Mail
                 <input
@@ -181,7 +182,7 @@ export default function Applications() {
                 />
               </div>
             </div>
-            <div>
+            <div className="textarea">
               <div className="name">
                 {" "}
                 Whatsapp No
@@ -215,7 +216,7 @@ export default function Applications() {
                 </select>
               </div>
             </div>
-            <div>
+            <div className="textarea">
               <div className="name">
                 {" "}
                 Visa Refusal
@@ -247,7 +248,7 @@ export default function Applications() {
                 />
               </div>
             </div>
-            <div>
+            <div className="textarea">
               <div className="name">
                 {" "}
                 Ielts listening
@@ -273,7 +274,7 @@ export default function Applications() {
                 />
               </div>
             </div>
-            <div>
+            <div className="textarea">
               <div className="name">
                 {" "}
                 Ielts speaking
@@ -306,7 +307,7 @@ export default function Applications() {
                 </select>
               </div>
             </div>
-            <div>
+            <div className="textarea">
               <div className="name">
                 {" "}
                 Country Name
@@ -339,7 +340,7 @@ export default function Applications() {
                 </select>
               </div>
             </div>
-            <div >
+            <div className="textbutton">
               <div className="name">
                 {" "}
                 Select Gender
@@ -373,115 +374,29 @@ export default function Applications() {
 const Root = styled.section`
   color: black;
   background-color: #f8f8f8;
-  > div {
-    .name1 {
-      display: flex;
-      width: 100%;
-      padding: 20px;
-      gap: 10px;
-      text-align: center;
-      align-items: center;
-      justify-content: center;
-      background-color: #ffffff;
-      select {
-        background-color: white;
-        color: black;
-        text-decoration: none;
-        border: 2px solid #a5d8fa;
-        line-height: 1.5em;
-        padding: 10px;
-        border-radius: 20px;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        background-image: linear-gradient(45deg, transparent 50%, blue 50%),
-          linear-gradient(135deg, blue 50%, transparent 50%),
-          linear-gradient(to right, skyblue, skyblue);
-        background-position: calc(100% - 20px) calc(1em + 2px),
-          calc(100% - 15px) calc(1em + 2px), 100% 0;
-        background-size: 5px 5px, 5px 5px, 40px 45px;
-        background-repeat: no-repeat;
-        @media (max-width: 555px) {
-          padding: 8px;
-          /* width: 120px; */
-          background-size: 5px 5px, 5px 5px, 30px 45px;
-          align-items: center;
-        }
-
-        select:focus {
-          background-image: linear-gradient(45deg, white 50%, transparent 50%),
-            linear-gradient(135deg, transparent 50%, white 50%),
-            linear-gradient(to right, gray, gray);
-          background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
-            100% 0;
-          background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
-          background-repeat: no-repeat;
-          border-color: grey;
-          outline: 0;
-        }
-      }
-    }
-    button {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      height: 50px;
-      padding: 10px;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      margin-top: 20px ;
-      border-radius: 30px;
-      border: transparent;
-      background: linear-gradient(
-        45deg,
-        #0146ff 19%,
-        #0146ff96 48%,
-        #0146ff 100%
-      );
-      &:hover {
-        background: linear-gradient(
-          -25deg,
-          #0146ff 19%,
-          #0146ff96 88%,
-          transparent 100%
-        );
-        transition: all 0.3s ease-in-out 0s;
-      }
-      border-radius: 50px;
-      color: #fff;
-      padding: 20px 30px;
-      background-size: 300% 100%;
-      transition: all 0.3s ease-in-out 0s;
-      text-transform: uppercase;
-    }
-    .name {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      padding: 20px;
-      justify-content: center;
-      gap: 10px;
-      color: #202020;
-      background-color: white;
-      @media (max-width: 700px) {
-        min-width: 100px;
-        width: 100%;
-        flex-direction: column;
-      }
-    }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 80px;
+  @media (max-width: 788px) {
+    padding-left: 60px;
   }
   .first_div {
     flex-wrap: wrap;
-    h1 {
-      font: 32px "Roboto", sans-serif;
-      color: #202020;
-      font-weight: 600;
-      padding: 30px;
-      display: flex;
-      margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    .heading {
+      h2 {
+        font: 32px "Roboto", sans-serif;
+        color: #202020;
+        font-weight: 600;
+        padding: 10px;
+        display: flex;
+        margin: 0;
+        text-shadow: 4px 5px 5px gray;
+      }
     }
     @media (max-width: 709px) {
       flex-direction: column;
@@ -490,26 +405,132 @@ const Root = styled.section`
     .first_box1 {
       display: flex;
       flex-direction: column;
-      padding: 20px;
       margin: 0px 10px;
+      width: 100%;
 
       @media (max-width: 850px) {
         padding: 0;
       }
-      > div {
+      .textarea {
         display: flex;
-        flex: 1;
-        align-items: center;
+        background-color: white;
+        justify-content: space-between;
+        .name {
+          display: flex;
+          flex-direction: column;
+          width: 50%;
+          padding: 7px;
+          font-size: 14px;
+          justify-content: center;
+          color: #202020;
+          background-color: white;
+          @media (max-width: 700px) {
+            min-width: 100px;
+            width: 100%;
+            flex-direction: column;
+          }
+        }
+      }
+      .textbutton {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
         @media (max-width: 850px) {
           flex-direction: column;
         }
+        .name {
+          display: flex;
+          flex-direction: column;
+          width: 50%;
+          padding: 7px;
+          font-size: 14px;
+          justify-content: center;
+          color: #202020;
+          background-color: white;
+          @media (max-width: 700px) {
+            min-width: 100px;
+            width: 100%;
+            flex-direction: column;
+          }
+        }
+        button {
+          display: flex;
+          flex-direction: column;
+          width: 28%;
+          height: 50px;
+          margin: 5px;
+          padding: 10px;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          margin-top: 20px;
+          border-radius: 10px;
+          border: transparent;
+          background: #000080;
+          color: #fff;
+          background-size: 300% 100%;
+          transition: all 0.3s ease-in-out 0s;
+          text-transform: uppercase;
+          &:hover {
+            background: #000080;
+            transition: all 0.1s ease-in-out 0s;
+            box-shadow: 4px 5px 5px gray;
+          }
+        }
+        select {
+          background-color: white;
+          color: black;
+          text-decoration: none;
+          border: 2px solid gray;
+          line-height: 1.5em;
+          padding: 10px;
+          border-radius: 10px;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          background-image: linear-gradient(45deg, transparent 50%, black 50%),
+            linear-gradient(135deg, black 50%, transparent 50%),
+            linear-gradient(to right, dodgerblue, skyblue);
+          background-position: calc(100% - 20px) calc(1em + 2px),
+            calc(100% - 15px) calc(1em + 2px), 100% 0;
+          background-size: 5px 5px, 5px 5px, 40px 45px;
+          background-repeat: no-repeat;
+          &:hover {
+            box-shadow: 4px 4px 5px darkgray;
+            transition: all 0.1s ease-in-out 0s;
+          }
+          @media (max-width: 555px) {
+            padding: 8px;
+            /* width: 120px; */
+            background-size: 5px 5px, 5px 5px, 30px 45px;
+            align-items: center;
+          }
+
+          select:focus {
+            background-image: linear-gradient(45deg, white 50%, transparent 50%),
+              linear-gradient(135deg, transparent 50%, white 50%),
+              linear-gradient(to right, gray, gray);
+            background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
+              100% 0;
+            background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+            background-repeat: no-repeat;
+            border-color: grey;
+            outline: 0;
+          }
+        }
       }
       input {
-        border-radius: 40px;
+        border-radius: 10px;
         padding: 10px;
         color: #202020;
         text-decoration: none;
-        border: 2px solid #a5d8fa;
+        border: 2px solid gray;
+        &:hover {
+          box-shadow: 4px 4px 5px darkgray;
+          transition: all 0.1s ease-in-out 0s;
+        }
         @media (max-width: 600px) {
           min-width: 100px;
           width: 100%;
@@ -519,22 +540,26 @@ const Root = styled.section`
         background-color: white;
         color: black;
         text-decoration: none;
-        border: 2px solid #a5d8fa;
+        border: 2px solid gray;
         line-height: 1.5em;
         padding: 10px;
-        border-radius: 20px;
+        border-radius: 10px;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
         -webkit-appearance: none;
         -moz-appearance: none;
-        background-image: linear-gradient(45deg, transparent 50%, blue 50%),
-          linear-gradient(135deg, blue 50%, transparent 50%),
-          linear-gradient(to right, skyblue, skyblue);
+        background-image: linear-gradient(45deg, transparent 50%, black 50%),
+          linear-gradient(135deg, black 50%, transparent 50%),
+          linear-gradient(to right, dodgerblue, skyblue);
         background-position: calc(100% - 20px) calc(1em + 2px),
           calc(100% - 15px) calc(1em + 2px), 100% 0;
         background-size: 5px 5px, 5px 5px, 40px 45px;
         background-repeat: no-repeat;
+        &:hover {
+          box-shadow: 4px 4px 5px darkgray;
+          transition: all 0.1s ease-in-out 0s;
+        }
         @media (max-width: 555px) {
           padding: 8px;
           /* width: 120px; */
