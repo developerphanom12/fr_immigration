@@ -42,7 +42,7 @@ export default function PgRequire() {
   return (
     <Root>
       <h3>PG Entry Requirement</h3>
-      {userDetails.role === "university" ? (
+      {userDetails.role === "university" || "admin" ? (
         <div className="child1">
           <button
             onClick={() => {
@@ -137,7 +137,9 @@ const Root = styled.section`
   .app_table {
     display: flex;
     flex-direction: column;
-    margin: 20px;
+    margin: 10px;
+    width: 98%;
+    padding: 5px 5px 5px 10px;
     font-family: "Roboto", "sana-serif";
     .app_header {
       display: flex;
@@ -148,7 +150,7 @@ const Root = styled.section`
       > div {
         flex: 1;
         border: 1px solid #dee2e6;
-        padding: 20px;
+        padding: 15px;
       }
     }
     .app_body {
@@ -158,16 +160,25 @@ const Root = styled.section`
       > div {
         flex: 1;
         border: 0.3px solid #fbfbfd;
-        padding: 5px;
         text-transform: capitalize;
         background-color: #e7e7e8;
         text-align: center;
-        padding: 20px 5px;
+        padding: 15px 5px;
+        p{
+          color: black;
+          font-size: 14px;
+          @media (max-width:789px){
+            font-size: 10px;
+          }
+        }
 
         h6 {
           font-weight: 600;
           text-align: left;
           font-size: small;
+          @media (max-width:789px){
+            font-size: 12px;
+          }
         }
 
         &:nth-child(odd) {
@@ -181,6 +192,33 @@ const Root = styled.section`
       &:hover {
         background-color: lightgray;
         cursor: pointer;
+      }
+    }
+  }
+  @media (max-width: 568px) {
+    .app_table {
+      font-size: smaller;
+      margin: 0px;
+      width: 100%;
+      overflow-x: scroll;
+      .app_header {
+        min-width: 135px;
+        > div {
+          padding: 3px;
+          font-size: 8px;
+          min-width:50px;
+
+        }
+      }
+      .app_body {
+        min-width: 125px;
+        width: 100%;
+        > div {
+          /* flex: 1; */
+          font-size: 12px;
+        min-width:50px;
+
+        }
       }
     }
   }

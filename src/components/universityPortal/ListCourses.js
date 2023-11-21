@@ -37,8 +37,6 @@ export default function ListCourses() {
   console.log("courseData", courseData);
   return (
     <Root>
-      <h3>List Of All Courses</h3>
-
       <div className="courses_div">
         <h2>Total Courses: {courseData?.length}</h2>
         <div className="container">
@@ -80,10 +78,14 @@ export default function ListCourses() {
   );
 }
 const Root = styled.section`
-padding-left: 80px;
-    @media (max-width:788px){
-      padding-left: 60px;
-    }
+  padding-left: 80px;
+  @media (max-width: 788px) {
+    padding-left: 60px;
+  }
+  h2 {
+    margin: 5px;
+    text-shadow: 5px 6px 6px gray;
+  }
   .courses_div {
     display: flex;
     flex-direction: column;
@@ -102,18 +104,20 @@ padding-left: 80px;
         gap: 10px;
         margin: 10px 0px;
         padding: 10px;
-        border-radius: 15px;
+        width: 50%;
+        border-radius: 5px;
         justify-content: space-evenly;
         align-items: center;
         text-align: center;
         border: 1px solid gray;
-        border-bottom: 5px solid #87cefa;
+        box-shadow: 5px 6px 6px gray;
 
         .courses_child2 {
           display: flex;
           align-items: center;
+          width: 100%;
           img {
-            width: 120px;
+            width: 150px;
             height: 130px;
             object-fit: cover;
             min-width: 50px;
@@ -124,9 +128,15 @@ padding-left: 80px;
           .courses_child3 {
             display: flex;
             flex-direction: column;
+            width: 100%;
+            padding: 5px;
             > div {
               p {
                 margin: 0;
+              }
+              @media (max-width: 787px) {
+                width: 100%;
+                flex-direction: column;
               }
             }
             h5 {
@@ -135,27 +145,23 @@ padding-left: 80px;
               text-transform: capitalize;
             }
             button {
+              background: #000080;
               color: #ffffff;
-              padding: 3px;
-              margin: 5px;
+              padding: 5px;
               border-color: transparent;
+              font-size: 12px;
+              text-align: center;
+              width: 40%;
               cursor: pointer;
-              background: linear-gradient(
-                45deg,
-                #ff6525 19%,
-                #ffffffe6 51%,
-                #ff6525 100%
-              );
-              border-radius: 40px;
+              border-radius: 10px;
               background-size: 300% 100%;
               transition: all 0.3s ease-in-out 0s;
+              text-transform: uppercase;
               &:hover {
-                background: linear-gradient(
-                  -25deg,
-                  #ff6525 49%,
-                  #ffffffe6 91%,
-                  #ff6525 100%
-                );
+                box-shadow: 5px 6px 6px gray;
+              }
+              @media (max-width: 787px) {
+                width: 100%;
               }
             }
           }

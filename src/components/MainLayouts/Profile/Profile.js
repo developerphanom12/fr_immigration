@@ -46,27 +46,31 @@ const Root = styled.section`
   background-color: #f1f1f2;
   height: 100%;
   width: 100%;
+  @media (max-width:767px){
+  padding-left: 60px;
+  }
 
   .nav_tab {
     display: flex;
     gap: 5px;
     margin: 10px;
-    background-color: #e6f5ff;
+    background-color: #ffffff;
     padding: 10px;
-    border-radius: 40px;
-    .btn_1 {
+    border-radius: 10px;
+    box-shadow: 6px 5px 5px gray;
+    button {
       background-color: transparent;
       border: none;
       width: fit-content;
       padding: 5px;
-      border-radius: 40px;
+      border-radius: 10px;
       &:hover {
-        background-color: blue;
+        background-color: green;
         color: #ffffff;
       }
     }
     .active {
-      background-color: blue;
+      background-color: #000080;
       color: #ffffff;
       @media (max-width: 400px) {
         .active {

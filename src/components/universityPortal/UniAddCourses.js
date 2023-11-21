@@ -143,6 +143,10 @@ padding-left: 80px;
     @media (max-width:788px){
       padding-left: 60px;
     }
+    h3{
+      margin: 5px;
+      text-shadow: 5px 6px 6px gray;
+    }
 p{
   margin: 0px;
 }
@@ -151,7 +155,6 @@ p{
   .courses {
       display: flex;
       flex-direction: column;
-      padding: 10px;
       flex-wrap: wrap;
       gap: 10px;
       width: 100%;
@@ -161,30 +164,34 @@ p{
         background-color: white;
         color: black;
         text-decoration: none;
-        border: 2px solid #a5d8fa;
+        border: 2px solid gray;
         line-height: 1.5em;
-        padding: 8px;
-        border-radius: 20px;
+        padding: 10px;
+        width: 50%;
+        border-radius: 10px;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
         -webkit-appearance: none;
         -moz-appearance: none;
-        width:60%;
-        background-image: linear-gradient(45deg, transparent 50%, blue 50%),
-          linear-gradient(135deg, blue 50%, transparent 50%),
-          linear-gradient(to right, skyblue, skyblue);
+        background-image: linear-gradient(45deg, transparent 50%, black 50%),
+          linear-gradient(135deg, black 50%, transparent 50%),
+          linear-gradient(to right, dodgerblue, skyblue);
         background-position: calc(100% - 20px) calc(1em + 2px),
           calc(100% - 15px) calc(1em + 2px), 100% 0;
         background-size: 5px 5px, 5px 5px, 40px 45px;
         background-repeat: no-repeat;
+        &:hover {
+          box-shadow: 4px 4px 5px darkgray;
+          transition: all 0.1s ease-in-out 0s;
+        }
         @media (max-width: 555px) {
-          padding: 3px;
-          width:100%;
-          background-size: 5px 5px, 5px 5px, 30px 35px;
+          padding: 8px;
+          width: 100%;
+          background-size: 5px 5px, 5px 5px, 30px 45px;
           align-items: center;
         }
-  
+
         select:focus {
           background-image: linear-gradient(45deg, white 50%, transparent 50%),
             linear-gradient(135deg, transparent 50%, white 50%),
@@ -198,12 +205,16 @@ p{
         }
       }
       input {
-        border-radius: 40px;
+        border-radius: 10px;
         padding: 10px;
         color: #202020;
-        width: 60%;
+        width: 50%;
         text-decoration: none;
-        border: 2px solid #a5d8fa;
+        border: 2px solid gray;
+        &:hover {
+          box-shadow: 4px 4px 5px darkgray;
+          transition: all 0.1s ease-in-out 0s;
+        }
         @media (max-width: 600px) {
           min-width: 100px;
           width: 100%;
@@ -215,32 +226,23 @@ p{
   width: 80%;
   padding: 10px;
     button {
-      background: #ff6525;
+      background: #000080;
       color: #ffffff;
-      padding: 10px;
+      padding: 5px;
       border-color: transparent;
       font-size: medium;
       text-align: center;
-      width: 60%;
+      width: 30%;
       cursor: pointer;
-      background: linear-gradient(
-        45deg,
-        #ff6525 19%,
-        #ffffffe6 51%,
-        #ff6525 100%
-      );
-      border-radius: 50px;
-      color: #fff;
+      border-radius: 10px;
       background-size: 300% 100%;
       transition: all 0.3s ease-in-out 0s;
       text-transform: uppercase;
       &:hover {
-        background: linear-gradient(
-          -25deg,
-          #ff6525 49%,
-          #ffffffe6 91%,
-          #ff6525 100%
-        );
+       box-shadow: 5px 6px 6px gray;
+      }
+      @media (max-width:787px){
+        width: 100%;
       }
     }
   }

@@ -28,7 +28,7 @@ export default function StudentLogin() {
         dispatch(userDataAction(res?.data?.data?.user));
         dispatch(userCheckAction(true));
         cogoToast.success("Login SuccessFully");
-        navigate("/dashboardd");
+        navigate("/studash");
       } else {
         cogoToast.error("Username Or Password Incorrect")
       }
@@ -50,6 +50,11 @@ export default function StudentLogin() {
     } else {
       cogoToast.error(
         "Username & password Length should be greater than 3 & 3 character"
+      );
+    }
+    if(logindata.username.length === 0 || logindata.password.length === 0){
+      cogoToast.error(
+        "Username or password is not filled"
       );
     }
   };
@@ -81,6 +86,7 @@ export default function StudentLogin() {
             onChange={(e) => {
               setlogindata({ ...logindata, password: e.target.value });
             }}
+            onKeyDown={handleKeyDown}
             placeholder="Password"
           />
         </div>

@@ -117,9 +117,9 @@ const Root = styled.section`
       padding: 5px;
       margin: 5px;
       gap: 5px;
+      width: 95%;
       text-align: center;
       align-items: center;
-      flex-direction: column;
     }
     select {
       background-color: white;
@@ -148,6 +148,7 @@ const Root = styled.section`
       }
       @media (max-width: 555px) {
         padding: 8px;
+        width: 60%;
         background-size: 5px 5px, 5px 5px, 30px 45px;
         align-items: center;
       }
@@ -188,12 +189,20 @@ const Root = styled.section`
     gap: 10px;
     flex-wrap: wrap;
     padding: 10px;
+    @media (max-width:657px){
+        display: flex;
+        flex-direction: column;
+      }
     .card {
       width: 30%;
       height: auto;
       padding: 10px;
       border-radius: 5px;
       box-shadow: 6px 7px 7px gray;
+      @media (max-width:657px){
+        width: 100%;
+      }
+      
       .card_top {
         display: flex;
         gap: 10px;

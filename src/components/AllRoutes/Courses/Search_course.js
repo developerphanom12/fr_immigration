@@ -125,11 +125,17 @@ const Root = styled.section`
     justify-content: space-between;
     box-shadow: 4px 5px 5px gray;
     padding: 5px;
+    @media (max-width:787px){
+      width: 95%;
+    }
     input {
       border: 2px solid lightgray;
       padding: 5px;
       border-radius: 10px;
       width: 70%;
+      @media (max-width:787px){
+      width: 60%;
+    }
     }
     button {
       border: none;

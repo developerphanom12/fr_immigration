@@ -200,7 +200,7 @@ const Root = styled.section`
           }
           @media (max-width: 555px) {
             padding: 8px;
-            /* width: 120px; */
+            width: 100%;
             background-size: 5px 5px, 5px 5px, 30px 45px;
             align-items: center;
           }
@@ -240,6 +240,9 @@ const Root = styled.section`
             transition: all 0.1s ease-in-out 0s;
             box-shadow: 4px 5px 5px gray;
           }
+          @media (max-width:767px){
+          width: 50%;
+        }
       }
     }
   }

@@ -380,6 +380,7 @@ const Root = styled.section`
   padding-left: 80px;
   @media (max-width: 788px) {
     padding-left: 60px;
+    flex-direction: column;
   }
   .first_div {
     flex-wrap: wrap;
@@ -415,6 +416,10 @@ const Root = styled.section`
         display: flex;
         background-color: white;
         justify-content: space-between;
+        @media (max-width: 700px) {
+           
+            flex-direction: column;
+          }
         .name {
           display: flex;
           flex-direction: column;
@@ -425,8 +430,7 @@ const Root = styled.section`
           color: #202020;
           background-color: white;
           @media (max-width: 700px) {
-            min-width: 100px;
-            width: 100%;
+            width: 80%;
             flex-direction: column;
           }
         }
@@ -448,8 +452,7 @@ const Root = styled.section`
           color: #202020;
           background-color: white;
           @media (max-width: 700px) {
-            min-width: 100px;
-            width: 100%;
+            width: 80%;
             flex-direction: column;
           }
         }
@@ -457,7 +460,7 @@ const Root = styled.section`
           display: flex;
           flex-direction: column;
           width: 28%;
-          height: 50px;
+          height: 45px;
           margin: 5px;
           padding: 10px;
           justify-content: center;

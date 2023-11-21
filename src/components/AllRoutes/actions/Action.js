@@ -55,21 +55,33 @@ const Root = styled.section`
     margin: 10px;
     background-color: white;
     box-shadow: 6px 7px 7px gray;
-    padding: 10px;
     border-radius: 10px;
     .btn_1 {
-      background-color: transparent;
-      border: none;
-      width: fit-content;
-      padding: 5px;
-      border-radius: 40px;
-      &:hover {
-        background-color: blue;
-        color: #ffffff;
-      }
+      display: flex;
+          flex-direction: column;
+          width: 50%;
+          height: 45px;
+          margin: 5px;
+          padding: 10px;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          margin-top: 20px;
+          border-radius: 10px;
+          border: transparent;
+          background: #000080;
+          color: #fff;
+          background-size: 300% 100%;
+          transition: all 0.3s ease-in-out 0s;
+          text-transform: uppercase;
+          &:hover {
+            background: #000080;
+            transition: all 0.1s ease-in-out 0s;
+            box-shadow: 4px 5px 5px gray;
+          }
     }
     .active {
-      background-color: blue;
+      background-color: #57be1f;
       color: #ffffff;
       @media (max-width: 400px) {
         .active {

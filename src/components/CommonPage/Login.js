@@ -48,6 +48,11 @@ export default function Login() {
         "Username & password Length should be greater than 3 & 3 character"
       );
     }
+    if(logindata.username.length === 0 || logindata.password.length === 0){
+      cogoToast.error(
+        "Username or password is not filled"
+      );
+    }
   };
 
   console.log("logindata", logindata);
@@ -164,15 +169,14 @@ const Root = styled.section`
       justify-content: flex-end;
       @media (max-width: 809px) {
         display: flex;
-        justify-content: center;
       }
     }
     @media (max-width: 809px) {
       padding: 10px;
       width: 90%;
       display: flex;
-      justify-content: center;
-      margin: 0px 20px;
+      justify-content: space-evenly;
+      margin: 10px 20px;
     }
   }
 
@@ -191,6 +195,7 @@ const Root = styled.section`
     @media (max-width: 800px) {
       padding: 10px;
       width: 100%;
+      justify-content: flex-start;
       flex-direction: column;
       margin: 0px 20px;
     }
@@ -294,7 +299,7 @@ const Root = styled.section`
         border: none;
 
         @media (max-width: 809px) {
-          width: 100%;
+          width: 80%;
           height: 30px;
         }
         background: #000080;

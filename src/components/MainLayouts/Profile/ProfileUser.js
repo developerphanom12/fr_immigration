@@ -62,7 +62,7 @@ export default function ProfileUser() {
           <div className="child1">
             <h6>Last Name : </h6> <p>{profile?.lastname}</p>
           </div>
-          <div>
+          <div className="child1">
             <h6>E-mail : </h6> <p>{profile?.email}</p>
           </div>
           <div className="child1">
@@ -101,7 +101,9 @@ const Root = styled.section`
     align-items: center;
     padding: 10px;
     border-bottom: 3px solid dodgerblue;
-   
+   p{
+    margin: 0px;
+   }
     h6 {
       font-weight: 600;
       margin: 0;

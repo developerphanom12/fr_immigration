@@ -114,6 +114,15 @@ export default function SideBar() {
 
           {userDetails.role === "student" ? (
             <>
+             <div
+                className={activeParam === "studash" ? "active" : ""}
+                onClick={() => {
+                  navigate("/studash");
+                }}
+              >
+                <FaHome />
+                <p>Dashboard</p>
+              </div>
               <div
                 className={activeParam === "applications" ? "active" : ""}
                 onClick={() => {

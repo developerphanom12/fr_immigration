@@ -150,11 +150,18 @@ const Root = styled.section`
   background-color: #fff;
   font-size: 15px;
   border-bottom: 2px solid lightgray;
+  @media (max-width:978px){
+   justify-content: space-between;
+  }
   .logo {
     width: 15%;
     background-color: #ffffff;
     img {
       width: 100%;
+    }
+    @media (max-width:678px){
+      width: 50%;
+
     }
   }
   .options {
@@ -196,18 +203,19 @@ const Root = styled.section`
       }
     }
 
-    @media (max-width: 1050px) {
+    @media (max-width: 950px) {
       display: none;
     }
   }
   .menu {
-    @media (max-width: 1050px) {
+    @media (max-width: 950px) {
       display: block;
       padding-right: 10px;
+
     }
   }
   .menu {
-    @media (min-width: 1051px) {
+    @media (min-width: 951px) {
       display: none;
     }
   }

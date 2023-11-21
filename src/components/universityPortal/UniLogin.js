@@ -30,7 +30,7 @@ export default function UniLogin() {
         dispatch(userDataAction(res?.data?.data?.user));
         dispatch(userCheckAction(true));
         cogoToast.success("Login SuccessFully");
-        navigate("/pgrequire");
+        navigate("/unidash");
       } else {
         cogoToast.error("Username Or Password Incorrect");
       }
@@ -50,9 +50,15 @@ export default function UniLogin() {
       loginApi();
     } else {
       cogoToast.error(
-        "Username & password Length should be greater than 3 & 3 character"
+        "Username & password Length should be greater than 3 character"
       );
     }
+    if(logindata.username.length === 0 || logindata.password.length === 0){
+      cogoToast.error(
+        "Username or password is not filled"
+      );
+    }
+   
   };
 
   console.log("logindata", logindata);
@@ -133,7 +139,7 @@ const Root = styled.section`
   position: relative;
   top: -16px;
   font: 22px "Roboto", sans-serif;
-  @media (max-width: 19px) {
+  @media (max-width: 719px) {
     display: flex;
     margin-top: 40px;
     flex-direction: column;
@@ -172,12 +178,14 @@ const Root = styled.section`
       @media (max-width: 809px) {
         justify-content: center;
         align-items: center;
+        width: 100%;
+        height: 50%;
       }
     }
     @media (max-width: 809px) {
       padding: 10px;
       width: 80%;
-      margin: 20px 20px;
+      margin: 20px ;
     }
   }
 
@@ -197,7 +205,8 @@ const Root = styled.section`
       padding: 10px;
       width: 100%;
       flex-direction: column;
-      margin: 20px 20px;
+      justify-content: flex-start;
+    
     }
     .user_name {
       display: flex;

@@ -55,7 +55,7 @@ const Root = styled.section`
   font-family: "Roboto", sans-serif;
   padding-left: 80px;
     @media (max-width:788px){
-      padding-left: 60px;
+      padding-left: 10px;
     }
   .app_table {
     display: flex;
@@ -93,7 +93,7 @@ const Root = styled.section`
       margin: 0px;
       .app_header {
         min-width: 40px;
-        width: 90%;
+        width: 100%;
         > div {
           padding: 5px;
         }

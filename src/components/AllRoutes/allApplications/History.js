@@ -222,9 +222,12 @@ const Root = styled.section`
       border: none;
       background: #57be1f;
       color: #ffffff;
+      &:hover{
+        box-shadow: 5px 5px 7px gray;
+      }
       @media (max-width: 566px) {
         width: 100%;
-        height: 20px;
+        height: 30px;
       }
     }
   }
@@ -236,6 +239,9 @@ const Root = styled.section`
     background: #ffffff;
     border-radius: 5px;
     box-shadow: 4px 5px 6px gray;
+    @media (max-width: 566px) {
+        width: 90%;
+      }
     input {
       border: 1px solid gray;
       width: 100%;
@@ -269,7 +275,8 @@ const Root = styled.section`
     display: flex;
     flex-direction: column;
     margin: 10px;
-    width: 90%;
+    width: 98%;
+    padding: 5px 5px 5px 10px;
     font-family: "Roboto", "sana-serif";
     .app_header {
       display: flex;
@@ -307,12 +314,18 @@ const Root = styled.section`
         padding: 15px 5px;
         .person {
           color: #8995ad;
-          font-size: 15px;
+          font-size: 14px;
+          @media (max-width:789px){
+            font-size: 10px;
+          }
         }
         h6 {
           font-weight: 600;
           text-align: left;
           font-size: small;
+          @media (max-width:789px){
+            font-size: 12px;
+          }
         }
 
         span {

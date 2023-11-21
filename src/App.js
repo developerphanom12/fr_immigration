@@ -32,6 +32,7 @@ import ListCourses from "./components/universityPortal/ListCourses";
 import UniDashboard from "./components/universityPortal/UniDashboard";
 import GetUg from "./components/universityPortal/GetUg";
 import GetPg from "./components/universityPortal/GetPg";
+import StuDashboard from "./components/StudentPortal/StuDashboard";
 // import Student from "./components/AllRoutes/allApplications/detailView/Student";
 
 function App() {
@@ -136,7 +137,7 @@ function App() {
               // Student-specific routes
               <>
                 <Route path="/latestupdates" element={<LatestUpdates />} />
-                <Route path="/dashboardd" element={<DashboardAdmin />} />
+                <Route path="/studash" element={<StuDashboard />} />
                 <Route path="/applications" element={<Applications />} />
                 <Route path="/pgrequire" element={<PgRequire />} />
                 <Route path="/ugrequire" element={<UgRequire />} />

@@ -132,53 +132,57 @@ export default function AddUniversity() {
 const Root = styled.section`
   display: flex;
   min-height: 100vh;
-  font-family: 'Roboto','sans-serif';
+  font-family: "Roboto", "sans-serif";
   height: 100%;
   padding: 5px;
   align-items: center;
   flex-direction: column;
+  h4 {
+    text-shadow: 4px 5px 5px gray;
+  }
   button {
-    background:#FF6525;
-    color: #ffffff;
-    padding: 10px 10px 10px 10px;
-    border-color: transparent;
-    font-size: medium;
-    text-align: center;
-    width: 160px;
+    display: flex;
+    flex-direction: column;
+    width: 38%;
+    height: 45px;
     margin: 5px;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    background: linear-gradient( 45deg, #ff6525 19%, #ffffffe6 51%, #ff6525 100%);
-    border-radius: 50px;
-    color: #FFF;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: transparent;
+    background: #000080;
+    color: #fff;
     background-size: 300% 100%;
     transition: all 0.3s ease-in-out 0s;
     text-transform: uppercase;
-    &:hover{
-          background: linear-gradient(
-          -25deg,
-          #ff6525 49%,
-          #ffffffe6 91%,
-          #ff6525 100%
-        );
-        }
+    &:hover {
+      background: #000080;
+      transition: all 0.1s ease-in-out 0s;
+      box-shadow: 4px 5px 5px gray;
+    }
   }
   .courses {
     display: flex;
-    padding: 10px;
     flex-wrap: wrap;
-    align-items: center;
+    padding: 5px;
     /* justify-content: space-evenly; */
     input {
-      border-radius: 40px;
-        padding: 10px;
-        width: 240px;
-        color: #202020;
-        text-decoration: none;
-        border: 2px solid #a5d8fa;
-        @media (max-width: 600px) {
-          min-width: 100px;
-          width: 100%;
-        }
+      border-radius: 10px;
+      padding: 5px;
+      color: #202020;
+      text-decoration: none;
+      border: 2px solid gray;
+      &:hover {
+        box-shadow: 4px 4px 5px darkgray;
+        transition: all 0.1s ease-in-out 0s;
+      }
+      @media (max-width: 600px) {
+        min-width: 100px;
+        width: 100%;
+      }
     }
   }
 `;

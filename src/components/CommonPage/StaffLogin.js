@@ -53,6 +53,11 @@ export default function StaffLogin() {
         "Username & password Length should be greater than 3 & 3 character"
       );
     }
+    if(logindata.username.length === 0 || logindata.password.length === 0){
+      cogoToast.error(
+        "Username or password is not filled"
+      );
+    }
   };
 
   console.log("logindata", logindata);

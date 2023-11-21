@@ -249,34 +249,31 @@ export default function Upload({ detail, val }) {
             <div className="col-lg-5">
               <div className="" style={seses}>
                 <div className="view">
-                <div className="docu">
-                      {" "}
-                      <IoDocumentTextOutline />
-                    </div>
+                  <div className="docu">
+                    {" "}
+                    <IoDocumentTextOutline />
+                  </div>
                   <a
                     href={`${IMG_URL}/${detail?.documents[0]?.file_path}`}
                     target="_blank"
                     rel="noreferrer"
                   >
-                 
                     View Aadhar{" "}
                     <button>
-                    <ImEye />
+                      <ImEye />
                     </button>
                   </a>
                 </div>
                 <div className="view">
-                <div className="docu">
-                      {" "}
-                      <IoDocumentTextOutline />
-                    </div>
-                  {" "}
+                  <div className="docu">
+                    {" "}
+                    <IoDocumentTextOutline />
+                  </div>{" "}
                   <a
                     href={`${IMG_URL}/${detail?.documents[1]?.file_path}`}
                     target="_blank"
                     rel="noreferrer"
                   >
-                   
                     View Pancard{" "}
                     <button>
                       {" "}
@@ -285,17 +282,15 @@ export default function Upload({ detail, val }) {
                   </a>
                 </div>
                 <div className="view">
-                <div className="docu">
-                      {" "}
-                      <IoDocumentTextOutline />
-                    </div>
-                  {" "}
+                  <div className="docu">
+                    {" "}
+                    <IoDocumentTextOutline />
+                  </div>{" "}
                   <a
                     href={`${IMG_URL}/${detail?.documents[5]?.file_path}`}
                     target="_blank"
                     rel="noreferrer"
                   >
-                   
                     View Intermediate{" "}
                     <button>
                       {" "}
@@ -304,17 +299,15 @@ export default function Upload({ detail, val }) {
                   </a>
                 </div>
                 <div className="view">
-                <div className="docu">
-                      {" "}
-                      <IoDocumentTextOutline />
-                    </div>
-                  {" "}
+                  <div className="docu">
+                    {" "}
+                    <IoDocumentTextOutline />
+                  </div>{" "}
                   <a
                     href={`${IMG_URL}/${detail?.documents[2]?.file_path}`}
                     target="_blank"
                     rel="noreferrer"
                   >
-                   
                     View Passport Front
                     <button>
                       {" "}
@@ -323,34 +316,32 @@ export default function Upload({ detail, val }) {
                   </a>
                 </div>
                 <div className="view">
-                <div className="docu">
-                      {" "}
-                      <IoDocumentTextOutline />
-                    </div>
+                  <div className="docu">
+                    {" "}
+                    <IoDocumentTextOutline />
+                  </div>
                   <a
                     href={`${IMG_URL}/${detail?.documents[3]?.file_path}`}
                     target="_blank"
                     rel="noreferrer"
                   >
-                  
                     View Passport back{" "}
                     <button>
-                    <ImEye />
+                      <ImEye />
                     </button>
                   </a>
                 </div>
 
                 <div className="view">
-                <div className="docu">
-                      {" "}
-                      <IoDocumentTextOutline />
-                    </div>
+                  <div className="docu">
+                    {" "}
+                    <IoDocumentTextOutline />
+                  </div>
                   <a
                     href={`${IMG_URL}/${detail?.documents[4]?.file_path}`}
                     target="_blank"
                     rel="noreferrer"
                   >
-                   
                     View Matric{" "}
                     <button>
                       {" "}
@@ -396,8 +387,7 @@ const Root = styled.section`
     padding: 10px;
     width: 60%;
 
-    .docu{
-
+    .docu {
       svg {
         color: darkgrey;
         width: 40px;
@@ -406,7 +396,7 @@ const Root = styled.section`
     }
 
     a {
-      width:100%;
+      width: 100%;
       display: flex;
       justify-content: space-between;
       font-size: 12px;
@@ -425,8 +415,8 @@ const Root = styled.section`
     @media (max-width: 566px) {
       padding: 5px;
       margin: 0;
-      min-height: 100px;
-      width: 130px;
+      min-height: 50px;
+      width: 70%;
       a {
         min-width: 120px;
         width: 100%;
@@ -511,8 +501,8 @@ const Root = styled.section`
       }
       @media (max-width: 555px) {
         padding: 8px;
+        font-size: 14px;
         background-size: 5px 5px, 5px 5px, 30px 45px;
-        align-items: center;
       }
 
       select:focus {
@@ -551,9 +541,12 @@ const Root = styled.section`
       display: flex;
       flex-direction: column;
       padding: 10px;
+
       @media (max-width: 566px) {
         padding: 0;
         width: 100%;
+      align-items:center;
+
       }
       .status3 {
         display: flex;
@@ -563,7 +556,7 @@ const Root = styled.section`
         @media (max-width: 566px) {
           padding: 0;
           flex-direction: column;
-          width: 150px;
+          width: 90%;
         }
         select {
           background-color: white;
@@ -592,6 +585,7 @@ const Root = styled.section`
           }
           @media (max-width: 555px) {
             padding: 8px;
+            width: 100%;
             background-size: 5px 5px, 5px 5px, 30px 45px;
             align-items: center;
           }
@@ -640,7 +634,7 @@ const Root = styled.section`
     font-size: 14px;
     text-transform: uppercase;
   }
-  
+
   .hliihi {
     text-align: center;
   }

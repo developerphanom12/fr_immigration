@@ -42,7 +42,7 @@ export default function ProfilePassword() {
     <Root>
       {" "}
       <h3>Change Your Password...</h3>
-      <div className="pass1">
+      <div className="pass1">Enter Your Current Password
         <input
           type="password"
           placeholder="---Current Password---"
@@ -52,7 +52,7 @@ export default function ProfilePassword() {
           }
         />
       </div>
-      <div className="pass1">
+      <div className="pass1">Enter Your New Password
         <input
           type="Password"
           placeholder="---New Password---"
@@ -86,16 +86,19 @@ const Root = styled.section`
   h3 {
     font-weight: 600;
     font-family: "Roboto", "sans-serif";
+    text-shadow: 5px 5px 6px gray;
   }
   .pass1 {
+    display: flex;
+    flex-direction: column;
     input {
       text-align: center;
-      border-radius: 40px;
+      border-radius: 10px;
       padding: 10px;
       color: #202020;
       width: 240px;
       text-decoration: none;
-      border: 2px solid #a5d8fa;
+      border: 2px solid lightgray;
       @media (max-width: 600px) {
         min-width: 100px;
         width: 100%;
@@ -104,33 +107,21 @@ const Root = styled.section`
   }
   .box1 {
     button {
-      background: #ff6525;
+      background: #000080;
       color: #ffffff;
-      padding: 10px 10px 10px 10px;
+      padding: 10px;
       border-color: transparent;
       font-size: medium;
       text-align: center;
-      width: 230px;
+      width: 100%;
       margin: 5px;
       cursor: pointer;
-      background: linear-gradient(
-        45deg,
-        #ff6525 19%,
-        #ffffffe6 51%,
-        #ff6525 100%
-      );
-      border-radius: 50px;
-      color: #fff;
+      border-radius: 10px;
       background-size: 300% 100%;
-      transition: all 0.3s ease-in-out 0s;
+      transition: all 0.2s ease-in-out 0s;
       text-transform: uppercase;
       &:hover {
-        background: linear-gradient(
-          -25deg,
-          #ff6525 49%,
-          #ffffffe6 91%,
-          #ff6525 100%
-        );
+        box-shadow: 5px 6px 6px gray;
       }
     }
   }
