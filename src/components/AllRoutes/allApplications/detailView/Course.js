@@ -15,31 +15,22 @@ export default function Course({ detail }) {
         <div className="container-fluid">
           <div className="row">
             <div className="col-lg-3 col-sm-3">
-              <div className="hlo4544554">
-
-              Institution Name
-              </div>
-              <p className="p111">
-                 {detail?.university_id?.university_name}{" "}
-              </p>
+              <div className="hlo4544554">Institution Name</div>
+              <p className="p111">{detail?.university_id?.university_name} </p>
             </div>
             <div className="col-lg-3 col-sm-3">
-              <div className="hlo45445514">
-              Course Details 
-              </div>
+              <div className="hlo45445514">Course Details</div>
               <p className="p111"> {detail?.course_id?.course_level} </p>
             </div>
             <div className="col-lg-3 col-sm-3">
-            <div className="hlo4544554">
-              Course Name
-              </div>
+              <div className="hlo4544554">Course Name</div>
               <p className="p111">{detail?.course_id?.course_name}</p>
-              </div>
+            </div>
             <div className="col-lg-3 col-sm-3">
-              <div className="hlo4544554">
-              Date  
-              </div>
-              <p className="p111">{formatDate(detail?.course_id?.update_date)}</p>
+              <div className="hlo4544554">Date</div>
+              <p className="p111">
+                {formatDate(detail?.course_id?.update_date)}
+              </p>
             </div>
           </div>
         </div>
@@ -51,13 +42,9 @@ const Root = styled.section`
   font-family: "Roboto", sans-serif;
   margin: 20px;
   background-color: #f8f8f8;
-  padding-left: 80px;
-    @media (max-width:788px){
-      padding-left: 60px;
-    }
+  box-shadow: 4px 5px 5px gray;
   .course_table {
-    /* margin: 10px; */
-    padding: 20px;
+    padding: 10px;
     background-color: #fff3ee;
     .container {
       margin: 0;
@@ -69,26 +56,26 @@ const Root = styled.section`
       font-size: 13px;
     }
   }
-  @media (max-width:999px){
+  @media (max-width: 999px) {
     padding: 0;
     margin: 0;
-    .course_table{
+    .course_table {
       padding: 0;
     }
   }
-  .p111{
+  .p111 {
     color: #202020;
-    margin-top:23px;
-    text-align:left;
+    margin-top: 23px;
+    text-align: left;
   }
-  .hlo4544554{
+  .hlo4544554 {
     color: black;
-    font-size: 21px;
-    font-weight: 800;
+    font-size: 20px;
+    font-weight: 700;
   }
-  .hlo45445514{
+  .hlo45445514 {
     color: black;
-    font-size: 21px;
-    font-weight: 800;
+    font-size: 20px;
+    font-weight: 700;
   }
 `;

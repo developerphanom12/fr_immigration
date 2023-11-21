@@ -41,9 +41,9 @@ export default function AppHistory({ detail }) {
             ))
         ) : (
           <div className="no-comment-msg">
-            <h1>
+            <h5>
               <i>No comments...</i>
-            </h1>
+            </h5>
           </div>
         )}
       </div>
@@ -60,14 +60,14 @@ const Root = styled.section`
   .app_table {
     display: flex;
     flex-direction: column;
-    margin: 20px;
     .app_header {
       display: flex;
-      background-color: #fff3ee;
+      background-color: dodgerblue;
       > div {
         flex: 1;
+        color: white;
         border: 1px solid #dee2e6;
-        padding: 20px;
+        padding: 10px;
       }
     }
     .app_body {
@@ -83,8 +83,8 @@ const Root = styled.section`
     }
   }
   .no-comment-msg {
-    margin: 20px;
-    padding: 20px;
+    margin: 10px;
+    padding: 10px;
     text-align: center;
   }
   @media (max-width: 578px) {
@@ -93,7 +93,7 @@ const Root = styled.section`
       margin: 0px;
       .app_header {
         min-width: 40px;
-        width: 100%;
+        width: 90%;
         > div {
           padding: 5px;
         }

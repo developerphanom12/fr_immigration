@@ -199,7 +199,7 @@ const Root = styled.section`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px;
+    padding: 10px;
     @media (max-width: 566px) {
       padding: 10px;
       flex-direction: column;
@@ -212,44 +212,45 @@ const Root = styled.section`
       font-family: "Roboto", sans-serif;
       font-size: 32px;
       font-weight: 700;
+      text-shadow: 4px 5px 5px gray;
     }
     button {
-      width: 200px;
+      width: 170px;
       height: 40px;
       margin: 5px;
-      border-radius: 20px;
+      border-radius: 10px;
       border: none;
-      /* padding: 10px; */
       background: #57be1f;
       color: #ffffff;
       @media (max-width: 566px) {
-        width: 120px;
+        width: 100%;
         height: 20px;
       }
     }
   }
   .search_box {
     display: flex;
-    margin: 20px;
-    background: #e6f5ff;
-    border-radius: 40px;
-    justify-content: space-between;
+    margin-left: 10px;
+    width: 50%;
+    height: 60px;
+    background: #ffffff;
+    border-radius: 5px;
+    box-shadow: 4px 5px 6px gray;
     input {
       border: 1px solid gray;
-      width: 60%;
-      border-radius: 30px;
-      padding: 7px;
-      margin: 15px;
+      width: 100%;
+      border-radius: 8px;
+      margin: 10px;
     }
     button {
       width: 80px;
       background: #1e33f2;
-      padding: 10px;
+      padding:5px;
       border: none;
-      border-radius: 35px;
+      border-radius: 10px;
       float: none;
       font-family: "Roboto", sans-serif;
-      font-size: 18px;
+      font-size: 14px;
       font-weight: 700;
       margin: 15px;
       color: #ffffff;
@@ -267,18 +268,19 @@ const Root = styled.section`
   .app_table {
     display: flex;
     flex-direction: column;
-    margin: 20px;
+    margin: 10px;
+    width: 90%;
     font-family: "Roboto", "sana-serif";
     .app_header {
       display: flex;
-      background-color: #fff3ee;
+      background-color: dodgerblue;
       text-align: center;
+      color: white;
 
       > div {
         flex: 1;
         border: 1px solid #dee2e6;
-        padding: 20px;
-        /* text-align: center; */
+        padding: 15px;
       }
     }
     .app_body {
@@ -299,11 +301,10 @@ const Root = styled.section`
       > div {
         flex: 1;
         border: 0.3px solid #fbfbfd;
-        padding: 5px;
         text-transform: capitalize;
         background-color: #e7e7e8;
         text-align: center;
-        padding: 20px 5px;
+        padding: 15px 5px;
         .person {
           color: #8995ad;
           font-size: 15px;

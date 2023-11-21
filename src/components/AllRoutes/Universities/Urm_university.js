@@ -6,7 +6,6 @@ import { EXCHANGE_URLS_IMAGE, EXCHANGE_URLS_UNIVERSITY } from "../../URLS";
 // import Loader from "../../Loader";
 
 export default function Urm_university() {
-  
   const [universityData, setUniversityData] = useState([]);
 
   const universityApi = async () => {
@@ -21,11 +20,10 @@ export default function Urm_university() {
 
         axiosConfig
       );
-     
+
       console.log("resres123", res);
       if (res.status === 200) {
         setUniversityData(res?.data?.data);
-       
       }
     } catch (err) {
       console.log("err", err);
@@ -34,42 +32,35 @@ export default function Urm_university() {
 
   useEffect(() => {
     universityApi();
-    
   }, []);
 
   console.log("universityData", universityData);
 
   return (
     <Root>
-      <h1>URM University</h1>
+      <h2>URM University</h2>
       <div className="first_child">
-      <select
-                  onChange={(e) => {
-                    setUniversityData({ ...universityData, university_id: e.target.value });
-                  }}
-                >
-                  {universityData &&
-                    universityData.map((i) => {
-                      return (
-                        <option value={i?.university_id}>
-                          {i.university_name}
-                        </option>
-                      );
-                    })}
-                </select>
-        <select>
-          <option>---Select URM Name---</option>
-          <option>Select URM Name</option>
-          <option>Select URM Name</option>
-          <option>Select URM Name</option>
+        <select
+          onChange={(e) => {
+            setUniversityData({
+              ...universityData,
+              university_id: e.target.value,
+            });
+          }}
+        >
+          {universityData &&
+            universityData.map((i) => {
+              return (
+                <option value={i?.university_id}>{i.university_name}</option>
+              );
+            })}
         </select>
 
         <button>
           <AiOutlineSearch /> Filter
         </button>
       </div>
-     
-      
+
       <div className="second_child">
         {universityData &&
           universityData?.map((i) => {
@@ -95,16 +86,17 @@ export default function Urm_university() {
             );
           })}
       </div>
-    
-
     </Root>
   );
 }
 const Root = styled.section`
-padding-left: 90px;
-    @media (max-width:788px){
-      padding-left: 60px;
-    }
+  padding-left: 90px;
+  @media (max-width: 788px) {
+    padding-left: 60px;
+  }
+  h2{
+    text-shadow: 4px 5px 5px gray;
+  }
   h5,
   p {
     margin: 0;
@@ -113,14 +105,15 @@ padding-left: 90px;
   }
   .first_child {
     display: flex;
-    background-color: #87CEFA;
-    width: 100%;
+    background-color: #ffff;
+    width: 50%;
     margin: 5px;
+    box-shadow: 4px 5px 5px gray;
     padding: 10px;
-    border-radius: 15px;
+    border-radius: 10px;
     justify-content: space-between;
     flex-wrap: wrap;
-    @media (max-width:666px){
+    @media (max-width: 666px) {
       padding: 5px;
       margin: 5px;
       gap: 5px;
@@ -129,19 +122,63 @@ padding-left: 90px;
       flex-direction: column;
     }
     select {
-      width: 40%;
+      background-color: white;
+      color: black;
+      text-decoration: none;
+      border: 2px solid gray;
+      line-height: 1.5em;
+      padding: 5px;
+      width: 70%;
       border-radius: 10px;
-      padding: 10px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: linear-gradient(45deg, transparent 50%, black 50%),
+        linear-gradient(135deg, black 50%, transparent 50%),
+        linear-gradient(to right, dodgerblue, skyblue);
+      background-position: calc(100% - 20px) calc(1em + 2px),
+        calc(100% - 15px) calc(1em + 2px), 100% 0;
+      background-size: 5px 5px, 5px 5px, 40px 45px;
+      background-repeat: no-repeat;
+      &:hover {
+        box-shadow: 4px 4px 5px darkgray;
+        transition: all 0.1s ease-in-out 0s;
+      }
+      @media (max-width: 555px) {
+        padding: 8px;
+        background-size: 5px 5px, 5px 5px, 30px 45px;
+        align-items: center;
+      }
+
+      select:focus {
+        background-image: linear-gradient(45deg, white 50%, transparent 50%),
+          linear-gradient(135deg, transparent 50%, white 50%),
+          linear-gradient(to right, gray, gray);
+        background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
+          100% 0;
+        background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+        background-repeat: no-repeat;
+        border-color: grey;
+        outline: 0;
+      }
     }
     button {
-      background-color: #FF7F50;
-      width: 80px;
       border: none;
-      border-radius: 15px;
+      width: 100px;
+      padding: 5px;
+      border-radius: 10px;
+      background-color: #000080;
       color: white;
       &:hover {
-        background-color:lightseagreen;
-        cursor: pointer;
+        box-shadow: 4px 5px 5px gray;
+      }
+      @media (max-width: 566px) {
+        width: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
   }
@@ -152,11 +189,11 @@ padding-left: 90px;
     flex-wrap: wrap;
     padding: 10px;
     .card {
-      width: 250px;
+      width: 30%;
       height: auto;
       padding: 10px;
-      border-radius: 15px;
-      border-bottom: 5px solid #87CEFA;
+      border-radius: 5px;
+      box-shadow: 6px 7px 7px gray;
       .card_top {
         display: flex;
         gap: 10px;

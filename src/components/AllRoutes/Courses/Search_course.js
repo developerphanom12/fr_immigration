@@ -56,7 +56,7 @@ export default function Search_course() {
   console.log("setSearchQuery", setSearchQuery);
   return (
     <Root>
-      <h4>Search Courses Here</h4>
+      <h2>Search Courses Here</h2>
       <div className="search_box">
         <input
           value={searchKey}
@@ -75,7 +75,7 @@ export default function Search_course() {
       </div>
 
       <div className="courses_div">
-        <h2>Total Courses: {courseData?.length}</h2>
+        <h4>Total Courses: {courseData?.length}</h4>
         <div className="container">
           <div className=" ">
             <div>
@@ -110,31 +110,42 @@ const Root = styled.section`
   height: 100%;
   min-height: 100vh;
   padding-left: 90px;
-    @media (max-width:788px){
-      padding-left: 60px;
-    }
+  @media (max-width: 788px) {
+    padding-left: 60px;
+  }
   h2 {
-    margin-top: 10px;
+    margin: 10px;
+    text-shadow: 4px 5px 5px gray;
   }
 
   .search_box {
     display: flex;
+    width: 50%;
+    border-radius: 10px;
     justify-content: space-between;
-    border: 1px solid gray;
+    box-shadow: 4px 5px 5px gray;
+    padding: 5px;
     input {
-      border: transparent;
+      border: 2px solid lightgray;
       padding: 5px;
-      width: 100%;
+      border-radius: 10px;
+      width: 70%;
     }
     button {
-      width: 80px;
-      border: transparent;
-      border-radius: 5px;
-      background-color: #1e90ff;
+      border: none;
+      width: 100px;
+      padding: 5px;
+      border-radius: 10px;
+      background-color: #000080;
       color: white;
       &:hover {
-        cursor: pointer;
-        background-color: green;
+        box-shadow: 4px 5px 5px gray;
+      }
+      @media (max-width: 566px) {
+        width: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
   }
@@ -143,25 +154,28 @@ const Root = styled.section`
     flex-direction: column;
     width: 100%;
     max-width: 100vw;
+    h4 {
+      margin: 10px;
+      text-shadow: 4px 5px 5px gray;
+    }
     .courses_box {
       display: flex;
       gap: 10px;
       height: 100%;
-      flex-wrap:wrap;
+      flex-wrap: wrap;
       @media (max-width: 876px) {
         flex-direction: column;
       }
       .courses_child1 {
         display: flex;
         gap: 10px;
+        box-shadow: 5px 7px 7px gray;
         margin: 10px 0px;
         padding: 10px;
-        border-radius: 15px;
+        border-radius: 5px;
         justify-content: space-evenly;
         align-items: center;
         text-align: center;
-        border: 1px solid gray;
-        border-bottom: 5px solid #87cefa;
         img {
           width: 100px;
           height: 100px;
@@ -181,7 +195,7 @@ const Root = styled.section`
             button {
               width: 150px;
               color: white;
-              background-color: #ff7f50;
+              background-color: dodgerblue;
               border-radius: 10px;
               margin: 10px;
               border: none;

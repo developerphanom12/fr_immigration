@@ -20,18 +20,19 @@ export default function CreateStaff() {
   const staffApi = async () => {
     const { confirm_password, ...data } = formData;
     try {
-      const res = await axios.post(`${EXCHANGE_URLS_ADMIN}/addstaff/`,
-      { ...data});
+      const res = await axios.post(`${EXCHANGE_URLS_ADMIN}/addstaff/`, {
+        ...data,
+      });
       console.log("res", res);
       cogoToast.success("Staff Register SuccessFully");
-    //   setFormData({
-    //     staff_name: "",
-    //     password: "",
-    //     staff_email: "",
-    //     staff_phone_number: "",
-    //     country_id:""
-    //   });
-       navigate("/applications");
+      //   setFormData({
+      //     staff_name: "",
+      //     password: "",
+      //     staff_email: "",
+      //     staff_phone_number: "",
+      //     country_id:""
+      //   });
+      navigate("/applications");
     } catch (err) {
       console.log("err", err);
     }
@@ -57,7 +58,7 @@ export default function CreateStaff() {
   };
   const handleRegisterClick = () => {
     if (formData?.password === formData?.confirm_password) {
-        staffApi();
+      staffApi();
     } else {
       cogoToast.error("Password and Confirm Password Does Not Match");
     }
@@ -66,10 +67,11 @@ export default function CreateStaff() {
   useEffect(() => {
     getCountry();
   }, []);
-console.log("formData",formData)
+  console.log("formData", formData);
   return (
     <Root>
       <div>
+        <h3>Create Staff . . .</h3>
         <div className="name">
           Staff Name
           <input
@@ -119,32 +121,31 @@ console.log("formData",formData)
           </select>
         </div>
         <div className="name">
-              Password*
-              <input
-                type="password"
-                value={formData?.password}
-                onChange={(e) => {
-                  setFormData({ ...formData, password: e.target.value });
-                }}
-                placeholder="Enter Password"
-              />
-            </div>
-            <div className="name">
-              Confirm Password*
-              <input
-                value={formData?.confirm_password}
-                onChange={(e) => {
-                  setFormData({
-                    ...formData,
-                    confirm_password: e.target.value,
-                  });
-                }}
-                placeholder="Confirm Password"
-              />
-            </div>
-            <div className="regis">
+          Password*
+          <input
+            type="password"
+            value={formData?.password}
+            onChange={(e) => {
+              setFormData({ ...formData, password: e.target.value });
+            }}
+            placeholder="Enter Password"
+          />
+        </div>
+        <div className="name">
+          Confirm Password*
+          <input
+            value={formData?.confirm_password}
+            onChange={(e) => {
+              setFormData({
+                ...formData,
+                confirm_password: e.target.value,
+              });
+            }}
+            placeholder="Confirm Password"
+          />
+        </div>
+        <div className="regis">
           <button
-            className="btnn"
             onClick={() => {
               handleRegisterClick();
             }}
@@ -157,45 +158,52 @@ console.log("formData",formData)
   );
 }
 const Root = styled.section`
-padding-left: 80px;
-    @media (max-width:788px){
-      padding-left: 60px;
-    }
-.name {
+  padding-left: 90px;
+  @media (max-width: 788px) {
+    padding-left: 60px;
+  }
+  h3 {
+    text-shadow: 4px 5px 5px gray;
+    margin: 10px;
+  }
+  .name {
     display: flex;
     flex-direction: column;
-    font-size: larger;
-    width: 100%;
+    font-size: small;
+    width: 80%;
     margin-right: 10px;
-    padding: 20px;
+    padding: 10px;
     gap: 10px;
     color: black;
 
     select {
-        background-color: white;
-        color: black;
-        text-decoration: none;
-        border: 2px solid #a5d8fa;
-        line-height: 1.5em;
-        width:50%;
-        padding: 8px;
-    
-      border-radius: 30px;
+      background-color: white;
+      color: black;
+      text-decoration: none;
+      border: 2px solid lightgray;
+      line-height: 1.5em;
+      padding: 10px;
+      width: 50%;
+      border-radius: 10px;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
       -webkit-appearance: none;
       -moz-appearance: none;
-      background-image: linear-gradient(45deg, transparent 50%, blue 50%),
-        linear-gradient(135deg, blue 50%, transparent 50%),
-        linear-gradient(to right, skyblue, skyblue);
+      background-image: linear-gradient(45deg, transparent 50%, black 50%),
+        linear-gradient(135deg, black 50%, transparent 50%),
+        linear-gradient(to right, dodgerblue, skyblue);
       background-position: calc(100% - 20px) calc(1em + 2px),
         calc(100% - 15px) calc(1em + 2px), 100% 0;
       background-size: 5px 5px, 5px 5px, 40px 45px;
       background-repeat: no-repeat;
+      &:hover {
+        box-shadow: 4px 4px 5px darkgray;
+        transition: all 0.1s ease-in-out 0s;
+      }
       @media (max-width: 555px) {
         padding: 8px;
-        /* width: 120px; */
+        width: 100%;
         background-size: 5px 5px, 5px 5px, 30px 45px;
         align-items: center;
       }
@@ -212,88 +220,50 @@ padding-left: 80px;
         outline: 0;
       }
     }
-    .regis {
-    display: flex;
-    justify-content: flex-end;
-    padding: 20px;
-    .btnn {
-      padding: 10px;
-      border-radius: 50px;
-      font-size: medium;
-      border-color: transparent;
-      width: 160px;
-      font-size: medium;
-      color: #ffffff;
-      background: rgb(255 94 0);
-      margin: 20px;
-      background: linear-gradient(
-        45deg,
-        #ff6525 19%,
-        #ffffffe6 51%,
-        #ff6525 100%
-      );
-      border-radius: 50px;
-      color: #fff;
-      padding: 10px 5px;
-      background-size: 300% 100%;
-      transition: all 0.3s ease-in-out 0s;
-      text-transform: uppercase;
-      &:hover {
-        background: linear-gradient(
-          -25deg,
-          #ff6525 49%,
-          #ffffffe6 91%,
-          #ff6525 100%
-        );
-      }
-    }
-   
   }
-}
-button {
+  > div {
+    .regis {
       display: flex;
-      flex-direction: column;
-      width: 50%;
-      height: 50px;
-      padding: 10px;
-      margin: 10px;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      margin-top: 20px ;
-      border-radius: 30px;
-      border: transparent;
-      background: linear-gradient(
-        45deg,
-        #0146ff 19%,
-        #0146ff96 48%,
-        #0146ff 100%
-      );
-      &:hover {
-        background: linear-gradient(
-          -25deg,
-          #0146ff 19%,
-          #0146ff96 88%,
-          transparent 100%
-        );
+      margin: 5px;
+      button {
+        display: flex;
+        flex-direction: column;
+        width: 17%;
+        height: 45px;
+        margin: 5px;
+        padding: 5px;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        margin-top: 10px;
+        border-radius: 10px;
+        border: transparent;
+        background: #000080;
+        color: #fff;
+        background-size: 300% 100%;
         transition: all 0.3s ease-in-out 0s;
-      }
-      border-radius: 50px;
-      color: #fff;
-      padding: 20px 30px;
-      background-size: 300% 100%;
-      transition: all 0.3s ease-in-out 0s;
-      text-transform: uppercase;
-    }
-    input {
-        border-radius: 40px;
-        padding: 10px;
-        color: #202020;
-        width: 50%;
-        text-decoration: none;
-        border: 2px solid #a5d8fa;
-        @media (max-width: 600px) {
-          min-width: 100px;
-          width: 100%;
+        text-transform: uppercase;
+        &:hover {
+          background: #000080;
+          transition: all 0.1s ease-in-out 0s;
+          box-shadow: 4px 5px 5px gray;
         }
-      }`;
+        @media (max-width:666px) {
+          width:50%;
+        }
+      }
+    }
+  }
+  input {
+    border-radius: 10px;
+    padding: 10px;
+    color: #202020;
+    width: 50%;
+    text-decoration: none;
+    border: 2px solid lightgray;
+    @media (max-width: 600px) {
+      min-width: 100px;
+      width: 100%;
+    }
+  }
+`;

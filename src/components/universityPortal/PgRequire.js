@@ -107,6 +107,9 @@ const Root = styled.section`
     @media (max-width:788px){
       padding-left: 60px;
     }
+    h3{
+    text-shadow: 4px 5px 5px gray;
+  }
   .child1{
     button {
       width: 200px;
@@ -138,14 +141,14 @@ const Root = styled.section`
     font-family: "Roboto", "sana-serif";
     .app_header {
       display: flex;
-      background-color: #fff3ee;
+      background-color: dodgerblue;
+      color: #ffffff;
       text-align: center;
 
       > div {
         flex: 1;
         border: 1px solid #dee2e6;
         padding: 20px;
-        /* text-align: center; */
       }
     }
     .app_body {

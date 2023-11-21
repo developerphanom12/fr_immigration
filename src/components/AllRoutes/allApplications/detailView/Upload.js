@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { BsFillEyeFill } from "react-icons/bs";
+import { ImEye } from "react-icons/im";
+import { IoDocumentTextOutline } from "react-icons/io5";
 import {
   EXCHANGE_URLS_ADMIN,
   EXCHANGE_URLS_APPLICATION,
@@ -31,7 +32,6 @@ export default function Upload({ detail, val }) {
   const handleDocumentTypeChange = (e) => {
     setSelectedDocumentType(e.target.value);
     setSelectedFile();
-
   };
   const submitDoc = async () => {
     if (!selectedDocumentType) {
@@ -103,13 +103,13 @@ export default function Upload({ detail, val }) {
     approveApi();
   };
 
-  const handleObjectUrl = (e)=>{
-    if(e){
-      setPreImg(URL.createObjectURL(e))
-    }else{
-      setPreImg("")
+  const handleObjectUrl = (e) => {
+    if (e) {
+      setPreImg(URL.createObjectURL(e));
+    } else {
+      setPreImg("");
     }
-  }
+  };
 
   useEffect(() => {
     setRefreshFlag(false);
@@ -122,8 +122,8 @@ export default function Upload({ detail, val }) {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    height: "248px",
-    padding: "20px",
+    height: "50%",
+    padding: "10px",
     borderRadius: "10px",
     border: "2px dashed #555",
     color: "#444",
@@ -134,14 +134,8 @@ export default function Upload({ detail, val }) {
   const seses = {
     position: "relative",
     display: "flex",
-    // gap: '10px',
     flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "288",
-    padding: "20px",
-    borderRadius: "10px",
-    border: "2px dashed #555",
+    height: "100%",
     color: "#444",
     cursor: "pointer",
     transition: "background .2s ease-in-out, border .2s ease-in-out",
@@ -170,9 +164,14 @@ export default function Upload({ detail, val }) {
               <div className="col-lg-6">
                 <div className="a1">
                   <div className="imgg" style={selectContainerStyle}>
+                    click here
                     <img
                       // src="https://www.crizac.co.uk/catalog/assets/images/upload_icon.svg"
-                      src={preImg? preImg: "https://www.crizac.co.uk/catalog/assets/images/upload_icon.svg"}
+                      src={
+                        preImg
+                          ? preImg
+                          : "https://www.crizac.co.uk/catalog/assets/images/upload_icon.svg"
+                      }
                       alt="Upload"
                       className="inside_img"
                     ></img>
@@ -181,13 +180,12 @@ export default function Upload({ detail, val }) {
                         type="file"
                         onChange={(e) => {
                           setSelectedFile(e.target.files[0]);
-                          handleObjectUrl(e.target.files[0])
+                          handleObjectUrl(e.target.files[0]);
                         }}
                       />
                     )}
-
                   </div>
-                  <h5>Please Select Type To Upload Document Images</h5>
+                  <h6>Please Select Type To Upload Document Images</h6>
                   <label style={selectTitleStyle}>
                     <select
                       onChange={handleDocumentTypeChange}
@@ -209,131 +207,160 @@ export default function Upload({ detail, val }) {
                       <button onClick={handleSubmitt}>Submit</button>
                     </div>
                   )}
+                  <div className="main_box2">
+                    <div className="status3">
+                      {userCheck.role === "admin" ? (
+                        <>
+                          <select
+                            onChange={(e) => {
+                              setSelect({
+                                ...select,
+                                newStatus: e.target.value,
+                                applicationId: getDetails.application_id,
+                              });
+                            }}
+                          >
+                            <option value="blank">Select Status</option>
+                            <option value="approved">Approve</option>
+                            <option value="rejected">Reject</option>
+                          </select>
+                          <div>
+                            <button
+                              onClick={() => {
+                                handleSubmit();
+                              }}
+                            >
+                              {" "}
+                              Submit
+                            </button>
+                          </div>
+                        </>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
             </>
           )}
 
-          <div className="col-lg-1"></div>
           <>
             <div className="col-lg-5">
               <div className="" style={seses}>
                 <div className="view">
+                <div className="docu">
+                      {" "}
+                      <IoDocumentTextOutline />
+                    </div>
                   <a
                     href={`${IMG_URL}/${detail?.documents[0]?.file_path}`}
                     target="_blank"
                     rel="noreferrer"
                   >
+                 
                     View Aadhar{" "}
                     <button>
-                      <BsFillEyeFill />
+                    <ImEye />
                     </button>
                   </a>
                 </div>
                 <div className="view">
+                <div className="docu">
+                      {" "}
+                      <IoDocumentTextOutline />
+                    </div>
                   {" "}
                   <a
                     href={`${IMG_URL}/${detail?.documents[1]?.file_path}`}
                     target="_blank"
                     rel="noreferrer"
                   >
+                   
                     View Pancard{" "}
                     <button>
                       {" "}
-                      <BsFillEyeFill />
+                      <ImEye />
                     </button>
                   </a>
                 </div>
                 <div className="view">
+                <div className="docu">
+                      {" "}
+                      <IoDocumentTextOutline />
+                    </div>
                   {" "}
                   <a
                     href={`${IMG_URL}/${detail?.documents[5]?.file_path}`}
                     target="_blank"
                     rel="noreferrer"
                   >
+                   
                     View Intermediate{" "}
                     <button>
                       {" "}
-                      <BsFillEyeFill />
+                      <ImEye />
                     </button>
                   </a>
                 </div>
                 <div className="view">
+                <div className="docu">
+                      {" "}
+                      <IoDocumentTextOutline />
+                    </div>
                   {" "}
                   <a
                     href={`${IMG_URL}/${detail?.documents[2]?.file_path}`}
                     target="_blank"
                     rel="noreferrer"
                   >
+                   
                     View Passport Front
                     <button>
                       {" "}
-                      <BsFillEyeFill />
+                      <ImEye />
                     </button>
                   </a>
                 </div>
                 <div className="view">
+                <div className="docu">
+                      {" "}
+                      <IoDocumentTextOutline />
+                    </div>
                   <a
                     href={`${IMG_URL}/${detail?.documents[3]?.file_path}`}
                     target="_blank"
                     rel="noreferrer"
                   >
+                  
                     View Passport back{" "}
                     <button>
-                      <BsFillEyeFill />
+                    <ImEye />
                     </button>
                   </a>
                 </div>
 
                 <div className="view">
+                <div className="docu">
+                      {" "}
+                      <IoDocumentTextOutline />
+                    </div>
                   <a
                     href={`${IMG_URL}/${detail?.documents[4]?.file_path}`}
                     target="_blank"
                     rel="noreferrer"
                   >
+                   
                     View Matric{" "}
                     <button>
                       {" "}
-                      <BsFillEyeFill />
+                      <ImEye />
                     </button>
                   </a>
                 </div>
               </div>
             </div>
           </>
-        </div>
-      </div>
-      <div className="main_box2">
-        <div className="status3">
-          {userCheck.role === "admin" ? (
-            <>
-              <select
-                onChange={(e) => {
-                  setSelect({
-                    ...select,
-                    newStatus: e.target.value,
-                    applicationId: getDetails.application_id,
-                  });
-                }}
-              >
-                <option value="blank">Select Status</option>
-                <option value="approved">Approve</option>
-                <option value="rejected">Reject</option>
-              </select>
-
-              <button
-                className="btn"
-                onClick={() => {
-                  handleSubmit();
-                }}
-              >
-                {" "}
-                Submit
-              </button>
-            </>
-          ) : (
-            ""
-          )}
         </div>
       </div>
     </Root>
@@ -343,10 +370,10 @@ const Root = styled.section`
   height: 100%;
   width: 100%;
   margin: 10px;
-  padding-left: 80px;
-    @media (max-width:788px){
-      padding-left: 60px;
-    }
+  padding-left: 90px;
+  @media (max-width: 788px) {
+    padding-left: 60px;
+  }
   font-family: "Roboto", "sana-serif";
   @media (max-width: 888px) {
     margin: 0;
@@ -363,31 +390,37 @@ const Root = styled.section`
       width: 150px;
     }
   }
-  button {
-    border: 2px solid #a5d8fa;
-    margin-left: 10px;
-    width: 40px;
-    height: 40px;
-    justify-content: flex-end;
-    @media (max-width: 766px) {
-      margin: 0;
-      height: 30px;
-    }
-  }
+
   .view {
     display: flex;
-    gap: 10px;
-    margin: 5px;
     padding: 10px;
-    width: 250px;
-    justify-content: space-between;
+    width: 60%;
+
+    .docu{
+
+      svg {
+        color: darkgrey;
+        width: 40px;
+        height: 40px;
+      }
+    }
 
     a {
-      width: 181px;
+      width:100%;
       display: flex;
       justify-content: space-between;
-      font-size: 16px;
+      font-size: 12px;
+      align-items: center;
       text-decoration: none;
+      color: black;
+      button {
+        border: none;
+        background: white;
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
     }
     @media (max-width: 566px) {
       padding: 5px;
@@ -421,118 +454,183 @@ const Root = styled.section`
       margin: 5px;
     }
   }
-  .main_box2 {
-    display: flex;
-    padding: 10px;
-    justify-content: space-evenly;
-    @media (max-width: 566px) {
-      padding: 0;
-      flex-direction: column;
-      width: 150px;
-    }
-  }
-  .status3 {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    @media (max-width: 566px) {
-      padding: 0;
-      flex-direction: column;
-      width: 150px;
-    }
-  }
-
-  select {
-    margin-bottom: 44px;
-    background-color: white;
-    color: black;
-    line-height: 1.5em;
-    padding: 8px;
-    border-radius: 20px;
-    margin: 13px;
-    margin-left: 33px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    width: 270px;
-    background-image: linear-gradient(45deg, transparent 50%, blue 50%),
-      linear-gradient(135deg, blue 50%, transparent 50%),
-      linear-gradient(to right, skyblue, skyblue);
-    background-position: calc(100% - 20px) calc(1em + 2px),
-      calc(100% - 15px) calc(1em + 2px), 100% 0;
-    background-size: 5px 5px, 5px 5px, 40px 45px;
-    background-repeat: no-repeat;
-    @media (max-width: 555px) {
-      padding: 3px;
-      width: 160px;
-      font-size: 10px;
-      background-size: 5px 5px, 5px 5px, 30px 35px;
-      align-items: center;
-      margin: 10px;
-    }
-
-    select:focus {
-      background-image: linear-gradient(45deg, white 50%, transparent 50%),
-        linear-gradient(135deg, transparent 50%, white 50%),
-        linear-gradient(to right, gray, gray);
-      background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, 100% 0;
-      background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
-      background-repeat: no-repeat;
-      border-color: grey;
-      outline: 0;
-    }
-  }
-
-  .btn {
-    border: none;
-    width: 150px;
-    padding: 10px;
-    border-radius: 40px;
-    background-color: blue;
-    color: white;
-    &:hover {
-      color: white;
-      background-color: #ff6525;
-    }
-    @media (max-width: 566px) {
-      width: 100px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
 
   .hloo {
     color: red;
   }
- .a1{
-  .imgg {
-    text-align: center;
-    margin-bottom: 32px;
-    margin-right: 36px;
-    position: relative;
-    cursor: pointer;
-    &:hover{
-      opacity: 0.5;
+  .a1 {
+    padding: 5px;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    .imgg {
+      text-align: center;
+      margin: 12px;
+      position: relative;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.5;
+      }
+      .inside_img {
+        height: 40%;
+        width: 40%;
+        object-fit: contain;
+      }
+      input {
+        position: absolute;
+        height: 90%;
+        width: 90%;
+        opacity: 0;
+      }
     }
-    .inside_img{
-      height:100%;
-      width:100%;
-      object-fit: contain;
-     
+
+    select {
+      background-color: white;
+      color: black;
+      text-decoration: none;
+      border: 2px solid gray;
+      line-height: 1.5em;
+      padding: 5px;
+      width: 90%;
+      border-radius: 10px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: linear-gradient(45deg, transparent 50%, black 50%),
+        linear-gradient(135deg, black 50%, transparent 50%),
+        linear-gradient(to right, dodgerblue, skyblue);
+      background-position: calc(100% - 20px) calc(1em + 2px),
+        calc(100% - 15px) calc(1em + 2px), 100% 0;
+      background-size: 5px 5px, 5px 5px, 40px 45px;
+      background-repeat: no-repeat;
+      &:hover {
+        box-shadow: 4px 4px 5px darkgray;
+        transition: all 0.1s ease-in-out 0s;
+      }
+      @media (max-width: 555px) {
+        padding: 8px;
+        background-size: 5px 5px, 5px 5px, 30px 45px;
+        align-items: center;
+      }
+
+      select:focus {
+        background-image: linear-gradient(45deg, white 50%, transparent 50%),
+          linear-gradient(135deg, transparent 50%, white 50%),
+          linear-gradient(to right, gray, gray);
+        background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
+          100% 0;
+        background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+        background-repeat: no-repeat;
+        border-color: grey;
+        outline: 0;
+      }
     }
-    input{
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      opacity: 0;
+    .mt-2 {
+      text-align: center;
+      button {
+        border: none;
+        width: 150px;
+        padding: 5px;
+        border-radius: 10px;
+        background-color: #000080;
+        color: white;
+        &:hover {
+          box-shadow: 4px 5px 5px gray;
+        }
+        @media (max-width: 566px) {
+          width: 100px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+    .main_box2 {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      @media (max-width: 566px) {
+        padding: 0;
+        width: 100%;
+      }
+      .status3 {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        @media (max-width: 566px) {
+          padding: 0;
+          flex-direction: column;
+          width: 150px;
+        }
+        select {
+          background-color: white;
+          color: black;
+          text-decoration: none;
+          border: 2px solid gray;
+          line-height: 1.5em;
+          padding: 5px;
+          width: 90%;
+          border-radius: 10px;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          background-image: linear-gradient(45deg, transparent 50%, black 50%),
+            linear-gradient(135deg, black 50%, transparent 50%),
+            linear-gradient(to right, dodgerblue, skyblue);
+          background-position: calc(100% - 20px) calc(1em + 2px),
+            calc(100% - 15px) calc(1em + 2px), 100% 0;
+          background-size: 5px 5px, 5px 5px, 40px 45px;
+          background-repeat: no-repeat;
+          &:hover {
+            box-shadow: 4px 4px 5px darkgray;
+            transition: all 0.1s ease-in-out 0s;
+          }
+          @media (max-width: 555px) {
+            padding: 8px;
+            background-size: 5px 5px, 5px 5px, 30px 45px;
+            align-items: center;
+          }
+
+          select:focus {
+            background-image: linear-gradient(45deg, white 50%, transparent 50%),
+              linear-gradient(135deg, transparent 50%, white 50%),
+              linear-gradient(to right, gray, gray);
+            background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
+              100% 0;
+            background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+            background-repeat: no-repeat;
+            border-color: grey;
+            outline: 0;
+          }
+        }
+        > div {
+          button {
+            border: none;
+            width: 150px;
+            padding: 5px;
+            border-radius: 10px;
+            background-color: #000080;
+            color: white;
+            &:hover {
+              box-shadow: 4px 5px 5px gray;
+            }
+            @media (max-width: 566px) {
+              width: 100px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
+      }
     }
   }
- }
   .hl1l1 {
-    padding: 8px 14px;
     background-color: #e9521d;
     transition: all ease-in-out 0.3s;
     color: #fff;
@@ -542,17 +640,14 @@ const Root = styled.section`
     font-size: 14px;
     text-transform: uppercase;
   }
-  .view {
-    display: flex;
-    gap: 90px;
-  }
+  
   .hliihi {
     text-align: center;
   }
-  .mt-2{
-    button{
-    width:  100px;
-    margin: 10px;
+  .mt-2 {
+    button {
+      width: 100px;
+      margin: 10px;
     }
   }
 `;

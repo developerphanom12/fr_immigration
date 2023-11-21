@@ -102,6 +102,9 @@ const Root = styled.section`
     }
   vertical-align: middle;
   height: 100%;
+  h3{
+    text-shadow: 4px 5px 5px gray;
+  }
   .child1 {
     button {
       width: 200px;
@@ -133,7 +136,8 @@ const Root = styled.section`
     font-family: "Roboto", "sana-serif";
     .app_header {
       display: flex;
-      background-color: #fff3ee;
+      background-color: dodgerblue;
+      color: #ffffff;
       text-align: center;
 
       > div {

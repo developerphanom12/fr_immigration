@@ -246,7 +246,7 @@ export default function SideBar() {
                 <p>Action</p>
               </div>
               <div
-                className={activeParam === "action" ? "active" : ""}
+                className={activeParam === "createstaff" ? "active" : ""}
                 onClick={() => {
                   navigate("/createstaff");
                 }}
@@ -308,13 +308,12 @@ const Root = styled.section`
       font-size: 13px;
       padding: 6px;
       position: relative;
-        top: 20px;
+      top: 20px;
 
       > div {
         display: flex;
         width: 100%;
         gap: 5px;
-       
         border-radius: 10px;
         align-items: center;
         &:hover {
@@ -324,6 +323,7 @@ const Root = styled.section`
         p {
           display: none;
           font-size: small;
+          padding-top: 10px;
         }
         svg {
           width: 25px;
@@ -337,14 +337,14 @@ const Root = styled.section`
       }
       &:hover {
         display: flex;
-        gap: 2px;
+        gap: 0px;
       }
     }
   }
   &:hover {
     .nav_section > div > p {
       display: block;
-      padding-top: 10px;
+      gap: 0px;
     }
   }
 `;

@@ -117,20 +117,26 @@ export default function DetailView() {
 const Root = styled.section`
   font-family: "Roboto", sans-serif;
   background-color: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100%;
+  margin-top: 25px;
   padding-left: 80px;
     @media (max-width:788px){
-      padding-left: 60px;
+      padding-left: 70px;
     }
   @media (max-width: 800px) {
-    padding: 0;
+
     h2 {
       margin: 4px;
     }
   }
   h2 {
     margin: 10px;
-    font-size: 32px;
+    font-size: 30px;
+    text-shadow: 4px 5px 5px gray;
     font-weight: 600;
     @media (max-width: 786px) {
       margin: 0;
@@ -140,14 +146,14 @@ const Root = styled.section`
   }
   .nav_tab {
     display: flex;
-    gap: 15px;
+    gap: 10px;
     align-items: center;
-    background: #e6f5ff;
+    background: #ffffff;
+    width: 80%;
     justify-content: center;
     padding: 10px;
-    border-radius: 40px;
+    border-radius: 10px;
     margin: 10px;
-    border-bottom: 1px solid lightgray;
     @media (max-width: 786px) {
       flex-direction: column;
     }
@@ -157,10 +163,11 @@ const Root = styled.section`
       border: none;
       width: fit-content;
       padding: 10px;
-      border-radius: 40px;
+      background-color: #000080;
+      border-radius: 10px;
+      color: white;
       &:hover {
-        background-color: blue;
-        color: white;
+        box-shadow: 4px 5px 5px #A1A2A5;
       }
       @media (max-width: 566px) {
         min-width: 80px;
@@ -174,7 +181,7 @@ const Root = styled.section`
       }
     }
     .active {
-      background-color: blue;
+      background: #57be1f;
       color: #ffffff;
       @media (max-width: 400px) {
         .active {

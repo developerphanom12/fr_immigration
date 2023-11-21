@@ -11,28 +11,15 @@ export default function Student({ detail }) {
   };
   return (
     <Root>
-      <section className="">
+      <section className="box">
         <div className="container  studentdata">
           <div className="row">
-            {/* <div className="col-lg-6">
-              <div className="divRow">
-                <p>Cams Id :- </p>
-                <div className="section">
-                  {detail?.application_id}
-                </div>
-              </div>
-            </div> */}
             <div className="col-lg-6">
               <div className="divRow">
                 <p>Cams Id :- </p>
                 <div className="section">{detail?.application_id}</div>
               </div>
             </div>
-            {/* <div className="col-lg-6 divRow">
-              <div className="section">
-                <p>Date :- </p>
-              </div>
-            </div> */}
             <div className="col-lg-6">
               <div className="divRow">
                 <p>Date :- </p>
@@ -60,9 +47,11 @@ export default function Student({ detail }) {
               </div>
             </div>
 
-            <div className="col-lg-6 divRow">
-              <p> Student E-Mail:-</p>
-              <div className="section">{detail?.student_email}</div>
+            <div className="col-lg-6">
+              <div className="divRow">
+                <p> Student E-Mail:-</p>
+                <div className="section">{detail?.student_email}</div>
+              </div>
             </div>
           </div>
         </div>
@@ -72,40 +61,37 @@ export default function Student({ detail }) {
 }
 const Root = styled.section`
   font-family: "Roboto", sans-serif;
-  margin: 20px;
-  padding-left: 80px;
-    @media (max-width:788px){
-      padding-left: 60px;
-    }
+  background-color: white;
+  border: 2px solid lightgray;
   background-color: #f8f8f8;
   @media (max-width: 766px) {
     margin: 0;
   }
-  .divRow {
-    padding: 10px;
-    background: #e6f5ff;
-    border-radius: 20px;
-    p {
-      color: gray;
-      background: #e6f5ff;
-      margin: 0;
-    }
-  }
-  .divRow1 {
-    border-radius: 20px;
-    background-color: white;
-    padding: 10px;
-    p {
-      background-color: white;
-      color: gray;
-      margin: 0px;
-    }
-  }
 
   .studentdata {
-    border: 3px solid #9ce7f530;
-    border-radius: 30px;
-    margin-top: 28px;
-    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+    margin-top: 18px;
+    width: 90%;
+    padding: 20px;
+    .divRow {
+      padding: 10px;
+      background: #e6f5ff;
+      border-radius: 10px;
+      p {
+        color: gray;
+        background: #e6f5ff;
+        margin: 0;
+      }
+    }
+    .divRow1 {
+      border-radius: 10px;
+      padding: 10px;
+      p {
+        background-color: white;
+        color: gray;
+        margin: 0px;
+      }
+    }
   }
 `;

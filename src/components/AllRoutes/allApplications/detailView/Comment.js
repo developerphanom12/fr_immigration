@@ -32,7 +32,7 @@ export default function Comment({value}) {
       );
       setVal(res);
       value(true)
-      navigate('/dashboardd')
+      navigate('/detailview/:id')
       console.log("resress", res);
     } catch (e) {
       console.log("error", e);
@@ -112,25 +112,25 @@ const Root = styled.section`
       padding-left: 60px;
     }
   flex-direction: column;
-  /* justify-content: space-evenly; */
-  margin: 20px;
+  margin: 10px;
   align-items: center;
   height: 100%;
-  gap: 20px;
+  gap: 10px;
   .box1 {
-    /* padding: 20px; */
-    max-width: 900px;
-    width: 100%;
+    display: flex;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+
     select {
-      max-width: 900px;
-      width: 100%;
-      border-radius: 40px;
       background-color: white;
-      border: 3px solid #e6f5ff;
-      display: inline-block;
+      color: black;
+      text-decoration: none;
+      border: 2px solid lightgray;
       line-height: 1.5em;
-      padding: 10px;
-      margin: 0;
+      padding: 5px;
+      width: 90%;
+      border-radius: 10px;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
@@ -138,11 +138,20 @@ const Root = styled.section`
       -moz-appearance: none;
       background-image: linear-gradient(45deg, transparent 50%, black 50%),
         linear-gradient(135deg, black 50%, transparent 50%),
-        linear-gradient(to right, #e6f5ff, #e6f5ff);
+        linear-gradient(to right, dodgerblue, skyblue);
       background-position: calc(100% - 20px) calc(1em + 2px),
         calc(100% - 15px) calc(1em + 2px), 100% 0;
       background-size: 5px 5px, 5px 5px, 40px 45px;
       background-repeat: no-repeat;
+      &:hover {
+        box-shadow: 4px 4px 5px darkgray;
+        transition: all 0.1s ease-in-out 0s;
+      }
+      @media (max-width: 555px) {
+        padding: 8px;
+        background-size: 5px 5px, 5px 5px, 30px 45px;
+        align-items: center;
+      }
 
       select:focus {
         background-image: linear-gradient(45deg, white 50%, transparent 50%),
@@ -160,17 +169,20 @@ const Root = styled.section`
   .box2 {
     display: flex;
     flex-direction: column;
-
+    align-items: center;
     gap: 10px;
     > div {
       text-align: center;
       .btn {
         border: none;
         width: 150px;
-        padding: 10px;
-        border-radius: 40px;
-        background-color: blue;
+        padding: 8px;
+        border-radius: 10px;
+        background-color: #000080;
         color: white;
+        &:hover {
+          box-shadow: 4px 5px 5px gray;
+        }
       }
       @media (max-width: 565px) {
         width: 100px;
@@ -182,13 +194,11 @@ const Root = styled.section`
         }
       }
     }
-  }
-  input[type="text"] {
-    border-radius: 40px;
-    border: 2px solid #d1edff;
-
-    font-size: 16px;
-
+    input[type="text"] {
+      width: 80%;
+    border-radius: 10px;
+    border: 2px solid lightgray;
+    font-size: 15px;
     padding: 30px;
     box-sizing: border-box;
 
@@ -201,6 +211,8 @@ const Root = styled.section`
     vertical-align: top;
     color: #999;
   }
+  }
+ 
   @media (max-width: 566px) {
     margin: 0;
     padding: 0;
