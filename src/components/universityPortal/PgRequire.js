@@ -115,7 +115,7 @@ const Root = styled.section`
       width: 200px;
       height: 40px;
       margin: 5px;
-      border-radius: 20px;
+      border-radius: 10px;
       border: none;
       /* padding: 10px; */
       background: #57be1f;

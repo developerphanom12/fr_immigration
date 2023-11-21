@@ -53,9 +53,10 @@ const Root = styled.section`
     display: flex;
     gap: 5px;
     margin: 10px;
-    background-color: #e6f5ff;
+    background-color: white;
+    box-shadow: 6px 7px 7px gray;
     padding: 10px;
-    border-radius: 40px;
+    border-radius: 10px;
     .btn_1 {
       background-color: transparent;
       border: none;
