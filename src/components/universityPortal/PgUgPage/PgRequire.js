@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { EXCHANGE_URLS_UNIVERSITY } from "../URLS";
+import { EXCHANGE_URLS_UNIVERSITY } from "../../URLS";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -108,7 +108,7 @@ const Root = styled.section`
       padding-left: 60px;
     }
     h3{
-    text-shadow: 4px 5px 5px gray;
+      margin: 5px;
   }
   .child1{
     button {

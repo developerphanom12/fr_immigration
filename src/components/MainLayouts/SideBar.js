@@ -107,6 +107,15 @@ export default function SideBar() {
                 {<MdSearch />}
                 <p>Search Course</p>
               </div>
+              <div
+                className={activeParam === "listcourses" ? "active" : ""}
+                onClick={() => {
+                  navigate("/listcourses");
+                }}
+              >
+                {<MdPersonSearch />}
+                <p>Courses List</p>
+              </div>
             </>
           ) : (
             ""
@@ -185,6 +194,15 @@ export default function SideBar() {
               >
                 {<MdSearch />}
                 <p>Search Course</p>
+              </div>
+              <div
+                className={activeParam === "listcourses" ? "active" : ""}
+                onClick={() => {
+                  navigate("/listcourses");
+                }}
+              >
+                {<MdPersonSearch />}
+                <p>Courses List</p>
               </div>
             </>
           ) : (
@@ -346,7 +364,6 @@ const Root = styled.section`
       }
       &:hover {
         display: flex;
-        gap: 0px;
       }
     }
   }
@@ -354,6 +371,7 @@ const Root = styled.section`
     .nav_section > div > p {
       display: block;
       gap: 0px;
+      padding-top: 2px;
     }
   }
 `;

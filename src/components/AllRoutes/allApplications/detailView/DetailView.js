@@ -13,8 +13,8 @@ import { EXCHANGE_URLS_APPLICATION } from "../../../URLS";
 export default function DetailView() {
   const [val,setVal] = useState(false);
   const [value,setValue] = useState (false ,true);
-  const [user, setUser] = useState();
   const [active, setActive] = useState("student");
+  const [user, setUser] = useState();
   let { id } = useParams();
   console.log("checkdata", id);
 

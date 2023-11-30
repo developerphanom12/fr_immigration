@@ -25,15 +25,15 @@ import LatestUpdates from "./components/StudentPortal/LatestUpdates";
 import Profile from "./components/MainLayouts/Profile/Profile";
 import UniLogin from "./components/universityPortal/UniLogin";
 import UniRegister from "./components/universityPortal/UniRegister";
-import UniAddCourses from "./components/universityPortal/UniAddCourses";
-import PgRequire from "./components/universityPortal/PgRequire";
-import UgRequire from "./components/universityPortal/UgRequire";
-import ListCourses from "./components/universityPortal/ListCourses";
+import UniAddCourses from "./components/universityPortal/listOfAllCourse/UniAddCourses";
+import PgRequire from "./components/universityPortal/PgUgPage/PgRequire";
+import UgRequire from "./components/universityPortal/PgUgPage/UgRequire";
+import ListCourses from "./components/universityPortal/listOfAllCourse/ListCourses";
 import UniDashboard from "./components/universityPortal/UniDashboard";
-import GetUg from "./components/universityPortal/GetUg";
-import GetPg from "./components/universityPortal/GetPg";
+import GetUg from "./components/universityPortal/PgUgPage/GetUg";
+import GetPg from "./components/universityPortal/PgUgPage/GetPg";
 import StuDashboard from "./components/StudentPortal/StuDashboard";
-// import Student from "./components/AllRoutes/allApplications/detailView/Student";
+import ShowList from "./components/universityPortal/listOfAllCourse/ShowList";
 
 function App() {
   const userCheck = useSelector((state) => state?.users?.userCheck);
@@ -46,52 +46,8 @@ function App() {
   return (
     <Layout>
       <Routes>
-        {/* {userCheck && token  || userDetails.role === "staff" || userDetails.role === "student"  ? (
-          userDetails && 
-          (userDetails.role === "admin") ? (
-            <>
-              <Route path="/dashboardd" element={<DashboardAdmin />} />
-              <Route path="*" element={<DashboardAdmin />} />
-              <Route path="/action" element={<Action />} />
-              <Route path="/applications" element={<Applications />} />
-              <Route path="/history" element={<HistoryMain />} />
-              <Route path="/urm" element={<Urm_university />} />  
-              <Route path="/search" element={<Search_course />} />
-              <Route path="/detailview/:id" element={<DetailView />} />
-
-            </>
-          ) : (
-            <>
-             <Route path="/dashboardd" element={<DashboardAdmin />} />
-            <Route path="/detailview/:id" element={<DetailView />} />
-              <Route path="*" element={<DashboardAdmin />} />
-              <Route path="/applications" element={<Applications />} />
-              <Route path="/history" element={<HistoryMain />} />
-              <Route path="/urm" element={<Urm_university />} />
-              <Route path="/search" element={<Search_course />} />
-             
-            </>
-          )
-        ) : (
-          <>
-            <Route path="*" element={<PageNF />} />
-            <Route path="/" element={<HomePage />} />
-            <Route path="/home" element={<HomePage />} />
-            <Route path="/adminlogin" element={<AdminLogin />} />
-            <Route path="/stafflogin" element={<StaffLogin/>} />
-            <Route path="/studentlogin" element={<StudentLogin/>}/>
-            <Route path="/register" element={<Register/>}/>
-            <Route path="/login" element={<Login />} />
-            <Route path="/forgot" element={<ForgotPass/>} />
-            <Route path="/partner" element={<Partner />} />
-            <Route path="/user" element={<ProfileUser/>} />
-            <Route path="/address" element={<ProfileAddress/>} />
-            <Route path="/changepass" element={<ProfilePassword/>} />
-
-          </>
-        )} */}
-
-        {userCheck && token ? ( // If the user is authenticated
+        
+        {userCheck && token ? (   //commom ----------------------------------------------
           <>
             <Route path="/dashboardd" element={<DashboardAdmin />} />
             <Route path="/applications" element={<Applications />} />
@@ -103,8 +59,10 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/changepass" element={<ProfilePassword />} />
             <Route path="/search" element={<Search_course />} />
+            <Route path="/listcourses" element={<ListCourses />} />
+            <Route path="/showlist/:id" element={<ShowList />} />
             {userDetails.role === "admin" ? (
-              // Admin-specific routes
+              // Admin-specific routes ---------------------------------------------------
               <>
                 <Route path="/dashboardd" element={<DashboardAdmin />} />
                 <Route path="/createstaff" element={<CreateStaff />} />
@@ -119,9 +77,11 @@ function App() {
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/latestupdates" element={<LatestUpdates />} />
                 <Route path="/changepass" element={<ProfilePassword />} />
+                <Route path="/listcourses" element={<ListCourses />} />
+                <Route path="/showlist/:id" element={<ShowList />} />
               </>
             ) : userDetails.role === "staff" ? (
-              // Staff-specific routes
+              // Staff-specific routes ---------------------------------------------------
               <>
                 <Route path="/dashboardd" element={<DashboardAdmin />} />
                 <Route path="/history" element={<HistoryMain />} />
@@ -132,9 +92,11 @@ function App() {
                 <Route path="/search" element={<Search_course />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/changepass" element={<ProfilePassword />} />
+                <Route path="/listcourses" element={<ListCourses />} />
+                <Route path="/showlist/:id" element={<ShowList />} />
               </>
             ) : userDetails.role === "student" ? (
-              // Student-specific routes
+              // Student-specific routes -------------------------------------------------
               <>
                 <Route path="/latestupdates" element={<LatestUpdates />} />
                 <Route path="/studash" element={<StuDashboard />} />
@@ -147,24 +109,28 @@ function App() {
                 <Route path="/user" element={<ProfileUser />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/changepass" element={<ProfilePassword />} />
+                <Route path="/listcourses" element={<ListCourses />} />
+                <Route path="/showlist/:id" element={<ShowList />} />
               </>
             ) : userDetails.role === "university" ? (
-              //University-specific routes
+              //University-specific routes ----------------------------------------------
               <>
                 <Route path="/uniaddcourses" element={<UniAddCourses />} />
                 <Route path="/listcourses" element={<ListCourses />} />
+                <Route path="/showlist/:id" element={<ShowList />} />
                 <Route path="/pgrequire" element={<PgRequire />} />
                 <Route path="/ugrequire" element={<UgRequire />} />
                 <Route path="/getug" element={<GetUg />} />
                 <Route path="/getpg" element={<GetPg />} />
                 <Route path="/unidash" element={<UniDashboard />} />
+
               </>
             ) : (
               ""
             )}
           </>
         ) : (
-          // If the user is not authenticated
+          // If the user is not authenticated ---------------------------------------------
           <>
             <Route path="*" element={<PageNF />} />
             <Route path="/unilogin" element={<UniLogin />} />
@@ -178,7 +144,6 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/forgot" element={<ForgotPass />} />
             <Route path="/partner" element={<Partner />} />
-            {/* <Route path="reach" element={<Reach />} /> */}
           </>
         )}
       </Routes>

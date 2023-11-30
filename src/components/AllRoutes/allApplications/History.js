@@ -5,7 +5,6 @@ import { EXCHANGE_URLS_APPLICATION } from "../../URLS";
 import { useDispatch } from "react-redux";
 import { BsFillEyeFill } from "react-icons/bs";
 import Download from "./Download";
-// import Loader from "../../Loader";
 import { appDetailsAction } from "../../../redux/users/action";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../Loader";
@@ -13,10 +12,8 @@ import Loader from "../../Loader";
 export default function History({ popUser = () => {} }) {
   const [applications, setApplications] = useState([]);
   const [loader, setLoader] = useState(true);
-  // const [filteredApplications, setFilteredApplications] = useState([]);
   const [searchKey, setSearchKey] = useState("");
   const [courses, setCourses] = useState([]);
-  // const [getDetails,setGetDetails] = useState({})
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
