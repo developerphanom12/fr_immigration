@@ -14,6 +14,8 @@ export default function UniRegister() {
     ambassador_name: "",
     phone_number: "",
     email: "",
+    year_established: "",
+    type: "",
     username: "",
     password: "",
     university_image: "",
@@ -82,6 +84,8 @@ export default function UniRegister() {
           ambassador_name: "",
           phone_number: "",
           email: "",
+          year_established: "",
+          type: "",
           username: "",
           password: "",
           university_image: "",
@@ -120,7 +124,6 @@ export default function UniRegister() {
   };
 
   const handleRegisterClick = () => {
-    // Perform password matching validation here
     registerApi();
   };
   return (
@@ -193,6 +196,32 @@ export default function UniRegister() {
                 }}
                 placeholder="User Name"
               />
+            </div>
+            <div className="nameyy">
+              Year Established
+              <input
+                type="name"
+                value={formData?.year_established}
+                onChange={(e) => {
+                  setFormData({
+                    ...formData,
+                    year_established: e.target.value,
+                  });
+                }}
+                placeholder="Established in Year"
+              />
+            </div>
+            <div className="nameyy">
+              Type Of University
+              <select
+                onChange={(e) => {
+                  setFormData({ ...formData, type: e.target.value });
+                }}
+              >
+                <option>Type</option>
+                <option value={formData.type.government}>Govt.</option>
+                <option value={formData.type.private}>Private</option>
+              </select>
             </div>
           </div>
         </div>
@@ -386,6 +415,46 @@ const Root = styled.section`
     }
     @media (max-width: 900px) {
       width: 90%;
+    }
+
+    select {
+      background-color: white;
+      color: gray;
+      text-decoration: none;
+      border: 2px solid #a5d8fa;
+      line-height: 1.5em;
+      width: 90%;
+      padding: 6px;
+      border-radius: 10px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: linear-gradient(45deg, transparent 50%, blue 50%),
+        linear-gradient(135deg, blue 50%, transparent 50%),
+        linear-gradient(to right, skyblue, skyblue);
+      background-position: calc(100% - 20px) calc(1em + 2px),
+        calc(100% - 15px) calc(1em + 2px), 100% 0;
+      background-size: 5px 5px, 5px 5px, 40px 45px;
+      background-repeat: no-repeat;
+      @media (max-width: 555px) {
+        padding: 8px;
+        background-size: 5px 5px, 5px 5px, 30px 45px;
+        align-items: center;
+      }
+
+      select:focus {
+        background-image: linear-gradient(45deg, white 50%, transparent 50%),
+          linear-gradient(135deg, transparent 50%, white 50%),
+          linear-gradient(to right, gray, gray);
+        background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
+          100% 0;
+        background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+        background-repeat: no-repeat;
+        border-color: grey;
+        outline: 0;
+      }
     }
 
     input:focus,

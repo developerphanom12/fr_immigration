@@ -36,6 +36,7 @@ export default function UniLogin() {
       }
     } catch (err) {
       console.log("err", err);
+      cogoToast.error("You Are Not Approved At This Moment")
     }
   };
 

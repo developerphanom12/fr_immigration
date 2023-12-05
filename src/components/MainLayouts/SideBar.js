@@ -336,6 +336,9 @@ const Root = styled.section`
       padding: 6px;
       position: relative;
       top: 20px;
+      &:hover{
+        gap: 10px;
+      }
 
       > div {
         display: flex;

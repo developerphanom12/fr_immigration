@@ -247,16 +247,28 @@ export default function Register() {
             </div>
           </div>
         </div>
-        <div className="regis">
-          <button
-            className="btnn"
-            onClick={() => {
-              handleRegisterClick();
-            }}
-          >
-            Register
-          </button>
-        </div>
+        {formData.username.length &&
+        formData.first_name.length &&
+        formData.gender.length &&
+        formData.dob.length &&
+        formData.email.length &&
+        formData.phone_number.length &&
+        formData.password.length &&
+        formData.last_name.length > 0 ? (
+          <div className="regis">
+            <button
+              className="btnn"
+              onClick={() => {
+                handleRegisterClick();
+              }}
+            >
+              Register
+            </button>
+          </div>
+        ) : (
+          ""
+        )}
+
         <div className="fifth_div">
           <div className="fifth_box">
             <div>
@@ -277,7 +289,7 @@ export default function Register() {
   );
 }
 const Root = styled.section`
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 80px 0px 0px 0px;
   max-width: 100vw;
   width: 100%;
@@ -391,7 +403,7 @@ const Root = styled.section`
   .second_div {
     display: flex;
     flex-direction: column;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     flex-wrap: wrap;
     width: 100%;
 
@@ -432,8 +444,7 @@ const Root = styled.section`
       width: 50%;
       > div {
         display: flex;
-      padding: 10px;
-
+        padding: 10px;
       }
     }
   }
@@ -464,7 +475,7 @@ const Root = styled.section`
         color: #ffffff;
         background: rgb(255 94 0);
         margin: 20px;
-        background:#000080;
+        background: #000080;
         border-radius: 10px;
         color: #fff;
         padding: 10px 5px;
@@ -474,11 +485,7 @@ const Root = styled.section`
         &:hover {
           box-shadow: 10px 5px 5px gray;
           transition: all 0.2s ease-in-out 0s;
-          background: linear-gradient(
-            -25deg,
-            #000080 49%,
-            #000080 100%
-          );
+          background: linear-gradient(-25deg, #000080 49%, #000080 100%);
         }
       }
     }
@@ -496,19 +503,15 @@ const Root = styled.section`
       font-size: medium;
       color: #ffffff;
       margin-right: 108px;
-      background:#000080;
+      background: #000080;
       color: #fff;
       background-size: 300% 100%;
       transition: all 0.3s ease-in-out 0s;
       text-transform: uppercase;
       &:hover {
         box-shadow: 10px 5px 5px gray;
-          transition: all 0.2s ease-in-out 0s;
-        background: linear-gradient(
-          -25deg,
-          #000080 49%,
-          #000080 100%
-        );
+        transition: all 0.2s ease-in-out 0s;
+        background: linear-gradient(-25deg, #000080 49%, #000080 100%);
       }
     }
     /* .btnn:hover {

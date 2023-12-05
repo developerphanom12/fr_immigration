@@ -36,49 +36,47 @@ export default function ListCourses() {
   console.log("courseData", courseData);
   return (
     <Root>
-      <div className="courses_div">
-        <h2>Total Courses: {courseData?.length}</h2>
-        <div className="container">
-          <div className="courses_box">
-            {courseData &&
-              courseData.length > 0 &&
-              courseData.map((course, index) => (
-                <div key={index} className="courses_child1">
-                  <img
-                    src={`${EXCHANGE_URLS_IMAGE}/${course?.university?.image}`}
-                    alt="img"
-                  />
-                  <div className="courses_child3">
-                    <h5>Course : </h5> <h5>{course?.course_name}</h5>
-                    <div className="childdd">
-                      <div className="mini">
-                        {" "}
-                        <p>Department : </p> <p>{course?.department}</p>
-                      </div>
-                      <div className="mini">
-                        {" "}
-                        <p>Subject : </p> <p>{course?.subject}</p>
-                      </div>
-                      <div className="mini">
-                        <p>Tuition Fee : </p> <p>{course?.tuition_fee}</p>
-                      </div>
-                      <div className="mini">
-                        <p>Duration : </p> <p>{course?.duration_years} Years</p>
-                      </div>
-                      <div className="mini">
-                        {" "}
-                        <p>Course Type : </p> <p>{course.course_type}</p>
-                      </div>
-                    </div>
-                    <div>
-                    <Link to={`/showlist/${course.course_id}`}>View More</Link>
+      <h2>Total Courses: {courseData?.length}</h2>
 
+      <div className="courses_box">
+        {courseData &&
+          courseData.length > 0 &&
+          courseData.map((course, index) => (
+            <div key={index} className="courses_child1">
+              <img
+                src={`${EXCHANGE_URLS_IMAGE}/${course?.university?.image}`}
+                alt="img"
+              />
+              <div className="courses_child3">
+                <h6>Course : {course?.course_name}</h6>
+                <div className="childdd">
+                  <div className="mini">
+                    {" "}
+                    <p>Department : </p> <p>{course?.department}</p>
                   </div>
+                  <div className="mini">
+                    {" "}
+                    <p>Subject : </p> <p>{course?.subject}</p>
+                  </div>
+                  <div className="mini">
+                    <p>Tuition Fee : </p> <p>INR {course?.tuition_fee}</p>
+                  </div>
+                  <div className="mini">
+                    <p>Duration : </p> <p>{course?.duration_years} Years</p>
+                  </div>
+                  <div className="mini">
+                    {" "}
+                    <p>Course Type : </p> <p>{course.course_type}</p>
                   </div>
                 </div>
-              ))}
-          </div>
-        </div>
+                <div className="linkk">
+                  <button>
+                    <Link to={`/showlist/${course.course_id}`}>View More</Link>
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
       </div>
     </Root>
   );
@@ -88,88 +86,87 @@ const Root = styled.section`
   @media (max-width: 788px) {
     padding-left: 60px;
   }
+  display: flex;
+  flex-direction: column;
   h2 {
     margin: 15px;
   }
-  .courses_div {
+
+  .courses_box {
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 100vw;
-    .courses_box {
+    gap: 10px;
+    padding: 10px;
+    flex-wrap: wrap;
+    @media (max-width: 876px) {
+      flex-direction: column;
+    }
+    .courses_child1 {
       display: flex;
       gap: 10px;
-      height: 100%;
-      flex-wrap: wrap;
-      @media (max-width: 876px) {
+      margin: 5px 0px;
+      padding: 10px;
+      width: 280px;
+      border-radius: 5px;
+      /* justify-content: space-evenly; */
+      align-items: center;
+      text-align: center;
+      border: 1px solid gray;
+      /* box-shadow: 3px 4px 4px gray; */
+      img {
+        width: 80px;
+        height: 90px;
+        object-fit: cover;
+        min-width: 50px;
+        min-height: 50px;
+        border-radius: 5px;
+      }
+      @media (max-width: 787px) {
+        width: 100%;
         flex-direction: column;
       }
-      .courses_child1 {
-        display: flex;
-        gap: 10px;
-        margin: 10px 0px;
-        padding: 10px;
-        width: 50%;
-        border-radius: 5px;
-        justify-content: space-evenly;
-        align-items: center;
-        text-align: center;
-        border: 1px solid gray;
-        box-shadow: 5px 6px 6px gray;
-        img {
-          width: 200px;
-          height: 170px;
-          object-fit: cover;
-          min-width: 50px;
-          min-height: 50px;
-          border-radius: 10px;
-        }
-        @media (max-width: 787px) {
-          width: 100%;
-          flex-direction: column;
-        }
 
-        .courses_child3 {
+      .courses_child3 {
+        display: flex;
+        flex-direction: column;
+        .childdd {
           display: flex;
           flex-direction: column;
-          width: 100%;
-          padding: 5px;
-          .childdd {
-            width: 100%;
+          .mini {
             display: flex;
-            flex-direction: column;
-            .mini {
-              width: 80%;
+            justify-content: space-between;
+            p {
               display: flex;
-              justify-content: space-between;
-              p {
-                display: flex;
-                /* justify-content: space-between; */
-                margin: 0;
-              }
+              font-size: 13px;
+              margin: 0;
             }
           }
-          h5 {
-            color: #6495ed;
-            text-align: center;
-            text-transform: capitalize;
-          }
+        }
+        h6 {
+          color: #6495ed;
+          text-align: center;
+          text-transform: capitalize;
+          margin: 0;
+        }
+        .linkk {
+          text-align: right;
           button {
             background: #000080;
             color: #ffffff;
-            padding: 5px;
+            padding: 3px;
             margin: 3px;
             border-color: transparent;
-            font-size: 12px;
+            font-size: 10px;
             text-align: center;
-            width: 40%;
             cursor: pointer;
-            border-radius: 10px;
+            border-radius: 5px;
             background-size: 300% 100%;
             transition: all 0.3s ease-in-out 0s;
-            text-transform: uppercase;
             &:hover {
-              box-shadow: 5px 6px 6px gray;
+              box-shadow: 3px 3px 2px gray;
+            }
+            a {
+              text-decoration: none;
+              color: #ffffff;
             }
           }
         }

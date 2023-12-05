@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { EXCHANGE_URLS_APPLICATION } from "../../URLS";
-import {FaCircle} from "react-icons/fa"
+import { FaCircle } from "react-icons/fa";
 import { useSelector } from "react-redux";
-// import Loader from "../../Loader";
+import { useNavigate } from "react-router-dom";
 
 export default function DashboardAdmin() {
-  // const [loader, setLoader] = useState(true);
   const [dashboardVal, setDashboardVal] = useState();
   const [count, setCount] = useState([]);
   const [staffCount, setStaffCount] = useState([]);
+  const navigate = useNavigate();
   const userDetails = useSelector((state) => state?.users?.user);
 
   const dashboardApi = async () => {
@@ -73,22 +73,21 @@ export default function DashboardAdmin() {
       console.log("err", err);
     }
   };
+
   useEffect(() => {
     countApi();
     dashboardApi();
     allStaffApi();
-    // setLoader(false);
   }, []);
 
-  console.log("dashboarddd", dashboardVal);
   console.log("count====", staffCount);
+
   return (
     <Root>
-      <h3><FaCircle />Welcome To Dashboard</h3>
-      {/* {loader ? (
-        <Loader />
-      ) : (
-        <> */}
+      <h3>
+        <FaCircle />
+        Welcome To Dashboard
+      </h3>
       <div className="dashboard_details">
         <div className="details">
           <div>
@@ -113,6 +112,40 @@ export default function DashboardAdmin() {
           </div>
         </div>
       </div>
+
+      <div className="button_box">
+        <div className="button_box_child">
+          <h6> All Agents Login Requests</h6>
+          <button
+            onClick={() => {
+              navigate("/getagent");
+            }}
+          >
+            View Here
+          </button>
+        </div>
+        <div className="button_box_child">
+          <h6> All Universities Login Requests</h6>
+          <button
+            onClick={() => {
+              navigate("/getuniv");
+            }}
+          >
+            View Here
+          </button>
+        </div>
+        <div className="button_box_child">
+          <h6> All Students Login Requests</h6>
+          <button
+            onClick={() => {
+              navigate("/getstudent");
+            }}
+          >
+            View Here
+          </button>
+        </div>
+      </div>
+
       <div className="app_table">
         <div className="heading">Agent Sheet . . .</div>
         <div className="app_header">
@@ -122,6 +155,7 @@ export default function DashboardAdmin() {
           <div>Approved Application </div>
           <div>Total Application</div>
         </div>
+
         {count &&
           count?.map((i) => {
             return (
@@ -173,22 +207,19 @@ const Root = styled.section`
   background-color: #f1f1f2;
   padding-bottom: 20px;
   padding-left: 80px;
-    @media (max-width:788px){
-      padding-left: 60px;
-    }
+  @media (max-width: 788px) {
+    padding-left: 60px;
+  }
   h3 {
     margin: 10px;
-    text-shadow:4px 3px 3px gray;
     display: flex;
     align-items: center;
     gap: 10px;
-   svg{
-    width: 15px;
-    height: 15px;
-    box-shadow:4px 3px 3px gray;
-    border-radius: 50%;
-
-   }
+    svg {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+    }
   }
   .dashboard_details {
     flex-wrap: wrap;
@@ -199,7 +230,7 @@ const Root = styled.section`
     min-height: 100px;
     padding: 5px;
     margin-bottom: 20px;
- 
+
     .details {
       display: flex;
       justify-content: space-evenly;
@@ -254,6 +285,26 @@ const Root = styled.section`
     }
   }
 
+  .button_box {
+    display: flex;
+    width: 90%;
+    justify-content: space-evenly;
+    .button_box_child {
+      padding: 15px;
+      background-color: #ffffff;
+      text-align: center;
+      border-radius: 4px;
+      button {
+        border: none;
+        background-color: #000080;
+        color: #ffffff;
+        border-radius: 4px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
   .app_table {
     font-family: "Roboto";
     display: flex;
@@ -261,16 +312,14 @@ const Root = styled.section`
     flex-direction: column;
     margin-bottom: 20px;
     .heading {
+      width: 94%;
       font-size: 20px;
-      width: 90%;
       padding: 10px;
       font-weight: 700;
-      text-shadow:4px 3px 3px gray;
-
     }
     .app_header {
       display: flex;
-      width: 90%;
+      width: 84%;
       background-color: dodgerblue;
       color: white;
       > div {
@@ -279,27 +328,45 @@ const Root = styled.section`
         border: 1px solid #dee2e6;
         padding: 10px;
         @media (max-width: 700px) {
-          font-size:10px;
-          min-width: 40px;
+          font-size: 10px;
+          min-width: 50px;
           padding: 5px;
         }
       }
     }
     .app_body {
       display: flex;
-      width: 90%;
+      width: 84%;
       font-family: "Roboto", sans-serif;
 
       > div {
         flex: 1;
+        display: flex;
+        flex-wrap: wrap;
         border: 0.3px solid lightgray;
-        padding: 13px;
+        padding: 7px;
+        font-size: 12px;
         text-transform: capitalize;
-        /* background-color:aliceblue; */
+
         @media (max-width: 700px) {
           font-size: 10px;
-          min-width: 40px;
+          min-width: 50px;
           padding: 5px;
+        }
+      }
+      .iconn {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        text-align: center;
+        svg {
+          color: #000080;
+          width: 20px;
+          height: 20px;
+          &:hover {
+            color: green;
+            cursor: pointer;
+          }
         }
       }
     }

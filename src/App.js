@@ -34,6 +34,9 @@ import GetUg from "./components/universityPortal/PgUgPage/GetUg";
 import GetPg from "./components/universityPortal/PgUgPage/GetPg";
 import StuDashboard from "./components/StudentPortal/StuDashboard";
 import ShowList from "./components/universityPortal/listOfAllCourse/ShowList";
+import GetAgentFile from "./components/AllRoutes/Dashboard/AllUserFile/GetAgentFile";
+import GetStudentFile from "./components/AllRoutes/Dashboard/AllUserFile/GetStudentFile";
+import GetUnivFile from "./components/AllRoutes/Dashboard/AllUserFile/GetUnivFile";
 
 function App() {
   const userCheck = useSelector((state) => state?.users?.userCheck);
@@ -47,7 +50,7 @@ function App() {
     <Layout>
       <Routes>
         
-        {userCheck && token ? (   //commom ----------------------------------------------
+        {userCheck && token ? (   //Agent ----------------------------------------------
           <>
             <Route path="/dashboardd" element={<DashboardAdmin />} />
             <Route path="/applications" element={<Applications />} />
@@ -79,6 +82,10 @@ function App() {
                 <Route path="/changepass" element={<ProfilePassword />} />
                 <Route path="/listcourses" element={<ListCourses />} />
                 <Route path="/showlist/:id" element={<ShowList />} />
+                <Route path="getagent" element={<GetAgentFile />} />
+                <Route path="getstudent" element={<GetStudentFile />} />
+                <Route path="getuniv" element={<GetUnivFile />} />
+
               </>
             ) : userDetails.role === "staff" ? (
               // Staff-specific routes ---------------------------------------------------

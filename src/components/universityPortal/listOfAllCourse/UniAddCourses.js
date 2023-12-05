@@ -7,12 +7,12 @@ import { useNavigate } from "react-router-dom";
 
 export default function UniAddCourses() {
   const navigate = useNavigate();
-  const [tuition,setTuition] = useState({
-    hostel_meals:"",
-    tuition_fees:"",
-    transportation:"",
-    phone_internet:"",
-    total:"",
+  const [tuition, setTuition] = useState({
+    hostel_meals: "",
+    tuition_fees: "",
+    transportation: "",
+    phone_internet: "",
+    total: "",
   });
   const [newCourse, setNewCourse] = useState({
     course_name: "",
@@ -23,7 +23,7 @@ export default function UniAddCourses() {
     course_type: "",
     requirements: [""],
   });
- 
+
   const isFormValid = () => {
     return (
       newCourse.course_name &&
@@ -58,7 +58,6 @@ export default function UniAddCourses() {
         `${EXCHANGE_URLS_UNIVERSITY}/newcoursesadd`,
         requestBody,
         axiosConfig
-        
       );
       console.log("resr", res);
       if (res.status === 201) {
@@ -81,7 +80,7 @@ export default function UniAddCourses() {
   };
   const calculateTotal = () => {
     const { hostel_meals, tuition_fees, transportation, phone_internet } =
-    tuition;
+      tuition;
     const sum =
       Number(hostel_meals) +
       Number(tuition_fees) +
@@ -98,13 +97,40 @@ export default function UniAddCourses() {
     tuition.phone_internet,
   ]);
 
+  const handleChange = (event, index) => {
+    const { name, value } = event.target;
+    const updatedRequirements = [...newCourse.requirements];
+    updatedRequirements[index] = value;
+
+    setNewCourse({
+      ...newCourse,
+      requirements: updatedRequirements,
+    });
+  };
+
+  const addRequirementField = () => {
+    setNewCourse({
+      ...newCourse,
+      requirements: [...newCourse.requirements, ""],
+    });
+  };
+  const removeRequirementField = (index) => {
+    const updatedRequirements = [...newCourse.requirements];
+    updatedRequirements.splice(index, 1);
+
+    setNewCourse({
+      ...newCourse,
+      requirements: updatedRequirements,
+    });
+  };
+
   return (
     <Root>
       <h3>Add University Courses</h3>
 
       <div className="div1">
         <div className="courses">
-          <p>Course Name</p>
+          <h6>Course Name</h6>
           <input
             type="name"
             value={newCourse.course_name}
@@ -115,7 +141,7 @@ export default function UniAddCourses() {
           />
         </div>
         <div className="courses">
-          <p>Department</p>
+          <h6>Department</h6>
           <input
             type="name"
             value={newCourse.department}
@@ -126,7 +152,7 @@ export default function UniAddCourses() {
           />
         </div>
         <div className="courses">
-          <p>Subject</p>
+          <h6>Subject</h6>
           <input
             type="name"
             value={newCourse.subject}
@@ -137,7 +163,7 @@ export default function UniAddCourses() {
           />
         </div>
         <div className="courses">
-          <p>Duration</p>
+          <h6>Duration</h6>
           <input
             type="number"
             value={newCourse.duration_years}
@@ -148,7 +174,7 @@ export default function UniAddCourses() {
           />
         </div>
         <div className="courses">
-          <p>Tuition Fees</p>
+          <h6>Tuition Fees</h6>
           <input
             type="number"
             value={newCourse.tuition_fee}
@@ -159,7 +185,7 @@ export default function UniAddCourses() {
           />
         </div>
         <div className="courses">
-          <p>Course Type</p>
+          <h6>Course Type</h6>
           <select
             value={newCourse.course_type}
             onChange={(e) => {
@@ -181,7 +207,7 @@ export default function UniAddCourses() {
             <h3>Fee Portal</h3>
             <div className="div1">
               <div className="courses">
-                <p>Hostel & Meals</p>
+                <h6>Hostel & Meals</h6>
                 <input
                   type="number"
                   value={tuition.hostel_meals}
@@ -195,7 +221,7 @@ export default function UniAddCourses() {
                 />
               </div>
               <div className="courses">
-                <p>Tuition Fees</p>
+                <h6>Tuition Fees</h6>
                 <input
                   type="number"
                   value={tuition.tuition_fees}
@@ -209,7 +235,7 @@ export default function UniAddCourses() {
                 />
               </div>
               <div className="courses">
-                <p>Transportation</p>
+                <h6>Transportation</h6>
                 <input
                   type="number"
                   value={tuition.transportation}
@@ -223,7 +249,7 @@ export default function UniAddCourses() {
                 />
               </div>
               <div className="courses">
-                <p>Phone/Internet</p>
+                <h6>Phone/Internet</h6>
                 <input
                   type="number"
                   value={tuition.phone_internet}
@@ -237,43 +263,57 @@ export default function UniAddCourses() {
                 />
               </div>
               <div className="courses">
-                <p>Total</p>
+                <h6>Total</h6>
                 <input
                   type="number"
                   value={tuition.total}
                   placeholder="Total"
-                  disabled  
+                  disabled
                 />
               </div>
             </div>
-            <div className="div1">
-              {isFormValided() && (
-                <>
-                  <h3>Requirements</h3>
-                  <div className="courses">
-                    <p>Add requirements</p>
-                    <input
-                      type="name"
-                      value={newCourse.requirements}
-                      onChange={(e) => {
-                        setNewCourse({
-                          ...newCourse,
-                          requirements: e.target.value,
-                        });
-                      }}
-                      placeholder="Fill Requirements"
-                    />
-                  </div>
+            {isFormValided() && (
+              <div className="div2">
+                <div className="requirr">
+                  <h6>Requirements</h6>
+                  {newCourse.requirements.length > 0 &&
+                    // Render the list only if there are requirements
+                    newCourse.requirements.map((requirement, index) => (
+                      <div key={index} className="requirr_chld">
+                        <input
+                          type="text"
+                          name={`requirements[${index}]`}
+                          value={requirement}
+                          onChange={(e) => handleChange(e, index)}
+                          placeholder="Requirement"
+                        />
+                        <button
+                          className="btnnn1"
+                          type="button"
+                          onClick={() => removeRequirementField(index)}
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    ))}
                   <button
-                    onClick={() => {
-                      handleClick();
-                    }}
+                    className="btnnn2"
+                    type="button"
+                    onClick={addRequirementField}
                   >
-                    Submit
+                    Add Requirement
                   </button>
-                </>
-              )}
-            </div>
+                </div>
+                <button
+                  className="btnnn3"
+                  onClick={() => {
+                    handleClick();
+                  }}
+                >
+                  Submit
+                </button>
+              </div>
+            )}
           </>
         )}
       </div>
@@ -288,7 +328,7 @@ const Root = styled.section`
   h3 {
     margin: 5px 5px 7px 40px;
   }
-  p {
+  h6 {
     margin: 0px;
     width: 50%;
     padding: 10px 0px;
@@ -297,16 +337,13 @@ const Root = styled.section`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    width: 100%;
+    gap: 10px;
     justify-content: center;
     .courses {
-      display: flex;
       flex-direction: column;
+      display: flex;
       flex-wrap: wrap;
-      align-items: center;
-      width: 50%;
-      /* align-items: center; */
-      /* justify-content: center; */
+      width: 30%;
       select {
         background-color: white;
         color: black;
@@ -314,7 +351,7 @@ const Root = styled.section`
         border: 2px solid gray;
         line-height: 1.5em;
         padding: 5px;
-        width: 50%;
+        width: 90%;
         border-radius: 10px;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
@@ -355,7 +392,7 @@ const Root = styled.section`
         border-radius: 10px;
         padding: 6px;
         color: #202020;
-        width: 50%;
+        width: 90%;
         text-decoration: none;
         border: 2px solid gray;
         &:hover {
@@ -376,16 +413,86 @@ const Root = styled.section`
       /* width: 100%; */
     }
   }
-  > div {
-    width: 100%;
-    padding: 10px;
+  .div2 {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    gap: 10px;
+    flex-direction: column;
     justify-content: center;
-    button {
+    .requirr {
+      display: flex;
+      flex-direction: column;
+      /* justify-content: center; */
+      margin: 10px;
+      /* align-items: center; */
+
+      width: 90%;
+      .btnnn2 {
+        background: #000080;
+        color: #ffffff;
+        margin: 5px;
+        padding: 5px;
+        border-color: transparent;
+        font-size: medium;
+        text-align: center;
+        width: 20%;
+        cursor: pointer;
+        border-radius: 10px;
+        background-size: 300% 100%;
+        transition: all 0.3s ease-in-out 0s;
+        text-transform: uppercase;
+        &:hover {
+          box-shadow: 5px 6px 6px gray;
+        }
+        @media (max-width: 787px) {
+          width: 100%;
+        }
+      }
+      .requirr_chld {
+        display: flex;
+        gap: 10px;
+        input {
+          border-radius: 10px;
+          color: #202020;
+          width: 30%;
+          text-decoration: none;
+          border: 2px solid gray;
+          &:hover {
+            box-shadow: 4px 4px 5px darkgray;
+            transition: all 0.1s ease-in-out 0s;
+          }
+          @media (max-width: 800px) {
+            /* min-width: 100px; */
+            width: 100%;
+          }
+        }
+        .btnnn1 {
+          background: #000080;
+          color: #ffffff;
+          padding: 5px;
+          border-color: transparent;
+          font-size: medium;
+          text-align: center;
+          width: 20%;
+          cursor: pointer;
+          border-radius: 10px;
+          background-size: 300% 100%;
+          transition: all 0.3s ease-in-out 0s;
+          text-transform: uppercase;
+          &:hover {
+            box-shadow: 5px 6px 6px gray;
+          }
+          @media (max-width: 787px) {
+            width: 100%;
+          }
+        }
+      }
+    }
+    .btnnn3 {
       background: #000080;
       color: #ffffff;
+      margin: 5px;
       padding: 5px;
       border-color: transparent;
       font-size: medium;
