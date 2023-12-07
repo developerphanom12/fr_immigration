@@ -5,8 +5,10 @@ import { IoCheckmarkSharp, IoCloseSharp } from "react-icons/io5";
 import { ImEye } from "react-icons/im";
 import cogoToast from "cogo-toast";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function GetUniDetail({ getUniv }) {
+  const navigate = useNavigate();
   const [status, setStatus] = useState({
     userId: "",
     email: "",

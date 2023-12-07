@@ -19,8 +19,8 @@ export default function UniDashboard() {
     answer: "",
   });
 
-  // let {id} = useParams();
-  // console.log("idd",id)
+  let {id} = useParams();
+  console.log("idd",id)
 
   const latestUpdateApi = async () => {
     const axiosConfig = {
