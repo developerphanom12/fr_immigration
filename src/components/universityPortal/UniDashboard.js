@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { PiArrowFatLinesDownLight } from "react-icons/pi";
 import { EXCHANGE_URLS_UNIVERSITY } from "../URLS";
 import axios from "axios";
+import { useParams } from "react-router-dom";
  
 
 export default function UniDashboard() {

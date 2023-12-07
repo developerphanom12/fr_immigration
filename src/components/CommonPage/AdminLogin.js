@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 // import { userCheckAction, userDataAction } from "../../redux/users/action";
 // import {  EXCHANGE_URLS_ADMIN } from "../URLS";
 import loginbanner from "../CommonPage/imageLogo/login_banner.png";
-import { userLoginAction } from "../../redux/users/action";
+import { userCheckAction, userLoginAction } from "../../redux/users/action";
 
 export default function AdminLogin() {
   const [adminEmail, setAdminEmail] = useState("");
@@ -24,16 +24,15 @@ export default function AdminLogin() {
     const userCallback = (e) => {
       console.log(e);
     };
-  
-      dispatch(userLoginAction(data, userCallback));
-      navigate("/dashboardd")
-   
+    localStorage.setItem("token", data?.token);
+    dispatch(userCheckAction(true));
+    dispatch(userLoginAction(data, userCallback));
+    navigate("/dashboardd");
   };
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       handelLogin();
-
     }
   };
 

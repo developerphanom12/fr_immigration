@@ -22,8 +22,8 @@ export default function Login() {
       console.log("resres123", res?.data?.data?.user);
       if (res?.status === 200) {
         localStorage.setItem("token", res?.data?.data?.user?.token);
-        dispatch(userDataAction(res?.data?.data?.user));
         dispatch(userCheckAction(true));
+        dispatch(userDataAction(res?.data?.data?.user));
         cogoToast.success("Login SuccessFully");
         navigate("/dashboardd");
       } else {
