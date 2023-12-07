@@ -299,7 +299,7 @@ export default function Applications() {
                   {university &&
                     university.map((i) => {
                       return (
-                        <option value={i?.university_id}>
+                        <option value={i?.id}>
                           {i.university_name}
                         </option>
                       );
