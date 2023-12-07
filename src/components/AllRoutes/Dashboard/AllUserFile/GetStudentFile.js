@@ -3,9 +3,18 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { EXCHANGE_URLS_ADMIN } from "../../../URLS";
 import { IoCheckmarkSharp, IoCloseSharp } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
+import cogoToast from "cogo-toast";
 
 export default function GetStudentFile() {
   const [getStudent, setGetStudent] = useState();
+  const navigate = useNavigate();
+
+  const [status, setStatus] = useState({
+    userId: "",
+    email: "",
+    is_aprooved: "",
+  });
 
   const getStudentApi = async () => {
     const axiosConfig = {
@@ -27,12 +36,52 @@ export default function GetStudentFile() {
     }
   };
 
+  const statusApi = async () => {
+    const axiosConfig = {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    };
+    try {
+      const response = await axios.post(
+        `${EXCHANGE_URLS_ADMIN}/updat11e`,
+        status,
+        axiosConfig
+      );
+      console.log("response", response?.data);
+      if (response?.status === 201) {
+        cogoToast.success(`Email: ${status.email}`);
+        navigate("/dashboardd");
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
+  const handleClick = (userId, isApproved) => {
+    const currentUser = getStudent.find((student) => student.id === userId);
+    if (currentUser) {
+      setStatus({
+        userId,
+        email: currentUser.email,
+        is_aprooved: isApproved ? 1 : 0,
+      });
+      if (status.is_aprooved === 1) {
+        cogoToast.success("Student Approved");
+      } else {
+        cogoToast.error("Student Reject");
+      }
+      statusApi();
+    } else {
+      cogoToast.error("User not found");
+    }
+  };
+
   useEffect(() => {
     getStudentApi();
   }, []);
   return (
     <Root>
- 
       <div className="app_table">
         <div className="heading">Students List For Approve/Reject</div>
         <div className="app_header">
@@ -41,7 +90,7 @@ export default function GetStudentFile() {
           <div>Last Name</div>
           <div>Email </div>
           <div>Phone Number</div>
-          <div>View</div>
+          <div>Approve/Reject</div>
         </div>
         {getStudent &&
           getStudent.map((i) => {
@@ -53,13 +102,16 @@ export default function GetStudentFile() {
                 <div>{i.email}</div>
                 <div>{i.phone_number}</div>
                 <div className="iconn">
-                  <button className="right">
-                    {" "}
+                  <button
+                    className="right"
+                    onClick={() => handleClick(i.id, 1)}
+                  >
                     <IoCheckmarkSharp />
                   </button>
-
-                  <button className="wrong">
-                    {" "}
+                  <button
+                    className="wrong"
+                    onClick={() => handleClick(i.id, 0)}
+                  >
                     <IoCloseSharp />
                   </button>
                 </div>

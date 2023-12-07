@@ -68,10 +68,10 @@ export default function GetAgentFile() {
         is_aprooved: isApproved ? 1 : 0,
       });
       if (status.is_aprooved === 1) {
-        cogoToast.success("approved");
+        cogoToast.success("Agent Approved");
       }
       else{
-        cogoToast.error("Reject");
+        cogoToast.error("Agent Reject");
       }
       statusApi();
     } else {

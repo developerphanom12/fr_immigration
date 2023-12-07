@@ -2,14 +2,33 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { EXCHANGE_URLS_UNIVERSITY } from "../../URLS";
+import { HiOutlinePencilSquare } from "react-icons/hi2";
 import { useNavigate, useParams } from "react-router-dom";
 import { RiLock2Line } from "react-icons/ri";
+import cogoToast from "cogo-toast";
 
 export default function ShowList() {
+  const [courseDetails, setCourseDetails] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const [tuition, setTuition] = useState({
+    hostel_meals: "",
+    tuition_fees: "",
+    transportation: "",
+    phone_internet: "",
+    total: "",
+  });
+  const [updatedCourseDetails, setUpdatedCourseDetails] = useState({
+    course_name: "",
+    department: "",
+    subject: "",
+    tuition_fee: "",
+    duration_years: "",
+    course_type: "",
+  });
   const navigate = useNavigate();
+
   let { id } = useParams();
   console.log("id", id);
-  const [courseDetails, setCourseDetails] = useState(null);
 
   const courseApi = async () => {
     const axiosConfig = {
@@ -25,24 +44,70 @@ export default function ShowList() {
       console.log("resres123", res?.data?.data[0]);
       if (res.status === 201) {
         setCourseDetails(res?.data?.data[0]);
+        setTuition(res?.data?.data[0]?.tution || {});
       }
     } catch (err) {
       console.log("err", err);
     }
   };
 
+  const updateCourseApi = async () => {
+    try {
+      const axiosConfig = {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      };
+      const requestBody = {
+        ...updatedCourseDetails,
+        tution: tuition ,
+      };
+      console.log("tutition_id", tuition);
+
+      const res = await axios.put(
+        `${EXCHANGE_URLS_UNIVERSITY}/updatess/${courseDetails?.tution?.id}`,
+        requestBody,
+        axiosConfig
+      );
+      if (res.status === 200) {
+        navigate("/unidash");
+        cogoToast.success("Course Details Updated Successfully");
+      }
+    } catch (error) {
+      cogoToast.error("Error updating course details");
+      console.log("error", error);
+    }
+  };
+
+  const handleEditClick = () => {
+    setIsEditing(true);
+  };
+
+  const handleDoneEditing = () => {
+    setIsEditing(false);
+    updateCourseApi();
+  };
+
   useEffect(() => {
     courseApi();
-  }, [id]);
-  
-const handleLogout = () =>{
-  localStorage.removeItem('token')
-  navigate('/register')
-}
+  }, [id,courseDetails?.tution?.id]);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/register");
+  };
 
   return (
     <Root>
-      <h2>Course Details</h2>
+      <div className="headline">
+        <h2>Course Details</h2>
+        <div>
+          <button onClick={isEditing ? handleDoneEditing : handleEditClick}>
+            {isEditing ? "Done Editing" : "Edit"}
+            <HiOutlinePencilSquare />
+          </button>
+        </div>
+      </div>
       {courseDetails && (
         <div className="courses_block">
           <div className="courses_table">
@@ -52,34 +117,132 @@ const handleLogout = () =>{
             </div>
             <div className="courses_body">
               <div className="mini">
-                <h6>Tuition & Fees : </h6>{" "}
-                <p>INR {courseDetails?.tuition_fee}</p>
+                <h6>Tuition & Fees :</h6>
+                {isEditing ? (
+                  <input
+                    type="text"
+                    placeholder="in INR"
+                    value={updatedCourseDetails.tuition_fee}
+                    onChange={(e) =>
+                      setUpdatedCourseDetails({
+                        ...updatedCourseDetails,
+                        tuition_fee: e.target.value,
+                      })
+                    }
+                  />
+                ) : (
+                  <p>INR {courseDetails?.tuition_fee}</p>
+                )}
               </div>
             </div>
           </div>
           <div className="courses_table">
             <div className="courses_header">
-              <h5>Course </h5> <h5> {courseDetails?.course_name}</h5>
+              <h5>Course </h5>
+              {isEditing ? (
+                <input
+                  type="text"
+                  value={updatedCourseDetails.course_name}
+                  onChange={(e) =>
+                    setUpdatedCourseDetails({
+                      ...updatedCourseDetails,
+                      course_name: e.target.value,
+                    })
+                  }
+                />
+              ) : (
+                <h5> {courseDetails?.course_name}</h5>
+              )}
             </div>
             <div className="courses_body">
               <div className="mini">
                 {" "}
-                <h6>Department : </h6> <p>{courseDetails?.department}</p>
+                <h6>Department : </h6>{" "}
+                {isEditing ? (
+                  <input
+                    type="text"
+                    value={updatedCourseDetails.department}
+                    onChange={(e) =>
+                      setUpdatedCourseDetails({
+                        ...updatedCourseDetails,
+                        department: e.target.value,
+                      })
+                    }
+                  />
+                ) : (
+                  <p>{courseDetails?.department}</p>
+                )}
               </div>
               <div className="mini">
                 {" "}
-                <h6>Subject : </h6> <p>{courseDetails?.subject}</p>
+                <h6>Subject : </h6>{" "}
+                {isEditing ? (
+                  <input
+                    type="text"
+                    value={updatedCourseDetails.subject}
+                    onChange={(e) =>
+                      setUpdatedCourseDetails({
+                        ...updatedCourseDetails,
+                        subject: e.target.value,
+                      })
+                    }
+                  />
+                ) : (
+                  <p>{courseDetails?.subject}</p>
+                )}
               </div>
               <div className="mini">
-                <h6>Tuition Fee : </h6> <p>INR {courseDetails?.tuition_fee}</p>
+                <h6>Tuition Fee : </h6>{" "}
+                {isEditing ? (
+                  <input
+                    type="text"
+                    value={updatedCourseDetails.tuition_fee}
+                    onChange={(e) =>
+                      setUpdatedCourseDetails({
+                        ...updatedCourseDetails,
+                        tuition_fee: e.target.value,
+                      })
+                    }
+                  />
+                ) : (
+                  <p>INR {courseDetails?.tuition_fee}</p>
+                )}
               </div>
               <div className="mini">
                 <h6>Duration : </h6>{" "}
-                <p>{courseDetails?.duration_years} Years</p>
+                {isEditing ? (
+                  <input
+                    type="text"
+                    value={updatedCourseDetails.duration_years}
+                    onChange={(e) =>
+                      setUpdatedCourseDetails({
+                        ...updatedCourseDetails,
+                        duration_years: e.target.value,
+                      })
+                    }
+                  />
+                ) : (
+                  <p>{courseDetails?.duration_years} Years</p>
+                )}
               </div>
               <div className="mini">
                 {" "}
-                <h6>Course Type : </h6> <p>{courseDetails.course_type}</p>
+                <h6>Course Type : </h6>{" "}
+                {isEditing ? (
+                  <input
+                    type="text"
+                    placeholder="graduation/postgraduatuion/phd/diploma"
+                    value={updatedCourseDetails.course_type}
+                    onChange={(e) =>
+                      setUpdatedCourseDetails({
+                        ...updatedCourseDetails,
+                        course_type: e.target.value,
+                      })
+                    }
+                  />
+                ) : (
+                  <p>{courseDetails.course_type}</p>
+                )}
               </div>
             </div>
           </div>
@@ -88,27 +251,93 @@ const handleLogout = () =>{
             <div className="courses_body">
               <div className="mini">
                 <h6>Hostel & Meals : </h6>{" "}
-                <p>INR {courseDetails?.tution?.hostel_meals} </p>
+                {isEditing ? (
+                  <input
+                    type="text"
+                    placeholder="in INR"
+                    value={tuition?.hostel_meals}
+                    onChange={(e) => {
+                      setTuition({
+                        ...tuition,
+                        hostel_meals: e.target.value,
+                      });
+                    }}
+                  />
+                ) : (
+                  <p>INR {courseDetails?.tution?.hostel_meals}</p>
+                )}
               </div>
               <div className="mini">
                 {" "}
                 <h6> Tuition Fees : </h6>{" "}
-                <p>INR {courseDetails?.tution?.tuition_fees}</p>
+                {isEditing ? (
+                  <input
+                    type="text"
+                    value={tuition?.tuition_fees}
+                    onChange={(e) => {
+                      setTuition({
+                        ...tuition,
+                        tuition_fees: e.target.value,
+                      });
+                    }}
+                  />
+                ) : (
+                  <p>INR {courseDetails?.tution?.tuition_fees}</p>
+                )}
               </div>
               <div className="mini">
                 <h6> Transportaion : </h6>{" "}
-                <p>INR {courseDetails?.tution?.transportation}</p>
+                {isEditing ? (
+                  <input
+                    type="text"
+                    value={tuition?.transportation}
+                    onChange={(e) => {
+                      setTuition({
+                        ...tuition,
+                        transportation: e.target.value,
+                      });
+                    }}
+                  />
+                ) : (
+                <p>INR {courseDetails?.tution?.transportation}</p>)}
               </div>
               <div className="mini">
                 {" "}
                 <h6> Phone/Internet : </h6>{" "}
-                <p>INR {courseDetails?.tution?.phone_internet}</p>
+                {isEditing ? (
+                  <input
+                    type="text"
+                    value={tuition?.phone_internet}
+                    onChange={(e) => {
+                      setTuition({
+                        ...tuition,
+                        phone_internet: e.target.value,
+                      });
+                    }}
+                  />
+                ) : (
+                <p>INR {courseDetails?.tution?.phone_internet}</p>)}
               </div>
               <div className="mini">
-                <h6> Total : </h6> <p>INR {courseDetails?.tution?.total} </p>
+                <h6> Total : </h6> 
+                {isEditing ? (
+                  <input
+                    type="text"
+                    placeholder="in INR"
+                    value={tuition?.total}
+                    onChange={(e) => {
+                      setTuition({
+                        ...tuition,
+                        total: e.target.value,
+                      });
+                    }}
+                  />
+                ) : (
+                <p>INR {courseDetails?.tution?.total}</p>)}
               </div>
             </div>
           </div>
+
           <div className="require_table">
             <h6>Entry Requirements</h6>
             <div className="require_header">
@@ -134,12 +363,13 @@ const handleLogout = () =>{
                     </div>
                   ))}
               </div>
+
               <div className="require_body2">
                 <div>
                   <div className="svgg">
                     <RiLock2Line />
                   </div>
-                  
+
                   <button onClick={handleLogout}>SignUp To View Details</button>
                 </div>
               </div>
@@ -163,8 +393,19 @@ const Root = styled.section`
     padding-left: 60px;
     width: 80%;
   }
-  h2 {
-    margin: 15px;
+  .headline {
+    display: flex;
+    align-items: center;
+    h2 {
+      margin: 15px;
+    }
+    button {
+      border: none;
+      svg {
+        width: 25px;
+        height: 25px;
+      }
+    }
   }
 
   .courses_block {
@@ -203,10 +444,10 @@ const Root = styled.section`
           border: 0.1px solid dodgerblue;
 
           p {
+            display: flex;
             padding: 10px;
             margin: 0;
-            /* border-left:0.1px solid black;
-            border-right:0.2px solid black; */
+            width: 100%;
           }
           h6 {
             padding: 10px;
@@ -275,7 +516,7 @@ const Root = styled.section`
                 height: 25px;
               }
             }
-            button{
+            button {
               background-color: #0f7abc;
               border: none;
               color: #ffffff;

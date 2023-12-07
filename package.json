@@ -26,6 +26,7 @@
     "reduce-reducers": "^1.0.4",
     "redux": "^4.2.1",
     "redux-persist": "^6.0.0",
+    "redux-saga": "^1.2.3",
     "remote": "^0.2.6",
     "styled-components": "^6.0.8",
     "web-vitals": "^2.1.4",

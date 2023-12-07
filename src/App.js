@@ -37,6 +37,7 @@ import ShowList from "./components/universityPortal/listOfAllCourse/ShowList";
 import GetAgentFile from "./components/AllRoutes/Dashboard/AllUserFile/GetAgentFile";
 import GetStudentFile from "./components/AllRoutes/Dashboard/AllUserFile/GetStudentFile";
 import GetUnivFile from "./components/AllRoutes/Dashboard/AllUserFile/GetUnivFile";
+import GetUniDetail from "./components/AllRoutes/Dashboard/AllUserFile/GetUniDetail";
 
 function App() {
   const userCheck = useSelector((state) => state?.users?.userCheck);
@@ -85,6 +86,8 @@ function App() {
                 <Route path="getagent" element={<GetAgentFile />} />
                 <Route path="getstudent" element={<GetStudentFile />} />
                 <Route path="getuniv" element={<GetUnivFile />} />
+                <Route path="/getunidetail/:id" element={<GetUniDetail />} />
+
 
               </>
             ) : userDetails.role === "staff" ? (

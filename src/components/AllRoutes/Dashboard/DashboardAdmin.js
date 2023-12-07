@@ -299,8 +299,10 @@ const Root = styled.section`
         background-color: #000080;
         color: #ffffff;
         border-radius: 4px;
+        transition: transform 250ms;
         &:hover {
           cursor: pointer;
+          transform: translateY(-5px);
         }
       }
     }
@@ -310,7 +312,8 @@ const Root = styled.section`
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin: 20px 0px;
+    width: 100%;
     .heading {
       width: 94%;
       font-size: 20px;
@@ -319,7 +322,7 @@ const Root = styled.section`
     }
     .app_header {
       display: flex;
-      width: 84%;
+      width: 94%;
       background-color: dodgerblue;
       color: white;
       > div {
@@ -336,7 +339,7 @@ const Root = styled.section`
     }
     .app_body {
       display: flex;
-      width: 84%;
+      width: 94%;
       font-family: "Roboto", sans-serif;
 
       > div {

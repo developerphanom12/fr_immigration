@@ -2,10 +2,16 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { EXCHANGE_URLS_ADMIN } from "../../../URLS";
-import { IoCheckmarkSharp, IoCloseSharp } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
+import { BsFillEyeFill } from "react-icons/bs";
 
 export default function GetUnivFile() {
   const [getUniv, setGetUniv] = useState();
+  const navigate = useNavigate();
+  
+
+  
+
   const getUniversityApi = async () => {
     const axiosConfig = {
       headers: {
@@ -26,6 +32,8 @@ export default function GetUnivFile() {
     }
   };
 
+ 
+
   useEffect(() => {
     getUniversityApi();
   }, []);
@@ -39,7 +47,7 @@ export default function GetUnivFile() {
           <div>Ambassador Name</div>
           <div>Email </div>
           <div>Phone Number</div>
-          <div>View</div>
+          <div>Approve/Reject</div>
         </div>
         {getUniv &&
           getUniv.map((i) => {
@@ -50,16 +58,16 @@ export default function GetUnivFile() {
                 <div>{i.ambassador_name}</div>
                 <div>{i.email}</div>
                 <div>{i.phone_number}</div>
-                <div className="iconn">
-                  <button className="right">
-                    {" "}
-                    <IoCheckmarkSharp />
-                  </button>
-
-                  <button className="wrong">
-                    {" "}
-                    <IoCloseSharp />
-                  </button>
+                <div
+                  className="iconn"
+                  onClick={() => {
+                    navigate(`/getunidetail/${i?.id}`);
+                  }}
+                >
+                  View more documents to approve and reject
+                  <BsFillEyeFill />
+                 
+                 
                 </div>
               </div>
             );
@@ -130,34 +138,15 @@ const Root = styled.section`
         justify-content: space-evenly;
         text-align: center;
         svg {
-          width: 20px;
-          height: 20px;
-          font-weight: 700;
-        }
-        .right {
-          border: none;
-          border-radius: 5px;
-          padding: 5px 7px;
-          background-color: green;
-          color: #ffffff;
+          height: 25px;
+          width: 25px;
+          color: dodgerblue;
+          cursor: pointer;
           &:hover {
-            cursor: pointer;
-            background-color: #ffffff;
             color: green;
           }
         }
-        .wrong {
-          border: none;
-          border-radius: 5px;
-          padding: 5px 7px;
-          background-color: red;
-          color: #ffffff;
-          &:hover {
-            cursor: pointer;
-            background-color: #ffffff;
-            color: red;
-          }
-        }
+        
       }
     }
   }

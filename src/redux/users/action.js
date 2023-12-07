@@ -1,3 +1,5 @@
+import { userLogin } from "../type";
+
 export const userDataAction = (data) => {
   return {
     type: "USER_DATA",
@@ -37,4 +39,10 @@ export const UserDetails = (data) => {
 export const setUserCheck = (value) => ({
   type: 'SET_USER_CHECK',
   payload:value, 
+});
+
+export const userLoginAction = (data, callback) => ({
+  type: userLogin.USER_LOGIN,
+  data,
+  callback,
 });

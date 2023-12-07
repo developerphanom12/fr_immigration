@@ -1,3 +1,5 @@
+import { userLogin } from "../type";
+
 const initialState = {
   user: {},
   userCheck: false,
@@ -5,10 +7,13 @@ const initialState = {
   appDetails: {},
   docSubmitted: false,
   role: "",
+  data:{}
 };
 
 const UserReducer = (state = initialState, action) => {
   switch (action.type) {
+    case userLogin.USER_LOGIN:
+      return { ...state, data: action.data };
     case "USER_DATA":
       return {
         ...state,
@@ -29,11 +34,11 @@ const UserReducer = (state = initialState, action) => {
         ...state,
         appDetails: action.payload,
       };
-      case 'SET_USER_CHECK':
-        return {
-          ...state,
-          userCheck: action.payload,
-        };
+    case "SET_USER_CHECK":
+      return {
+        ...state,
+        userCheck: action.payload,
+      };
     default:
       return state;
   }

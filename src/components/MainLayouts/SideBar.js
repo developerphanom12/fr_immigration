@@ -98,7 +98,7 @@ export default function SideBar() {
                 {<FaUniversity />}
                 <p>URM university</p>
               </div>
-              <div
+              {/* <div
                 className={activeParam === "search" ? "active" : ""}
                 onClick={() => {
                   navigate("/search");
@@ -106,7 +106,7 @@ export default function SideBar() {
               >
                 {<MdSearch />}
                 <p>Search Course</p>
-              </div>
+              </div> */}
               <div
                 className={activeParam === "listcourses" ? "active" : ""}
                 onClick={() => {
@@ -186,7 +186,7 @@ export default function SideBar() {
                 {<FaUniversity />}
                 <p>URM university</p>
               </div>
-              <div
+              {/* <div
                 className={activeParam === "search" ? "active" : ""}
                 onClick={() => {
                   navigate("/search");
@@ -194,7 +194,7 @@ export default function SideBar() {
               >
                 {<MdSearch />}
                 <p>Search Course</p>
-              </div>
+              </div> */}
               <div
                 className={activeParam === "listcourses" ? "active" : ""}
                 onClick={() => {

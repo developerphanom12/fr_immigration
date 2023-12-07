@@ -20,7 +20,6 @@ export default function Urm_university() {
 
         axiosConfig
       );
-
       console.log("resres123", res);
       if (res.status === 200) {
         setUniversityData(res?.data?.data);
@@ -34,7 +33,6 @@ export default function Urm_university() {
     universityApi();
   }, []);
 
-  console.log("universityData", universityData);
 
   return (
     <Root>
@@ -75,12 +73,16 @@ export default function Urm_university() {
                 </div>
 
                 <div>
-                  <p>Name</p>
-                  <p>{i?.person_name}</p>
+                  <p>Ambassador Name</p>
+                  <p>{i?.ambassador_name}</p>
                 </div>
                 <div>
                   <p>contact</p>
-                  <p>{i?.contact_number}</p>
+                  <p>{i?.phone_number}</p>
+                </div>
+                <div>
+                  <p>Year Of Established</p>
+                  <p>{i?.year_established}</p>
                 </div>
               </div>
             );

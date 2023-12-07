@@ -2,53 +2,38 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
-import cogoToast from "cogo-toast";
+// import cogoToast from "cogo-toast";
 import { useDispatch } from "react-redux";
-import { userCheckAction, userDataAction } from "../../redux/users/action";
-import {  EXCHANGE_URLS_ADMIN } from "../URLS";
-import loginbanner from "../CommonPage/imageLogo/login_banner.png"
+// import { userCheckAction, userDataAction } from "../../redux/users/action";
+// import {  EXCHANGE_URLS_ADMIN } from "../URLS";
+import loginbanner from "../CommonPage/imageLogo/login_banner.png";
+import { userLoginAction } from "../../redux/users/action";
 
 export default function AdminLogin() {
-  const [logindata, setlogindata] = useState({
-    username: "",
-    password: "",
-  });
-  const navigate = useNavigate();
+  const [adminEmail, setAdminEmail] = useState("");
+  const [adminPass, setAdminPass] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const loginApi = async () => {
-    try {
-      const res = await axios.post(`${EXCHANGE_URLS_ADMIN}/login`, logindata);
-      console.log("resres123", res?.data?.data);
-      if (res?.status === 200) {
-        localStorage.setItem("token", res?.data?.data?.user?.token);
-        dispatch(userDataAction(res?.data?.data?.user));
-        dispatch(userCheckAction(true));
-        cogoToast.success("Login SuccessFully");
-        navigate("/dashboardd");
-      }else{
-        cogoToast.error("Username Or Password Incorrect")
-      }
-    } catch (err) {
-      console.log("err", err);
-    }
+  const handelLogin = (e) => {
+    const data = {
+      username: adminEmail,
+      password: adminPass,
+    };
+    console.log("console1", data);
+    const userCallback = (e) => {
+      console.log(e);
+    };
+  
+      dispatch(userLoginAction(data, userCallback));
+      navigate("/dashboardd")
+   
   };
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      handleClick();
-    }
-  };
+      handelLogin();
 
-
-  const handleClick = () => {
-    
-    if (logindata.username.length > 3 ) {
-      loginApi();
-    } else {
-      cogoToast.error(
-        "Username Length should be greater than 3 character"
-      );
     }
   };
 
@@ -57,33 +42,32 @@ export default function AdminLogin() {
   //   dispatch(userCheckAction(true));
   // }
 
-  console.log("logindata", logindata);
   return (
     <Root>
-       <div className="logimg">
+      <div className="logimg">
         <h4>Sign-in to join the Phanom Online Portal</h4>
         <img src={loginbanner} alt="img" />
       </div>
       <div className="box_div">
-        <h2>
-          LOG-IN
-        </h2>
-        <div className="user_name">Admin Name
+        <h2>LOG-IN</h2>
+        <div className="user_name">
+          Admin Name
           <input
-            value={logindata.username}
+            value={adminEmail.username}
             onChange={(e) => {
-              setlogindata({ ...logindata, username: e.target.value });
+              setAdminEmail(e.target.value);
             }}
             onKeyDown={handleKeyDown}
             placeholder="User Name"
           />
         </div>
-        <div className="user_name">Password
+        <div className="user_name">
+          Password
           <input
             type="Password"
-            value={logindata.password}
+            value={adminPass.password}
             onChange={(e) => {
-              setlogindata({ ...logindata, password: e.target.value });
+              setAdminPass(e.target.value);
             }}
             onKeyDown={handleKeyDown}
             placeholder="Password"
@@ -92,10 +76,10 @@ export default function AdminLogin() {
         <div className="button_div">
           <button
             className="user_btn"
-            onClick={() => {
-              handleClick();
+            onClick={
+              handelLogin
               // testClick();
-            }}
+            }
           >
             Log-in
           </button>

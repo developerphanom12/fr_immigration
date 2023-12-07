@@ -34,6 +34,7 @@ export default function StudentLogin() {
       }
     } catch (err) {
       console.log("err", err);
+      cogoToast.error("Your Id is not Approved at this Moment")
     }
   };
 
