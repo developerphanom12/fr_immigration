@@ -90,7 +90,7 @@ export default function UniAddCourses() {
   };
   useEffect(() => {
     calculateTotal();
-  }, [
+  },[
     tuition.hostel_meals,
     tuition.tuition_fees,
     tuition.transportation,
@@ -98,7 +98,7 @@ export default function UniAddCourses() {
   ]);
 
   const handleChange = (event, index) => {
-    const { name, value } = event.target;
+    const { value } = event.target;
     const updatedRequirements = [...newCourse.requirements];
     updatedRequirements[index] = value;
 

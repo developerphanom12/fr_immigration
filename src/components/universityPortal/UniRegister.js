@@ -60,6 +60,8 @@ export default function UniRegister() {
     data.append("ambassador_name", formData.ambassador_name);
     data.append("phone_number", formData.phone_number);
     data.append("email", formData.email);
+    data.append("year_established", formData.year_established);
+    data.append("type", formData.type);
     data.append("username", formData.username);
     data.append("password", formData.password);
     data.append("university_image", formData.university_image);
@@ -85,7 +87,7 @@ export default function UniRegister() {
           phone_number: "",
           email: "",
           year_established: "",
-          type: "",
+          type:"",
           username: "",
           password: "",
           university_image: "",
@@ -164,7 +166,7 @@ export default function UniRegister() {
             <div className="name">
               Phone Number
               <input
-                type="name"
+                type="number"
                 value={formData?.phone_number}
                 onChange={(e) => {
                   setFormData({ ...formData, phone_number: e.target.value });
@@ -200,7 +202,7 @@ export default function UniRegister() {
             <div className="nameyy">
               Year Established
               <input
-                type="name"
+                type="number"
                 value={formData?.year_established}
                 onChange={(e) => {
                   setFormData({
@@ -211,18 +213,21 @@ export default function UniRegister() {
                 placeholder="Established in Year"
               />
             </div>
-            <div className="nameyy">
-              Type Of University
-              <select
-                onChange={(e) => {
-                  setFormData({ ...formData, type: e.target.value });
-                }}
-              >
-                <option>Type</option>
-                <option value={formData.type.government}>Govt.</option>
-                <option value={formData.type.private}>Private</option>
-              </select>
-            </div>
+             <div>
+        <div className="nameyy">
+          Type Of University
+          <select
+            onChange={(e) => {
+              setFormData({ ...formData, type: e.target.value });
+            }}
+          >
+            <option value="">Please Select</option>
+            <option value="private">Private</option>
+            <option value="government">Government</option>
+          </select>
+        </div>
+       
+      </div>
           </div>
         </div>
       </div>

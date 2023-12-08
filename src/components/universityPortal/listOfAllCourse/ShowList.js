@@ -60,7 +60,7 @@ export default function ShowList() {
       };
       const requestBody = {
         ...updatedCourseDetails,
-        tution: tuition ,
+        tution: tuition,
       };
       console.log("tutition_id", tuition);
 
@@ -90,7 +90,7 @@ export default function ShowList() {
 
   useEffect(() => {
     courseApi();
-  }, [id,courseDetails?.tution?.id]);
+  }, [id, courseDetails?.tution?.id]);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -299,7 +299,8 @@ export default function ShowList() {
                     }}
                   />
                 ) : (
-                <p>INR {courseDetails?.tution?.transportation}</p>)}
+                  <p>INR {courseDetails?.tution?.transportation}</p>
+                )}
               </div>
               <div className="mini">
                 {" "}
@@ -316,10 +317,11 @@ export default function ShowList() {
                     }}
                   />
                 ) : (
-                <p>INR {courseDetails?.tution?.phone_internet}</p>)}
+                  <p>INR {courseDetails?.tution?.phone_internet}</p>
+                )}
               </div>
               <div className="mini">
-                <h6> Total : </h6> 
+                <h6> Total : </h6>
                 {isEditing ? (
                   <input
                     type="text"
@@ -333,7 +335,8 @@ export default function ShowList() {
                     }}
                   />
                 ) : (
-                <p>INR {courseDetails?.tution?.total}</p>)}
+                  <p>INR {courseDetails?.tution?.total}</p>
+                )}
               </div>
             </div>
           </div>

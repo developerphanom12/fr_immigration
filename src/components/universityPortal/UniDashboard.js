@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { PiArrowFatLinesDownLight } from "react-icons/pi";
 import { EXCHANGE_URLS_UNIVERSITY } from "../URLS";
 import axios from "axios";
-import { useParams } from "react-router-dom";
  
 
 export default function UniDashboard() {
@@ -20,8 +19,7 @@ export default function UniDashboard() {
     answer: "",
   });
 
-  let {id} = useParams();
-  console.log("idd",id)
+
 
   const latestUpdateApi = async () => {
     const axiosConfig = {
@@ -72,14 +70,14 @@ export default function UniDashboard() {
   };
 
 
-  const getFaqApi = async () =>{
+  const getFaqUpdateApi = async () =>{
     const axiosConfig ={
       headers:{
         Authorization:`Bearer ${localStorage.getItem("token")}`
       }
     }
     try{
-      const res = await axios.get(  `${EXCHANGE_URLS_UNIVERSITY}/getbyUniversity/${id}`,
+      const res = await axios.get(  `${EXCHANGE_URLS_UNIVERSITY}/getiduniveirsty`,
       axiosConfig
       )
       setGetFaq(res?.data?.data);
@@ -91,7 +89,7 @@ export default function UniDashboard() {
   }
 
   useEffect(() => {
-    getFaqApi()
+    getFaqUpdateApi()
     const intervalId = setInterval(() => {
       setShowArrow((prev) => !prev);
     }, 2000);
@@ -113,18 +111,25 @@ export default function UniDashboard() {
   };
   return (
     <Root>
+      {getFaq && 
+      getFaq.map((i)=>
       <div className="main_dash">
-        <h3>WELCOME TO DASHBOARD</h3>
-        <div className="get_updates">
-          Whats New Update...
-          <div className="deatil_update">description</div>
-        </div>
-        <div className="faq">
-          <h4>FAQ</h4>
-          {/* <h6>Questions{getFaq.question}</h6> */}
-          {/* <p>Answers{getFaq.answer}</p> */}
-        </div>
+      <h3>WELCOME TO DASHBOARD</h3>
+      <div className="get_updates">
+        What's New Update...?
+        <div className="deatil_update">
+          <h5>{i?.updates[0]?.heading}</h5>
+          Description {i?.updates[0]?.description}</div>
       </div>
+      <div className="faq">
+        <h4>FAQ</h4>
+        <h6>Questions  {i?.faqs[0]?.question}</h6>
+        <p>Answers  {i?.faqs[0]?.answer}</p>
+      </div>
+    </div>
+      )
+      }
+    
       <div className="new_updates">
         <button onClick={handleClick}>
           {showArrow && <PiArrowFatLinesDownLight />}

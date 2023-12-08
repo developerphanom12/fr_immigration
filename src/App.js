@@ -38,6 +38,7 @@ import GetAgentFile from "./components/AllRoutes/Dashboard/AllUserFile/GetAgentF
 import GetStudentFile from "./components/AllRoutes/Dashboard/AllUserFile/GetStudentFile";
 import GetUnivFile from "./components/AllRoutes/Dashboard/AllUserFile/GetUnivFile";
 import GetUniDetail from "./components/AllRoutes/Dashboard/AllUserFile/GetUniDetail";
+import UrmDetails from "./components/AllRoutes/Universities/UrmDetails";
 
 function App() {
   const userCheck = useSelector((state) => state?.users?.userCheck);
@@ -58,6 +59,7 @@ function App() {
             <Route path="/history" element={<HistoryMain />} />
             <Route path="/detailview/:id" element={<DetailView />} />
             <Route path="/urm" element={<Urm_university />} />
+            <Route path="urmdetails/:id" element={<UrmDetails />}/>
             <Route path="/pgrequire" element={<PgRequire />} />
             <Route path="/ugrequire" element={<UgRequire />} />
             <Route path="/profile" element={<Profile />} />

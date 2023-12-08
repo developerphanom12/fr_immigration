@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
 import axios from "axios";
 import { EXCHANGE_URLS_IMAGE, EXCHANGE_URLS_UNIVERSITY } from "../../URLS";
+import { Link } from "react-router-dom";
 // import Loader from "../../Loader";
 
 export default function Urm_university() {
@@ -33,7 +34,6 @@ export default function Urm_university() {
     universityApi();
   }, []);
 
-
   return (
     <Root>
       <h2>URM University</h2>
@@ -59,19 +59,20 @@ export default function Urm_university() {
         </button>
       </div>
 
-      <div className="second_child">
+      <div className="second_child" >
         {universityData &&
           universityData?.map((i) => {
             return (
               <div className="card">
                 <div className="card_top">
                   <h5>{i?.university_name}</h5>
+                 
                   <img
                     src={`${EXCHANGE_URLS_IMAGE}/${i.university_image}`}
                     alt="img"
                   />
                 </div>
-
+                view more
                 <div>
                   <p>Ambassador Name</p>
                   <p>{i?.ambassador_name}</p>
@@ -83,6 +84,11 @@ export default function Urm_university() {
                 <div>
                   <p>Year Of Established</p>
                   <p>{i?.year_established}</p>
+                </div>
+                <div className="linkk">
+                  <button>
+                    <Link to={`/urmdetails/${i.id}`}>View More details</Link>
+                  </button>
                 </div>
               </div>
             );
@@ -96,7 +102,7 @@ const Root = styled.section`
   @media (max-width: 788px) {
     padding-left: 60px;
   }
-  h2{
+  h2 {
     text-shadow: 4px 5px 5px gray;
   }
   h5,
@@ -190,24 +196,29 @@ const Root = styled.section`
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    cursor: pointer;
     padding: 10px;
-    @media (max-width:657px){
-        display: flex;
-        flex-direction: column;
-      }
+    @media (max-width: 657px) {
+      display: flex;
+      flex-direction: column;
+    }
     .card {
       width: 30%;
       height: auto;
       padding: 10px;
       border-radius: 5px;
       box-shadow: 6px 7px 7px gray;
-      @media (max-width:657px){
+      @media (max-width: 657px) {
         width: 100%;
       }
-      
+
       .card_top {
         display: flex;
         gap: 10px;
+        h5{
+          font-weight: 600;
+          color: #000080;
+        }
         img {
           width: 80px;
           height: 80px;
@@ -221,6 +232,19 @@ const Root = styled.section`
         display: flex;
         p {
           flex: 1;
+        }
+      }
+      .linkk{
+        button{
+          border: none;
+          border-radius: 4px;
+          background-color: white;
+
+          a{
+            color: #000080;
+            background-color: none;
+            font-weight: 600;
+          }
         }
       }
     }
