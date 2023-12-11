@@ -3,8 +3,10 @@ import { EXCHANGE_URLS } from "../../URLS";
 import axios from "axios";
 import cogoToast from "cogo-toast";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 export default function ProfilePassword() {
+  const navigate = useNavigate();
   const [changePass, setChangePass] = useState({
     currentPassword: "",
     newPassword: "",
@@ -26,9 +28,9 @@ export default function ProfilePassword() {
         data,
         axiosConfig
       );
-
-      cogoToast.success("Password Changed Successfully");
       setChangePass({ currentPassword: "", newPassword: "" });
+      navigate("/dashboardd")
+      cogoToast.success("Password Changed Successfully");
       console.log("res222", res);
     } catch (err) {
       console.log("err", err);

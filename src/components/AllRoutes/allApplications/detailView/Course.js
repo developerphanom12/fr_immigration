@@ -20,7 +20,7 @@ export default function Course({ detail }) {
             </div>
             <div className="col-lg-3 col-sm-3">
               <div className="hlo45445514">Course Details</div>
-              <p className="p111"> {detail?.course_id?.course_level} </p>
+              <p className="p111"> {detail?.course_id?.course_type} </p>
             </div>
             <div className="col-lg-3 col-sm-3">
               <div className="hlo4544554">Course Name</div>

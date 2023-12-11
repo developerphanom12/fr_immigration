@@ -53,27 +53,27 @@ export default function UrmDetails() {
             <div className="child22">
               <p>Email - {i?.email} </p>
             </div>
-            <div>
+            <div className="child22">
               <p>Contact number - {i?.phone_number}</p>
             </div>
-            <div>
+            <div className="child22">
               <p> {i?.type} University</p>
             </div>
-            <div>
+            <div className="adddress">
               <h5> Address:</h5>
-              City - {i?.address.city} , Street - {i?.address.street_address},
+             <p>City - {i?.address.city} , Street - {i?.address.street_address},
               State - {i?.address.state} , Postal code -{" "}
-              {i?.address.postal_code}
-            </div>
-            <div className="faqqqq">
-              <h4>FAQ</h4>
-              <div className="faq_child"> Question {i?.faqs[0].question}</div>
-              <div className="faq_child">Answer {i?.faqs[0].answer}</div>
+              {i?.address.postal_code}</p> 
             </div>
             <div className="updatesss">
               <h4>What's New ?</h4>
               <div className="update_child">--{i?.updates[0].heading}</div>
               <div className="update_child">--{i?.updates[0].description}</div>
+            </div>
+            <div className="faqqqq">
+              <h4>FAQ</h4>
+              <div className="faq_child"> Question {i?.faqs.question}</div>
+              <div className="faq_child">Answer {i?.faqs.answer}</div>
             </div>
           </div>
         ))}
@@ -91,12 +91,18 @@ const Root = styled.section`
   h6,
   p {
     margin: 0;
+    font-size: 12px;
   }
 
   .main_div {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    .adddress{
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
     .img_child_div {
       width: 100%;
       img{

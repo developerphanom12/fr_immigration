@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
@@ -23,8 +22,9 @@ export default function AdminLogin() {
     console.log("console1", data);
     const userCallback = (e) => {
       console.log(e);
+      localStorage.setItem("token",e?.data?.user?.token);
+      console.log("token", e?.data?.user?.token)
     };
-    localStorage.setItem("token", data?.token);
     dispatch(userCheckAction(true));
     dispatch(userLoginAction(data, userCallback));
     navigate("/dashboardd");

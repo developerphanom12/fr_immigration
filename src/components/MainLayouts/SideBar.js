@@ -3,7 +3,6 @@ import { FiLogOut } from "react-icons/fi";
 import { MdPersonSearch } from "react-icons/md";
 import { MdWorkHistory } from "react-icons/md";
 import { FaUniversity } from "react-icons/fa";
-import { MdSearch } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import cogoToast from "cogo-toast";
