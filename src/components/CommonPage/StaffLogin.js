@@ -1,41 +1,58 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 import cogoToast from "cogo-toast";
 import { useDispatch } from "react-redux";
-import { userCheckAction, userDataAction } from "../../redux/users/action";
-import { EXCHANGE_URLS_ADMIN } from "../URLS";
+import { userCheckAction, userLoginAction } from "../../redux/users/action";
 import loginbanner from "../CommonPage/imageLogo/login_banner.png";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { IoEyeOffSharp, IoEyeSharp } from "react-icons/io5";
 
 export default function StaffLogin() {
-  const [logindata, setlogindata] = useState({
-    staff_name: "",
-    password: "",
-  });
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const staffLoginApi = async () => {
-    try {
-      const res = await axios.post(
-        `${EXCHANGE_URLS_ADMIN}/stafflogin/`,
-        logindata
-      );
-      console.log("resres123", res?.data?.data?.user);
-      if (res?.status === 201) {
-        localStorage.setItem("token", res?.data?.data?.user?.token);
-        dispatch(userDataAction(res?.data?.data?.user));
-        dispatch(userCheckAction(true));
-        cogoToast.success("Login SuccessFully");
-        navigate("/dashboardd");
-      }else{
-        cogoToast.error("Username Or Password Incorrect")
+  const schema = yup.object().shape({
+    username: yup.string().required("Username is required."),
+    password: yup.string().required("Password is required."),
+  });
 
-      }
-    } catch (err) {
-      console.log("err", err);
-    }
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const handelLogin = (e) => {
+    const data = {
+      username:e.username,
+      password:e.password,
+    };
+    console.log("console1", data);
+    const userCallback = (e) => {
+      console.log(e);
+      reset()
+      localStorage.setItem("token", e?.data?.user?.token);
+      console.log("token", e?.data?.user?.token);
+    };
+    dispatch(userCheckAction(true));
+    dispatch(userLoginAction(data, userCallback));
+    // dispatch(userDataAction(e?.data?.data?.user));
+
+    navigate("/dashboardd");
+  };
+
+  const onSubmit = (data) => {
+    handelLogin(data);
   };
 
   const handleKeyDown = (e) => {
@@ -45,72 +62,61 @@ export default function StaffLogin() {
   };
 
   const handleClick = () => {
-    
-    if (logindata.staff_name.length >= 3 && logindata.password.length >= 3) {
-      staffLoginApi();
+    if (data.staff_name.length >= 3 && data.password.length >= 3) {
+      handelLogin();
     } else {
       cogoToast.error(
         "Username & password Length should be greater than 3 & 3 character"
       );
     }
-    if(logindata.username.length === 0 || logindata.password.length === 0){
-      cogoToast.error(
-        "Username or password is not filled"
-      );
-    }
   };
 
-  console.log("logindata", logindata);
   return (
     <Root>
       <div className="logimg">
         <h4>Sign-in to join the Phanom Online Portal</h4>
         <img src={loginbanner} alt="img" />
       </div>
-      <div className="box_div">
-        <div className="user_name">
-          Staff Name*
-          <input
-            value={logindata.staff_name}
-            onChange={(e) => {
-              setlogindata({ ...logindata, staff_name: e.target.value });
-            }}
-            onKeyDown={handleKeyDown}
-            placeholder="Staff Name"
-          />
-        </div>
-        <div className="user_name">
-          Password*
-          <input
-            type="Password"
-            value={logindata.password}
-            onChange={(e) => {
-              setlogindata({ ...logindata, password: e.target.value });
-            }}
-            onKeyDown={handleKeyDown}
-            placeholder="Password"
-          />
-        </div>
-        <div className="button_div">
-          <button
-            onClick={() => {
-              handleClick();
-            }}
-          >
-            Log-in
-          </button>
-        </div>
-        <div className="forget">
-          <button
-            className="div2"
-            onClick={() => {
-              navigate("/forgot");
-            }}
-          >
-            Forget Password
-          </button>
-        </div>
-      </div>
+       
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="user_name">
+            Staff Name*
+            <input
+              onKeyDown={handleKeyDown}
+              type="username"
+              {...register("username")}
+              placeholder="Staff Name"
+            />
+            {errors.username && <p>{errors.username.message}</p>}
+          </div>
+          <div className="user_name">
+            Password*
+            <input
+              placeholder="Password"
+              onKeyDown={handleKeyDown}
+              type={showPassword ? "text" : "password"}
+              {...register("password")}
+            />
+            <button className="btn" onClick={togglePasswordVisibility}>
+              {showPassword ? <IoEyeSharp /> : <IoEyeOffSharp />}
+            </button>
+            {errors.password && <p>{errors.password.message}</p>}
+          </div>
+          <div className="button_div">
+            <button type="submit">Log-in</button>
+          </div>
+          <div className="forget">
+            <button
+              className="div2"
+              onClick={() => {
+                navigate("/forgot");
+              }}
+            >
+              Forget Password
+            </button>
+          </div>
+        </form>
+      
     </Root>
   );
 }
@@ -174,7 +180,7 @@ const Root = styled.section`
     }
   }
 
-  .box_div {
+  form {
     height: 86%;
     width: 40%;
     display: flex;
@@ -205,6 +211,12 @@ const Root = styled.section`
         padding: 0px;
         gap: 0px;
         height: 80px;
+      }
+      .btn {
+        position: relative;
+        top: -49px;
+        left: 165px;
+
       }
       input {
         width: 100%;
@@ -250,7 +262,7 @@ const Root = styled.section`
         }
       }
     }
-    /* .forget {
+    .forget {
       text-align: right;
       width: 85%;
       @media (max-width: 800px) {
@@ -276,7 +288,7 @@ const Root = styled.section`
           text-align: center;
         }
       }
-    } */
+    }
 
     .register {
       display: flex;

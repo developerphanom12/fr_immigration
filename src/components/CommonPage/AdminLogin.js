@@ -3,30 +3,51 @@ import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 // import cogoToast from "cogo-toast";
 import { useDispatch } from "react-redux";
-// import { userCheckAction, userDataAction } from "../../redux/users/action";
-// import {  EXCHANGE_URLS_ADMIN } from "../URLS";
 import loginbanner from "../CommonPage/imageLogo/login_banner.png";
-import { userCheckAction, userLoginAction } from "../../redux/users/action";
+import { userCheckAction,  userLoginAction } from "../../redux/users/action";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { IoEyeOffSharp, IoEyeSharp } from "react-icons/io5";
 
 export default function AdminLogin() {
-  const [adminEmail, setAdminEmail] = useState("");
-  const [adminPass, setAdminPass] = useState("");
-  const dispatch = useDispatch();
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const schema = yup.object().shape({
+    username: yup.string().required("Username is required."),
+    password: yup.string().required("Password is required."),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
 
   const handelLogin = (e) => {
     const data = {
-      username: adminEmail,
-      password: adminPass,
+      username:e.username,
+      password:e.password,
     };
     console.log("console1", data);
     const userCallback = (e) => {
       console.log(e);
-      localStorage.setItem("token",e?.data?.user?.token);
-      console.log("token", e?.data?.user?.token)
+      reset()
+      localStorage.setItem("token", e?.data?.user?.token);
+      console.log("token", e?.data?.user?.token);
     };
     dispatch(userCheckAction(true));
     dispatch(userLoginAction(data, userCallback));
+    // dispatch(userDataAction(e?.data?.data?.user));
+
     navigate("/dashboardd");
   };
 
@@ -34,6 +55,10 @@ export default function AdminLogin() {
     if (e.key === "Enter") {
       handelLogin();
     }
+  };
+
+  const onSubmit = (data) => {
+    handelLogin(data);
   };
 
   // const testClick = ()=>{
@@ -47,43 +72,41 @@ export default function AdminLogin() {
         <h4>Sign-in to join the Phanom Online Portal</h4>
         <img src={loginbanner} alt="img" />
       </div>
-      <div className="box_div">
-        <h2>LOG-IN</h2>
-        <div className="user_name">
-          Admin Name
-          <input
-            value={adminEmail.username}
-            onChange={(e) => {
-              setAdminEmail(e.target.value);
-            }}
-            onKeyDown={handleKeyDown}
-            placeholder="User Name"
-          />
-        </div>
-        <div className="user_name">
-          Password
-          <input
-            type="Password"
-            value={adminPass.password}
-            onChange={(e) => {
-              setAdminPass(e.target.value);
-            }}
-            onKeyDown={handleKeyDown}
+       
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <h2>LOG-IN</h2>
+          <div className="user_name">
+            Admin Name
+            <input
+              onKeyDown={handleKeyDown}
+              type="username"
+              {...register("username")}
+              placeholder="UserName"
+            />
+            {errors.username && <p>{errors.username.message}</p>}
+          </div>
+          <div className="user_name">
+            Password
+            <input
             placeholder="Password"
-          />
-        </div>
-        <div className="button_div">
-          <button
-            className="user_btn"
-            onClick={
-              handelLogin
-              // testClick();
-            }
-          >
-            Log-in
-          </button>
-        </div>
-      </div>
+              onKeyDown={handleKeyDown}
+              type={showPassword ? "text" : "password"}
+              {...register("password")}
+            />
+            <button className="btn" onClick={togglePasswordVisibility}>
+              {showPassword ? <IoEyeSharp /> : <IoEyeOffSharp />}
+            </button>
+            {errors.password && <p>{errors.password.message}</p>}
+          </div>
+          <div className="button_div">
+            <button
+              className="user_btn"
+            >
+              Log-in
+            </button>
+          </div>
+        </form>
+       
     </Root>
   );
 }
@@ -147,7 +170,7 @@ const Root = styled.section`
     }
   }
 
-  .box_div {
+  form {
     height: 86%;
     width: 40%;
     display: flex;
@@ -178,6 +201,12 @@ const Root = styled.section`
         padding: 0px;
         gap: 0px;
         height: 80px;
+      }
+      .btn {
+        position: relative;
+        top: -49px;
+        left: 165px;
+
       }
       input {
         width: 100%;

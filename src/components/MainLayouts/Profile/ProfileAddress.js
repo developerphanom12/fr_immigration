@@ -6,6 +6,9 @@ import {FaHome} from "react-icons/fa"
 
 export default function ProfileAddress() {
   const [profile, setProfile] = useState({});
+
+
+  
   const getProfile = async () => {
     const axiosConfig = {
       headers: {

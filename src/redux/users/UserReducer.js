@@ -3,7 +3,6 @@ import { userLogin } from "../type";
 const initialState = {
   user: {},
   userCheck: false,
-  userDetails:false,
   appDetails: {}, 
   role:"",
   data:{}
@@ -23,21 +22,13 @@ const UserReducer = (state = initialState, action) => {
         ...state,
         userCheck: action.payload,
       };
-    // case "VERIFY_DOCS":
-    //   return {
-    //     ...state,
-    //     verifyDocs: action.payload,
-    //   };
+    
     case "APP_DETAILS":
       return {
         ...state,
         appDetails: action.payload,
       };
-    // case "SET_USER_CHECK":
-    //   return {
-    //     ...state,
-    //     user: action.payload,
-    //   };
+    
     default:
       return state;
   }

@@ -89,6 +89,7 @@ function App() {
                 <Route path="getstudent" element={<GetStudentFile />} />
                 <Route path="getuniv" element={<GetUnivFile />} />
                 <Route path="/getunidetail/:id" element={<GetUniDetail />} />
+               
 
 
               </>

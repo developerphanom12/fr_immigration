@@ -2,43 +2,55 @@ import React, { useState } from "react";
 import loginUniversity from "../CommonPage/imageLogo/Screenshot from 2023-11-16 11-52-00.png";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { EXCHANGE_URLS_UNIVERSITY } from "../URLS";
-import axios from "axios";
 import styled from "styled-components";
-import { userCheckAction, userDataAction } from "../../redux/users/action";
+import { userCheckAction, userLoginAction } from "../../redux/users/action";
 import cogoToast from "cogo-toast";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { IoEyeOffSharp, IoEyeSharp } from "react-icons/io5";
 
 export default function UniLogin() {
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
   const navigate = useNavigate();
-
-  const [logindata, setlogindata] = useState({
-    username: "",
-    password: "",
-  });
   const dispatch = useDispatch();
 
-  const loginApi = async () => {
-    try {
-      const res = await axios.post(
-        `${EXCHANGE_URLS_UNIVERSITY}/unilogin`,
-        logindata
-      );
-      console.log("resres123", res?.data?.data?.user);
+  const schema = yup.object().shape({
+    username: yup.string().required("Username is required."),
+    password: yup.string().required("Password is required."),
+  });
 
-      if (res?.status === 201) {
-        localStorage.setItem("token", res?.data?.data?.user?.token);
-        dispatch(userDataAction(res?.data?.data?.user));
-        dispatch(userCheckAction(true));
-        cogoToast.success("Login SuccessFully");
-        navigate("/unidash");
-      } else {
-        cogoToast.error("Username Or Password Incorrect");
-      }
-    } catch (err) {
-      console.log("err", err);
-      cogoToast.error("You Are Not Approved At This Moment")
-    }
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const handelLogin = (e) => {
+    const data = {
+      username:e.username,
+      password:e.password,
+    };
+    console.log("console1", data);
+    const userCallback = (e) => {
+      console.log(e);
+      reset()
+      localStorage.setItem("token", e?.data?.user?.token);
+      console.log("token", e?.data?.user?.token);
+    };
+    dispatch(userCheckAction(true));
+    dispatch(userLoginAction(data, userCallback));
+    // dispatch(userDataAction(e?.data?.data?.user));
+
+    navigate("/unidash");
   };
+
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -47,60 +59,51 @@ export default function UniLogin() {
   };
 
   const handleClick = () => {
-    if (logindata.username.length > 3 && logindata.password.length > 3) {
-      loginApi();
+    if (data.username.length > 3 && data.password.length > 3) {
+      handelLogin();
     } else {
       cogoToast.error(
         "Username & password Length should be greater than 3 character"
       );
     }
-    if(logindata.username.length === 0 || logindata.password.length === 0){
-      cogoToast.error(
-        "Username or password is not filled"
-      );
-    }
-   
   };
 
-  console.log("logindata", logindata);
+  const onSubmit = (data) => {
+    handelLogin(data);
+  };
+
   return (
     <Root>
       <div className="logimg">
         <h4>Sign-in to join the Phanom Online Portal</h4>
         <img src={loginUniversity} alt="img" />
       </div>
-      <div className="box_div">
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="user_name">
           User Name*
           <input
-            value={logindata.username}
-            onChange={(e) => {
-              setlogindata({ ...logindata, username: e.target.value });
-            }}
             onKeyDown={handleKeyDown}
-            placeholder="User Name"
+            type="username"
+            {...register("username")}
+            placeholder="University Name"
           />
+          {errors.username && <p>{errors.username.message}</p>}
         </div>
         <div className="user_name">
           Password*
           <input
-            type="Password"
-            value={logindata.password}
-            onChange={(e) => {
-              setlogindata({ ...logindata, password: e.target.value });
-            }}
-            onKeyDown={handleKeyDown}
             placeholder="Password"
+            onKeyDown={handleKeyDown}
+            type={showPassword ? "text" : "password"}
+            {...register("password")}
           />
+          <button className="btn" onClick={togglePasswordVisibility}>
+            {showPassword ? <IoEyeSharp /> : <IoEyeOffSharp />}
+          </button>
+          {errors.password && <p>{errors.password.message}</p>}
         </div>
         <div className="button_div">
-          <button
-            onClick={() => {
-              handleClick();
-            }}
-          >
-            Log-in
-          </button>
+          <button type="submit">Log-in</button>
         </div>
         <div className="forget">
           <button
@@ -121,7 +124,7 @@ export default function UniLogin() {
             Get Started
           </button>
         </div>
-      </div>
+      </form>
     </Root>
   );
 }
@@ -186,11 +189,11 @@ const Root = styled.section`
     @media (max-width: 809px) {
       padding: 10px;
       width: 80%;
-      margin: 20px ;
+      margin: 20px;
     }
   }
 
-  .box_div {
+  form {
     height: 86%;
     width: 40%;
     display: flex;
@@ -207,7 +210,6 @@ const Root = styled.section`
       width: 100%;
       flex-direction: column;
       justify-content: flex-start;
-    
     }
     .user_name {
       display: flex;
@@ -222,6 +224,11 @@ const Root = styled.section`
         padding: 0px;
         gap: 0px;
         height: 80px;
+      }
+      .btn {
+        position: relative;
+        top: -49px;
+        left: 175px;
       }
       input {
         width: 100%;

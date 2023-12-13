@@ -25,13 +25,16 @@ export default function Applications() {
     ielts_writing: 0,
     ielts_speaking: 0,
     country_id: "",
-    gender: "",
+    gender:"",
+    staff_id:"",
   });
   const [activeNext, setActiveNext] = useState(true);
   const [applicationId, setApplicationId] = useState("");
   const [course, setCourse] = useState([]);
   const [university, setUniversity] = useState([]);
   const [countryy, setCountryy] = useState([]);
+  const [getStaff,setGetstaff] = useState([]);
+
   // const navigate = useNavigate();
 
   const appApi = async () => {
@@ -112,6 +115,25 @@ export default function Applications() {
       console.log("err", err);
     }
   };
+  const getstaff = async () => {
+    try {
+      const axiosConfig = {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      };
+      const res = await axios.get(
+        `${EXCHANGE_URLS_UNIVERSITY}/allstaffget`,
+        axiosConfig
+      );
+      if (res?.status === 200) {
+        setGetstaff(res?.data?.data);
+        console.log("staaaaffff",res?.data?.data)
+      }
+    } catch (err) {
+      console.log("err", err);
+    }
+  };
 
   const handleSubmit = () => {
     appApi();
@@ -122,6 +144,7 @@ export default function Applications() {
     getCourse();
     getUniversity();
     getCountry();
+    getstaff();
   }, []);
 
   console.log("dddddd=====", data);
@@ -306,6 +329,25 @@ export default function Applications() {
                     })}
                 </select>
               </div>
+              <div className="name">
+                {" "}
+                Staff Name
+                <select
+                  onChange={(e) => {
+                    setData({ ...data, staff_id: e.target.value });
+                  }}
+                >
+                  <option>Select staff</option>
+                  {getStaff &&
+                    getStaff.map((i) => {
+                      return (
+                        <option value={i?.id}>
+                          {i.staff_name}
+                        </option>
+                      );
+                    })}
+                </select>
+              </div>
             </div>
             <div className="textarea">
               <div className="name">
@@ -350,9 +392,9 @@ export default function Applications() {
                   }}
                 >
                   <option>Gender</option>
-                  <option value={data.gender.male}>Male</option>
-                  <option value={data.gender.female}>Female</option>
-                  <option value={data.gender.other}>Other</option>
+                  <option value={data?.gender.male}>Male</option>
+                  <option value={data?.gender.female}>Female</option>
+                  <option value={data?.gender.other}>Other</option>
                 </select>
               </div>
               <button
