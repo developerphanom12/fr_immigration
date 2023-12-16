@@ -46,7 +46,7 @@ function App() {
 
   const token = localStorage.getItem("token");
 
-  console.log("resres123", userDetails?.role);
+  console.log("resres123", userDetails);
 
   return (
     <Layout>

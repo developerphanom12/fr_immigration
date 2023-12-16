@@ -4,7 +4,7 @@ import { styled } from "styled-components";
 // import cogoToast from "cogo-toast";
 import { useDispatch } from "react-redux";
 import loginbanner from "../CommonPage/imageLogo/login_banner.png";
-import { userCheckAction,  userLoginAction } from "../../redux/users/action";
+import { userCheckAction,  userDataAction,  userLoginAction } from "../../redux/users/action";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -39,15 +39,14 @@ export default function AdminLogin() {
     };
     console.log("console1", data);
     const userCallback = (e) => {
-      console.log(e);
-      reset()
-      localStorage.setItem("token", e?.data?.user?.token);
-      console.log("token", e?.data?.user?.token);
+      if(e.status===200){
+        dispatch(userDataAction(e?.data?.data?.user))
+        dispatch(userCheckAction(true));
+        localStorage.setItem("token", e?.data?.data?.user?.token);
+        reset()
+      }
     };
-    dispatch(userCheckAction(true));
     dispatch(userLoginAction(data, userCallback));
-    // dispatch(userDataAction(e?.data?.data?.user));
-
     navigate("/dashboardd");
   };
 

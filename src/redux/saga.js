@@ -12,8 +12,7 @@ function* loginUser({ data, callback }) {
     const response = yield httpPost(`${EXCHANGE_URLS_ADMIN}/login`, data);
     if (response.status === 200) {
       //Here after api call we will get the response which we will send to the above callback
-      console.log("console5", response.data);
-      callback(response.data);
+      callback(response);
     }
   } catch (e) {
     console.log(e);
