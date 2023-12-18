@@ -54,11 +54,7 @@ export default function Login() {
     handelLogin(data);
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      handleClick();
-    }
-  };
+  
 
   return (
     <Root>
@@ -71,7 +67,7 @@ export default function Login() {
         <div className="user_name">
           User Name*
           <input
-            onKeyDown={handleKeyDown}
+            
             type="username"
             {...register("username")}
             placeholder="UserName"
@@ -82,7 +78,7 @@ export default function Login() {
           Password*
           <input
             placeholder="Password"
-            onKeyDown={handleKeyDown}
+             
             type={showPassword ? "text" : "password"}
             {...register("password")}
           />

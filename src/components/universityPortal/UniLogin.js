@@ -51,23 +51,6 @@ export default function UniLogin() {
     navigate("/unidash");
   };
 
-
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      handleClick();
-    }
-  };
-
-  const handleClick = () => {
-    if (data.username.length > 3 && data.password.length > 3) {
-      handelLogin();
-    } else {
-      cogoToast.error(
-        "Username & password Length should be greater than 3 character"
-      );
-    }
-  };
-
   const onSubmit = (data) => {
     handelLogin(data);
   };
@@ -82,7 +65,6 @@ export default function UniLogin() {
         <div className="user_name">
           User Name*
           <input
-            onKeyDown={handleKeyDown}
             type="username"
             {...register("username")}
             placeholder="University Name"
@@ -93,7 +75,6 @@ export default function UniLogin() {
           Password*
           <input
             placeholder="Password"
-            onKeyDown={handleKeyDown}
             type={showPassword ? "text" : "password"}
             {...register("password")}
           />

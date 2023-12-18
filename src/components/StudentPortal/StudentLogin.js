@@ -4,7 +4,7 @@ import loginbanner from "../CommonPage/imageLogo/login_banner.png";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import cogoToast from "cogo-toast";
-import { userCheckAction ,userLoginAction } from "../../redux/users/action";
+import { userCheckAction, userLoginAction } from "../../redux/users/action";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -34,13 +34,13 @@ export default function StudentLogin() {
 
   const handelLogin = (e) => {
     const data = {
-      username:e.username,
-      password:e.password,
+      username: e.username,
+      password: e.password,
     };
     console.log("console1", data);
     const userCallback = (e) => {
       console.log(e);
-      reset()
+      reset();
       localStorage.setItem("token", e?.data?.user?.token);
       console.log("token", e?.data?.user?.token);
     };
@@ -49,23 +49,6 @@ export default function StudentLogin() {
     // dispatch(userDataAction(e?.data?.data?.user));
 
     navigate("/studash");
-  };
-
-
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      handleClick();
-    }
-  };
-
-  const handleClick = () => {
-    if (data.username.length > 3 && data.password.length > 3) {
-      handelLogin();
-    } else {
-      cogoToast.error(
-        "Username & password Length should be greater than 3 & 3 character"
-      );
-    }
   };
 
   const onSubmit = (data) => {
@@ -82,7 +65,6 @@ export default function StudentLogin() {
         <div className="user_name">
           Student User Name*
           <input
-            onKeyDown={handleKeyDown}
             type="username"
             {...register("username")}
             placeholder="Student Name"
@@ -93,7 +75,6 @@ export default function StudentLogin() {
           Password*
           <input
             placeholder="Password"
-            onKeyDown={handleKeyDown}
             type={showPassword ? "text" : "password"}
             {...register("password")}
           />
@@ -227,7 +208,6 @@ const Root = styled.section`
         position: relative;
         top: -49px;
         left: 165px;
-
       }
       input {
         width: 100%;

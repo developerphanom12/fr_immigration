@@ -64,29 +64,30 @@ export default function Navbar() {
           <img src={china} alt="img" />
         </div>
       </div>
-{userDetails.role === "user" || "student" || "university" ? 
-      <div
-        className="profile"
-        onClick={() => {
-          setIsListOpen(!isListOpen);
-        }}
-      >
-        <FaUserCircle />
-        <div>
-          {profile?.username ? profile.username : "Unknown"}{" "}
-          <IoIosArrowDropdown />
+      {userDetails.role === "user" || "student" || "university" ? (
+        <div
+          className="profile"
+          onClick={() => {
+            setIsListOpen(!isListOpen);
+          }}
+        >
+          <FaUserCircle />
+          <div>
+            {profile?.username ? profile.username : "Unknown"}{" "}
+            <IoIosArrowDropdown />
+          </div>
+          <div className={isListOpen ? "option_list" : "off"}>
+            <p>
+              <Link to="/profile">Profile Details</Link>
+            </p>
+            <p>
+              <Link to="/changepass">Change Password</Link>
+            </p>
+          </div>
         </div>
-        <div className={isListOpen ? "option_list" : "off"}>
-          <p>
-            <Link to="/profile">Profile Details</Link>
-          </p>
-          <p>
-            <Link to="/changepass">Change Password</Link>
-          </p>
-        </div>
-      </div>
-      :"Admin"
-}
+      ) : (
+        "Admin"
+      )}
 
       <div
         className="menu"
@@ -138,9 +139,9 @@ const Root = styled.section`
   justify-content: space-between;
   border-bottom: 2px solid lightgray;
   padding-left: 80px;
-    @media (max-width:788px){
-      padding-left: 60px;
-    }
+  @media (max-width: 788px) {
+    padding-left: 60px;
+  }
   .flags {
     display: flex;
     height: 50px;
@@ -186,8 +187,8 @@ const Root = styled.section`
     cursor: pointer;
     border-radius: 10px;
     background-color: lightgray;
-    &:hover{
-      box-shadow:4px 4px 5px gray;
+    &:hover {
+      box-shadow: 4px 4px 5px gray;
     }
     svg {
       width: 30px;

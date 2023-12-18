@@ -50,11 +50,7 @@ export default function AdminLogin() {
     navigate("/dashboardd");
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      handelLogin();
-    }
-  };
+  
 
   const onSubmit = (data) => {
     handelLogin(data);
@@ -77,7 +73,6 @@ export default function AdminLogin() {
           <div className="user_name">
             Admin Name
             <input
-              onKeyDown={handleKeyDown}
               type="username"
               {...register("username")}
               placeholder="UserName"
@@ -88,7 +83,6 @@ export default function AdminLogin() {
             Password
             <input
             placeholder="Password"
-              onKeyDown={handleKeyDown}
               type={showPassword ? "text" : "password"}
               {...register("password")}
             />

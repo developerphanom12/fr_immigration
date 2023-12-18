@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
-import cogoToast from "cogo-toast";
 import { useDispatch } from "react-redux";
 import { userCheckAction, userLoginAction } from "../../redux/users/action";
 import loginbanner from "../CommonPage/imageLogo/login_banner.png";
@@ -55,22 +54,7 @@ export default function StaffLogin() {
     handelLogin(data);
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      handleClick();
-    }
-  };
-
-  const handleClick = () => {
-    if (data.staff_name.length >= 3 && data.password.length >= 3) {
-      handelLogin();
-    } else {
-      cogoToast.error(
-        "Username & password Length should be greater than 3 & 3 character"
-      );
-    }
-  };
-
+ 
   return (
     <Root>
       <div className="logimg">
@@ -82,7 +66,7 @@ export default function StaffLogin() {
           <div className="user_name">
             Staff Name*
             <input
-              onKeyDown={handleKeyDown}
+             
               type="username"
               {...register("username")}
               placeholder="Staff Name"
@@ -93,7 +77,7 @@ export default function StaffLogin() {
             Password*
             <input
               placeholder="Password"
-              onKeyDown={handleKeyDown}
+               
               type={showPassword ? "text" : "password"}
               {...register("password")}
             />
