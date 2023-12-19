@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
-// import cogoToast from "cogo-toast";
 import { useDispatch } from "react-redux";
 import loginbanner from "../CommonPage/imageLogo/login_banner.png";
 import { userCheckAction,  userDataAction,  userLoginAction } from "../../redux/users/action";

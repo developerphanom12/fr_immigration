@@ -30,7 +30,7 @@ export const appDetailsAction = (data) => {
     payload: data,
   };
 };
-export const userDetails = (data) => {
+export const UserDetails = (data) => {
   return {
     type: "USER_DETAILS",
     payload: data,
