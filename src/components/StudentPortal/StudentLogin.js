@@ -3,7 +3,7 @@ import styled from "styled-components";
 import loginbanner from "../CommonPage/imageLogo/login_banner.png";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { userCheckAction, userLoginAction } from "../../redux/users/action";
+import { studentLoginAction, userCheckAction } from "../../redux/users/action";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -38,15 +38,14 @@ export default function StudentLogin() {
     };
     console.log("console1", data);
     const userCallback = (e) => {
-      console.log(e);
-      reset();
-      localStorage.setItem("token", e?.data?.user?.token);
-      console.log("token", e?.data?.user?.token);
+      if(e.status===200){
+        dispatch(userDataAction(e?.data?.data?.user))
+        dispatch(userCheckAction(true));
+        localStorage.setItem("token", e?.data?.data?.user?.token);
+        reset()
+      }
     };
-    dispatch(userCheckAction(true));
-    dispatch(userLoginAction(data, userCallback));
-    // dispatch(userDataAction(e?.data?.data?.user));
-
+    dispatch(studentLoginAction(data, userCallback));
     navigate("/studash");
   };
 

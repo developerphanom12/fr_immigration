@@ -1,16 +1,30 @@
-import { userLogin } from "../type";
+import {
+  adminLogin,
+  agentLogin,
+  staffLogin,
+  studentLogin,
+  universityLogin,
+} from "../type";
 
 const initialState = {
   user: {},
   userCheck: false,
-  appDetails: {}, 
-  role:"",
-  data:{}
+  appDetails: {},
+  role: "",
+   data:{}
 };
 
 const UserReducer = (state = initialState, action) => {
   switch (action.type) {
-    case userLogin.USER_LOGIN:
+    case adminLogin.ADMIN_LOGIN:
+      return { ...state, data: action.data };
+    case agentLogin.AGENT_LOGIN:
+      return { ...state, data: action.data };
+    case staffLogin.STAFF_LOGIN:
+      return { ...state, data: action.data };
+    case studentLogin.STUDENT_LOGIN:
+      return { ...state, data: action.data };
+    case universityLogin.UNIVERSITY_LOGIN:
       return { ...state, data: action.data };
     case "USER_DATA":
       return {
@@ -22,13 +36,13 @@ const UserReducer = (state = initialState, action) => {
         ...state,
         userCheck: action.payload,
       };
-    
+
     case "APP_DETAILS":
       return {
         ...state,
         appDetails: action.payload,
       };
-    
+
     default:
       return state;
   }

@@ -13,7 +13,7 @@ export default function HistoryMain() {
         popUser={(e) => {
           setPopUser(e);
         }}
-      />
+      /> 
     </Root>
   );
 }

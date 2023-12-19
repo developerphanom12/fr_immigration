@@ -45,7 +45,7 @@ function App() {
   const userDetails = useSelector((state) => state?.users?.user);
   const token = localStorage.getItem("token");
 
-  console.log("resres123", userDetails);
+  console.log("resres123", userDetails?.role);
 
   return (
     <Layout>

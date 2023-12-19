@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 import { useDispatch } from "react-redux";
 import loginbanner from "../CommonPage/imageLogo/login_banner.png";
-import { userCheckAction,  userDataAction,  userLoginAction } from "../../redux/users/action";
+import { adminLoginAction, userCheckAction,  userDataAction  } from "../../redux/users/action";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -42,10 +42,11 @@ export default function AdminLogin() {
         dispatch(userDataAction(e?.data?.data?.user))
         dispatch(userCheckAction(true));
         localStorage.setItem("token", e?.data?.data?.user?.token);
+        console.log("tokeen",e?.data?.data?.user?.token)
         reset()
       }
     };
-    dispatch(userLoginAction(data, userCallback));
+    dispatch(adminLoginAction(data, userCallback));
     navigate("/dashboardd");
   };
 

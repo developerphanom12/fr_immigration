@@ -1,5 +1,5 @@
-export const userLogin = {
-    USER_LOGIN: 'USER_LOGIN',
+export const adminLogin = {
+    ADMIN_LOGIN: 'ADMIN_LOGIN',
 };
 export const agentLogin = {
     AGENT_LOGIN: 'AGENT_LOGIN',

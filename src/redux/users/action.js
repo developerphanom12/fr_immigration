@@ -1,4 +1,4 @@
-import { userLogin } from "../type";
+import { adminLogin, agentLogin, staffLogin, studentLogin, universityLogin } from "../type";
 
 export const userDataAction = (data) => {
   return {
@@ -41,8 +41,28 @@ export const setUserCheck = (value) => ({
   payload:value, 
 });
 
-export const userLoginAction = (data, callback) => ({
-  type: userLogin.USER_LOGIN,
+export const adminLoginAction = (data, callback) => ({
+  type: adminLogin.ADMIN_LOGIN,
+  data,
+  callback,
+});
+export const agentLoginAction = (data, callback) => ({
+  type: agentLogin.AGENT_LOGIN,
+  data,
+  callback,
+});
+export const staffLoginAction = (data, callback) => ({
+  type: staffLogin.STAFF_LOGIN,
+  data,
+  callback,
+});
+export const universityLoginAction = (data, callback) => ({
+  type: universityLogin.UNIVERSITY_LOGIN,
+  data,
+  callback,
+});
+export const studentLoginAction = (data, callback) => ({
+  type: studentLogin.STUDENT_LOGIN,
   data,
   callback,
 });

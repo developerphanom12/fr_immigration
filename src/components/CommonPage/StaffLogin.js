@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 import { useDispatch } from "react-redux";
-import { userCheckAction, userLoginAction } from "../../redux/users/action";
+import { staffLoginAction, userCheckAction} from "../../redux/users/action";
 import loginbanner from "../CommonPage/imageLogo/login_banner.png";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -38,13 +38,14 @@ export default function StaffLogin() {
     };
     console.log("console1", data);
     const userCallback = (e) => {
-      console.log(e);
-      reset()
-      localStorage.setItem("token", e?.data?.user?.token);
-      console.log("token", e?.data?.user?.token);
+      if(e.status===200){
+        dispatch(userDataAction(e?.data?.data?.user))
+        dispatch(userCheckAction(true));
+        localStorage.setItem("token", e?.data?.data?.user?.token);
+        reset()
+      }
     };
-    dispatch(userCheckAction(true));
-    dispatch(userLoginAction(data, userCallback));
+    dispatch(staffLoginAction(data, userCallback));
     // dispatch(userDataAction(e?.data?.data?.user));
 
     navigate("/dashboardd");

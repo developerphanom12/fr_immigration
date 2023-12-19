@@ -1,12 +1,12 @@
 import { all, takeLatest } from "redux-saga/effects";
 import { httpPost } from "../utils/https";
-import { agentLogin, staffLogin, studentLogin, universityLogin, userLogin } from "./type";
+import {  adminLogin, agentLogin, staffLogin, studentLogin, universityLogin } from "./type";
 import { EXCHANGE_URLS, EXCHANGE_URLS_ADMIN, EXCHANGE_URLS_STUDENT } from "../components/URLS";
 import cogoToast from "cogo-toast";
 
 // Admin Login-----------------------------------------------------------------------------
 
-function* loginUser({ data, callback }) {
+function* Adminlogin({ data, callback }) {
   console.log("console2", data);
   try {
     const response = yield httpPost(`${EXCHANGE_URLS_ADMIN}/login`, data);
@@ -92,7 +92,7 @@ function* loginUniversity({ data, callback }) {
 }
 
 function* watchLoginUser() {
-  yield takeLatest(userLogin.USER_LOGIN, loginUser);
+  yield takeLatest(adminLogin.ADMIN_LOGIN, Adminlogin);
   yield takeLatest(agentLogin.AGENT_LOGIN, loginAgent);
   yield takeLatest(staffLogin.STAFF_LOGIN, loginStaff);
   yield takeLatest(studentLogin.STUDENT_LOGIN, loginStudent);
