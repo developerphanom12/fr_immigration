@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 import { useDispatch } from "react-redux";
-import { agentLoginAction, userCheckAction } from "../../redux/users/action";
+import {
+  agentLoginAction,
+  userCheckAction,
+  userDataAction,
+} from "../../redux/users/action";
 import loginbanner from "../CommonPage/imageLogo/login_banner.png";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -11,6 +15,7 @@ import * as yup from "yup";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
+
   const togglePasswordVisibility = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
@@ -31,29 +36,28 @@ export default function Login() {
     resolver: yupResolver(schema),
   });
 
-  const handelLogin = (e) => {
+  const handelAgentLogin = (e) => {
     const data = {
-      username:e.username,
-      password:e.password,
+      username: e.username,
+      password: e.password,
     };
     console.log("console1", data);
-    const userCallback = (e) => {
-      if(e.status===200){
-        dispatch(userDataAction(e?.data?.data?.user))
-        dispatch(userCheckAction(true));
-        localStorage.setItem("token", e?.data?.data?.user?.token);
-        reset()
-      }
+    const userCallback = (response) => {
+      dispatch(userDataAction(response?.data?.user));
+      console.log("aaaaaaaaa", response?.data?.user);
+      localStorage.setItem("token", response?.data?.user?.token);
+      console.log("aaaaabbbbbaaaa", response?.data?.user?.token);
+
+      reset();
+      navigate("/dashboardd");
     };
+    dispatch(userCheckAction(true));
     dispatch(agentLoginAction(data, userCallback));
-    navigate("/dashboardd");
   };
 
   const onSubmit = (data) => {
-    handelLogin(data);
+    handelAgentLogin(data);
   };
-
-  
 
   return (
     <Root>
@@ -66,7 +70,6 @@ export default function Login() {
         <div className="user_name">
           User Name*
           <input
-            
             type="username"
             {...register("username")}
             placeholder="UserName"
@@ -77,7 +80,6 @@ export default function Login() {
           Password*
           <input
             placeholder="Password"
-             
             type={showPassword ? "text" : "password"}
             {...register("password")}
           />

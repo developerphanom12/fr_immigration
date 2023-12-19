@@ -42,7 +42,7 @@ import UrmDetails from "./components/AllRoutes/Universities/UrmDetails";
 
 function App() {
   const userCheck = useSelector((state) => state?.users?.userCheck);
-  const userDetails = useSelector((state) => state?.users?.user);
+  const userDetails = useSelector((state) => state?.users);
   const token = localStorage.getItem("token");
 
   console.log("resres123", userDetails?.role);

@@ -11,21 +11,21 @@ const initialState = {
   userCheck: false,
   appDetails: {},
   role: "",
-   data:{}
+  data:{}
 };
 
 const UserReducer = (state = initialState, action) => {
   switch (action.type) {
     case adminLogin.ADMIN_LOGIN:
-      return { ...state, data: action.data };
+      return { ...state, data: action.data, role:"admin" };
     case agentLogin.AGENT_LOGIN:
-      return { ...state, data: action.data };
+      return { ...state, data: action.data,role:"agent" };
     case staffLogin.STAFF_LOGIN:
-      return { ...state, data: action.data };
+      return { ...state, data: action.data ,role:"staff"};
     case studentLogin.STUDENT_LOGIN:
-      return { ...state, data: action.data };
+      return { ...state, data: action.data,role:"student" };
     case universityLogin.UNIVERSITY_LOGIN:
-      return { ...state, data: action.data };
+      return { ...state, data: action.data,role:"university" };
     case "USER_DATA":
       return {
         ...state,
