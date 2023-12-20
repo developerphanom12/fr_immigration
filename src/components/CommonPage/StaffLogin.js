@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 import { useDispatch } from "react-redux";
-import { staffLoginAction, userCheckAction} from "../../redux/users/action";
+import { staffLoginAction, userCheckAction, userDataAction} from "../../redux/users/action";
 import loginbanner from "../CommonPage/imageLogo/login_banner.png";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
