@@ -1,10 +1,19 @@
 import { all, takeLatest } from "redux-saga/effects";
 import { httpPost } from "../utils/https";
-import {  adminLogin, agentLogin, staffLogin, studentLogin, universityLogin } from "./type";
-import { EXCHANGE_URLS, EXCHANGE_URLS_ADMIN, EXCHANGE_URLS_STUDENT, EXCHANGE_URLS_UNIVERSITY } from "../components/URLS";
+import {
+  adminLogin,
+  agentLogin,
+  staffLogin,
+  studentLogin,
+  universityLogin,
+} from "./type";
+import {
+  EXCHANGE_URLS,
+  EXCHANGE_URLS_ADMIN,
+  EXCHANGE_URLS_STUDENT,
+  EXCHANGE_URLS_UNIVERSITY,
+} from "../components/URLS";
 import cogoToast from "cogo-toast";
-
-
 
 // Admin Login-----------------------------------------------------------------------------
 
@@ -29,14 +38,13 @@ function* loginAgent({ data, callback }) {
     const response = yield httpPost(`${EXCHANGE_URLS}/login1`, data);
     if (response.status === 200) {
       //Here after api call we will get the response which we will send to the above callback
-        localStorage.setItem("token", response?.data?.data?.user?.token);
+      localStorage.setItem("token", response?.data?.data?.user?.token);
       console.log("console7", response.data);
       callback(response.data);
     }
   } catch (e) {
     console.log(e);
     cogoToast.error("You Are Not Approved At This Moment");
-
   }
 }
 
@@ -46,9 +54,9 @@ function* loginStaff({ data, callback }) {
   console.log("console6", data);
   try {
     const response = yield httpPost(`${EXCHANGE_URLS_ADMIN}/stafflogin/`, data);
-    if (response.status === 200) {
-      localStorage.setItem("token", response?.data?.user?.token);
-
+    if (response.status === 201 ) {
+      localStorage.setItem("token", response?.data?.data?.user?.token);
+      console.log("tokkken", response?.data?.data?.user?.token)
       //Here after api call we will get the response which we will send to the above callback
       console.log("console7", response.data);
       callback(response.data);
@@ -56,7 +64,6 @@ function* loginStaff({ data, callback }) {
   } catch (e) {
     console.log(e);
     cogoToast.error("You Are Not Approved At This Moment");
-
   }
 }
 
@@ -65,7 +72,10 @@ function* loginStaff({ data, callback }) {
 function* loginStudent({ data, callback }) {
   console.log("console6", data);
   try {
-    const response = yield httpPost(`${EXCHANGE_URLS_STUDENT}/studentlogin`, data);
+    const response = yield httpPost(
+      `${EXCHANGE_URLS_STUDENT}/studentlogin`,
+      data
+    );
     if (response.status === 200) {
       localStorage.setItem("token", response?.data?.user?.token);
 
@@ -76,7 +86,6 @@ function* loginStudent({ data, callback }) {
   } catch (e) {
     console.log(e);
     cogoToast.error("You Are Not Approved At This Moment");
-
   }
 }
 
@@ -85,18 +94,20 @@ function* loginStudent({ data, callback }) {
 function* loginUniversity({ data, callback }) {
   console.log("console6", data);
   try {
-    const response = yield httpPost(`${EXCHANGE_URLS_UNIVERSITY}/unilogin`, data);
-    if (response.status === 200) {
+    const response = yield httpPost(
+      `${EXCHANGE_URLS_UNIVERSITY}/unilogin`,
+      data
+    );
+    if (response.status === 201) {
       localStorage.setItem("token", response?.data?.user?.token);
-
+      console.log("toookkkeen", response?.data?.user?.token);
       //Here after api call we will get the response which we will send to the above callback
-      console.log("console7", response.data);
+      console.log("console7eee", response.data);
       callback(response.data);
     }
   } catch (e) {
     console.log(e);
     cogoToast.error("You Are Not Approved At This Moment");
-
   }
 }
 
@@ -106,11 +117,9 @@ function* watchLoginUser() {
   yield takeLatest(staffLogin.STAFF_LOGIN, loginStaff);
   yield takeLatest(studentLogin.STUDENT_LOGIN, loginStudent);
   yield takeLatest(universityLogin.UNIVERSITY_LOGIN, loginUniversity);
-
 }
 
 export default function* commonSaga() {
-  
   // Add all the sagas to be run here
   yield all([watchLoginUser()]);
 }

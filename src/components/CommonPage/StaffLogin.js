@@ -18,7 +18,7 @@ export default function StaffLogin() {
   const dispatch = useDispatch();
 
   const schema = yup.object().shape({
-    username: yup.string().required("Username is required."),
+    staff_name: yup.string().required("Username is required."),
     password: yup.string().required("Password is required."),
   });
 
@@ -33,22 +33,23 @@ export default function StaffLogin() {
 
   const handelLogin = (e) => {
     const data = {
-      username:e.username,
+      staff_name:e.staff_name,
       password:e.password,
     };
     console.log("console1", data);
-    const userCallback = (e) => {
-      if(e.status===200){
-        dispatch(userDataAction(e?.data?.data?.user))
-        dispatch(userCheckAction(true));
-        localStorage.setItem("token", e?.data?.data?.user?.token);
+    const userCallback = (response) => {
+      if(response.status === 201){
+        dispatch(userDataAction(response?.data?.data?.user))
+        console.log("aaaaaayyyyyaaa", response?.data?.data?.user);
+        localStorage.setItem("token", response?.data?.data?.user?.token);
+        navigate("/dashboardd");
         reset()
       }
     };
+    dispatch(userCheckAction(true));
     dispatch(staffLoginAction(data, userCallback));
     // dispatch(userDataAction(e?.data?.data?.user));
 
-    navigate("/dashboardd");
   };
 
   const onSubmit = (data) => {
@@ -68,11 +69,11 @@ export default function StaffLogin() {
             Staff Name*
             <input
              
-              type="username"
-              {...register("username")}
+              type="staff_name"
+              {...register("staff_name")}
               placeholder="Staff Name"
             />
-            {errors.username && <p>{errors.username.message}</p>}
+            {errors.staff_name && <p>{errors.staff_name.message}</p>}
           </div>
           <div className="user_name">
             Password*

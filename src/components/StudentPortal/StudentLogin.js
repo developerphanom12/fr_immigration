@@ -37,7 +37,7 @@ export default function StudentLogin() {
       password: e.password,
     };
     console.log("console1", data);
-    const userCallback = (e) => {
+    const userCallback = (response) => {
       dispatch(userDataAction(response?.data?.user));
       console.log("aaaaaaaaa", response?.data?.user);
       localStorage.setItem("token", response?.data?.user?.token);

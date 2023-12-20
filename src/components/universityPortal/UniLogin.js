@@ -37,17 +37,17 @@ export default function UniLogin() {
       password:e.password,
     };
     console.log("console1", data);
-    const userCallback = (e) => {
-      if(e.status===200){
-        dispatch(userDataAction(e?.data?.data?.user))
-        dispatch(userCheckAction(true));
-        localStorage.setItem("token", e?.data?.data?.user?.token);
-        console.log("tokeen",e?.data?.data?.user?.token)
+    const userCallback = (response) => {
+      if(response.status === 201){
+        dispatch(userDataAction(response?.data?.user))
+        localStorage.setItem("token", response?.data?.user?.token);
+        console.log("tokeen",response?.data?.user?.token)
+        navigate("/unidash");
         reset()
       }
     };
+    dispatch(userCheckAction(true));
     dispatch(universityLoginAction(data, userCallback));
-    navigate("/unidash");
   };
 
   const onSubmit = (data) => {
