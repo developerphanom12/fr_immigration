@@ -5,7 +5,6 @@ import Layout from "./components/MainLayouts/Layout";
 import { useSelector } from "react-redux";
 import PageNF from "./components/CommonPage/PageNF";
 import Partner from "./components/CommonPage/Partner";
-import HomePage from "./components/CommonPage/Home/HomePage";
 import Applications from "./components/AllRoutes/AddApplication/Applications";
 import Urm_university from "./components/AllRoutes/Universities/Urm_university";
 import Search_course from "./components/AllRoutes/Courses/Search_course";
@@ -39,6 +38,7 @@ import GetStudentFile from "./components/AllRoutes/Dashboard/AllUserFile/GetStud
 import GetUnivFile from "./components/AllRoutes/Dashboard/AllUserFile/GetUnivFile";
 import GetUniDetail from "./components/AllRoutes/Dashboard/AllUserFile/GetUniDetail";
 import UrmDetails from "./components/AllRoutes/Universities/UrmDetails";
+import FrontPages from "./components/CommonPage/FrontPages/FrontPages";
 
 function App() {
   const userCheck = useSelector((state) => state?.users?.userCheck);
@@ -147,8 +147,8 @@ function App() {
             <Route path="*" element={<PageNF />} />
             <Route path="/unilogin" element={<UniLogin />} />
             <Route path="/uniregister" element={<UniRegister />} />
-            <Route path="/" element={<HomePage />} />
-            <Route path="/home" element={<HomePage />} />
+            <Route path="/" element={<FrontPages />} />
+            <Route path="/home" element={<FrontPages />} />
             <Route path="/adminlogin" element={<AdminLogin />} />
             <Route path="/stafflogin" element={<StaffLogin />} />
             <Route path="/studentlogin" element={<StudentLogin />} />
