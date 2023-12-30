@@ -28,20 +28,24 @@ export default function Page2() {
 }
 const Root = styled.section`
   display: flex;
+  flex-wrap: wrap;
   font-family: "Roboto", "sans-serif";
   justify-content: space-around;
   padding: 20px;
-  /* flex-wrap: wrap; */
+  @media (max-width: 999px) {
+    flex-direction: column;
+  }
   .img_div {
     width: 35%;
-    /* img{
-    width: 340px;
-    height: 340px;
-
-} */
+    @media (max-width: 999px) {
+      width: 100%;
+    }
   }
   .main_text_div {
     width: 35%;
+    @media (max-width: 999px) {
+      width: 100%;
+    }
     .text_div1 {
       border-bottom: 7px solid #c6a5ff;
       margin-bottom: 20px;

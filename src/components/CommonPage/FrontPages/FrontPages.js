@@ -23,8 +23,6 @@ const Root = styled.section`
   overflow: hidden;
   width: 100%;
   max-width: 100vw;
-  margin: 74px 0px 0px 0px;
-  @media (max-width: 899px) {
-    margin: 40px 0px 0px 10px;
-  }
+  margin: 73px 0px 0px 0px;
+ 
 `;

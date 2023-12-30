@@ -142,11 +142,11 @@ const Root = styled.section`
   display: flex;
   height: 12%;
   align-items: center;
-  z-index: 10;
+  z-index: 1000;
   overflow: hidden;
   position: fixed;
   width: 100%;
-  padding: 10px;
+  padding: 20px;
   background-image: linear-gradient(
     to bottom right,
     #c6a5ffc7,
@@ -154,14 +154,14 @@ const Root = styled.section`
     #ffffff,
     #c6a5ff24
   );
-  font-size: 15px;
-  border-bottom: 2px solid #c6a5ff;
+  font-size: 13px;
+  border-bottom: 1px solid #c6a5ff;
   @media (max-width:978px){
    justify-content: space-between;
   }
   .logo {
     width: 15%;
-    background-color: transparent;
+    /* background-color: transparent; */
     img {
       width: 100%;
     }
@@ -171,7 +171,7 @@ const Root = styled.section`
     }
   }
   .options {
-    background-color: transparent;
+    /* background-color: transparent; */
     flex: 1;
     display: flex;
     justify-content: right;

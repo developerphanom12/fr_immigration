@@ -4,7 +4,7 @@ import aircraft from "../../CommonPage/imageLogo/aircraft.jpg";
 import business from "../../CommonPage/imageLogo/businessman-walking.jpg";
 import university from "../../CommonPage/imageLogo/view-of-office.jpg";
 import map from "../../CommonPage/imageLogo/map-colorfull.jpg";
-import students from "../../CommonPage/imageLogo/students-image.jpg"
+import students from "../../CommonPage/imageLogo/students-image.jpg";
 
 export default function Page4() {
   return (
@@ -22,22 +22,22 @@ export default function Page4() {
             <h5>Successfull VISA</h5>
           </div>
           <div className="box">
-          <img src={business} alt="img" />
+            <img src={business} alt="img" />
             <h2>49+</h2>
             <h5>Years of Experience</h5>
           </div>
           <div className="box">
-          <img src={university} alt="img" />
+            <img src={university} alt="img" />
             <h2>35+</h2>
             <h5>Universities </h5>
           </div>
           <div className="box">
-          <img src={map} alt="img" />
+            <img src={map} alt="img" />
             <h2>29+</h2>
             <h5>Countries</h5>
           </div>
           <div className="box">
-          <img src={students} alt="img" />
+            <img src={students} alt="img" />
             <h2>89+</h2>
             <h5>Students</h5>
           </div>
@@ -47,7 +47,7 @@ export default function Page4() {
   );
 }
 const Root = styled.section`
-  background-image: radial-gradient(circle, #8850e91a, #8850e91a, #ffffff);
+  background-image: radial-gradient(#8850e91a, #ffffff);
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -77,6 +77,11 @@ const Root = styled.section`
       border-radius: 28px;
       background: rgba(220, 238, 255, 0.9);
       background-blend-mode: screen;
+      @media (max-width: 999px) {
+        width: 94%;
+        padding: 10px;
+        height: 180px;
+      }
     }
     .one2 {
       width: 90%;
@@ -86,22 +91,36 @@ const Root = styled.section`
       border-radius: 28px;
       background: rgba(244, 220, 255, 0.98);
       background-blend-mode: screen;
+      @media (max-width: 999px) {
+        width: 94%;
+        padding: 10px;
+        height: 180px;
+      }
     }
     .box_main {
       display: flex;
       position: absolute;
       gap: 10px;
-      /* flex-direction: column; */
       z-index: 9;
+      @media (max-width: 999px) {
+        gap: 5px;
+      }
       .box {
         width: 160px;
         border-radius: 10px;
         background-color: #ffffff;
         box-shadow: -6px 10px 17.5px 1px rgba(0, 0, 0, 0.25);
+        @media (max-width: 999px) {
+          width: 70px;
+        }
         img {
-          width: 50px;
           border-radius: 10px;
+          width: 50px;
           height: 50px;
+          @media (max-width: 999px) {
+            width: 30px;
+            height: 30px;
+          }
         }
         h2 {
           margin: 0;
@@ -110,13 +129,21 @@ const Root = styled.section`
           background: linear-gradient(101deg, #aa00fb 20.32%, #c42f2f 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
+          @media (max-width: 999px) {
+            font-weight: 300;
+            font-size: 16px;
+          }
         }
         h5 {
           text-align: center;
-
           padding: 10px;
           font-weight: 500;
           color: black;
+          @media (max-width: 999px) {
+            font-weight: 300;
+            font-size: 11px;
+            padding: 5px;
+          }
         }
       }
     }

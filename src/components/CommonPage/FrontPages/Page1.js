@@ -24,6 +24,7 @@ export default function Page1() {
 }
 const Root = styled.section`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   background-image: linear-gradient(
     to bottom right,
@@ -35,18 +36,22 @@ const Root = styled.section`
   width: 100%;
   padding: 30px 0px;
   font-family: "Roboto", "sans-serif";
+  @media (max-width: 999px) {
+    flex-direction: column;
+  }
   .line1 {
     width: 45%;
+    @media (max-width: 999px) {
+      width: 100%;
+    }
     h1 {
       margin-bottom: 10px;
       color: #330101;
       font-weight: 600;
       padding-right: 30px;
       background: linear-gradient(to right, black 0%, purple 100%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-      /* color: linear-gradient(to right, #FDFBFB, #EBEDEE 70%); */
-      /* background-image: linear-gradient(to right, black, purple); */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     p {
       padding-left: 30px;
@@ -58,10 +63,25 @@ const Root = styled.section`
   }
   .line2 {
     width: 30%;
-
+    @media (max-width: 999px) {
+      width: 100%;
+      text-align: center;
+      img {
+        min-height: 100px;
+        width: 100%;
+        height: 100%;
+        min-width: 130px;
+      }
+    }
     img {
       border-radius: 10px;
       width: 400px;
+      @media (max-width: 599px) {
+        min-height: 100px;
+        width: 100%;
+        height: 100%;
+        min-width: 130px;
+      }
     }
   }
 `;

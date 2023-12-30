@@ -72,11 +72,19 @@ const Root = styled.section`
     flex: 1;
     width: 100%;
     overflow: hidden;
-    
+
     .top_bar {
       background: #ffffff;
       display: flex;
+      /* position: sticky; */
       height: 80px;
+      background-image: linear-gradient(
+        to bottom right,
+        #c6a5ffc7,
+        #c6a5ff63,
+        #ffffff,
+        #c6a5ff24
+      );
       width: 100%;
     }
     .main_body {
