@@ -2,7 +2,6 @@ import styled from "styled-components";
 import Navbar from "./Navbar";
 import PreNav from "./PreNav";
 import { useSelector } from "react-redux";
-import Footer from "../CommonPage/Footer";
 import SideBar from "./SideBar";
 
 export default function Layout({ children }) {
@@ -31,13 +30,13 @@ export default function Layout({ children }) {
         )}
         <div className="main_body">{children}</div>
 
-        {!token && !userCheck ? (
+        {/* {!token && !userCheck ? (
           <div className="footer">
-            <Footer />
+            
           </div>
         ) : (
           ""
-        )}
+        )} */}
       </div>
     </Root>
   );

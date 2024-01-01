@@ -38,6 +38,8 @@ const Root = styled.section`
   font-family: "Roboto", "sans-serif";
   @media (max-width: 999px) {
     flex-direction: column;
+    padding: 10px;
+
   }
   .line1 {
     width: 45%;
@@ -78,9 +80,10 @@ const Root = styled.section`
       width: 400px;
       @media (max-width: 599px) {
         min-height: 100px;
-        width: 100%;
-        height: 100%;
+        width: 90%;
+        height: 90%;
         min-width: 130px;
+        padding-top: 10px;
       }
     }
   }

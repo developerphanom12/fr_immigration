@@ -64,6 +64,7 @@ const Root = styled.section`
   align-items: center;
   padding: 10px;
   flex-wrap: wrap;
+  /* background: #F6F5FB; */
   .content_div {
     padding: 10px;
     width: 30%;
@@ -105,6 +106,11 @@ const Root = styled.section`
       position: relative;
       top: 101px;
       left: 274px;
+      @media (max-width: 999px) {
+        top: 0px;
+        left: 0px;
+        position: relative;
+      }
     }
     .img2 {
       width: 438px;
@@ -113,6 +119,11 @@ const Root = styled.section`
       z-index: 120;
       top: 34px;
       left: -260px;
+      @media (max-width: 999px) {
+        top: 34px;
+        left: -300px;
+        position: relative;
+      }
     }
     .img3 {
       width: 368px;
@@ -121,6 +132,11 @@ const Root = styled.section`
       z-index: 123;
       top: 193px;
       left: -419px;
+      @media (max-width: 999px) {
+        top: 193px;
+        left: -520px;
+        position: relative;
+      }
     }
   }
 `;
