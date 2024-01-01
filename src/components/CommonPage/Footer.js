@@ -54,12 +54,13 @@ export default function Footer() {
 const Root = styled.section`
   display: flex;
   flex-direction: column;
-  position: relative;
   padding: 30px;
+  flex-wrap: wrap;
   color: white;
   background: black;
 
   .footer_top {
+  flex-wrap: wrap;
     display: flex;
     justify-content: space-between;
     .footer_top_div1{

@@ -87,7 +87,7 @@ export default function UniRegister() {
           phone_number: "",
           email: "",
           year_established: "",
-          type:"",
+          type: "",
           username: "",
           password: "",
           university_image: "",
@@ -213,21 +213,19 @@ export default function UniRegister() {
                 placeholder="Established in Year"
               />
             </div>
-             <div>
-        <div className="nameyy">
-          Type Of University
-          <select
-            onChange={(e) => {
-              setFormData({ ...formData, type: e.target.value });
-            }}
-          >
-            <option value="">Please Select</option>
-            <option value="private">Private</option>
-            <option value="government">Government</option>
-          </select>
-        </div>
-       
-      </div>
+
+            <div className="nameyy">
+              Type Of University
+              <select
+                onChange={(e) => {
+                  setFormData({ ...formData, type: e.target.value });
+                }}
+              >
+                <option value="">Please Select</option>
+                <option value="private">Private</option>
+                <option value="government">Government</option>
+              </select>
+            </div>
           </div>
         </div>
       </div>
@@ -366,21 +364,6 @@ export default function UniRegister() {
             Register
           </button>
         </div>
-        <div className="fifth_div">
-          <div className="fifth_box">
-            <div>
-              <h2>Get in Touch</h2>
-            </div>
-            <p>
-              If you have any questions, concerns or requests for further
-              information, please send us a<br /> message and a member of our
-              team will get in touch with you
-            </p>
-          </div>
-          <div className="fifth_box">
-            <button className="btnn">Contact Us</button>
-          </div>
-        </div>
       </div>
     </Root>
   );
@@ -397,7 +380,7 @@ const Root = styled.section`
   }
 
   h4 {
-    color: #0e4d92;
+    color: gray;
     margin: 0;
   }
   .nameyy {
@@ -612,7 +595,7 @@ const Root = styled.section`
 
   .first_div {
     h2 {
-      color: #0e4d92;
+      color: black;
       display: flex;
       justify-content: center;
       margin: 0;
@@ -682,70 +665,26 @@ const Root = styled.section`
     }
   }
 
-  .fifth_div {
-    background: #0e4d92;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 10px;
-
-    .fifth_box {
-      margin: 40px;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      /* width:50%; */
-      justify-content: center;
-      .btnn {
-        padding: 10px;
-        border-radius: 10px;
-        font-size: small;
-        border-color: transparent;
-        width: 80%;
-        font-size: medium;
-        color: #ffffff;
-        background: rgb(255 94 0);
-        margin: 20px;
-        background: #000080;
-        border-radius: 10px;
-        color: #fff;
-        padding: 10px 5px;
-        background-size: 300% 100%;
-        transition: all 0.3s ease-in-out 0s;
-        text-transform: uppercase;
-        &:hover {
-          box-shadow: 10px 5px 5px gray;
-          transition: all 0.2s ease-in-out 0s;
-          background: linear-gradient(-25deg, #000080 49%, #000080 100%);
-        }
-      }
-    }
-  }
   .regis {
     display: flex;
     justify-content: flex-end;
     padding: 10px;
     .btnn {
       padding: 10px;
-      border-radius: 10px;
+      border-radius: 50px;
       font-size: small;
-      border-color: transparent;
+      border: 0.2px solid #FFF;
       width: 15%;
       font-size: medium;
       color: #ffffff;
       margin-right: 108px;
-      background: #000080;
-      color: #fff;
-      background-size: 300% 100%;
+      background: #8656EC;
       transition: all 0.3s ease-in-out 0s;
       text-transform: uppercase;
       &:hover {
         box-shadow: 10px 5px 5px gray;
         transition: all 0.2s ease-in-out 0s;
-        background: linear-gradient(-25deg, #000080 49%, #000080 100%);
+        background: linear-gradient(-25deg, #8656EC 49%, #8656EC 100%);
       }
     }
   }

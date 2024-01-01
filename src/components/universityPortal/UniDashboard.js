@@ -239,7 +239,7 @@ const Root = styled.section`
       border: none;
       width: 200px;
       border-radius: 4px;
-      background-color: #000080;
+      background-color: #8656EC;
       color: #ffffff;
       padding: 5px 25px 5px 5px;
       position: relative;

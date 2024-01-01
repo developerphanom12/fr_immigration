@@ -229,7 +229,7 @@ const Root = styled.section`
         margin-top: 20px;
         border-radius: 10px;
         border: transparent;
-        background: #000080;
+        background: #8656EC;
         color: #fff;
         background-size: 300% 100%;
         transition: all 0.3s ease-in-out 0s;

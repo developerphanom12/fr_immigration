@@ -392,9 +392,9 @@ export default function Applications() {
                   }}
                 >
                   <option>Gender</option>
-                  <option value={data?.gender.male}>Male</option>
-                  <option value={data?.gender.female}>Female</option>
-                  <option value={data?.gender.other}>Other</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
                 </select>
               </div>
               <button
@@ -438,7 +438,6 @@ const Root = styled.section`
         padding: 10px;
         display: flex;
         margin: 0;
-        text-shadow: 4px 5px 5px gray;
       }
     }
     @media (max-width: 709px) {
@@ -503,21 +502,20 @@ const Root = styled.section`
           flex-direction: column;
           width: 28%;
           height: 45px;
-          margin: 5px;
           padding: 10px;
           justify-content: center;
           align-items: center;
           cursor: pointer;
           margin-top: 20px;
-          border-radius: 10px;
+          border-radius: 50px;
           border: transparent;
-          background: #000080;
+          background: #8656EC;
           color: #fff;
           background-size: 300% 100%;
           transition: all 0.3s ease-in-out 0s;
           text-transform: uppercase;
           &:hover {
-            background: #000080;
+            background: #8656EC;
             transition: all 0.1s ease-in-out 0s;
             box-shadow: 4px 5px 5px gray;
           }
@@ -526,52 +524,31 @@ const Root = styled.section`
           background-color: white;
           color: black;
           text-decoration: none;
-          border: 2px solid gray;
-          line-height: 1.5em;
+          border: 1px solid gray;
           padding: 10px;
-          border-radius: 10px;
-          -webkit-box-sizing: border-box;
-          -moz-box-sizing: border-box;
-          box-sizing: border-box;
+          border-radius: 50px;
           -webkit-appearance: none;
           -moz-appearance: none;
           background-image: linear-gradient(45deg, transparent 50%, black 50%),
             linear-gradient(135deg, black 50%, transparent 50%),
-            linear-gradient(to right, dodgerblue, skyblue);
-          background-position: calc(100% - 20px) calc(1em + 2px),
-            calc(100% - 15px) calc(1em + 2px), 100% 0;
-          background-size: 5px 5px, 5px 5px, 40px 45px;
-          background-repeat: no-repeat;
+            linear-gradient(to right,#8656EC, #C6ABFF);
           &:hover {
             box-shadow: 4px 4px 5px darkgray;
             transition: all 0.1s ease-in-out 0s;
           }
           @media (max-width: 555px) {
             padding: 8px;
-            /* width: 120px; */
             background-size: 5px 5px, 5px 5px, 30px 45px;
             align-items: center;
-          }
-
-          select:focus {
-            background-image: linear-gradient(45deg, white 50%, transparent 50%),
-              linear-gradient(135deg, transparent 50%, white 50%),
-              linear-gradient(to right, gray, gray);
-            background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
-              100% 0;
-            background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
-            background-repeat: no-repeat;
-            border-color: grey;
-            outline: 0;
           }
         }
       }
       input {
-        border-radius: 10px;
+        border-radius: 50px;
         padding: 10px;
         color: #202020;
         text-decoration: none;
-        border: 2px solid gray;
+        border: 1px solid gray;
         &:hover {
           box-shadow: 4px 4px 5px darkgray;
           transition: all 0.1s ease-in-out 0s;
@@ -585,18 +562,14 @@ const Root = styled.section`
         background-color: white;
         color: black;
         text-decoration: none;
-        border: 2px solid gray;
-        line-height: 1.5em;
+        border: 1px solid gray;
         padding: 10px;
-        border-radius: 10px;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
+        border-radius: 50px;
         -webkit-appearance: none;
         -moz-appearance: none;
         background-image: linear-gradient(45deg, transparent 50%, black 50%),
           linear-gradient(135deg, black 50%, transparent 50%),
-          linear-gradient(to right, dodgerblue, skyblue);
+          linear-gradient(to right, #8656EC, #C6ABFF);
         background-position: calc(100% - 20px) calc(1em + 2px),
           calc(100% - 15px) calc(1em + 2px), 100% 0;
         background-size: 5px 5px, 5px 5px, 40px 45px;
@@ -610,18 +583,6 @@ const Root = styled.section`
           /* width: 120px; */
           background-size: 5px 5px, 5px 5px, 30px 45px;
           align-items: center;
-        }
-
-        select:focus {
-          background-image: linear-gradient(45deg, white 50%, transparent 50%),
-            linear-gradient(135deg, transparent 50%, white 50%),
-            linear-gradient(to right, gray, gray);
-          background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
-            100% 0;
-          background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
-          background-repeat: no-repeat;
-          border-color: grey;
-          outline: 0;
         }
       }
     }

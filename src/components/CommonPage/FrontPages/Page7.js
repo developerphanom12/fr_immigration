@@ -9,7 +9,7 @@ export default function Page7() {
       <div className="ellipse">
         <img src={group} alt="img" />
       </div>
-      <div>
+      <div className="testimonial">
       <img src={twitter} alt="img" />
        
       </div>
@@ -20,9 +20,25 @@ const Root = styled.section`
   display: flex;
   justify-content: space-between;
   padding-top: 10px;
+  @media (max-width:899px){
+    flex-wrap: wrap;
+      }
   .ellipse{
     img{
-        width: 300px;
+        width: 80%;
+        @media (max-width:999px){
+        width: 50%;
+      }
+    }
+  }
+  .testimonial{
+    padding: 20px;
+    text-align: right;
+    img{
+      width: 75%;
+      @media (max-width:999px){
+        width: 100%;
+      }
     }
   }
 `;

@@ -122,7 +122,7 @@ export default function SideBar() {
 
           {userDetails.role === "student" ? (
             <>
-             <div
+              <div
                 className={activeParam === "studash" ? "active" : ""}
                 onClick={() => {
                   navigate("/studash");
@@ -328,6 +328,7 @@ const Root = styled.section`
     .nav_section {
       display: flex;
       flex-direction: column;
+      align-items: center;
       padding-top: 15px;
       height: 100%;
       gap: 20px;
@@ -335,7 +336,7 @@ const Root = styled.section`
       padding: 6px;
       position: relative;
       top: 20px;
-      &:hover{
+      &:hover {
         gap: 10px;
       }
 
@@ -353,6 +354,7 @@ const Root = styled.section`
           display: none;
           font-size: small;
           padding-top: 10px;
+          margin: 0;
         }
         svg {
           width: 25px;
@@ -361,8 +363,10 @@ const Root = styled.section`
       }
       .active {
         color: white;
-        background: #000080;
-        padding: 4px;
+        background: #8656ec;
+        padding: 6px;
+        margin: 0;
+
       }
       &:hover {
         display: flex;
