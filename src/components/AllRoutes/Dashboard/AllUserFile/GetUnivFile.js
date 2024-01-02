@@ -8,9 +8,7 @@ import { BsFillEyeFill } from "react-icons/bs";
 export default function GetUnivFile() {
   const [getUniv, setGetUniv] = useState();
   const navigate = useNavigate();
-  
 
-  
 
   const getUniversityApi = async () => {
     const axiosConfig = {

@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { EXCHANGE_URLS_APPLICATION } from "../../URLS";
-import { FaCircle } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import ApexCharts from "./Charts/ApexCharts";
+import DonutChart from "./Charts/DonutChart";
+import BarCharts from "./Charts/BarCharts";
+// import { Link } from 'react-router-dom';
 
 export default function DashboardAdmin() {
   const [dashboardVal, setDashboardVal] = useState();
@@ -12,7 +15,6 @@ export default function DashboardAdmin() {
   const [staffCount, setStaffCount] = useState([]);
   const navigate = useNavigate();
   const userDetails = useSelector((state) => state?.users?.user);
-  
 
   const dashboardApi = async () => {
     const axiosConfig = {
@@ -85,11 +87,12 @@ export default function DashboardAdmin() {
 
   return (
     <Root>
-      <h3>
-        <FaCircle />
-        Welcome To Dashboard
-      </h3>
-      <div className="dashboard_details">
+      <div className="graphs">
+      <ApexCharts />
+      <DonutChart />
+      <BarCharts />
+      </div>
+      {/* <div className="dashboard_details">
         <div className="details">
           <div>
             <h6>
@@ -112,43 +115,40 @@ export default function DashboardAdmin() {
             </h6>
           </div>
         </div>
-      </div>
-
+      </div> */}
       <div className="button_box">
         <div className="button_box_child">
-          <h6> All Agents Login Requests</h6>
           <button
             onClick={() => {
-              navigate("/getagent");
+              navigate("/getagentfile");
             }}
           >
-            View Here
+            All Agents Login Requests
           </button>
+          {/* <Link to="/getagentfile">View Here</Link> */}
         </div>
         <div className="button_box_child">
-          <h6> All Universities Login Requests</h6>
           <button
             onClick={() => {
               navigate("/getuniv");
             }}
           >
-            View Here
+            All Universities Login Requests
           </button>
         </div>
         <div className="button_box_child">
-          <h6> All Students Login Requests</h6>
           <button
             onClick={() => {
               navigate("/getstudent");
             }}
           >
-            View Here
+            All Students Login Requests
           </button>
         </div>
       </div>
 
       <div className="app_table">
-        <div className="heading">Agent Sheet . . .</div>
+        <div className="heading">AGENT SHEET</div>
         <div className="app_header">
           <div>Agent Name</div>
           <div>Rejected Application</div>
@@ -161,18 +161,18 @@ export default function DashboardAdmin() {
           count?.map((i) => {
             return (
               <div className="app_body">
-                <div>{i?.username}</div>
+                <div className="colorr">{i?.username}</div>
                 <div>{i?.rejectedCount}</div>
-                <div>{i?.pendingCount}</div>
+                <div className="colorr">{i?.pendingCount}</div>
                 <div>{i?.approvedCount}</div>
-                <div>{i?.userTotalApplications}</div>
+                <div className="colorr">{i?.userTotalApplications}</div>
               </div>
             );
           })}
       </div>
       {userDetails.role === "admin" ? (
         <div className="app_table">
-          <div className="heading">Staff Sheet . . .</div>
+          <div className="heading2">STAFF SHEET</div>
           <div className="app_header">
             <div>Staff Name</div>
             <div>Rejected Application</div>
@@ -184,11 +184,11 @@ export default function DashboardAdmin() {
             staffCount?.map((i) => {
               return (
                 <div className="app_body">
-                  <div>{i?.username}</div>
+                  <div className="colorr2">{i?.username}</div>
                   <div>{i?.rejectedCount}</div>
-                  <div>{i?.pendingCount}</div>
+                  <div className="colorr2">{i?.pendingCount}</div>
                   <div>{i?.approvedCount}</div>
-                  <div>{i?.userTotalApplications}</div>
+                  <div className="colorr2">{i?.userTotalApplications}</div>
                 </div>
               );
             })}
@@ -202,26 +202,23 @@ export default function DashboardAdmin() {
 const Root = styled.section`
   font-family: "Roboto", sans-serif;
   display: flex;
+  align-items: center;
   flex-direction: column;
   overflow: hidden;
   height: 100%;
-  background-color: #f1f1f2;
   padding-bottom: 20px;
   padding-left: 80px;
   @media (max-width: 788px) {
     padding-left: 60px;
   }
-  h3 {
-    margin: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    svg {
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-    }
-  }
+ 
+.graphs{
+  width: 100%;
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+}
+
   .dashboard_details {
     flex-wrap: wrap;
     background-color: #f1f1f2;
@@ -288,8 +285,10 @@ const Root = styled.section`
 
   .button_box {
     display: flex;
-    width: 90%;
+    width: 80%;
     justify-content: space-evenly;
+    box-shadow: 0px 6px 15.6px 0px rgba(0, 0, 0, 0.25);
+
     .button_box_child {
       padding: 15px;
       background-color: #ffffff;
@@ -297,9 +296,10 @@ const Root = styled.section`
       border-radius: 4px;
       button {
         border: none;
-        background-color: #000080;
+        font-size: 12px;
+        background-color: #884DFF;
         color: #ffffff;
-        border-radius: 4px;
+        border-radius: 50px;
         transition: transform 250ms;
         &:hover {
           cursor: pointer;
@@ -312,25 +312,40 @@ const Root = styled.section`
     font-family: "Roboto";
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     margin: 20px 0px;
-    width: 100%;
+    width: 80%;
+    box-shadow: 0px 6px 15.6px 0px rgba(0, 0, 0, 0.25);
     .heading {
-      width: 94%;
-      font-size: 20px;
+      width: 100%;
+      font-size: 18px;
       padding: 10px;
       font-weight: 700;
+      text-align: center;
+      background: #f7f6fe;
+      border-bottom: 4px solid #884dff;
+    }
+    .heading2 {
+      width: 100%;
+      font-size: 18px;
+      padding: 10px;
+      font-weight: 700;
+      text-align: center;
+      background: #f0f9ff;
+      border-bottom: 4px solid #0095ff;
     }
     .app_header {
       display: flex;
-      width: 94%;
-      background-color: dodgerblue;
-      color: white;
+      width: 100%;
+      font-weight: 600;
+      color: black;
       > div {
         flex: 1;
         font-family: "Roboto";
         border: 1px solid #dee2e6;
         padding: 10px;
+        font-size: 12px;
         @media (max-width: 700px) {
           font-size: 10px;
           min-width: 50px;
@@ -340,7 +355,7 @@ const Root = styled.section`
     }
     .app_body {
       display: flex;
-      width: 94%;
+      width: 100%;
       font-family: "Roboto", sans-serif;
 
       > div {
@@ -349,7 +364,7 @@ const Root = styled.section`
         flex-wrap: wrap;
         border: 0.3px solid lightgray;
         padding: 7px;
-        font-size: 12px;
+        font-size: 11px;
         text-transform: capitalize;
 
         @media (max-width: 700px) {
@@ -357,6 +372,9 @@ const Root = styled.section`
           min-width: 50px;
           padding: 5px;
         }
+      }
+      .colorr2 {
+        /* background-color: #CDE7FF; */
       }
       .iconn {
         display: flex;

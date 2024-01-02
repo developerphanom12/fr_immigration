@@ -238,7 +238,7 @@ const Root = styled.section`
     button {
       border: none;
       width: 200px;
-      border-radius: 4px;
+      border-radius: 50px;
       background-color: #8656EC;
       color: #ffffff;
       padding: 5px 25px 5px 5px;

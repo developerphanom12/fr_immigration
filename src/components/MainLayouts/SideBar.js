@@ -305,7 +305,8 @@ const Root = styled.section`
   justify-content: space-between;
   height: 100%;
   max-height: 100vh;
-  color: black;
+  color: white;
+  background-color: black;
   font-family: "Roboto", sans-serif;
   position: sticky;
   top: 0px;
@@ -329,30 +330,30 @@ const Root = styled.section`
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 15px;
       height: 100%;
       gap: 20px;
       font-size: 13px;
-      padding: 6px;
+      padding: 6px 10px 6px 0px;
       position: relative;
       top: 20px;
-      &:hover {
-        gap: 10px;
-      }
 
       > div {
         display: flex;
         width: 100%;
         gap: 5px;
-        border-radius: 10px;
+        padding-left: 6px;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
         align-items: center;
         &:hover {
           cursor: pointer;
+          color: #fff;
+          background-color: blue;
         }
 
         p {
           display: none;
-          font-size: small;
+          font-size: 12px;
           padding-top: 10px;
           margin: 0;
         }
@@ -362,11 +363,10 @@ const Root = styled.section`
         }
       }
       .active {
-        color: white;
-        background: #8656ec;
+        color: #fff;
+        background: blue;
         padding: 6px;
         margin: 0;
-
       }
       &:hover {
         display: flex;

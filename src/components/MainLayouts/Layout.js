@@ -56,7 +56,7 @@ const Root = styled.section`
     overflow: hidden;
     transition: width 0.3s ease;
     cursor: pointer;
-    box-shadow: 4px 7px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.4);
     &:hover {
       width: 180px;
     }

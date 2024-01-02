@@ -33,16 +33,16 @@ import GetUg from "./components/universityPortal/PgUgPage/GetUg";
 import GetPg from "./components/universityPortal/PgUgPage/GetPg";
 import StuDashboard from "./components/StudentPortal/StuDashboard";
 import ShowList from "./components/universityPortal/listOfAllCourse/ShowList";
-import GetAgentFile from "./components/AllRoutes/Dashboard/AllUserFile/GetAgentFile";
 import GetStudentFile from "./components/AllRoutes/Dashboard/AllUserFile/GetStudentFile";
 import GetUnivFile from "./components/AllRoutes/Dashboard/AllUserFile/GetUnivFile";
 import GetUniDetail from "./components/AllRoutes/Dashboard/AllUserFile/GetUniDetail";
 import UrmDetails from "./components/AllRoutes/Universities/UrmDetails";
 import FrontPages from "./components/CommonPage/FrontPages/FrontPages";
+import GetAgentFile from "./components/AllRoutes/Dashboard/AllUserFile/GetAgentFile";
 
 function App() {
   const userCheck = useSelector((state) => state?.users?.userCheck);
-  const userDetails = useSelector((state) => state?.users);
+  const userDetails = useSelector((state) => state?.users?.user);
   const token = localStorage.getItem("token");
 
   console.log("resres123", userDetails?.role);
@@ -84,9 +84,9 @@ function App() {
                 <Route path="/changepass" element={<ProfilePassword />} />
                 <Route path="/listcourses" element={<ListCourses />} />
                 <Route path="/showlist/:id" element={<ShowList />} />
-                <Route path="getagent" element={<GetAgentFile />} />
-                <Route path="getstudent" element={<GetStudentFile />} />
-                <Route path="getuniv" element={<GetUnivFile />} />
+                <Route path="/getagentfile" element={<GetAgentFile />} />
+                <Route path="/getstudent" element={<GetStudentFile />} />
+                <Route path="/getuniv" element={<GetUnivFile />} />
                 <Route path="/getunidetail/:id" element={<GetUniDetail />} />
                
 

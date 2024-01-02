@@ -1,13 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { EXCHANGE_URLS_ADMIN } from "../../../URLS";
 import styled from "styled-components";
 import { IoCheckmarkSharp, IoCloseSharp } from "react-icons/io5";
 import cogoToast from "cogo-toast";
 import { useNavigate } from "react-router-dom";
+import { EXCHANGE_URLS_ADMIN } from "../../../URLS";
 
 export default function GetAgentFile() {
-  const [getAgent, setGetAgent] = useState();
+  const [getAgent, setGetAgent] = useState("");
   const navigate = useNavigate();
 
   const [status, setStatus] = useState({
@@ -31,7 +31,6 @@ export default function GetAgentFile() {
       if (res?.status === 201) {
         setGetAgent(res?.data?.data);
       }
-      return null;
     } catch (error) {
       console.log("err", error);
     }
@@ -69,8 +68,7 @@ export default function GetAgentFile() {
       });
       if (status.is_aprooved === 1) {
         cogoToast.success("Agent Approved");
-      }
-      else{
+      } else {
         cogoToast.error("Agent Reject");
       }
       statusApi();
@@ -82,6 +80,7 @@ export default function GetAgentFile() {
   useEffect(() => {
     getAgentApi();
   }, []);
+
   return (
     <Root>
       <div className="app_table">
@@ -125,34 +124,43 @@ export default function GetAgentFile() {
   );
 }
 const Root = styled.section`
-  background-color: #f1f1f2;
   padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
   padding-left: 80px;
   @media (max-width: 788px) {
     padding-left: 60px;
   }
+
   .app_table {
     font-family: "Roboto";
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin: 20px 0px;
+    width: 85%;
+    box-shadow: 0px 6px 15.6px 0px rgba(0, 0, 0, 0.25);
     .heading {
-      width: 94%;
-      font-size: 20px;
+      width: 100%;
+      font-size: 18px;
       padding: 10px;
       font-weight: 700;
+      text-align: center;
+      background: #f7f6fe;
+      border-bottom: 4px solid #884dff;
     }
     .app_header {
       display: flex;
-      width: 94%;
-      background-color: dodgerblue;
-      color: white;
+      width: 100%;
+      font-weight: 600;
+      color: black;
       > div {
         flex: 1;
         font-family: "Roboto";
         border: 1px solid #dee2e6;
         padding: 10px;
+        font-size: 12px;
         @media (max-width: 700px) {
           font-size: 10px;
           min-width: 50px;
@@ -162,7 +170,7 @@ const Root = styled.section`
     }
     .app_body {
       display: flex;
-      width: 94%;
+      width: 100%;
       font-family: "Roboto", sans-serif;
 
       > div {
@@ -171,7 +179,7 @@ const Root = styled.section`
         flex-wrap: wrap;
         border: 0.3px solid lightgray;
         padding: 7px;
-        font-size: 12px;
+        font-size: 11px;
         text-transform: capitalize;
 
         @media (max-width: 700px) {
@@ -186,32 +194,33 @@ const Root = styled.section`
         justify-content: space-evenly;
         text-align: center;
         svg {
+          color: #fff;
           width: 20px;
           height: 20px;
-          font-weight: 700;
+         
         }
         .right {
           border: none;
           border-radius: 5px;
           padding: 5px 7px;
-          background-color: green;
-          color: #ffffff;
+          background-color: #884DFF;
+      
           &:hover {
             cursor: pointer;
-            background-color: #ffffff;
-            color: green;
+            color: #ffffff;
+            background-color: green;
           }
         }
         .wrong {
           border: none;
           border-radius: 5px;
           padding: 5px 7px;
-          background-color: red;
-          color: #ffffff;
+          background: #C5A8FF;
           &:hover {
             cursor: pointer;
-            background-color: #ffffff;
-            color: red;
+            color: #ffffff;
+            background-color: red;
+            
           }
         }
       }

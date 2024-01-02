@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { FcList } from "react-icons/fc";
 import { FaUserCircle } from "react-icons/fa";
-import { IoIosArrowDropdown } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
 import russia from "../MainLayouts/pictures/Russia.png";
 import canada from "../MainLayouts/pictures/canada.png";
 import us from "../MainLayouts/pictures/unitedstates.png";
@@ -74,7 +74,7 @@ export default function Navbar() {
           <FaUserCircle />
           <div>
             {profile?.username ? profile.username : "Unknown"}{" "}
-            <IoIosArrowDropdown />
+            <IoIosArrowDown />
           </div>
           <div className={isListOpen ? "option_list" : "off"}>
             <p>

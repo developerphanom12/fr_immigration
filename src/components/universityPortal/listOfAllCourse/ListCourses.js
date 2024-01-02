@@ -36,7 +36,7 @@ export default function ListCourses() {
   console.log("courseData", courseData);
   return (
     <Root>
-      <h2>Total Courses: {courseData?.length}</h2>
+      <h4>Total Courses: {courseData?.length}</h4>
 
       <div className="courses_box">
         {courseData &&
@@ -88,13 +88,15 @@ const Root = styled.section`
   }
   display: flex;
   flex-direction: column;
-  h2 {
-    margin: 15px;
+  justify-content: center;
+
+  h4 {
+    margin: 10px;
   }
 
   .courses_box {
     display: flex;
-    gap: 10px;
+    justify-content: space-evenly;
     padding: 10px;
     flex-wrap: wrap;
     @media (max-width: 876px) {
@@ -105,13 +107,11 @@ const Root = styled.section`
       gap: 10px;
       margin: 5px 0px;
       padding: 10px;
-      width: 280px;
+      width: 300px;
       border-radius: 5px;
-      /* justify-content: space-evenly; */
       align-items: center;
       text-align: center;
-      border: 1px solid gray;
-      /* box-shadow: 3px 4px 4px gray; */
+      box-shadow: 3px 1px 4px 1px gray;
       img {
         width: 80px;
         height: 90px;
@@ -142,7 +142,7 @@ const Root = styled.section`
           }
         }
         h6 {
-          color: #6495ed;
+          color: #8656ec;
           text-align: center;
           text-transform: capitalize;
           margin: 0;
@@ -150,7 +150,7 @@ const Root = styled.section`
         .linkk {
           text-align: right;
           button {
-            background: #000080;
+            background: #8656ec;
             color: #ffffff;
             padding: 3px;
             margin: 3px;
@@ -158,7 +158,7 @@ const Root = styled.section`
             font-size: 10px;
             text-align: center;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 50px;
             background-size: 300% 100%;
             transition: all 0.3s ease-in-out 0s;
             &:hover {

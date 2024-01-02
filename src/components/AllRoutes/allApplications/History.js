@@ -84,14 +84,14 @@ export default function History({ popUser = () => {} }) {
   };
 
   const uniqueApplications = applications.reduce((uniqueArray, currentItem) => {
-    // Check if the uniqueArray already contains an item with the same application_id
-    const isUnique = uniqueArray.some(item => item?.application_id === currentItem?.application_id);
-  
-    // If the application_id is not present in uniqueArray, add the currentItem to the uniqueArray
+    const isUnique = uniqueArray.some(
+      (item) => item?.application_id === currentItem?.application_id
+    );
+
     if (!isUnique) {
       uniqueArray.push(currentItem);
     }
-  
+
     return uniqueArray;
   }, []);
 
@@ -131,7 +131,7 @@ export default function History({ popUser = () => {} }) {
               <div>View</div>
             </div>
             {uniqueApplications &&
-             uniqueApplications.map(i => {
+              uniqueApplications.map((i) => {
                 return (
                   <div
                     className="app_body"
@@ -189,9 +189,9 @@ const Root = styled.section`
   vertical-align: middle;
   height: 100%;
   padding-left: 80px;
-    @media (max-width:788px){
-      padding-left: 60px;
-    }
+  @media (max-width: 788px) {
+    padding-left: 60px;
+  }
   .header {
     display: flex;
     justify-content: space-between;
@@ -207,19 +207,18 @@ const Root = styled.section`
     h1 {
       color: #202020;
       font-family: "Roboto", sans-serif;
-      font-size: 32px;
+      font-size: 20px;
       font-weight: 700;
-      text-shadow: 4px 5px 5px gray;
     }
     button {
       width: 170px;
       height: 40px;
       margin: 5px;
-      border-radius: 10px;
+      border-radius: 50px;
       border: none;
       background: #57be1f;
       color: #ffffff;
-      &:hover{
+      &:hover {
         box-shadow: 5px 5px 7px gray;
       }
       @media (max-width: 566px) {
@@ -234,23 +233,24 @@ const Root = styled.section`
     width: 50%;
     height: 60px;
     background: #ffffff;
-    border-radius: 5px;
+    border-radius: 50px;
     box-shadow: 4px 5px 6px gray;
     @media (max-width: 566px) {
-        width: 90%;
-      }
+      width: 90%;
+    }
     input {
       border: 1px solid gray;
       width: 100%;
-      border-radius: 8px;
+      padding-left: 10px;
+      border-radius: 50px;
       margin: 10px;
     }
     button {
       width: 80px;
-      background: #1e33f2;
-      padding:5px;
+      background: #8656ec;
+      padding: 5px;
       border: none;
-      border-radius: 10px;
+      border-radius: 50px;
       float: none;
       font-family: "Roboto", sans-serif;
       font-size: 14px;
@@ -272,14 +272,15 @@ const Root = styled.section`
     display: flex;
     flex-direction: column;
     margin: 10px;
-    width: 98%;
+    width: 80%;
     padding: 5px 5px 5px 10px;
     font-family: "Roboto", "sana-serif";
     .app_header {
       display: flex;
-      background-color: dodgerblue;
+      background: #f7f6fe;
       text-align: center;
-      color: white;
+      color: gray;
+      border-bottom: 4px solid #c6abff;
 
       > div {
         flex: 1;
@@ -312,7 +313,7 @@ const Root = styled.section`
         .person {
           color: #8995ad;
           font-size: 14px;
-          @media (max-width:789px){
+          @media (max-width: 789px) {
             font-size: 10px;
           }
         }
@@ -320,7 +321,7 @@ const Root = styled.section`
           font-weight: 600;
           text-align: left;
           font-size: small;
-          @media (max-width:789px){
+          @media (max-width: 789px) {
             font-size: 12px;
           }
         }
@@ -329,11 +330,12 @@ const Root = styled.section`
           font-weight: 600;
         }
         &:nth-child(odd) {
-          background-color: #e7e7e8;
+          background-color: #c6abff42;
         }
 
         &:nth-child(even) {
           background-color: white;
+          
         }
       }
       &:hover {
@@ -345,7 +347,7 @@ const Root = styled.section`
   svg {
     height: 25px;
     width: 25px;
-    color: blue;
+    color: #754cf2;
     &:hover {
       color: green;
     }

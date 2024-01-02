@@ -126,7 +126,7 @@ export default function UniAddCourses() {
 
   return (
     <Root>
-      <h3>Add University Courses</h3>
+      <h4>Add University Courses</h4>
 
       <div className="div1">
         <div className="courses">
@@ -201,10 +201,10 @@ export default function UniAddCourses() {
         </div>
       </div>
 
-      <div>
+      <div className="feeee">
         {isFormValid() && (
           <>
-            <h3>Fee Portal</h3>
+            <h4>Fee Portal</h4>
             <div className="div1">
               <div className="courses">
                 <h6>Hostel & Meals</h6>
@@ -294,15 +294,15 @@ export default function UniAddCourses() {
                         >
                           Remove
                         </button>
-                      </div>
-                    ))}
                   <button
-                    className="btnnn2"
+                    className="btnnn1"
                     type="button"
                     onClick={addRequirementField}
                   >
                     Add Requirement
                   </button>
+                      </div>
+                    ))}
                 </div>
                 <button
                   className="btnnn3"
@@ -322,10 +322,18 @@ export default function UniAddCourses() {
 }
 const Root = styled.section`
   padding-left: 80px;
+  display: flex;
+  flex-direction: column;
+ align-items: center;
+ .feeee{
+  display: flex;
+  flex-direction: column;
+ align-items: center;
+ }
   @media (max-width: 788px) {
     padding-left: 60px;
   }
-  h3 {
+  h4 {
     margin: 5px 5px 7px 40px;
   }
   h6 {
@@ -334,11 +342,13 @@ const Root = styled.section`
     padding: 10px 0px;
   }
   .div1 {
+    box-shadow: 1px 1px 4px 1px gray;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
-    justify-content: center;
+    width: 80%;
+    padding: 20px;
+    /* align-items: center;
+    justify-content: center; */
     .courses {
       flex-direction: column;
       display: flex;
@@ -348,19 +358,15 @@ const Root = styled.section`
         background-color: white;
         color: black;
         text-decoration: none;
-        border: 2px solid gray;
-        line-height: 1.5em;
+        border: 1px solid gray;
         padding: 5px;
         width: 90%;
-        border-radius: 10px;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
+        border-radius: 50px;
         -webkit-appearance: none;
         -moz-appearance: none;
         background-image: linear-gradient(45deg, transparent 50%, black 50%),
           linear-gradient(135deg, black 50%, transparent 50%),
-          linear-gradient(to right, dodgerblue, skyblue);
+          linear-gradient(to right, #8656EC, #C6ABFF);
         background-position: calc(100% - 20px) calc(1em + 2px),
           calc(100% - 15px) calc(1em + 2px), 100% 0;
         background-size: 5px 5px, 5px 5px, 40px 45px;
@@ -376,25 +382,15 @@ const Root = styled.section`
           align-items: center;
         }
 
-        select:focus {
-          background-image: linear-gradient(45deg, white 50%, transparent 50%),
-            linear-gradient(135deg, transparent 50%, white 50%),
-            linear-gradient(to right, gray, gray);
-          background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
-            100% 0;
-          background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
-          background-repeat: no-repeat;
-          border-color: grey;
-          outline: 0;
-        }
+       
       }
       input {
-        border-radius: 10px;
+        border-radius: 50px;
         padding: 6px;
         color: #202020;
         width: 90%;
         text-decoration: none;
-        border: 2px solid gray;
+        border: 1px solid gray;
         &:hover {
           box-shadow: 4px 4px 5px darkgray;
           transition: all 0.1s ease-in-out 0s;
@@ -414,7 +410,10 @@ const Root = styled.section`
     }
   }
   .div2 {
+    margin-top: 20px;
+    width: 80%;
     display: flex;
+    box-shadow: 1px 1px 4px 1px gray;
     flex-wrap: wrap;
     align-items: center;
     gap: 10px;
@@ -428,17 +427,17 @@ const Root = styled.section`
       /* align-items: center; */
 
       width: 90%;
-      .btnnn2 {
-        background: #000080;
+      /* .btnnn2 {
+        background: #8656ec;
         color: #ffffff;
         margin: 5px;
         padding: 5px;
         border-color: transparent;
-        font-size: medium;
+        font-size: 12px;
         text-align: center;
         width: 20%;
         cursor: pointer;
-        border-radius: 10px;
+        border-radius: 50px;
         background-size: 300% 100%;
         transition: all 0.3s ease-in-out 0s;
         text-transform: uppercase;
@@ -448,16 +447,17 @@ const Root = styled.section`
         @media (max-width: 787px) {
           width: 100%;
         }
-      }
+      } */
       .requirr_chld {
         display: flex;
         gap: 10px;
         input {
-          border-radius: 10px;
+          border-radius: 50px;
           color: #202020;
           width: 30%;
           text-decoration: none;
-          border: 2px solid gray;
+          padding-left: 10px;
+          border: 1px solid gray;
           &:hover {
             box-shadow: 4px 4px 5px darkgray;
             transition: all 0.1s ease-in-out 0s;
@@ -468,15 +468,15 @@ const Root = styled.section`
           }
         }
         .btnnn1 {
-          background: #000080;
+          background: #8656ec;
           color: #ffffff;
           padding: 5px;
           border-color: transparent;
-          font-size: medium;
+          font-size: 12px;
           text-align: center;
           width: 20%;
           cursor: pointer;
-          border-radius: 10px;
+          border-radius: 50px;
           background-size: 300% 100%;
           transition: all 0.3s ease-in-out 0s;
           text-transform: uppercase;
@@ -490,16 +490,16 @@ const Root = styled.section`
       }
     }
     .btnnn3 {
-      background: #000080;
+      background: #8656ec;
       color: #ffffff;
       margin: 5px;
       padding: 5px;
       border-color: transparent;
-      font-size: medium;
+      font-size: 12px;
       text-align: center;
       width: 20%;
       cursor: pointer;
-      border-radius: 10px;
+      border-radius: 50px;
       background-size: 300% 100%;
       transition: all 0.3s ease-in-out 0s;
       text-transform: uppercase;

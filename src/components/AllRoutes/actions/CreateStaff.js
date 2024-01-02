@@ -25,13 +25,6 @@ export default function CreateStaff() {
       });
       console.log("res", res);
       cogoToast.success("Staff Register SuccessFully");
-      //   setFormData({
-      //     staff_name: "",
-      //     password: "",
-      //     staff_email: "",
-      //     staff_phone_number: "",
-      //     country_id:""
-      //   });
       navigate("/applications");
     } catch (err) {
       console.log("err", err);

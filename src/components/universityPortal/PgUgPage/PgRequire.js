@@ -109,15 +109,16 @@ const Root = styled.section`
     }
     h3{
       margin: 5px;
+      font-size: 20px;
+      font-weight: 600;
   }
   .child1{
     button {
       width: 200px;
       height: 40px;
       margin: 5px;
-      border-radius: 10px;
+      border-radius: 50px;
       border: none;
-      /* padding: 10px; */
       background: #57be1f;
       color: #ffffff;
       @media (max-width: 566px) {
@@ -138,14 +139,17 @@ const Root = styled.section`
     display: flex;
     flex-direction: column;
     margin: 10px;
-    width: 98%;
+    width: 85%;
     padding: 5px 5px 5px 10px;
     font-family: "Roboto", "sana-serif";
     .app_header {
+      /* width: 100%; */
       display: flex;
-      background-color: dodgerblue;
-      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
       text-align: center;
+      background: #f7f6fe;
+      border-bottom: 4px solid #884dff;
 
       > div {
         flex: 1;
@@ -175,14 +179,14 @@ const Root = styled.section`
         h6 {
           font-weight: 600;
           text-align: left;
-          font-size: small;
+          font-size: 12px;
           @media (max-width:789px){
-            font-size: 12px;
+            font-size: 10px;
           }
         }
 
         &:nth-child(odd) {
-          background-color: #e7e7e8;
+          background-color: #f7f6fe;
         }
 
         &:nth-child(even) {

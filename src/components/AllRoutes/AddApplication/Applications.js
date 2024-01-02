@@ -415,7 +415,6 @@ export default function Applications() {
 }
 const Root = styled.section`
   color: black;
-  background-color: #f8f8f8;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -432,7 +431,7 @@ const Root = styled.section`
     margin-bottom: 20px;
     .heading {
       h2 {
-        font: 32px "Roboto", sans-serif;
+        font: 20px "Roboto", sans-serif;
         color: #202020;
         font-weight: 600;
         padding: 10px;
@@ -448,7 +447,9 @@ const Root = styled.section`
       display: flex;
       flex-direction: column;
       margin: 0px 10px;
+      padding: 10px;
       width: 100%;
+      box-shadow: 1px 1px 4px 1px gray;
 
       @media (max-width: 850px) {
         padding: 0;

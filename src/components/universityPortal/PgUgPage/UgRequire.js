@@ -104,13 +104,15 @@ const Root = styled.section`
     }
     h3{
       margin: 5px;
+      font-size: 20px;
+      font-weight: 600;
   }
   .child1{
     button {
       width: 200px;
       height: 40px;
       margin: 5px;
-      border-radius: 10px;
+      border-radius: 50px;
       border: none;
       /* padding: 10px; */
       background: #57be1f;
@@ -133,14 +135,16 @@ const Root = styled.section`
     display: flex;
     flex-direction: column;
     margin: 10px;
-    width: 98%;
+    width: 85%;
     padding: 5px 5px 5px 10px;
     font-family: "Roboto", "sana-serif";
     .app_header {
       display: flex;
       background-color: dodgerblue;
-      color: #ffffff;
+      color: black;
       text-align: center;
+      background: #f0f9ff;
+      border-bottom: 4px solid #0095ff;
 
       > div {
         flex: 1;
@@ -161,7 +165,7 @@ const Root = styled.section`
         padding: 15px 5px;
         p{
           color: black;
-          font-size: 14px;
+          font-size: 12px;
           @media (max-width:789px){
             font-size: 10px;
           }
@@ -177,7 +181,7 @@ const Root = styled.section`
         }
 
         &:nth-child(odd) {
-          background-color: #e7e7e8;
+          background-color: #f0f9ff;
         }
 
         &:nth-child(even) {
