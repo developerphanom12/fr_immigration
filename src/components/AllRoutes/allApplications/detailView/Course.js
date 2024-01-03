@@ -19,7 +19,7 @@ export default function Course({ detail }) {
               <p className="p111">{detail?.university_id?.university_name} </p>
             </div>
             <div className="col-lg-3 col-sm-3">
-              <div className="hlo45445514">Course Details</div>
+              <div className="hlo4544554">Course Details</div>
               <p className="p111"> {detail?.course_id?.course_type} </p>
             </div>
             <div className="col-lg-3 col-sm-3">
@@ -42,17 +42,18 @@ const Root = styled.section`
   font-family: "Roboto", sans-serif;
   margin: 20px;
   background-color: #f8f8f8;
-  box-shadow: 4px 5px 5px gray;
+  box-shadow: 1px 1px 5px 1px gray;
+  border-radius: 10px;
   .course_table {
     padding: 10px;
-    background-color: #fff3ee;
+    background-color: #E0E4EC;
     .container {
       margin: 0;
       padding: 0;
-      background-color: #fff3ee;
+      background-color: #E0E4EC;
     }
     p {
-      background-color: #fff3ee;
+      background-color: #E0E4EC;
       font-size: 13px;
     }
   }
@@ -65,17 +66,13 @@ const Root = styled.section`
   }
   .p111 {
     color: #202020;
-    margin-top: 23px;
+    margin-top: 13px;
     text-align: left;
   }
   .hlo4544554 {
     color: black;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 700;
   }
-  .hlo45445514 {
-    color: black;
-    font-size: 20px;
-    font-weight: 700;
-  }
+  
 `;

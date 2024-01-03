@@ -122,7 +122,8 @@ export default function Upload({ detail, val }) {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    height: "50%",
+    height: "30%",
+    margin:"0px",
     padding: "10px",
     borderRadius: "10px",
     border: "2px dashed #555",
@@ -137,17 +138,7 @@ export default function Upload({ detail, val }) {
     flexDirection: "column",
     height: "100%",
     color: "#444",
-    cursor: "pointer",
     transition: "background .2s ease-in-out, border .2s ease-in-out",
-  };
-
-  const selectTitleStyle = {
-    color: "#444",
-    marginbottom: "14px",
-    fontSize: "20px",
-    fontWeight: "bold",
-    textAlign: "center",
-    transition: "color .2s ease-in-out",
   };
 
   return (
@@ -186,7 +177,7 @@ export default function Upload({ detail, val }) {
                     )}
                   </div>
                   <h6>Please Select Type To Upload Document Images</h6>
-                  <label style={selectTitleStyle}>
+                  <div>
                     <select
                       onChange={handleDocumentTypeChange}
                       value={selectedDocumentType}
@@ -201,12 +192,12 @@ export default function Upload({ detail, val }) {
                       <option value="10th">10th Grade Certificate</option>
                       <option value="12th">12th Grade Certificate</option>
                     </select>
-                  </label>
-                  {selectedDocumentType && (
-                    <div className="mt-2">
-                      <button onClick={handleSubmitt}>Submit</button>
-                    </div>
-                  )}
+                    {selectedDocumentType && (
+                      <div className="mt-2">
+                        <button onClick={handleSubmitt}>Submit</button>
+                      </div>
+                    )}
+                  </div>
                   <div className="main_box2">
                     <div className="status3">
                       {userCheck.role === "admin" ? (
@@ -358,19 +349,25 @@ export default function Upload({ detail, val }) {
   );
 }
 const Root = styled.section`
-  height: 100%;
+  /* height: 96%; */
   width: 100%;
   margin: 10px;
-  padding-left: 90px;
+  /* padding-left: 90px; */
+  box-shadow: 1px 1px 5px 1px gray;
   @media (max-width: 788px) {
-    padding-left: 60px;
+    /* padding-left: 60px; */
   }
   font-family: "Roboto", "sana-serif";
   @media (max-width: 888px) {
     margin: 0;
     padding: 0;
   }
-
+  h4 {
+    margin-top: 10px;
+  }
+  .row{
+    justify-content: space-around;
+  }
   .main_box1 {
     display: flex;
     justify-content: space-evenly;
@@ -388,6 +385,7 @@ const Root = styled.section`
     width: 60%;
 
     .docu {
+      cursor: pointer;
       svg {
         color: darkgrey;
         width: 40px;
@@ -452,88 +450,82 @@ const Root = styled.section`
     padding: 5px;
     gap: 5px;
     display: flex;
+    cursor: pointer;
     flex-direction: column;
     .imgg {
       text-align: center;
+      cursor: pointer;
       margin: 12px;
       position: relative;
-      cursor: pointer;
       &:hover {
         opacity: 0.5;
       }
       .inside_img {
-        height: 40%;
-        width: 40%;
+        height: 30%;
+        width: 30%;
         object-fit: contain;
       }
       input {
         position: absolute;
-        height: 90%;
-        width: 90%;
+        height: 80%;
+        width: 80%;
         opacity: 0;
+        cursor: pointer;
       }
     }
 
-    select {
-      background-color: white;
-      color: black;
-      text-decoration: none;
-      border: 2px solid gray;
-      line-height: 1.5em;
-      padding: 5px;
-      width: 90%;
-      border-radius: 10px;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      background-image: linear-gradient(45deg, transparent 50%, black 50%),
-        linear-gradient(135deg, black 50%, transparent 50%),
-        linear-gradient(to right, dodgerblue, skyblue);
-      background-position: calc(100% - 20px) calc(1em + 2px),
-        calc(100% - 15px) calc(1em + 2px), 100% 0;
-      background-size: 5px 5px, 5px 5px, 40px 45px;
-      background-repeat: no-repeat;
-      &:hover {
-        box-shadow: 4px 4px 5px darkgray;
-        transition: all 0.1s ease-in-out 0s;
-      }
-      @media (max-width: 555px) {
-        padding: 8px;
-        font-size: 14px;
-        background-size: 5px 5px, 5px 5px, 30px 45px;
-      }
-
-      select:focus {
-        background-image: linear-gradient(45deg, white 50%, transparent 50%),
-          linear-gradient(135deg, transparent 50%, white 50%),
-          linear-gradient(to right, gray, gray);
-        background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
-          100% 0;
-        background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+    > div {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      select {
+        background-color: white;
+        color: black;
+        text-decoration: none;
+        border: 1px solid gray;
+        padding: 10px;
+        width: 65%;
+        border-radius: 50px;
+        font-size: 12px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: linear-gradient(45deg, transparent 50%, black 50%),
+          linear-gradient(135deg, black 50%, transparent 50%),
+          linear-gradient(to right, #8656ec, #c6abff);
+        background-position: calc(100% - 20px) calc(1em + 2px),
+          calc(100% - 15px) calc(1em + 2px), 100% 0;
+        background-size: 5px 5px, 5px 5px, 40px 45px;
         background-repeat: no-repeat;
-        border-color: grey;
-        outline: 0;
-      }
-    }
-    .mt-2 {
-      text-align: center;
-      button {
-        border: none;
-        width: 150px;
-        padding: 5px;
-        border-radius: 10px;
-        background-color: #000080;
-        color: white;
         &:hover {
-          box-shadow: 4px 5px 5px gray;
+          box-shadow: 4px 4px 5px darkgray;
+          transition: all 0.1s ease-in-out 0s;
         }
-        @media (max-width: 566px) {
-          width: 100px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+        @media (max-width: 555px) {
+          padding: 8px;
+          font-size: 14px;
+          background-size: 5px 5px, 5px 5px, 30px 45px;
+        }
+      }
+      .mt-2 {
+        /* text-align: center; */
+        button {
+          border: none;
+          width: 150px;
+          margin: 0;
+          padding: 5px;
+          border-radius: 50px;
+          background-color: #8656ec;
+          color: white;
+          &:hover {
+            box-shadow: 1px 1px 5px 1px gray;
+          }
+          @media (max-width: 566px) {
+            width: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
         }
       }
     }
@@ -545,8 +537,7 @@ const Root = styled.section`
       @media (max-width: 566px) {
         padding: 0;
         width: 100%;
-      align-items:center;
-
+        align-items: center;
       }
       .status3 {
         display: flex;
@@ -562,44 +553,27 @@ const Root = styled.section`
           background-color: white;
           color: black;
           text-decoration: none;
-          border: 2px solid gray;
-          line-height: 1.5em;
-          padding: 5px;
+          border: 1px solid gray;
+          padding: 10px;
           width: 90%;
-          border-radius: 10px;
-          -webkit-box-sizing: border-box;
-          -moz-box-sizing: border-box;
-          box-sizing: border-box;
+          border-radius: 50px;
           -webkit-appearance: none;
           -moz-appearance: none;
           background-image: linear-gradient(45deg, transparent 50%, black 50%),
             linear-gradient(135deg, black 50%, transparent 50%),
-            linear-gradient(to right, dodgerblue, skyblue);
+            linear-gradient(to right, #8656ec, #c6abff);
           background-position: calc(100% - 20px) calc(1em + 2px),
             calc(100% - 15px) calc(1em + 2px), 100% 0;
           background-size: 5px 5px, 5px 5px, 40px 45px;
           background-repeat: no-repeat;
           &:hover {
-            box-shadow: 4px 4px 5px darkgray;
+            box-shadow: 1px 1px 5px 1px gray;
             transition: all 0.1s ease-in-out 0s;
           }
           @media (max-width: 555px) {
             padding: 8px;
-            width: 100%;
+            font-size: 14px;
             background-size: 5px 5px, 5px 5px, 30px 45px;
-            align-items: center;
-          }
-
-          select:focus {
-            background-image: linear-gradient(45deg, white 50%, transparent 50%),
-              linear-gradient(135deg, transparent 50%, white 50%),
-              linear-gradient(to right, gray, gray);
-            background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
-              100% 0;
-            background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
-            background-repeat: no-repeat;
-            border-color: grey;
-            outline: 0;
           }
         }
         > div {
@@ -607,11 +581,11 @@ const Root = styled.section`
             border: none;
             width: 150px;
             padding: 5px;
-            border-radius: 10px;
-            background-color: #000080;
+            border-radius: 50px;
+            background-color: #8656ec;
             color: white;
             &:hover {
-              box-shadow: 4px 5px 5px gray;
+              box-shadow: 1px 1px 5px 1px gray;
             }
             @media (max-width: 566px) {
               width: 100px;

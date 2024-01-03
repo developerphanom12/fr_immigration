@@ -8,18 +8,25 @@ import Download from "./Download";
 import { appDetailsAction } from "../../../redux/users/action";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../Loader";
+import { Pagination } from "react-bootstrap";
 
 export default function History({ popUser = () => {} }) {
   const [applications, setApplications] = useState([]);
   const [loader, setLoader] = useState(true);
   const [searchKey, setSearchKey] = useState("");
   const [courses, setCourses] = useState([]);
+  const [pagination, setPagination] = useState({
+    page: "",
+    pageSize: "",
+    totalItems: "",
+    totalPages: "",
+  });
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
   console.log("courses", courses);
 
-  const getHistory = async (searchKey) => {
+  const getHistory = async (searchKey, page) => {
     const axiosConfig = {
       headers: {
         authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -30,11 +37,20 @@ export default function History({ popUser = () => {} }) {
         `${EXCHANGE_URLS_APPLICATION}/fetchallapplications?searchKey=${searchKey}`,
         axiosConfig
       );
-      setApplications(res?.data?.data[0].applications);
+      setApplications(res?.data?.data.applications);
+      setPagination({
+        page: res?.data?.data.pagination.page,
+        pageSize: res?.data?.data.pagination.pageSize,
+        totalItems: res?.data?.data.pagination.totalItems,
+        totalPages: res?.data?.data.pagination.totalPages,
+      });
       setLoader(false);
     } catch (e) {
       console.log(e);
     }
+  };
+  const handlePageChange = (newPage) => {
+    getHistory(searchKey, newPage);
   };
 
   const getCourses = async () => {
@@ -48,7 +64,13 @@ export default function History({ popUser = () => {} }) {
         `${EXCHANGE_URLS_APPLICATION}/fetchallapplications`,
         axiosConfig
       );
-      setCourses(res?.data?.data[0].applications);
+      setCourses(res?.data?.data.applications);
+      setPagination({
+        page: res?.data?.data.page,
+        pageSize: res?.data?.data.pageSize,
+        totalItems: res?.data?.data.totalItems,
+        totalPages: res?.data?.data.totalPages,
+      });
       setLoader(false);
     } catch (e) {
       console.log(e);
@@ -171,6 +193,7 @@ export default function History({ popUser = () => {} }) {
                   </div>
                 );
               })}
+          <Pagination pagination={pagination} onPageChange={handlePageChange} />
           </div>
         </>
       )}

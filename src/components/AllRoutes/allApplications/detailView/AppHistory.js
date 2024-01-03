@@ -53,7 +53,6 @@ export default function AppHistory({ detail }) {
 const Root = styled.section`
   /* display: flex; */
   font-family: "Roboto", sans-serif;
-  padding-left: 80px;
     @media (max-width:788px){
       padding-left: 10px;
     }
@@ -62,7 +61,8 @@ const Root = styled.section`
     flex-direction: column;
     .app_header {
       display: flex;
-      background-color: dodgerblue;
+      background-color: #C6ABFF;
+      border-bottom: 3px solid #8656EC;
       > div {
         flex: 1;
         color: white;
@@ -77,8 +77,9 @@ const Root = styled.section`
         flex: 1;
         border: 0.3px solid #fbfbfd;
         padding: 5px;
+        color: gray;
         text-transform: capitalize;
-        background-color: #e7e7e8;
+        background-color: #c6abff45;
       }
     }
   }

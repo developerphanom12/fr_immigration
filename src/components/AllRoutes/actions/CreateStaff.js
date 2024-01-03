@@ -63,8 +63,7 @@ export default function CreateStaff() {
   console.log("formData", formData);
   return (
     <Root>
-      <div>
-        <h3>Create Staff . . .</h3>
+      <div className="main">
         <div className="name">
           Staff Name
           <input
@@ -155,108 +154,87 @@ const Root = styled.section`
   @media (max-width: 788px) {
     padding-left: 60px;
   }
-  h3 {
-    text-shadow: 4px 5px 5px gray;
-    margin: 10px;
-  }
-  .name {
+  .main {
     display: flex;
-    flex-direction: column;
-    font-size: small;
+    margin: 20px;
+    box-shadow: 1px 1px 5px 1px gray;
+    border-radius: 10px;
+    flex-wrap: wrap;
     width: 80%;
-    margin-right: 10px;
-    padding: 10px;
-    gap: 10px;
-    color: black;
-
-    select {
-      background-color: white;
-      color: black;
-      text-decoration: none;
-      border: 2px solid lightgray;
-      line-height: 1.5em;
+    .name {
+      display: flex;
+      flex-direction: column;
+      font-size: small;
+      width: 47%;
       padding: 10px;
-      width: 50%;
-      border-radius: 10px;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      background-image: linear-gradient(45deg, transparent 50%, black 50%),
-        linear-gradient(135deg, black 50%, transparent 50%),
-        linear-gradient(to right, dodgerblue, skyblue);
-      background-position: calc(100% - 20px) calc(1em + 2px),
-        calc(100% - 15px) calc(1em + 2px), 100% 0;
-      background-size: 5px 5px, 5px 5px, 40px 45px;
-      background-repeat: no-repeat;
-      &:hover {
-        box-shadow: 4px 4px 5px darkgray;
-        transition: all 0.1s ease-in-out 0s;
-      }
-      @media (max-width: 555px) {
-        padding: 8px;
-        width: 100%;
-        background-size: 5px 5px, 5px 5px, 30px 45px;
-        align-items: center;
-      }
+      gap: 10px;
+      color: black;
 
-      select:focus {
-        background-image: linear-gradient(45deg, white 50%, transparent 50%),
-          linear-gradient(135deg, transparent 50%, white 50%),
-          linear-gradient(to right, gray, gray);
-        background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
-          100% 0;
-        background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+      select {
+        background-color: white;
+        color: black;
+        text-decoration: none;
+        border: 1px solid gray;
+        padding: 10px;
+        border-radius: 50px;
+        font-size: 12px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: linear-gradient(45deg, transparent 50%, black 50%),
+          linear-gradient(135deg, black 50%, transparent 50%),
+          linear-gradient(to right, #8656ec, #c6abff);
+        background-position: calc(100% - 20px) calc(1em + 2px),
+          calc(100% - 15px) calc(1em + 2px), 100% 0;
+        background-size: 5px 5px, 5px 5px, 40px 45px;
         background-repeat: no-repeat;
-        border-color: grey;
-        outline: 0;
+        &:hover {
+          box-shadow: 4px 4px 5px darkgray;
+          transition: all 0.1s ease-in-out 0s;
+        }
+        @media (max-width: 555px) {
+          padding: 8px;
+          font-size: 14px;
+          background-size: 5px 5px, 5px 5px, 30px 45px;
+        }
+      }
+      input {
+        border-radius: 50px;
+        padding: 10px;
+        color: #202020;
+        text-decoration: none;
+        border: 1px solid gray;
+        @media (max-width: 600px) {
+          min-width: 100px;
+          width: 100%;
+        }
       }
     }
-  }
-  > div {
+
     .regis {
       display: flex;
-      margin: 5px;
       button {
         display: flex;
         flex-direction: column;
-        width: 17%;
-        height: 45px;
-        margin: 5px;
-        padding: 5px;
+        padding:5px 10px;
         justify-content: center;
         align-items: center;
         cursor: pointer;
-        margin-top: 10px;
-        border-radius: 10px;
+        margin: 10px;
+        font-size: 12px;
+        border-radius: 50px;
         border: transparent;
-        background: #000080;
+        background:#8656ec;
         color: #fff;
         background-size: 300% 100%;
         transition: all 0.3s ease-in-out 0s;
         text-transform: uppercase;
         &:hover {
-          background: #000080;
+          background: #8656ec;
           transition: all 0.1s ease-in-out 0s;
           box-shadow: 4px 5px 5px gray;
         }
-        @media (max-width:666px) {
-          width:50%;
-        }
+         
       }
-    }
-  }
-  input {
-    border-radius: 10px;
-    padding: 10px;
-    color: #202020;
-    width: 50%;
-    text-decoration: none;
-    border: 2px solid lightgray;
-    @media (max-width: 600px) {
-      min-width: 100px;
-      width: 100%;
     }
   }
 `;

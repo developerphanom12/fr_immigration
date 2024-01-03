@@ -45,8 +45,6 @@ export default function DetailView() {
   console.log("userr", user);
   return (
     <Root>
-      <div></div>
-      <h2>Application History</h2>
       <div className="nav_tab">
         <button
           className={active === "student" ? "btn_1 active" : "btn_1"}
@@ -116,34 +114,17 @@ export default function DetailView() {
 }
 const Root = styled.section`
   font-family: "Roboto", sans-serif;
-  background-color: #f8f8f8;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
-  margin-top: 25px;
+  /* margin-top: 25px; */
   padding-left: 80px;
     @media (max-width:788px){
       padding-left: 70px;
     }
-  @media (max-width: 800px) {
 
-    h2 {
-      margin: 4px;
-    }
-  }
-  h2 {
-    margin: 10px;
-    font-size: 30px;
-    text-shadow: 4px 5px 5px gray;
-    font-weight: 600;
-    @media (max-width: 786px) {
-      margin: 0;
-      font-size: small;
-      align-items: center;
-    } 
-  }
   .nav_tab {
     display: flex;
     gap: 10px;
@@ -151,9 +132,9 @@ const Root = styled.section`
     background: #ffffff;
     width: 80%;
     justify-content: center;
-    padding: 10px;
+    /* padding: 10px; */
     border-radius: 10px;
-    margin: 10px;
+    margin: 5px;
     @media (max-width: 786px) {
       flex-direction: column;
     }
@@ -163,9 +144,9 @@ const Root = styled.section`
       border: none;
       width: fit-content;
       padding: 10px;
-      background-color: #000080;
-      border-radius: 10px;
-      color: white;
+      color:#C6ABFF;
+      border-bottom: 3px solid #C6ABFF;
+      /* border-radius: 0px; */
       &:hover {
         box-shadow: 4px 5px 5px #A1A2A5;
       }
@@ -181,8 +162,8 @@ const Root = styled.section`
       }
     }
     .active {
-      background: #57be1f;
-      color: #ffffff;
+      color: #8656EC;
+      border-bottom: 3px solid #8656EC;
       @media (max-width: 400px) {
         .active {
           background-color: transparent;
@@ -192,7 +173,6 @@ const Root = styled.section`
     }
   }
   .table {
-    border-top: 1px solid lightgray;
     width: 100%;
     height: 100%;
     @media (max-width: 600px) {

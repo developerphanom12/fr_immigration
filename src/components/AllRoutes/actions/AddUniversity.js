@@ -54,7 +54,6 @@ export default function AddUniversity() {
   console.log("newuniii", newUniversity);
   return (
     <Root>
-      <h4>Add University</h4>
       <div className="courses"> University Name </div>
       <div className="courses">
         <input
@@ -137,29 +136,25 @@ const Root = styled.section`
   padding: 5px;
   align-items: center;
   flex-direction: column;
-  h4 {
-    text-shadow: 4px 5px 5px gray;
-  }
+
   button {
     display: flex;
     flex-direction: column;
-    width: 38%;
     height: 45px;
-    margin: 5px;
-    padding: 5px;
+    padding: 10px;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     margin-top: 20px;
-    border-radius: 10px;
+    border-radius: 50px;
     border: transparent;
-    background: #000080;
+    background: #8656ec;
     color: #fff;
     background-size: 300% 100%;
     transition: all 0.3s ease-in-out 0s;
     text-transform: uppercase;
     &:hover {
-      background: #000080;
+      background: #8656ec;
       transition: all 0.1s ease-in-out 0s;
       box-shadow: 4px 5px 5px gray;
     }
@@ -170,11 +165,11 @@ const Root = styled.section`
     padding: 5px;
     /* justify-content: space-evenly; */
     input {
-      border-radius: 10px;
-      padding: 5px;
+      border-radius: 50px;
+      padding: 10px;
       color: #202020;
       text-decoration: none;
-      border: 2px solid gray;
+      border: 1px solid gray;
       &:hover {
         box-shadow: 4px 4px 5px darkgray;
         transition: all 0.1s ease-in-out 0s;

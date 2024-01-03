@@ -18,9 +18,9 @@ export default function ListCourses() {
         `${EXCHANGE_URLS_UNIVERSITY}/getdatabyid`,
         axiosConfig
       );
-      console.log("resres123", res?.data?.data);
+      console.log("resres123", res?.data?.data.courses);
       if (res.status === 201) {
-        setCourseData(res?.data?.data);
+        setCourseData(res?.data?.data.courses);
         // setLoader(false)
         //   navigate('unidash')
       }

@@ -10,13 +10,18 @@ export default function Search_course() {
   const [searchKey, setSearchKey] = useState("");
 
   const courseApi = async (searchKey) => {
+    const axiosConfig = {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    };
     try {
-      const res = await axios.get(`${EXCHANGE_URLS_UNIVERSITY}/get/allcourse`);
+      const res = await axios.get(`${EXCHANGE_URLS_UNIVERSITY}/get/allcourse`,axiosConfig);
       console.log("resres123", res);
-      // if (res.status === 201) {
-      setCourseData(res?.data?.data);
+      if (res.status === 201) {
+      setCourseData(res.data.data);
       // setLoader(false)
-      // }
+      }
     } catch (err) {
       console.log("err", err);
     }

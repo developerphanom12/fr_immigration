@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 // import { useParams } from "react-router-dom";
 
-export default function Comment({value}) {
+export default function Comment({ value }) {
   // let { id } = useParams();
   // console.log("checkdata", id);
   const [val, setVal] = useState({
@@ -31,8 +31,8 @@ export default function Comment({value}) {
         axiosConfig
       );
       setVal(res);
-      value(true)
-      navigate('/detailview/:id')
+      value(true);
+      navigate("/detailview/:id");
       console.log("resress", res);
     } catch (e) {
       console.log("error", e);
@@ -40,8 +40,7 @@ export default function Comment({value}) {
   };
   console.log("vallll", value);
 
-    
-    const handleSubmit = () => {
+  const handleSubmit = () => {
     commentApi();
     value(true);
     cogoToast.success("Comment Added");
@@ -108,9 +107,9 @@ const Root = styled.section`
   font-family: "Roboto", "sans-serif";
   display: flex;
   padding-left: 80px;
-    @media (max-width:788px){
-      padding-left: 60px;
-    }
+  @media (max-width: 788px) {
+    padding-left: 60px;
+  }
   flex-direction: column;
   margin: 10px;
   align-items: center;
@@ -126,19 +125,16 @@ const Root = styled.section`
       background-color: white;
       color: black;
       text-decoration: none;
-      border: 2px solid lightgray;
-      line-height: 1.5em;
-      padding: 5px;
-      width: 90%;
-      border-radius: 10px;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
+      border: 1px solid gray;
+      padding: 10px;
+      width: 80%;
+      border-radius: 50px;
+      font-size: 12px;
       -webkit-appearance: none;
       -moz-appearance: none;
       background-image: linear-gradient(45deg, transparent 50%, black 50%),
         linear-gradient(135deg, black 50%, transparent 50%),
-        linear-gradient(to right, dodgerblue, skyblue);
+        linear-gradient(to right, #8656ec, #c6abff);
       background-position: calc(100% - 20px) calc(1em + 2px),
         calc(100% - 15px) calc(1em + 2px), 100% 0;
       background-size: 5px 5px, 5px 5px, 40px 45px;
@@ -149,20 +145,8 @@ const Root = styled.section`
       }
       @media (max-width: 555px) {
         padding: 8px;
+        font-size: 14px;
         background-size: 5px 5px, 5px 5px, 30px 45px;
-        align-items: center;
-      }
-
-      select:focus {
-        background-image: linear-gradient(45deg, white 50%, transparent 50%),
-          linear-gradient(135deg, transparent 50%, white 50%),
-          linear-gradient(to right, gray, gray);
-        background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
-          100% 0;
-        background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
-        background-repeat: no-repeat;
-        border-color: grey;
-        outline: 0;
       }
     }
   }
@@ -177,11 +161,11 @@ const Root = styled.section`
         border: none;
         width: 150px;
         padding: 8px;
-        border-radius: 10px;
-        background-color: #000080;
+        border-radius: 50px;
+        background-color: #8656ec;
         color: white;
         &:hover {
-          box-shadow: 4px 5px 5px gray;
+          box-shadow: 1px 1px 5px 1px gray;
         }
       }
       @media (max-width: 565px) {
@@ -196,23 +180,26 @@ const Root = styled.section`
     }
     input[type="text"] {
       width: 80%;
-    border-radius: 10px;
-    border: 2px solid lightgray;
-    font-size: 15px;
-    padding: 30px;
-    box-sizing: border-box;
+      border-radius: 10px;
+      border: 1px solid gray;
+      font-size: 15px;
+      height: 100px;
+      box-sizing: border-box;
+     
 
-    @media (max-width: 566px) {
-      padding: 5px;
+      @media (max-width: 566px) {
+        padding: 5px;
+      }
     }
+    ::-webkit-input-placeholder {
+        white-space: pre-line;
+        position: relative;
+        padding: 5px;
+        top: -25px;
+      }
+
   }
-  ::placeholder {
-    text-align: left;
-    vertical-align: top;
-    color: #999;
-  }
-  }
- 
+
   @media (max-width: 566px) {
     margin: 0;
     padding: 0;

@@ -48,10 +48,17 @@ export default function Student({ detail }) {
             </div>
 
             <div className="col-lg-6">
-              <div className="divRow">
-                <p> Student E-Mail:-</p>
-                <div className="section">{detail?.student_email}</div>
-              </div>
+              {detail?.student_email && detail?.student_email.length > 0 ? (
+                <div className="divRow">
+                  <p>Student E-Mail:</p>
+                  <div className="section">{detail.student_email}</div>
+                </div>
+              ) : (
+                <div className="divRow">
+                   <p>Student E-Mail:</p>
+                  <div>No Data Found</div>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -62,12 +69,14 @@ export default function Student({ detail }) {
 const Root = styled.section`
   font-family: "Roboto", sans-serif;
   background-color: white;
-  border: 2px solid lightgray;
-  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 1px 1px 4px 1px lightgray;
   @media (max-width: 766px) {
     margin: 0;
   }
-
+.col-lg-6{
+  padding: 0;
+}
   .studentdata {
     border-radius: 10px;
     background-color: white;
@@ -76,21 +85,24 @@ const Root = styled.section`
     padding: 20px;
     .divRow {
       padding: 10px;
-      background: #e6f5ff;
+      margin: 3px;
+      background: #e0e4ec;
       border-radius: 10px;
       p {
         color: gray;
-        background: #e6f5ff;
+        background: #e0e4ec;
         margin: 0;
       }
     }
     .divRow1 {
-      border-radius: 10px;
       padding: 10px;
+      /* margin: 3px; */
+      /* background: #e0e4ec; */
+      border-radius: 10px;
       p {
         background-color: white;
         color: gray;
-        margin: 0px;
+        margin: 0;
       }
     }
   }

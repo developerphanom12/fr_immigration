@@ -23,7 +23,7 @@ export default function Urm_university() {
       );
       console.log("resres123", res);
       if (res.status === 200) {
-        setUniversityData(res?.data?.data);
+        setUniversityData(res?.data?.data.allUsers);
       }
     } catch (err) {
       console.log("err", err);
@@ -36,7 +36,7 @@ export default function Urm_university() {
 
   return (
     <Root>
-      <h2>URM University</h2>
+      <h4>URM University</h4>
       <div className="first_child">
         <select
           onChange={(e) => {
@@ -59,14 +59,14 @@ export default function Urm_university() {
         </button>
       </div>
 
-      <div className="second_child" >
+      <div className="second_child">
         {universityData &&
           universityData?.map((i) => {
             return (
               <div className="card">
                 <div className="card_top">
                   <h5>{i?.university_name}</h5>
-                 
+
                   <img
                     src={`${EXCHANGE_URLS_IMAGE}/${i.university_image}`}
                     alt="img"
@@ -102,9 +102,7 @@ const Root = styled.section`
   @media (max-width: 788px) {
     padding-left: 60px;
   }
-  h2 {
-    text-shadow: 4px 5px 5px gray;
-  }
+
   h5,
   p {
     margin: 0;
@@ -114,9 +112,9 @@ const Root = styled.section`
   .first_child {
     display: flex;
     background-color: #ffff;
-    width: 50%;
+    width: 60%;
     margin: 5px;
-    box-shadow: 4px 5px 5px gray;
+    box-shadow: 1px 1px 4px 1px gray;
     padding: 10px;
     border-radius: 10px;
     justify-content: space-between;
@@ -131,21 +129,17 @@ const Root = styled.section`
     }
     select {
       background-color: white;
-      color: black;
+      color: gray;
       text-decoration: none;
-      border: 2px solid gray;
-      line-height: 1.5em;
-      padding: 5px;
+      border: 1px solid gray;
+      padding: 5px 10px;
       width: 70%;
-      border-radius: 10px;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
+      border-radius: 50px;
       -webkit-appearance: none;
       -moz-appearance: none;
       background-image: linear-gradient(45deg, transparent 50%, black 50%),
         linear-gradient(135deg, black 50%, transparent 50%),
-        linear-gradient(to right, dodgerblue, skyblue);
+        linear-gradient(to right, #8656ec, #c6abff);
       background-position: calc(100% - 20px) calc(1em + 2px),
         calc(100% - 15px) calc(1em + 2px), 100% 0;
       background-size: 5px 5px, 5px 5px, 40px 45px;
@@ -160,26 +154,14 @@ const Root = styled.section`
         background-size: 5px 5px, 5px 5px, 30px 45px;
         align-items: center;
       }
-
-      select:focus {
-        background-image: linear-gradient(45deg, white 50%, transparent 50%),
-          linear-gradient(135deg, transparent 50%, white 50%),
-          linear-gradient(to right, gray, gray);
-        background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
-          100% 0;
-        background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
-        background-repeat: no-repeat;
-        border-color: grey;
-        outline: 0;
-      }
     }
     button {
       border: none;
       width: 100px;
-      padding: 5px;
-      border-radius: 10px;
-      background-color: #000080;
+      background-color: #8656ec;
       color: white;
+      padding: 8px;
+      border-radius: 50px;
       &:hover {
         box-shadow: 4px 5px 5px gray;
       }
@@ -194,8 +176,8 @@ const Root = styled.section`
 
   .second_child {
     display: flex;
-    gap: 10px;
     flex-wrap: wrap;
+    justify-content: space-evenly;
     cursor: pointer;
     padding: 10px;
     @media (max-width: 657px) {
@@ -215,9 +197,12 @@ const Root = styled.section`
       .card_top {
         display: flex;
         gap: 10px;
-        h5{
+        h5 {
           font-weight: 600;
-          color: #000080;
+          /* color: #000080; */
+          background: linear-gradient(to right, purple 0%, #0095ff 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
         img {
           width: 80px;
@@ -234,14 +219,14 @@ const Root = styled.section`
           flex: 1;
         }
       }
-      .linkk{
-        button{
+      .linkk {
+        button {
           border: none;
           border-radius: 4px;
           background-color: white;
 
-          a{
-            color: #000080;
+          a {
+            color: #0095ff;
             background-color: none;
             font-weight: 600;
           }

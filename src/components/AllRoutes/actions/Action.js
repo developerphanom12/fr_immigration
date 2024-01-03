@@ -44,45 +44,49 @@ const Root = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f8f8f8;
   padding-left: 80px;
   @media (max-width: 788px) {
     padding-left: 60px;
   }
   .nav_tab {
     display: flex;
-    gap: 5px;
-    margin: 10px;
-    background-color: white;
-    box-shadow: 6px 7px 7px gray;
+    gap: 10px;
+    align-items: center;
+    background: #ffffff;
+    width: 80%;
+    justify-content: center;
+    /* padding: 10px; */
     border-radius: 10px;
-    .btn_1 {
-      display: flex;
+    margin: 5px;
+    @media (max-width: 786px) {
       flex-direction: column;
-      width: 50%;
-      height: 45px;
-      margin: 5px;
+    }
+
+    .btn_1 {
+      background-color: transparent;
+      border: none;
+      width: fit-content;
       padding: 10px;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      margin-top: 20px;
-      border-radius: 10px;
-      border: transparent;
-      background: #000080;
-      color: #fff;
-      background-size: 300% 100%;
-      transition: all 0.3s ease-in-out 0s;
-      text-transform: uppercase;
+      color:#C6ABFF;
+      border-bottom: 3px solid #C6ABFF;
+      /* border-radius: 0px; */
       &:hover {
-        background: #000080;
-        transition: all 0.1s ease-in-out 0s;
-        box-shadow: 4px 5px 5px gray;
+        box-shadow: 4px 5px 5px #A1A2A5;
+      }
+      @media (max-width: 566px) {
+        min-width: 80px;
+        width: 100%;
+        padding: 5px;
+        font-size: small;
+        &:hover {
+          background-color: transparent;
+          color: black;
+        }
       }
     }
     .active {
-      background-color: #57be1f;
-      color: #ffffff;
+      color: #8656EC;
+      border-bottom: 3px solid #8656EC;
       @media (max-width: 400px) {
         .active {
           background-color: transparent;

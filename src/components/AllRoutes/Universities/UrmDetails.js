@@ -82,6 +82,9 @@ export default function UrmDetails() {
 }
 const Root = styled.section`
   padding-left: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   @media (max-width: 788px) {
     padding-left: 60px;
   }
@@ -91,12 +94,18 @@ const Root = styled.section`
   h6,
   p {
     margin: 0;
+    padding: 4px;
     font-size: 12px;
   }
 
   .main_div {
     display: flex;
+    box-shadow: 1px 1px 3px 1px gray;
     flex-direction: column;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 30px;
+    width: 80%;
     overflow: hidden;
     .adddress{
       display: flex;
@@ -113,7 +122,8 @@ const Root = styled.section`
     .child11 {
       display: flex;
       align-items: center;
-      color: #000080;
+      color:#8656ec;
+      padding: 5px;
     }
     .child22 {
       display: flex;

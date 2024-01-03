@@ -116,6 +116,7 @@ export default function DashboardAdmin() {
           </div>
         </div>
       </div> */}
+        {userDetails.role === "admin" ? (
       <div className="button_box">
         <div className="button_box_child">
           <button
@@ -125,7 +126,6 @@ export default function DashboardAdmin() {
           >
             All Agents Login Requests
           </button>
-          {/* <Link to="/getagentfile">View Here</Link> */}
         </div>
         <div className="button_box_child">
           <button
@@ -146,6 +146,7 @@ export default function DashboardAdmin() {
           </button>
         </div>
       </div>
+        ):""}
 
       <div className="app_table">
         <div className="heading">AGENT SHEET</div>
