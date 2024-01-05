@@ -29,6 +29,6 @@ const Root = styled.section`
   overflow: hidden;
   width: 100%;
   max-width: 100vw;
-  margin: 73px 0px 0px 0px;
+  margin: 62px 0px 0px 0px;
  
 `;

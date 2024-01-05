@@ -8,6 +8,7 @@ import {
 
 const initialState = {
   user: {},
+  isLoading: false,
   userCheck: false,
   appDetails: {},
   role: "",
@@ -41,6 +42,12 @@ const UserReducer = (state = initialState, action) => {
       return {
         ...state,
         appDetails: action.payload,
+      };
+
+      case "LOADING_DATA":
+      return {
+        ...state,
+        isLoading: action.payload,
       };
 
     default:

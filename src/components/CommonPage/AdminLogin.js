@@ -3,7 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 import { useDispatch } from "react-redux";
 import loginbanner from "../CommonPage/imageLogo/login_banner.png";
-import { adminLoginAction, userCheckAction,  userDataAction  } from "../../redux/users/action";
+import {
+  adminLoginAction,
+  userCheckAction,
+  userDataAction,
+} from "../../redux/users/action";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -33,24 +37,22 @@ export default function AdminLogin() {
 
   const handelLogin = (e) => {
     const data = {
-      username:e.username,
-      password:e.password,
+      username: e.username,
+      password: e.password,
     };
     console.log("console1", data);
     const userCallback = (e) => {
-      if(e.status===200){
-        dispatch(userDataAction(e?.data?.data?.user))
+      if (e.status === 200) {
+        dispatch(userDataAction(e?.data?.data?.user));
         dispatch(userCheckAction(true));
         localStorage.setItem("token", e?.data?.data?.user?.token);
-        console.log("tokeen",e?.data?.data?.user?.token)
-        reset()
+        console.log("tokeen", e?.data?.data?.user?.token);
+        reset();
       }
     };
     dispatch(adminLoginAction(data, userCallback));
     navigate("/dashboardd");
   };
-
-  
 
   const onSubmit = (data) => {
     handelLogin(data);
@@ -67,39 +69,34 @@ export default function AdminLogin() {
         <h4>Sign-in to join the Phanom Online Portal</h4>
         <img src={loginbanner} alt="img" />
       </div>
-       
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <h2>LOG-IN</h2>
-          <div className="user_name">
-            Admin Name
-            <input
-              type="username"
-              {...register("username")}
-              placeholder="UserName"
-            />
-            {errors.username && <p>{errors.username.message}</p>}
-          </div>
-          <div className="user_name">
-            Password
-            <input
+
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <h2>LOG-IN</h2>
+        <div className="user_name">
+          Admin Name
+          <input
+            type="username"
+            {...register("username")}
+            placeholder="UserName"
+          />
+          {errors.username && <p>{errors.username.message}</p>}
+        </div>
+        <div className="user_name">
+          Password
+          <input
             placeholder="Password"
-              type={showPassword ? "text" : "password"}
-              {...register("password")}
-            />
-            <button className="btn" onClick={togglePasswordVisibility}>
-              {showPassword ? <IoEyeSharp /> : <IoEyeOffSharp />}
-            </button>
-            {errors.password && <p>{errors.password.message}</p>}
-          </div>
-          <div className="button_div">
-            <button
-              className="user_btn"
-            >
-              Log-in
-            </button>
-          </div>
-        </form>
-       
+            type={showPassword ? "text" : "password"}
+            {...register("password")}
+          />
+          <button className="btn" onClick={togglePasswordVisibility}>
+            {showPassword ? <IoEyeSharp /> : <IoEyeOffSharp />}
+          </button>
+          {errors.password && <p>{errors.password.message}</p>}
+        </div>
+        <div className="button_div">
+          <button className="user_btn">Log-in</button>
+        </div>
+      </form>
     </Root>
   );
 }
@@ -199,7 +196,6 @@ const Root = styled.section`
         position: relative;
         top: -49px;
         left: 165px;
-
       }
       input {
         width: 100%;

@@ -44,7 +44,8 @@ const Root = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-left: 80px;
+  justify-content: center;
+  padding-left: 90px;
   @media (max-width: 788px) {
     padding-left: 60px;
   }
@@ -53,7 +54,7 @@ const Root = styled.section`
     gap: 10px;
     align-items: center;
     background: #ffffff;
-    width: 80%;
+    width: 100%;
     justify-content: center;
     /* padding: 10px; */
     border-radius: 10px;

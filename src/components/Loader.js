@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import logo from "../components/CommonPage/imageLogo/phanom.jpg";
-const Loader = () => {
-  const [dataLoaded, setDataLoaded] = useState(false);
+import { useSelector } from "react-redux";
 
-  useEffect(() => {
-    setTimeout(() => {
-      setDataLoaded(true);
-    }, 3000);
-  }, []);
-console.log("dataLoaded",dataLoaded)
-  return (
-    <Root>
+const Loader = () => {
+const isLoading = useSelector((state) => state?.users?.isLoading)
+ 
+  console.log("dataLoaded", isLoading);
+
+  return isLoading && (
+    <Root >
       <div className="logo">
         <img src={logo} alt="img" />
       </div>
@@ -20,15 +18,17 @@ console.log("dataLoaded",dataLoaded)
 };
 
 export default Loader;
+
 const Root = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  backdrop-filter: blur(10px);
+  height: 120%;
+  backdrop-filter: blur(4px);
   transform: translateY(${(props) => (props.dataLoaded ? "-100%" : "0")});
   transition: transform 0.5s;
-  background-color: white;
+  background-color: transparent;
+
   .logo {
     width: 200px;
     height: 50px;
@@ -36,8 +36,7 @@ const Root = styled.section`
     img {
       width: 200px;
       height: 50px;
-      animation: ${(props) =>
-        props.dataLoaded ? "none" : "vibrate 0.4s linear infinite"};
+      animation: vibrate 0.4s linear infinite;
     }
   }
 

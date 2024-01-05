@@ -6,6 +6,12 @@ export const userDataAction = (data) => {
     payload: data,
   };
 };
+export const loaderAction = (data) => {
+  return {
+    type: "LOADING_DATA",
+    payload: data,
+  };
+};
 export const userCheckAction = (data) => {
   return {
     type: "USER_CHECK",

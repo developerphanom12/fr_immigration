@@ -1,6 +1,6 @@
-import { FaHome } from "react-icons/fa";
+import { FaGraduationCap, FaHome } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
-import { MdPersonSearch } from "react-icons/md";
+import { MdOutlineCreateNewFolder, MdPersonSearch } from "react-icons/md";
 import { MdWorkHistory } from "react-icons/md";
 import { FaUniversity } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +9,9 @@ import cogoToast from "cogo-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { userCheckAction } from "../../redux/users/action";
 import logo from "../CommonPage/imageLogo/phanom.jpg";
+import { RiFileList3Line } from "react-icons/ri";
+import { IoCreateOutline } from "react-icons/io5";
+import { PiGraduationCapFill } from "react-icons/pi";
 
 export default function SideBar() {
   const navigate = useNavigate();
@@ -76,7 +79,7 @@ export default function SideBar() {
                   navigate("/ugrequire");
                 }}
               >
-                {<MdPersonSearch />}
+                {<FaGraduationCap />}
                 <p>UG Entry Requirement</p>
               </div>
               <div
@@ -85,7 +88,7 @@ export default function SideBar() {
                   navigate("/pgrequire");
                 }}
               >
-                {<MdPersonSearch />}
+                {<PiGraduationCapFill />}
                 <p>PG Entry Requirement</p>
               </div>
               <div
@@ -97,22 +100,14 @@ export default function SideBar() {
                 {<FaUniversity />}
                 <p>URM university</p>
               </div>
-              {/* <div
-                className={activeParam === "search" ? "active" : ""}
-                onClick={() => {
-                  navigate("/search");
-                }}
-              >
-                {<MdSearch />}
-                <p>Search Course</p>
-              </div> */}
+        
               <div
                 className={activeParam === "listcourses" ? "active" : ""}
                 onClick={() => {
                   navigate("/listcourses");
                 }}
               >
-                {<MdPersonSearch />}
+                {<RiFileList3Line />}
                 <p>Courses List</p>
               </div>
             </>
@@ -164,7 +159,7 @@ export default function SideBar() {
                   navigate("/ugrequire");
                 }}
               >
-                {<MdPersonSearch />}
+                {<FaGraduationCap />}
                 <p>UG Entry Requirement</p>
               </div>
               <div
@@ -173,7 +168,7 @@ export default function SideBar() {
                   navigate("/pgrequire");
                 }}
               >
-                {<MdPersonSearch />}
+                {<PiGraduationCapFill />}
                 <p>PG Entry Requirement</p>
               </div>
               <div
@@ -185,22 +180,14 @@ export default function SideBar() {
                 {<FaUniversity />}
                 <p>URM university</p>
               </div>
-              {/* <div
-                className={activeParam === "search" ? "active" : ""}
-                onClick={() => {
-                  navigate("/search");
-                }}
-              >
-                {<MdSearch />}
-                <p>Search Course</p>
-              </div> */}
+             
               <div
                 className={activeParam === "listcourses" ? "active" : ""}
                 onClick={() => {
                   navigate("/listcourses");
                 }}
               >
-                {<MdPersonSearch />}
+                {<RiFileList3Line />}
                 <p>Courses List</p>
               </div>
             </>
@@ -234,7 +221,7 @@ export default function SideBar() {
                   navigate("/ugrequire");
                 }}
               >
-                {<MdPersonSearch />}
+                {<FaGraduationCap />}
                 <p>UG Entry Requirement</p>
               </div>
               <div
@@ -243,7 +230,7 @@ export default function SideBar() {
                   navigate("/pgrequire");
                 }}
               >
-                {<MdPersonSearch />}
+                {<PiGraduationCapFill />}
                 <p>PG Entry Requirement</p>
               </div>
               <div
@@ -252,7 +239,7 @@ export default function SideBar() {
                   navigate("/listcourses");
                 }}
               >
-                {<MdPersonSearch />}
+                {<RiFileList3Line />}
                 <p>Courses List</p>
               </div>
             </>
@@ -268,7 +255,7 @@ export default function SideBar() {
                   navigate("/action");
                 }}
               >
-                {<MdPersonSearch />}
+                {<IoCreateOutline />}
                 <p>Action</p>
               </div>
               <div
@@ -277,7 +264,7 @@ export default function SideBar() {
                   navigate("/createstaff");
                 }}
               >
-                {<MdPersonSearch />}
+                {<MdOutlineCreateNewFolder />}
                 <p>Create Staff</p>
               </div>
             </>

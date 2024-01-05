@@ -2,38 +2,17 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { EXCHANGE_URLS_APPLICATION } from "../../URLS";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import ApexCharts from "./Charts/ApexCharts";
-import DonutChart from "./Charts/DonutChart";
-import BarCharts from "./Charts/BarCharts";
-// import { Link } from 'react-router-dom';
+import MainChart from "./Charts/MainChart";
+import { loaderAction } from "../../../redux/users/action";
 
 export default function DashboardAdmin() {
-  const [dashboardVal, setDashboardVal] = useState();
   const [count, setCount] = useState([]);
   const [staffCount, setStaffCount] = useState([]);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const userDetails = useSelector((state) => state?.users?.user);
-
-  const dashboardApi = async () => {
-    const axiosConfig = {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    };
-    try {
-      const res = await axios.get(
-        `${EXCHANGE_URLS_APPLICATION}/count`,
-        axiosConfig
-      );
-      console.log("resss", res?.data?.data);
-      setDashboardVal(res?.data?.data);
-      // setLoader(false);
-    } catch (err) {
-      console.log("err", err);
-    }
-  };
 
   const countApi = async () => {
     const axiosConfig = {
@@ -49,7 +28,7 @@ export default function DashboardAdmin() {
       console.log("getby", res.status);
       if (res?.status === 201) {
         setCount(res?.data?.data);
-        // setLoader(false);
+        dispatch(loaderAction(false));
       }
     } catch (err) {
       console.log("err", err);
@@ -70,7 +49,7 @@ export default function DashboardAdmin() {
       console.log("resssss", res?.data?.data);
       if (res?.status === 201) {
         setStaffCount(res?.data?.data);
-        // setLoader(false);
+        dispatch(loaderAction(false));
       }
     } catch (err) {
       console.log("err", err);
@@ -79,7 +58,6 @@ export default function DashboardAdmin() {
 
   useEffect(() => {
     countApi();
-    dashboardApi();
     allStaffApi();
   }, []);
 
@@ -87,66 +65,45 @@ export default function DashboardAdmin() {
 
   return (
     <Root>
+      
+      {userDetails.role === "admin" ? (
+        <>
       <div className="graphs">
-      <ApexCharts />
-      <DonutChart />
-      <BarCharts />
+        <MainChart />
       </div>
-      {/* <div className="dashboard_details">
-        <div className="details">
-          <div>
-            <h6>
-              Approve Documents <p>{dashboardVal?.approved ?? 0}</p>
-            </h6>
+        <div className="button_box">
+          <div className="button_box_child">
+            <button
+              onClick={() => {
+                navigate("/getagentfile");
+              }}
+            >
+              All Agents Login Requests
+            </button>
           </div>
-          <div>
-            <h6>
-              Application Pending<p>{dashboardVal?.pending ?? 0}</p>
-            </h6>
+          <div className="button_box_child">
+            <button
+              onClick={() => {
+                navigate("/getuniv");
+              }}
+            >
+              All Universities Login Requests
+            </button>
           </div>
-          <div>
-            <h6>
-              Rejected Documents<p>{dashboardVal?.rejected ?? 0}</p>
-            </h6>
-          </div>
-          <div>
-            <h6>
-              Total Applications<p>{dashboardVal?.totalApplications ?? 0}</p>
-            </h6>
+          <div className="button_box_child">
+            <button
+              onClick={() => {
+                navigate("/getstudent");
+              }}
+            >
+              All Students Login Requests
+            </button>
           </div>
         </div>
-      </div> */}
-        {userDetails.role === "admin" ? (
-      <div className="button_box">
-        <div className="button_box_child">
-          <button
-            onClick={() => {
-              navigate("/getagentfile");
-            }}
-          >
-            All Agents Login Requests
-          </button>
-        </div>
-        <div className="button_box_child">
-          <button
-            onClick={() => {
-              navigate("/getuniv");
-            }}
-          >
-            All Universities Login Requests
-          </button>
-        </div>
-        <div className="button_box_child">
-          <button
-            onClick={() => {
-              navigate("/getstudent");
-            }}
-          >
-            All Students Login Requests
-          </button>
-        </div>
-      </div>
-        ):""}
+        </>
+      ) : (
+        ""
+      )}
 
       <div className="app_table">
         <div className="heading">AGENT SHEET</div>
@@ -212,81 +169,11 @@ const Root = styled.section`
   @media (max-width: 788px) {
     padding-left: 60px;
   }
- 
-.graphs{
-  width: 100%;
-  justify-content: space-around;
-  display: flex;
-  align-items: center;
-}
-
-  .dashboard_details {
-    flex-wrap: wrap;
-    background-color: #f1f1f2;
-    border-radius: 10px;
-    display: flex;
-    margin: 4px;
-    min-height: 100px;
-    padding: 5px;
-    margin-bottom: 20px;
-
-    .details {
-      display: flex;
-      justify-content: space-evenly;
-      width: 100%;
-      height: 100%;
-      font-size: 15px;
-
-      @media (max-width: 709px) {
-        flex-direction: column;
-      }
-      > div {
-        display: flex;
-        margin: 5px;
-        max-width: 250px;
-        width: 100%;
-        min-width: 50px;
-        border-radius: 10px;
-        background-color: white;
-        align-items: center;
-        justify-content: center;
-        &:hover {
-          background-color: #000080;
-          cursor: pointer;
-          color: white;
-          box-shadow: 5px 5px 6px #67686a;
-          p {
-            background-color: #ffffff;
-            color: #000080;
-          }
-        }
-        h6 {
-          display: flex;
-          font-weight: 600;
-          margin: 0;
-          text-align: center;
-          align-items: center;
-          display: flex;
-          gap: 10px;
-          p {
-            margin: 0;
-            align-items: center;
-            justify-content: center;
-            display: flex;
-            border-radius: 100px;
-            color: #ffffff;
-            background-color: #000080;
-            width: 30px;
-            height: 30px;
-          }
-        }
-      }
-    }
-  }
 
   .button_box {
     display: flex;
     width: 80%;
+    border-radius: 10px;
     justify-content: space-evenly;
     box-shadow: 0px 6px 15.6px 0px rgba(0, 0, 0, 0.25);
 
@@ -297,8 +184,9 @@ const Root = styled.section`
       border-radius: 4px;
       button {
         border: none;
+        padding: 6px;
         font-size: 12px;
-        background-color: #884DFF;
+        background-color: #884dff;
         color: #ffffff;
         border-radius: 50px;
         transition: transform 250ms;

@@ -109,7 +109,7 @@ export default function Applications() {
         axiosConfig
       );
       if (res?.status === 200) {
-        setUniversity(res?.data?.data);
+        setUniversity(res?.data?.data.allUsers);
       }
     } catch (err) {
       console.log("err", err);
@@ -139,12 +139,12 @@ export default function Applications() {
     appApi();
   };
 
-  useEffect(() => {
-  
+  useEffect(() => { 
     getCourse();
     getUniversity();
     getCountry();
     getstaff();
+
   }, []);
 
   console.log("dddddd=====", data);
@@ -450,6 +450,7 @@ const Root = styled.section`
       padding: 10px;
       width: 100%;
       box-shadow: 1px 1px 4px 1px gray;
+      border-radius: 10px;
 
       @media (max-width: 850px) {
         padding: 0;

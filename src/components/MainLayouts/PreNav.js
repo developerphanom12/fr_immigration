@@ -140,7 +140,7 @@ export default function PreNav() {
 
 const Root = styled.section`
   display: flex;
-  height: 12%;
+  height: 10%;
   align-items: center;
   z-index: 1000;
   overflow: hidden;
@@ -160,7 +160,7 @@ const Root = styled.section`
    justify-content: space-between;
   }
   .logo {
-    width: 15%;
+    width: 12%;
     /* background-color: transparent; */
     img {
       width: 100%;
@@ -182,7 +182,7 @@ const Root = styled.section`
       justify-content: center;
       align-items: center;
       border-radius: 30px;
-      padding: 10px;
+      padding: 7px;
       border: none;
       cursor: pointer;
       &:hover {

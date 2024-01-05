@@ -31,7 +31,7 @@ export default function AddCourses() {
       console.log("resr", res);
       if (res.status === 201) {
         setNewCourse(res?.data);
-        setUniversity(res?.data?.data);
+        setUniversity(res?.data?.data.allUsers);
         cogoToast.success("Submit SuccessFully");
         navigate("/dashboardd");
       }
@@ -71,6 +71,7 @@ export default function AddCourses() {
 
   useEffect(() => {
     getUniversity;
+
   });
 
   console.log("newCourse", newCourse);
@@ -95,6 +96,7 @@ export default function AddCourses() {
           onChange={(e) => {
             setNewCourse({ ...newCourse, university_id: e.target.value });
           }}
+          placeholder="Please Select"
         >
           {university &&
             university.map((i) => {
@@ -120,36 +122,36 @@ export default function AddCourses() {
             POSTGRADUATION
           </option>
         </select>
+        <button
+          onClick={() => {
+            handleClick();
+          }}
+        >
+          Submit
+        </button>
       </div>
-      <button
-        onClick={() => {
-          handleClick();
-        }}
-      >
-        Submit
-      </button>
     </Root>
   );
 }
 const Root = styled.section`
   display: flex;
-  min-height: 100vh;
-  height: 100%;
-  padding: 5px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  flex-wrap: wrap;
+  width: 80%;
+  box-shadow: 1px 1px 4px 1px gray;
   font-family: "Roboto", "sans-serif";
-  align-items: center;
-  flex-direction: column;
 
   button {
     display: flex;
     flex-direction: column;
-    height: 45px;
     padding: 10px;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    margin-top: 20px;
     border-radius: 50px;
+    width: 200px;
     border: transparent;
     background: #8656ec;
     color: #fff;
@@ -162,21 +164,20 @@ const Root = styled.section`
       box-shadow: 4px 5px 5px gray;
     }
   }
+
   .courses {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     width: 100%;
-    align-items: center;
-    /* justify-content: center; */
     select {
       background-color: white;
       color: black;
       text-decoration: none;
       border: 1px solid gray;
       padding: 10px;
-      border-radius: 50px;
       width: 100%;
+      border-radius: 50px;
       -webkit-appearance: none;
       -moz-appearance: none;
       background-image: linear-gradient(45deg, transparent 50%, black 50%),
@@ -200,6 +201,7 @@ const Root = styled.section`
     input {
       border-radius: 50px;
       padding: 10px;
+      width: 100%;
       color: #202020;
       text-decoration: none;
       border: 1px solid gray;

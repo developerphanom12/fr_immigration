@@ -5,14 +5,12 @@ import { EXCHANGE_URLS_APPLICATION } from "../../URLS";
 import { useDispatch } from "react-redux";
 import { BsFillEyeFill } from "react-icons/bs";
 import Download from "./Download";
-import { appDetailsAction } from "../../../redux/users/action";
+import { appDetailsAction, loaderAction } from "../../../redux/users/action";
 import { useNavigate } from "react-router-dom";
-import Loader from "../../Loader";
 import { Pagination } from "react-bootstrap";
 
 export default function History({ popUser = () => {} }) {
   const [applications, setApplications] = useState([]);
-  const [loader, setLoader] = useState(true);
   const [searchKey, setSearchKey] = useState("");
   const [courses, setCourses] = useState([]);
   const [pagination, setPagination] = useState({
@@ -26,7 +24,7 @@ export default function History({ popUser = () => {} }) {
   const navigate = useNavigate();
   console.log("courses", courses);
 
-  const getHistory = async (searchKey, page) => {
+  const getHistory = async (searchKey) => {
     const axiosConfig = {
       headers: {
         authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -38,13 +36,7 @@ export default function History({ popUser = () => {} }) {
         axiosConfig
       );
       setApplications(res?.data?.data.applications);
-      setPagination({
-        page: res?.data?.data.pagination.page,
-        pageSize: res?.data?.data.pagination.pageSize,
-        totalItems: res?.data?.data.pagination.totalItems,
-        totalPages: res?.data?.data.pagination.totalPages,
-      });
-      setLoader(false);
+      
     } catch (e) {
       console.log(e);
     }
@@ -71,16 +63,16 @@ export default function History({ popUser = () => {} }) {
         totalItems: res?.data?.data.totalItems,
         totalPages: res?.data?.data.totalPages,
       });
-      setLoader(false);
     } catch (e) {
       console.log(e);
     }
   };
 
   useEffect(() => {
-    setLoader(false);
     getHistory();
     getCourses();
+    dispatch(loaderAction(true));
+
   }, []);
 
   const handleSearch = () => {
@@ -105,98 +97,94 @@ export default function History({ popUser = () => {} }) {
     popUser(true);
   };
 
-  const uniqueApplications = applications.reduce((uniqueArray, currentItem) => {
-    const isUnique = uniqueArray.some(
-      (item) => item?.application_id === currentItem?.application_id
-    );
+  const uniqueApplications =
+    applications &&
+    applications.reduce((uniqueArray, currentItem) => {
+      const isUnique = uniqueArray.some(
+        (item) => item?.application_id === currentItem?.application_id
+      );
 
-    if (!isUnique) {
-      uniqueArray.push(currentItem);
-    }
+      if (!isUnique) {
+        uniqueArray.push(currentItem);
+      }
 
-    return uniqueArray;
-  }, []);
+      return uniqueArray;
+    }, []);
 
   return (
     <Root>
-      {loader ? (
-        <Loader />
-      ) : (
-        <>
-          <div className="header">
-            <h1>Application History</h1>
-            <Download />
-          </div>
-          <div className="search_box">
-            <input
-              value={searchKey}
-              onChange={(e) => {
-                setSearchKey(e.target.value);
-              }}
-              placeholder="Search Courses By Name Or Number..."
-            ></input>
-            <button
-              onClick={() => {
-                handleSearch();
-              }}
-            >
-              Search
-            </button>
-          </div>
-          <div className="app_table">
-            <div className="app_header">
-              <div>CAMS Id</div>
-              <div>Student Name</div>
-              <div>University Name</div>
-              <div>Course Name</div>
-              <div>Status</div>
-              <div>View</div>
-            </div>
-            {uniqueApplications &&
-              uniqueApplications.map((i) => {
-                return (
-                  <div
-                    className="app_body"
-                    onClick={() => {
-                      handlePassData(i);
-                    }}
-                  >
-                    <div className="cams">#{i?.application_id}</div>
-                    <div>
-                      <p>
-                        <span>{i?.student_firstname}</span>
-                      </p>
-                      <p>
-                        Passport No: <span>{i?.student_passport_no}</span>
-                      </p>
-                      <p>
-                        Counsellor : <span>{i?.user_id.username}</span>
-                      </p>
-                    </div>
-                    <div>
-                      <h6>{i?.university_id.university_name}</h6>
-                      <p className="person">{i?.university_id.person_name}</p>
-                      <p className="person">
-                        {i?.university_id.contact_number}
-                      </p>
-                    </div>
-                    <div>{i?.course_id?.course_name}</div>
-                    <div>{i?.application_status}</div>
-                    <div
-                      className="iconn"
-                      onClick={() => {
-                        navigate(`/detailview/${i?.application_id}`);
-                      }}
-                    >
-                      <BsFillEyeFill />
-                    </div>
-                  </div>
-                );
-              })}
+      <div className="header">
+        <h1>Application History</h1>
+        <Download />
+      </div>
+      <div className="search_box">
+        <input
+          value={searchKey}
+          onChange={(e) => {
+            setSearchKey(e.target.value);
+          }}
+          placeholder="Search Courses By Name Or Number..."
+        ></input>
+        <button
+          onClick={() => {
+            handleSearch();
+          }}
+        >
+          Search
+        </button>
+      </div>
+      <div className="app_table">
+        <div className="app_header">
+          <div>CAMS Id</div>
+          <div>Student Name</div>
+          <div>University Name</div>
+          <div>Course Name</div>
+          <div>Status</div>
+          <div>View</div>
+        </div>
+        {uniqueApplications &&
+          uniqueApplications.map((i) => {
+            return (
+              <div
+                className="app_body"
+                onClick={() => {
+                  handlePassData(i);
+                }}
+              >
+                <div className="cams">#{i?.application_id}</div>
+                <div>
+                  <p>
+                    <span>{i?.student_firstname}</span>
+                  </p>
+                  <p>
+                    Passport No: <span>{i?.student_passport_no}</span>
+                  </p>
+                  <p>
+                    Counsellor : <span>{i?.user_id.username}</span>
+                  </p>
+                </div>
+                <div>
+                  <h6>{i?.university_id.university_name}</h6>
+                  <p className="person">{i?.university_id.person_name}</p>
+                  <p className="person">{i?.university_id.contact_number}</p>
+                </div>
+                <div>{i?.course_id?.course_name}</div>
+                <div>{i?.application_status}</div>
+                <div
+                  className="iconn"
+                  onClick={() => {
+                    navigate(`/detailview/${i?.application_id}`);
+                  }}
+                >
+                  <BsFillEyeFill />
+                </div>
+              </div>
+            );
+          })}
+        <div>
           <Pagination pagination={pagination} onPageChange={handlePageChange} />
-          </div>
-        </>
-      )}
+        </div>
+      </div>
     </Root>
   );
 }
@@ -204,7 +192,7 @@ const Root = styled.section`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background-color: #f8f8f8;
+  background-color: #fff;
   color: #202020;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
@@ -358,7 +346,6 @@ const Root = styled.section`
 
         &:nth-child(even) {
           background-color: white;
-          
         }
       }
       &:hover {

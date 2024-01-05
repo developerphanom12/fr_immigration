@@ -117,36 +117,36 @@ export default function AddUniversity() {
           }}
           placeholder="Person Name"
         />
+        <button
+          onClick={() => {
+            handleClick();
+          }}
+        >
+          Submit
+        </button>
       </div>
-      <button
-        onClick={() => {
-          handleClick();
-        }}
-      >
-        Submit
-      </button>
     </Root>
   );
 }
 const Root = styled.section`
   display: flex;
-  min-height: 100vh;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  flex-wrap: wrap;
+  width: 80%;
+  box-shadow: 1px 1px 4px 1px gray;
   font-family: "Roboto", "sans-serif";
-  height: 100%;
-  padding: 5px;
-  align-items: center;
-  flex-direction: column;
 
   button {
     display: flex;
     flex-direction: column;
-    height: 45px;
     padding: 10px;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    margin-top: 20px;
     border-radius: 50px;
+    width: 200px;
     border: transparent;
     background: #8656ec;
     color: #fff;
@@ -159,14 +159,44 @@ const Root = styled.section`
       box-shadow: 4px 5px 5px gray;
     }
   }
+
   .courses {
     display: flex;
     flex-wrap: wrap;
-    padding: 5px;
-    /* justify-content: space-evenly; */
+    gap: 10px;
+    width: 100%;
+    select {
+      background-color: white;
+      color: black;
+      text-decoration: none;
+      border: 1px solid gray;
+      padding: 10px;
+      width: 100%;
+      border-radius: 50px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: linear-gradient(45deg, transparent 50%, black 50%),
+        linear-gradient(135deg, black 50%, transparent 50%),
+        linear-gradient(to right, #8656ec, #c6abff);
+      background-position: calc(100% - 20px) calc(1em + 2px),
+        calc(100% - 15px) calc(1em + 2px), 100% 0;
+      background-size: 5px 5px, 5px 5px, 40px 45px;
+      background-repeat: no-repeat;
+      &:hover {
+        box-shadow: 4px 4px 5px darkgray;
+        transition: all 0.1s ease-in-out 0s;
+      }
+      @media (max-width: 555px) {
+        padding: 8px;
+        /* width: 120px; */
+        background-size: 5px 5px, 5px 5px, 30px 45px;
+        align-items: center;
+      }
+    }
     input {
       border-radius: 50px;
       padding: 10px;
+      width: 100%;
       color: #202020;
       text-decoration: none;
       border: 1px solid gray;

@@ -135,19 +135,18 @@ const Root = styled.section`
   height: 100%;
   padding: 10px;
   width: 90%;
-  background-color: #f8f8f8;
+  background-color: #fff;
   justify-content: space-between;
-  border-bottom: 2px solid lightgray;
+  box-shadow: 1px 1px 5px 1px  lightgray;
   padding-left: 80px;
   @media (max-width: 788px) {
     padding-left: 60px;
   }
   .flags {
     display: flex;
-    height: 50px;
     margin: 10px 0px;
-    gap: 10px;
-    padding: 8px;
+    gap: 7px;
+    padding: 5px;
     @media (max-width: 1020px) {
       display: none;
     }
@@ -186,7 +185,7 @@ const Root = styled.section`
     position: relative;
     cursor: pointer;
     border-radius: 10px;
-    background-color: lightgray;
+    background-color:  #f8f8f8;
     &:hover {
       box-shadow: 4px 4px 5px gray;
     }
@@ -203,7 +202,7 @@ const Root = styled.section`
     }
 
     .option_list {
-      background-color: lightgray;
+      background-color:  #f8f8f8;
       z-index: 1;
       top: 10;
       top: 5;
@@ -211,7 +210,7 @@ const Root = styled.section`
       top: 110%;
       position: absolute;
       width: 170px;
-      border: 1px solid lightgray;
+      border: 1px solid  #f8f8f8;
       text-decoration: none;
       p {
         margin: 0;

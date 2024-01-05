@@ -76,7 +76,7 @@ const Root = styled.section`
       background: #ffffff;
       display: flex;
       /* position: sticky; */
-      height: 80px;
+      height: 70px;
       background-image: linear-gradient(
         to bottom right,
         #c6a5ffc7,
