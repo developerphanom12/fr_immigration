@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { EXCHANGE_URLS_STUDENT } from "../URLS";
 import axios from "axios";
@@ -193,6 +193,12 @@ export default function Register() {
                           navigate("/register2");
                         }}
                       >
+                        <Link
+                          to={{
+                            pathname: "/register2",
+                            state: { formData, add },  
+                          }}
+                        ></Link>
                         Save & Proceed
                       </button>
                     </div>
@@ -239,223 +245,6 @@ export default function Register() {
 
         <div className="col-lg-2"></div>
       </div>
-
-      {/* <div className="first_div">
-        <h2>Student Registration Portal</h2>
-
-        <div className="first_box1">
-          <div>
-            <h4>Your Personal Details :-</h4>
-          </div>
-
-          <div>
-            <div className="name">
-              {" "}
-              User Name*
-              <input
-                type="name"
-                value={formData?.username}
-                onChange={(e) => {
-                  setFormData({ ...formData, username: e.target.value });
-                }}
-                placeholder="User Name"
-              />
-            </div>
-            <div className="name">
-              {" "}
-              First Name*
-              <input
-                type="name"
-                value={formData?.first_name}
-                onChange={(e) => {
-                  setFormData({ ...formData, first_name: e.target.value });
-                }}
-                placeholder="First Name"
-              />
-            </div>
-            <div className="name">
-              Last Name*
-              <input
-                type="name"
-                value={formData?.last_name}
-                onChange={(e) => {
-                  setFormData({ ...formData, last_name: e.target.value });
-                }}
-                placeholder="Last Name"
-              />
-            </div>
-          </div>
-
-          <div>
-            <div className="name">
-              Date Of Birth*
-              <input
-                type="date"
-                value={formData?.dob}
-                onChange={(e) => {
-                  setFormData({ ...formData, dob: e.target.value });
-                }}
-                placeholder="Last Name"
-              />
-            </div>
-            <div className="name">
-              E-Mail*
-              <input
-                type="email"
-                value={formData?.email}
-                onChange={(e) => {
-                  setFormData({ ...formData, email: e.target.value });
-                }}
-                mailto:placeholder="ex-phanom@gmail.com"
-              />
-            </div>
-            <div className="name">
-              Phone No.*
-              <input
-                type="number"
-                value={formData?.phone_number}
-                onChange={(e) => {
-                  setFormData({ ...formData, phone_number: e.target.value });
-                }}
-                placeholder="Phone Number"
-              />
-            </div>
-          </div>
-          <div className="nameee">
-            {" "}
-            Select Gender
-            <select
-              onChange={(e) => {
-                setFormData({ ...formData, gender: e.target.value });
-              }}
-            >
-              <option>Gender</option>
-              <option value={formData.gender.male}>Male</option>
-              <option value={formData.gender.female}>Female</option>
-              <option value={formData.gender.other}>Other</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div className="second_div">
-        <div className="company">
-          <div>
-            {" "}
-            <h4>Address :-</h4>
-          </div>
-
-          <div>
-            {" "}
-            <div className="name1">
-              Street Address*
-              <input
-                value={add?.street_address}
-                onChange={(e) => {
-                  setAdd({ ...add, street_address: e.target.value });
-                }}
-                placeholder="Street Address"
-              />
-            </div>
-            <div className="name1">
-              City*
-              <input
-                value={add?.city}
-                onChange={(e) => {
-                  setAdd({ ...add, city: e.target.value });
-                }}
-                placeholder="City"
-              />
-            </div>
-            <div className="name1">
-              State*
-              <input
-                value={add?.state}
-                onChange={(e) => {
-                  setAdd({ ...add, state: e.target.value });
-                }}
-                placeholder="State"
-              />
-            </div>
-            <div className="name2">
-              Postal Code*
-              <input
-                value={add.postal_code}
-                onChange={(e) => {
-                  setAdd({ ...add, postal_code: e.target.value });
-                }}
-                placeholder="Postal Code"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="password">
-          <h4>Your Password :-</h4>
-
-          <div>
-            <div className="name">
-              Password*
-              <input
-                type="password"
-                value={formData?.password}
-                onChange={(e) => {
-                  setFormData({ ...formData, password: e.target.value });
-                }}
-                placeholder="Enter Password"
-              />
-            </div>
-            <div className="name">
-              Confirm Password*
-              <input
-                value={formData?.confirm_password}
-                onChange={(e) => {
-                  setFormData({
-                    ...formData,
-                    confirm_password: e.target.value,
-                  });
-                }}
-                placeholder="Confirm Password"
-              />
-            </div>
-          </div>
-        </div>
-        {formData.username.length &&
-        formData.first_name.length &&
-        formData.gender.length &&
-        formData.dob.length &&
-        formData.email.length &&
-        formData.phone_number.length &&
-        formData.password.length &&
-        formData.last_name.length > 0 ? (
-          <div className="regis">
-            <button
-              className="btnn"
-              onClick={() => {
-                handleRegisterClick();
-              }}
-            >
-              Register
-            </button>
-          </div>
-        ) : (
-          ""
-        )}
-
-        <div className="fifth_div">
-          <div className="fifth_box">
-            <div>
-              <h2>Get in Touch</h2>
-            </div>
-            <p>
-              If you have any questions, concerns or requests for further
-              information, please send us a<br /> message and a member of our
-              team will get in touch with you
-            </p>
-          </div>
-          <div className="fifth_box">
-            <button className="btnn">Contact Us</button>
-          </div>
-        </div>
-      </div> */}
     </Root>
   );
 }

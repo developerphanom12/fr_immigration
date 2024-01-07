@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import logo from "../CommonPage/imageLogo/phanom.jpg";
+import { useLocation } from "react-router-dom";
 
 export default function Register2() {
+  const location = useLocation();
+  const { formData = {}, add = {} } = location.state || {};
+
+  const [addState, setAdd] = useState(add);
+  const [formDataState, setFormData] = useState(formData);
   return (
     <Root>
       <div className="Container-fluid">
@@ -24,10 +30,10 @@ export default function Register2() {
                       <br></br>
                       {/* {/ <input type="text"></input> /}     */}
                       <input
-                        // value={add?.street_address}
-                        // onChange={(e) => {
-                        //   setAdd({ ...add, street_address: e.target.value });
-                        // }}
+                        value={add?.street_address}
+                        onChange={(e) => {
+                          setAdd({ ...add, street_address: e.target.value });
+                        }}
                       />
                     </div>
                     <div className="col-lg-6 col-md-6 col-6">
@@ -35,11 +41,11 @@ export default function Register2() {
                       <br></br>
                       {/* {/ <input type="text"></input> /} */}
                       <input
-                        // value={add?.state}
-                        // onChange={(e) => {
-                        //   setAdd({ ...add, state: e.target.value });
-                        // }}
-                        // placeholder="State"
+                        value={add?.state}
+                        onChange={(e) => {
+                          setAdd({ ...add, state: e.target.value });
+                        }}
+                        placeholder="State"
                       />
                     </div>
                   </div>
@@ -50,21 +56,21 @@ export default function Register2() {
                       {/* {/ <input type="email"></input> /} */}
                       <input
                         type="email"
-                        // value={formData?.email}
-                        // onChange={(e) => {
-                        //   setFormData({ ...formData, email: e.target.value });
-                        // }}
+                        value={formData?.email}
+                        onChange={(e) => {
+                          setFormData({ ...formData, email: e.target.value });
+                        }}
                       />
                     </div>
                     <div className="col-lg-6 col-md-6 col-6">
                       <label> Postal Code </label>
                       {/* {/ <input type="number"></input> /} */}
                       <input
-                        // value={add.postal_code}
-                        // onChange={(e) => {
-                        //   setAdd({ ...add, postal_code: e.target.value });
-                        // }}
-                        // placeholder="Postal Code"
+                        value={add.postal_code}
+                        onChange={(e) => {
+                          setAdd({ ...add, postal_code: e.target.value });
+                        }}
+                        placeholder="Postal Code"
                       />
                     </div>
                   </div>
@@ -75,42 +81,42 @@ export default function Register2() {
                       {/* {/ <input type="text"></input> /} */}
                       <input
                         type="password"
-                        // value={formData?.password}
-                        // onChange={(e) => {
-                        //   setFormData({
-                        //     ...formData,
-                        //     password: e.target.value,
-                        //   });
-                        // }}
+                        value={formData?.password}
+                        onChange={(e) => {
+                          setFormData({
+                            ...formData,
+                            password: e.target.value,
+                          });
+                        }}
                       />
                     </div>
                     <div className="col-lg-6 col-md-6 col-6">
                       <label> Confirm Password</label>
                       <input
-                        // value={formData?.confirm_password}
-                        // onChange={(e) => {
-                        //   setFormData({
-                        //     ...formData,
-                        //     confirm_password: e.target.value,
-                        //   });
-                        // }}
-                        // placeholder="Confirm Password"
+                        value={formData?.confirm_password}
+                        onChange={(e) => {
+                          setFormData({
+                            ...formData,
+                            confirm_password: e.target.value,
+                          });
+                        }}
+                        placeholder="Confirm Password"
                       />
                     </div>
                   </div>
 
                   <div className="row mt-2">
-                    {/* <div className="col-lg-6 col-md-6 col-6">
+                     <div className="col-lg-6 col-md-6 col-6">
                       <label>Date of Birth</label>
-                      {/ <input type="date"></input> /}
-                      {/* <input
-                        type="date"
+                      {/* {/ <input type="date"></input> /} */}
+                        <input
+                         type="date"
                         value={formData?.dob}
                         onChange={(e) => {
                           setFormData({ ...formData, dob: e.target.value });
                         }}
-                      />
-                    </div> */} 
+                       />
+                    </div>  
                     <div className="col-lg-4  col-md-5 col-4 mt-3">
 
                     </div>
